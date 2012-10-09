@@ -74,9 +74,8 @@ namespace WindowsCEConsentForms
             // need to save signatures here
             try
             {
-                if (string.IsNullOrEmpty(HdnImage1.Value) || string.IsNullOrEmpty(HdnImage2.Value) ||
-                    string.IsNullOrEmpty(HdnImage3.Value) || string.IsNullOrEmpty(HdnImage4.Value) ||
-                    string.IsNullOrEmpty(HdnImage5.Value))
+                //                if (string.IsNullOrEmpty(HdnImage1.Value) || string.IsNullOrEmpty(HdnImage2.Value) ||                     string.IsNullOrEmpty(HdnImage3.Value) || string.IsNullOrEmpty(HdnImage4.Value) ||                     string.IsNullOrEmpty(HdnImage5.Value))
+                if (true)
                 {
                     LblError.Text = "Please input your signatures in all the fields";
                     return;
@@ -93,6 +92,8 @@ namespace WindowsCEConsentForms
                 }
 
                 var formHandlerServiceClient = new FormHandlerServiceClient();
+
+                /*
 
                 // updating signature1
                 var bytes = Encoding.ASCII.GetBytes(HdnImage1.Value);
@@ -113,6 +114,7 @@ namespace WindowsCEConsentForms
                 // updating signature4
                 bytes = Encoding.ASCII.GetBytes(HdnImage5.Value);
                 result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), "SurgicalConsent", "signature5");
+                */
 
                 //var document = new Document();
                 try

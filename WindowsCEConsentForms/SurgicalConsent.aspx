@@ -39,10 +39,11 @@
             <asp:Label runat="server" ID="LnlPatientName" CssClass="errorInfo"></asp:Label>
             the following procedure or operation : Surgical Consent</li>
         <li>
-            <div id="TxtSignature1" class="signature" hdfld="HdnImage1">
+            <div class="sig1 sigWrapper">
+                <canvas class="pad" width="198" height="55"></canvas>
+                <input type="hidden" name="HdnImage1" class="HdnImage1" />
             </div>
             <div class="right">
-                <asp:HiddenField runat="server" ID="HdnImage1" />
                 The Physician has explained to me the nature of this operation it is generally carried
                 out. I understand that all procedures surgeries involve general risks such as severe
                 loss of blood, infection, heart stoppage or death. The physician has discussed with
@@ -53,10 +54,11 @@
             </div>
         </li>
         <li>
-            <div id="TxtSignature2" class="signature" hdfld="HdnImage2">
+            <div class="sig2 sigWrapper">
+                <canvas class="pad" width="198" height="55"></canvas>
+                <input type="hidden" name="HdnImage2" class="HdnImage2" />
             </div>
             <div class="right">
-                <asp:HiddenField runat="server" ID="HdnImage2" />
                 In addition, the physician has explained to me that there are alternative ways of
                 treating my condition but I have chosen this procedure.
             </div>
@@ -64,10 +66,11 @@
             </div>
         </li>
         <li>
-            <div id="TxtSignature3" class="signature" hdfld="HdnImage3">
+            <div class="sig3 sigWrapper">
+                <canvas class="pad" width="198" height="55"></canvas>
+                <input type="hidden" name="HdnImage3" class="HdnImage3" />
             </div>
             <div class="right">
-                <asp:HiddenField runat="server" ID="HdnImage3" />
                 I consent to the administration of anesthesia by or under the direction of a fully
                 qualified anesthestist and to the use of such anesthetics as may be deemed advisable.
                 I consent to the administration of blood and blood products, to the disposal by
@@ -80,10 +83,11 @@
             </div>
         </li>
         <li>
-            <div id="TxtSignature4" class="signature" hdfld="HdnImage4">
+            <div class="sig4 sigWrapper">
+                <canvas class="pad" width="198" height="55"></canvas>
+                <input type="hidden" name="HdnImage4" class="HdnImage4" />
             </div>
             <div class="right">
-                <asp:HiddenField runat="server" ID="HdnImage4" />
                 I permit and authorize the physician and such other physicians qualifeid medical
                 persons as are needed to perform this operation on me.
             </div>
@@ -91,10 +95,11 @@
             </div>
         </li>
         <li>
-            <div id="TxtSignature5" class="signature" hdfld="HdnImage5">
+            <div class="sig5 sigWrapper">
+                <canvas class="pad" width="198" height="55"></canvas>
+                <input type="hidden" name="HdnImage5" class="HdnImage5" />
             </div>
             <div class="right">
-                <asp:HiddenField runat="server" ID="HdnImage5" />
                 The Physician has explained to me that sometimes during surgery, it is discovered
                 that additional surgery is needed. If such additional surgery is deemed necessary
                 by the Physician, I permit the Physician to proceed.

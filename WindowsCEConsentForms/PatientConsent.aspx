@@ -84,16 +84,16 @@
                         <td colspan="5" class="center">
                             <ul>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkSurgicalConcent" Text="Surgical Concent" Enabled="false" />
+                                    <asp:CheckBox runat="server" ID="ChkSurgicalConcent" Text="Surgical Consent" Enabled="false" />
                                 </li>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkCCLC" Text="Cardiac Cath Lab Concent" Enabled="false" />
+                                    <asp:CheckBox runat="server" ID="ChkCCLC" Text="Cardiac Cath Lab Consent" Enabled="false" />
                                 </li>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkEC" Text="Endoscopy Concent" Enabled="false" />
+                                    <asp:CheckBox runat="server" ID="ChkEC" Text="Endoscopy Consent" Enabled="false" />
                                 </li>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkBCOrR" Text="Blood  Concent/Refusal" Enabled="false" />
+                                    <asp:CheckBox runat="server" ID="ChkBCOrR" Text="Blood  Consent/Refusal" Enabled="false" />
                                 </li>
                             </ul>
                         </td>

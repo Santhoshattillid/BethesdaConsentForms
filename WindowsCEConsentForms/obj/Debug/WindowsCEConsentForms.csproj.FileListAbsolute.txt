@@ -13,3 +13,8 @@ C:\Users\Administrator\Desktop\WindowsCEConsentForms\WindowsCEConsentForms\obj\D
 C:\Users\Administrator\Desktop\WindowsCEConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.dll
 C:\Users\Administrator\Desktop\WindowsCEConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.pdb
 C:\Users\Administrator\Desktop\WindowsCEConsentForms\WindowsCEConsentForms\bin\itextsharp.dll
+C:\Users\alourdaraj\Documents\Santhosh_Developments\BethesdaConsentForms\WindowsCEConsentForms\bin\WindowsCEConsentForms.dll
+C:\Users\alourdaraj\Documents\Santhosh_Developments\BethesdaConsentForms\WindowsCEConsentForms\bin\WindowsCEConsentForms.pdb
+C:\Users\alourdaraj\Documents\Santhosh_Developments\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\alourdaraj\Documents\Santhosh_Developments\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.dll
+C:\Users\alourdaraj\Documents\Santhosh_Developments\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.pdb

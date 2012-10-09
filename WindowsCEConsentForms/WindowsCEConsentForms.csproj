@@ -83,6 +83,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Stylesheets\jquery.signaturepad.css" />
+    <Content Include="Scripts\jquery.signaturepad.min.js" />
+    <Content Include="Scripts\json2.min.js" />
     <Content Include="SurgicalConsentDeclaration.aspx" />
     <Content Include="EndoscopyConsent.aspx" />
     <Content Include="PatientConsent.aspx" />
@@ -151,6 +154,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="SignatureToImage.cs" />
     <Compile Include="SurgicalConsentDeclaration.aspx.cs">
       <DependentUpon>SurgicalConsentDeclaration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
