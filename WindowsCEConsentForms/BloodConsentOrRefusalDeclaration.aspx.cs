@@ -1,0 +1,29 @@
+﻿using System;
+
+namespace WindowsCEConsentForms
+{
+    public partial class BloodConsentOrRefusalDeclaration : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+        protected void BtnCompleted_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+            }
+            catch (Exception ex) { }
+        }
+
+        protected void BtnPrevious_Click1(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("/BloodConsentOrRefusal.aspx");
+            }
+            catch (Exception ex) { }
+        }
+    }
+}

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Consent.sp.wcf" />
+  <xs:element name="GetPatientDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="patientNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPatientDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPatientDetailsResult" nillable="true">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any minOccurs="0" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPatientNumbers">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPatientNumbersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPatientNumbersResult" nillable="true">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any minOccurs="0" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPatientIds">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPatientIdsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetPatientIdsResult" nillable="true" type="q1:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPatientDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="patientNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPatientDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Consent.sp.wcf" minOccurs="0" name="GetPatientDetailResult" nillable="true" type="q2:PatientDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SavePatientSignature">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PatientNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SignaturesContent" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FormType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SavePatientSignatureResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SavePatientSignatureResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPatientSignature">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PatientNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FormType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPatientSignatureResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPatientSignatureResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

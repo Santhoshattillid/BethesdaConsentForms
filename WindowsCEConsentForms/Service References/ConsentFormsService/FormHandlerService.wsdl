@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FormHandlerService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Consent.sp.wcf" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IFormHandlerService_GetPatientDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientDetails" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetPatientDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetPatientNumbers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientNumbers" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetPatientNumbers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientNumbersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetPatientIds_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientIds" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetPatientIds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientIdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetPatientDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientDetail" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetPatientDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_SavePatientSignature_InputMessage">
+    <wsdl:part name="parameters" element="tns:SavePatientSignature" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_SavePatientSignature_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SavePatientSignatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetPatientSignature_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientSignature" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetPatientSignature_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientSignatureResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IFormHandlerService">
+    <wsdl:operation name="GetPatientDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientDetails" message="tns:IFormHandlerService_GetPatientDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientDetailsResponse" message="tns:IFormHandlerService_GetPatientDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientNumbers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientNumbers" message="tns:IFormHandlerService_GetPatientNumbers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientNumbersResponse" message="tns:IFormHandlerService_GetPatientNumbers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientIds">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientIds" message="tns:IFormHandlerService_GetPatientIds_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientIdsResponse" message="tns:IFormHandlerService_GetPatientIds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientDetail" message="tns:IFormHandlerService_GetPatientDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientDetailResponse" message="tns:IFormHandlerService_GetPatientDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SavePatientSignature">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/SavePatientSignature" message="tns:IFormHandlerService_SavePatientSignature_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/SavePatientSignatureResponse" message="tns:IFormHandlerService_SavePatientSignature_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientSignature">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientSignature" message="tns:IFormHandlerService_GetPatientSignature_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientSignatureResponse" message="tns:IFormHandlerService_GetPatientSignature_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IFormHandlerService" type="tns:IFormHandlerService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPatientDetails">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/GetPatientDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientNumbers">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/GetPatientNumbers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientIds">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/GetPatientIds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientDetail">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/GetPatientDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePatientSignature">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/SavePatientSignature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientSignature">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/GetPatientSignature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FormHandlerService">
+    <wsdl:port name="BasicHttpBinding_IFormHandlerService" binding="tns:BasicHttpBinding_IFormHandlerService">
+      <soap:address location="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

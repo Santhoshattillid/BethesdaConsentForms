@@ -1,0 +1,15 @@
+C:\Users\Santhosh\Desktop\WindowsCEConsentForms\WindowsCEConsentForms\bin\WindowsCEConsentForms.dll
+C:\Users\Santhosh\Desktop\WindowsCEConsentForms\WindowsCEConsentForms\bin\WindowsCEConsentForms.pdb
+C:\Users\Santhosh\Desktop\WindowsCEConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.dll
+C:\Users\Santhosh\Desktop\WindowsCEConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.pdb
+C:\Users\Santhosh\Desktop\WindowsCEConsentForms\WindowsCEConsentForms\WindowsCEConsentForms\bin\WindowsCEConsentForms.dll
+C:\Users\Santhosh\Desktop\WindowsCEConsentForms\WindowsCEConsentForms\WindowsCEConsentForms\bin\WindowsCEConsentForms.pdb
+C:\Users\Santhosh\Desktop\WindowsCEConsentForms\WindowsCEConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.dll
+C:\Users\Santhosh\Desktop\WindowsCEConsentForms\WindowsCEConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.pdb
+C:\Users\Santhosh\Desktop\WindowsCEConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\WindowsCEConsentForms\WindowsCEConsentForms\bin\WindowsCEConsentForms.dll
+C:\Users\Administrator\Desktop\WindowsCEConsentForms\WindowsCEConsentForms\bin\WindowsCEConsentForms.pdb
+C:\Users\Administrator\Desktop\WindowsCEConsentForms\WindowsCEConsentForms\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\WindowsCEConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.dll
+C:\Users\Administrator\Desktop\WindowsCEConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.pdb
+C:\Users\Administrator\Desktop\WindowsCEConsentForms\WindowsCEConsentForms\bin\itextsharp.dll
