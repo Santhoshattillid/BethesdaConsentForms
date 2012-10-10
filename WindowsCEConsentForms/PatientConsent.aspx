@@ -7,10 +7,13 @@
     <form id="form1" runat="server">
     <ul>
         <li>
+            <img src="Images/logo.png" />
+        </li>
+        <li>
             <table>
                 <tbody>
                     <tr>
-                        <td colspan="5" class="center">
+                        <td colspan="5">
                             <h3>
                                 Patient Consent Form</h3>
                         </td>
@@ -78,7 +81,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="noBorder">
                         </td>
                         <td colspan="4" class="noBorder">
                             <asp:DropDownList ID="DdlFormList" runat="server" Enabled="false" AutoPostBack="True"
@@ -87,7 +90,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="5" class="center">
+                        <td class="noBorder"></td>
+                        <td colspan="4">
                             <ul>
                                 <li>
                                     <asp:CheckBox runat="server" ID="ChkSurgicalConcent" Text="Surgical Consent" Enabled="false" />
@@ -104,11 +108,17 @@
                             </ul>
                         </td>
                     </tr>
+                    <% if (!string.IsNullOrEmpty(LblError.Text))
+                       {%>
                     <tr>
                         <td colspan="5" class="center">
                             <asp:Label runat="server" ID="LblError" CssClass="errorInfo"></asp:Label>
-                            <br />
-                            <br />
+                        </td>
+                    </tr>
+                    <%
+                       }%>
+                    <tr>
+                        <td colspan="5" class="center">
                             <asp:Button runat="server" ID="BtnSign" Text="Sign" OnClick="BtnSign_Click" />
                             <asp:Button runat="server" ID="BtnPrint" Text="Print" OnClientClick="javascript:window.print();" />
                             <asp:Button runat="server" ID="BtnReset" Text="Reset" OnClick="BtnReset_Click" />

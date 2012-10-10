@@ -87,6 +87,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Images\logo.png" />
     <Content Include="Stylesheets\jquery.signaturepad.css" />
     <Content Include="Scripts\jquery.signaturepad.min.js" />
     <Content Include="Scripts\json2.min.js" />

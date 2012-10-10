@@ -6,6 +6,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
     <ul class="content">
+        <li>
+            <img src="Images/logo.png" alt="" />
+        </li>
         <li class="center">
             <h3>
                 Surgical Consent Form</h3>

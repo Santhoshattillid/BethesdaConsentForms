@@ -88,8 +88,8 @@
 }
 .Container .center
 {
-	text-align: left;
-	padding-left: 100px;
+	text-align: center;
+	padding-top: 10px;
 }
 .Container H3
 {
@@ -159,4 +159,8 @@
 .large
 {
 	width: 250px;
+}
+.noBorder
+{
+    border:none;
 }

@@ -6,6 +6,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
     <ul class="content">
+        <li>
+            <img src="Images/logo.png" />
+        </li>
         <li class="center">
             <h3>
                 Surgical Consent Form</h3>
@@ -124,7 +127,7 @@
         </li>
         <li class="center">
             <asp:Button runat="server" ID="BtnPrevious" Text="Prev" OnClick="BtnPrevious_Click1" />
-            <asp:Button runat="server" ID="BtnCompleted" Text="Complete" OnClick="BtnCompleted_Click" />
+            <asp:Button runat="server" ID="BtnCompleted" Text="Complete" OnClick="BtnCompleted_Click" OnClientClick="Javascript: return confirm('Are you sure that do you want to complete the form?');" />
         </li>
     </ul>
     </form>

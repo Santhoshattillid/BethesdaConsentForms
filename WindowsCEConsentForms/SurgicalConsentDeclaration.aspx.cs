@@ -124,7 +124,12 @@ namespace WindowsCEConsentForms
                 bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage5"]);
                 result = formHandlerServiceClient.SavePatientSignature(patientId, ASCIIEncoding.ASCII.GetString(bytes), "SurgicalConsent", "signature11");
 
-
+                string ip = Request.ServerVariables["REMOTE_ADDR"];
+                string device;
+                if (Request.Browser.IsMobileDevice)
+                    device = Request.UserAgent;
+                else
+                    device = Request.UserAgent;
 
                 if ((bool)Session["CardiacCathLabConsent"])
                 {
