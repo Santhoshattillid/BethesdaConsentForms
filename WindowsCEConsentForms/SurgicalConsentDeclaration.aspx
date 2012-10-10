@@ -71,7 +71,7 @@
                 patient.</div>
             <div class="sig1 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage1" class="HdnImage1" />
+                <input type="hidden" name="HdnImage1" class="HdnImage1" value='<%= ViewState["Signature1"].ToString() %>' />
             </div>
             <div class="clear">
             </div>
@@ -81,7 +81,7 @@
                 Patient Signature</div>
             <div class="sig2 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage2" class="HdnImage2" />
+                <input type="hidden" name="HdnImage2" class="HdnImage2" value='<%= ViewState["Signature2"].ToString() %>' />
             </div>
             
             <div class="clear">
@@ -92,7 +92,7 @@
                 Translated by (name & empl.#)</div>
             <div class="sig3 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage3" class="HdnImage3" />
+                <input type="hidden" name="HdnImage3" class="HdnImage3" value='<%= ViewState["Signature3"].ToString() %>' />
             </div>
             <div class="clear">
             </div>
@@ -102,7 +102,7 @@
                 Witness To Signature Only</div>
             <div class="sig4 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage4" class="HdnImage4" />
+                <input type="hidden" name="HdnImage4" class="HdnImage4" value='<%= ViewState["Signature4"].ToString() %>' />
             </div>
             <div class="clear">
             </div>
@@ -112,7 +112,7 @@
                 I declare that I or my associate Dr.</div>
             <div class="sig5 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage5" class="HdnImage5" />
+                <input type="hidden" name="HdnImage5" class="HdnImage5" value='<%= ViewState["Signature5"].ToString() %>' />
             </div>
             <div class="clear">
             </div>

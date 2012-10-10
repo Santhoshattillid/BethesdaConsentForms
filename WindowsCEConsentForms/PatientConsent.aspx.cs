@@ -1,5 +1,6 @@
 ﻿using System;
 using WindowsCEConsentForms.ConsentFormsService;
+using System.Data;
 
 namespace WindowsCEConsentForms
 {
@@ -13,11 +14,16 @@ namespace WindowsCEConsentForms
                 {
                     // loading patient ids
                     var formHandlerServiceClient = new FormHandlerServiceClient();
-                    DdlPatientIds.Items.Add("Select Patient ID");
-                    DdlFormList.Items.Add("Select Consent Form Type");
-                    foreach (string patientId in formHandlerServiceClient.GetPatientIds())
+                    DdlPatientIds.Items.Add("---------Select Patient--------");
+                    DdlFormList.Items.Add("------Select Consent Form Type------");
+                    var patientList = formHandlerServiceClient.GetPatientList();
+                    if (patientList != null)
                     {
-                        DdlPatientIds.Items.Add(patientId);
+                        foreach (DataRow row in patientList.Rows)
+                        {
+                            var dt = Convert.ToDateTime(row["BirthDate"].ToString());
+                            DdlPatientIds.Items.Add(new System.Web.UI.WebControls.ListItem(row["Lname"].ToString() + ", " + row["Fname"].ToString() + ", " + dt.ToShortDateString(),row["PatientId"].ToString()));
+                        }
                     }
                     DdlFormList.Items.Add("Name Printed in Consent Form");
                     DdlFormList.Items.Add("Blank Consent Form");
@@ -41,6 +47,7 @@ namespace WindowsCEConsentForms
                     var patientDetail = formHandlerServiceClient.GetPatientDetail(DdlPatientIds.SelectedValue);
                     if (patientDetail != null)
                     {
+                        LblId.Text = DdlPatientIds.SelectedValue; 
                         LblName.Text = patientDetail.name;
                         LblAdmDate.Text = patientDetail.AdmDate.ToString("MMM dd yyyy");
                         LblAge.Text = patientDetail.age.ToString();

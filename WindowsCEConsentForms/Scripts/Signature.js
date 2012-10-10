@@ -5,8 +5,19 @@
                 'drawOnly': true,
                 'output': '.HdnImage' + i.toString()
             };
-            $('.sig' + +i.toString()).signaturePad(options);
+            var value = undefined;
+            if ($('.HdnImage' + i.toString()).size() > 0)
+                value = $('.HdnImage' + i.toString()).val();
+            if (value != undefined) {
+                try
+                {
+                    $('.sig' + +i.toString()).signaturePad(options).regenerate(value);
+                } catch (e) {
+                    $('.sig' + +i.toString()).signaturePad(options);
+                }
+            }
         }
     } catch (e) {
+
     }
 });

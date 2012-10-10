@@ -10,6 +10,8 @@ namespace WindowsCEConsentForms
         {
             try
             {
+                for (int i = 0; i < 7; i++)
+                    ViewState["Signature" + i] = string.Empty;
                 string patientId = string.Empty;
                 try
                 {
@@ -28,9 +30,25 @@ namespace WindowsCEConsentForms
                     LblPatientId.Text = patientId;
                     LblTime.Text = DateTime.Now.ToShortTimeString();
                     LbldoctorName.Text = patientDetail.AttnDr;
+                    LbldoctorName.Text = string.Empty;
+                    if (!string.IsNullOrEmpty(patientDetail.PrimaryDoctorId))
+                    {
+                        var doctorDetail = formHandlerServiceClient.GetPrimaryDoctorDetail(patientDetail.PrimaryDoctorId);
+                        if(doctorDetail != null)
+                            LbldoctorName.Text += doctorDetail.Fname + " " + doctorDetail.Lname;
+                    }
 
+                    if (!string.IsNullOrEmpty(patientDetail.AssociatedDoctorId))
+                    {
+                        var doctorDetail = formHandlerServiceClient.GetAssociateDoctorDetail(patientDetail.AssociatedDoctorId);
+                        if (doctorDetail != null)
+                        {
+                            if(!string.IsNullOrEmpty(LbldoctorName.Text))
+                                LbldoctorName.Text += "  ,  ";
+                            LbldoctorName.Text += doctorDetail.Fname + " " + doctorDetail.Lname;
+                        }
+                    }
                     /*
-
                     // Loading Signatures based on the selected patient
                     HdnImage1.Value = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent",
                                                                                    "signature6");
@@ -44,6 +62,13 @@ namespace WindowsCEConsentForms
                                                                                    "signature10");
                     HdnImage6.Value = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent",
                                                                                    "signature11"); */
+
+                    // Loading Signatures based on the selected patient
+                    ViewState["Signature1"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature7");
+                    ViewState["Signature2"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature8");
+                    ViewState["Signature3"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature9");
+                    ViewState["Signature4"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature10");
+                    ViewState["Signature5"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature11");
                 }
             }
             catch (Exception ex)
@@ -64,7 +89,6 @@ namespace WindowsCEConsentForms
                 //}
 
                 // uploading images here
-
                 string patientId = string.Empty;
                 try
                 {
@@ -99,6 +123,8 @@ namespace WindowsCEConsentForms
                 // updating signature6
                 bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage5"]);
                 result = formHandlerServiceClient.SavePatientSignature(patientId, ASCIIEncoding.ASCII.GetString(bytes), "SurgicalConsent", "signature11");
+
+
 
                 if ((bool)Session["CardiacCathLabConsent"])
                 {

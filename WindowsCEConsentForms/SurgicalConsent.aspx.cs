@@ -5,6 +5,7 @@ using System.Text;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using WindowsCEConsentForms.ConsentFormsService;
+using System.Data;
 
 namespace WindowsCEConsentForms
 {
@@ -14,47 +15,85 @@ namespace WindowsCEConsentForms
         {
             try
             {
+                for (int i = 0; i < 7; i++)
+                    ViewState["Signature" + i] = string.Empty;
+                var formHandlerServiceClient = new FormHandlerServiceClient();
+                string patientId = string.Empty;
+                try
+                {
+                    patientId = Session["PatientID"].ToString();
+                }
+                catch (Exception)
+                {
+                    Response.Redirect("/PatientConsent.aspx");
+                }
                 if (!IsPostBack)
                 {
-                    string patientId = string.Empty;
-                    try
-                    {
-                        patientId = Session["PatientID"].ToString();
-                    }
-                    catch (Exception)
-                    {
-                        Response.Redirect("/PatientConsent.aspx");
-                    }
-                    var formHandlerServiceClient = new FormHandlerServiceClient();
-                    var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId);
+                      var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId);
                     if (patientDetail != null)
                     {
                         LblPatientName.Text = patientDetail.name;
                         LblDate.Text = patientDetail.AdmDate.ToString("MMM dd yyyy");
                         LblPatientId.Text = patientId;
                         LblTime.Text = DateTime.Now.ToShortTimeString();
-                        LbldoctorName.Text = patientDetail.AttnDr;
-
-                        /*
-
-                        // Loading Signatures based on the selected patient
-                        HdnImage1.Value = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent",
-                                                                                       "signature1");
-                        HdnImage2.Value = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent",
-                                                                                       "signature2");
-                        HdnImage3.Value = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent",
-                                                                                       "signature3");
-                        HdnImage4.Value = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent",
-                                                                                       "signature4");
-                        HdnImage5.Value = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent",
-                                                                                       "signature5");
-                         */
                     }
+                    DdlPrimaryDoctors.Items.Add("----Select Primary Doctor----");
+                    var physicians = formHandlerServiceClient.GetPrimaryPhysiciansList();
+                    if (physicians != null)
+                    {
+                        foreach (DataRow row in physicians.Rows)
+                        {
+                            DdlPrimaryDoctors.Items.Add(new System.Web.UI.WebControls.ListItem(row["Lname"].ToString() + ", " + row["Fname"].ToString(), row["PhysicianId"].ToString()));
+                        }
+                    }
+                    DdlPrimaryDoctors.SelectedIndex = 0;
                 }
+                // Loading Signatures based on the selected patient
+                ViewState["Signature1"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature1");
+                ViewState["Signature2"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature2");
+                ViewState["Signature3"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature3");
+                ViewState["Signature4"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature4");
+                ViewState["Signature5"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature5");
             }
             catch (Exception ex)
             {
                 Response.Redirect("/PatientConsent.aspx");
+            }
+        }
+
+        protected void DdlPrimaryDoctors_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // load all the fields here
+            try
+            {
+                // loading select form type box and patient details
+                if (DdlPrimaryDoctors.SelectedIndex > 0)
+                {
+                    DdlAssociatedDoctors.Items.Clear();
+                    var formHandlerServiceClient = new FormHandlerServiceClient();
+                    var associatedDoctors  = formHandlerServiceClient.GetAssociatedPhysiciansList(DdlPrimaryDoctors.SelectedValue);
+                    DdlAssociatedDoctors.Items.Add("----Select Associated Doctor----");
+                    if (associatedDoctors != null)
+                    {
+                        foreach (DataRow row in associatedDoctors.Rows)
+                        {
+                            DdlAssociatedDoctors.Items.Add(new System.Web.UI.WebControls.ListItem(row["Lname"].ToString() + ", " + row["Fname"].ToString(), row["Id"].ToString()));
+                        }
+                    }
+                    else
+                    {
+                        LblError.Text = "Associted doctors list not available.";
+                    }
+                    DdlAssociatedDoctors.SelectedIndex = 0;
+                }
+                else
+                {
+                    LblError.Text = "Please select primary doctor";
+                    DdlAssociatedDoctors.Items.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
             }
         }
 
@@ -74,12 +113,19 @@ namespace WindowsCEConsentForms
             // need to save signatures here
             try
             {
-                //                if (string.IsNullOrEmpty(HdnImage1.Value) || string.IsNullOrEmpty(HdnImage2.Value) ||                     string.IsNullOrEmpty(HdnImage3.Value) || string.IsNullOrEmpty(HdnImage4.Value) ||                     string.IsNullOrEmpty(HdnImage5.Value))
+                if (DdlPrimaryDoctors.SelectedIndex == 0 || DdlAssociatedDoctors.SelectedIndex == 0)
+                {
+                    LblError.Text = "Please select primary and associated doctor";
+                    return;
+                }
+
+
+                if (string.IsNullOrEmpty(Request.Form["HdnImage1"]) || string.IsNullOrEmpty(Request.Form["HdnImage2"]) || string.IsNullOrEmpty(Request.Form["HdnImage3"]) || string.IsNullOrEmpty(Request.Form["HdnImage4"]) || string.IsNullOrEmpty(Request.Form["HdnImage5"]))
                 //if (true)
-                //{
-                //    LblError.Text = "Please input your signatures in all the fields";
-                //    return;
-                //}
+                {
+                    LblError.Text = "Please input your signatures in all the fields";
+                    return;
+                }
 
                 string patientId = string.Empty;
                 try
@@ -92,6 +138,8 @@ namespace WindowsCEConsentForms
                 }
 
                 var formHandlerServiceClient = new FormHandlerServiceClient();
+
+                formHandlerServiceClient.UpdateDoctorAssociation(patientId, DdlPrimaryDoctors.SelectedValue, DdlAssociatedDoctors.SelectedValue);
 
                 // updating signature1
                 var bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage1"]);
@@ -185,5 +233,7 @@ namespace WindowsCEConsentForms
             }
             return filePath;
         }
+
+        
     }
 }

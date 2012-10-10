@@ -1,162 +1,162 @@
-﻿.Container *
+.Container *
 {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    font-size: 13px;
-    outline: none;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	font-size: 13px;
+	outline: none;
 }
 .Container DFN, I, CITE, VAR, ADDRESS, EM
 {
-    font-style: normal;
+	font-style: normal;
 }
 .Container TH, B, STRONG, H1, H2, H3, H4, H5, H6
 {
-    font-weight: normal;
+	font-weight: normal;
 }
 .Container A, IMG, A IMG, IFRAME, FORM, FIELDSET, ABBR, ACRONYM, OBJECT, TABLE
 {
-    border: none;
+	border: none;
 }
 .Container TABLE
 {
-    border-collapse: collapse;
-    border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 .Container CAPTION, TH, TD
 {
-    text-align: left;
-    vertical-align: top;
+	text-align: left;
+	vertical-align: top;
 }
 .Container Q
 {
-    quotes: "" "";
+	quotes: "" "";
 }
 .Container UL, OL, MENU
 {
-    list-style: none;
+	list-style: none;
 }
 .Container SUB, SUP
 {
-    vertical-align: baseline;
+	vertical-align: baseline;
 }
 .Container A
 {
-    color: inherit;
+	color: inherit;
 }
 .Container HR
 {
-    display: none;
+	display: none;
 }
 .Container
 {
-    color: inherit !important;
-    width: 600px;
-    background: #F6FCFA;
-    padding: 5px;
+	color: inherit !important;
+	width: 600px;
+	background: #F6FCFA;
+	padding: 5px;
 }
 .Container TABLE, .content
 {
-    width: 100%;
-    border: 1px solid #EEE;
-    font: 17px Calibri;
+	width: 100%;
+	border: 1px solid #EEE;
+	font: 17px Calibri;
 }
 .Container, .content .header
 {
-    color: #CCC;
+	color: #CCC;
 }
 .Container .header TH
 {
-    padding: 5px;
-    border-right: 1px solid #666;
+	padding: 5px;
+	border-right: 1px solid #666;
 }
 .Container TABLE TR TD
 {
-    padding: 5px;
-    border-bottom: 1px solid #DDD;
-    border-left: 1px solid #DDD;
-    width: 25%;
+	padding: 5px;
+	border-bottom: 1px solid #DDD;
+	border-left: 1px solid #DDD;
+	width: 25%;
 }
 .Container SELECT
 {
-    width: 200px;
-    padding: 3px;
+	width: 300px;
+	padding: 3px;
 }
 .Container INPUT
 {
-    width: 60px;
+	width: 60px;
 }
 .Container .center
 {
-    text-align: left;
-    padding-left: 100px;
+	text-align: left;
+	padding-left: 100px;
 }
 .Container H3
 {
-    font: bold 15px sans-serif;
-    color: #666;
+	font: bold 15px sans-serif;
+	color: #666;
 }
 .Container .checkbox
 {
-    padding: 5px;
+	padding: 5px;
 }
 .Container .errorInfo
 {
-    color: #DC143C;
+	color: #DC143C;
 }
-.Container input[type="text"]
+.Container INPUT[type="text"]
 {
-    width: 450px;
-    border: 1px solid #aaa;
-    padding: 5px;
-    color: #444;
+	width: 450px;
+	border: 1px solid #AAA;
+	padding: 5px;
+	color: #444;
 }
 .signature
 {
-    padding-top: 10px;
-    width: 200px;
-    height: 50px;
-    border: 1px solid #777;
-    float: left;
+	padding-top: 10px;
+	width: 200px;
+	height: 50px;
+	border: 1px solid #777;
+	float: left;
 }
 .right
 {
-    float: left;
-    padding-left: 10px;
-    width: 375px;
-    text-align: justify;
+	float: left;
+	padding-left: 10px;
+	width: 375px;
+	text-align: justify;
 }
 .clear
 {
-    clear: both;
-    float: none;
-    width: 0px;
+	clear: both;
+	float: none;
+	width: 0px;
 }
 .noBorder TR TD
 {
-    border: none;
+	border: none;
 }
 .content LI
 {
-    padding: 5px;
+	padding: 5px;
 }
 .small
 {
-    width: 70px;
+	width: 70px;
 }
 .smallest
 {
-    width: 40px;
+	width: 40px;
 }
 .autoWidth
 {
-    width: auto;
+	width: auto;
 }
-.Container input[type="button"]
+.Container INPUT[type="button"]
 {
-    width: 80px;
+	width: 80px;
 }
 .large
 {
-    width: 250px;
+	width: 250px;
 }

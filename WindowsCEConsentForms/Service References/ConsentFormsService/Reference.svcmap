@@ -25,6 +25,7 @@
     <MetadataFile FileName="basic.disco" MetadataType="Disco" ID="7e87dfe0-d0ea-4bde-a74d-4fe12adff715" SourceId="1" SourceUrl="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?disco" />
     <MetadataFile FileName="basic2.xsd" MetadataType="Schema" ID="e5d3d734-7683-4d41-a662-50db7f058115" SourceId="1" SourceUrl="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd2" />
     <MetadataFile FileName="basic.xsd" MetadataType="Schema" ID="bf1687d5-5b3f-4bb8-9eba-c27fa1622325" SourceId="1" SourceUrl="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd0" />
+    <MetadataFile FileName="basic4.xsd" MetadataType="Schema" ID="0f6579ee-6bf3-4171-bcea-f3fd6f2a7099" SourceId="1" SourceUrl="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd4" />
     <MetadataFile FileName="basic3.xsd" MetadataType="Schema" ID="81f6a924-42b6-448a-9568-1617d5b2827d" SourceId="1" SourceUrl="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd3" />
     <MetadataFile FileName="FormHandlerService.wsdl" MetadataType="Wsdl" ID="11a5d870-bdd7-4b18-ba30-b30271b2afec" SourceId="1" SourceUrl="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?wsdl" />
   </Metadata>

@@ -3,12 +3,23 @@
   <xs:complexType name="PatientDetail">
     <xs:sequence>
       <xs:element minOccurs="0" name="AdmDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AssociatedDoctorId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="AttnDr" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MRHash" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrimaryDoctorId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="age" type="xs:int" />
       <xs:element minOccurs="0" name="gender" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PatientDetail" nillable="true" type="tns:PatientDetail" />
+  <xs:complexType name="DoctorDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Fname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsPrimaryDoctor" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Lname" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DoctorDetails" nillable="true" type="tns:DoctorDetails" />
 </xs:schema>

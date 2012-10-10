@@ -6,6 +6,7 @@
       <xsd:import schemaLocation="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
       <xsd:import schemaLocation="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Consent.sp.wcf" />
+      <xsd:import schemaLocation="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IFormHandlerService_GetPatientDetails_InputMessage">
@@ -44,6 +45,42 @@
   <wsdl:message name="IFormHandlerService_GetPatientSignature_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPatientSignatureResponse" />
   </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetPatientList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientList" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetPatientList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetPrimaryPhysiciansList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrimaryPhysiciansList" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetPrimaryPhysiciansList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrimaryPhysiciansListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetAssociatedPhysiciansList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssociatedPhysiciansList" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetAssociatedPhysiciansList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssociatedPhysiciansListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_UpdateDoctorAssociation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDoctorAssociation" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_UpdateDoctorAssociation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDoctorAssociationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetPrimaryDoctorDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrimaryDoctorDetail" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetPrimaryDoctorDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrimaryDoctorDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetAssociateDoctorDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssociateDoctorDetail" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetAssociateDoctorDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssociateDoctorDetailResponse" />
+  </wsdl:message>
   <wsdl:portType name="IFormHandlerService">
     <wsdl:operation name="GetPatientDetails">
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientDetails" message="tns:IFormHandlerService_GetPatientDetails_InputMessage" />
@@ -68,6 +105,30 @@
     <wsdl:operation name="GetPatientSignature">
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientSignature" message="tns:IFormHandlerService_GetPatientSignature_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientSignatureResponse" message="tns:IFormHandlerService_GetPatientSignature_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientList" message="tns:IFormHandlerService_GetPatientList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientListResponse" message="tns:IFormHandlerService_GetPatientList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrimaryPhysiciansList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetPrimaryPhysiciansList" message="tns:IFormHandlerService_GetPrimaryPhysiciansList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetPrimaryPhysiciansListResponse" message="tns:IFormHandlerService_GetPrimaryPhysiciansList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssociatedPhysiciansList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetAssociatedPhysiciansList" message="tns:IFormHandlerService_GetAssociatedPhysiciansList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetAssociatedPhysiciansListResponse" message="tns:IFormHandlerService_GetAssociatedPhysiciansList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDoctorAssociation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/UpdateDoctorAssociation" message="tns:IFormHandlerService_UpdateDoctorAssociation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/UpdateDoctorAssociationResponse" message="tns:IFormHandlerService_UpdateDoctorAssociation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrimaryDoctorDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetPrimaryDoctorDetail" message="tns:IFormHandlerService_GetPrimaryDoctorDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetPrimaryDoctorDetailResponse" message="tns:IFormHandlerService_GetPrimaryDoctorDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssociateDoctorDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetAssociateDoctorDetail" message="tns:IFormHandlerService_GetAssociateDoctorDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetAssociateDoctorDetailResponse" message="tns:IFormHandlerService_GetAssociateDoctorDetail_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IFormHandlerService" type="tns:IFormHandlerService">
@@ -119,6 +180,60 @@
     </wsdl:operation>
     <wsdl:operation name="GetPatientSignature">
       <soap:operation soapAction="http://tempuri.org/IFormHandlerService/GetPatientSignature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientList">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/GetPatientList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrimaryPhysiciansList">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/GetPrimaryPhysiciansList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssociatedPhysiciansList">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/GetAssociatedPhysiciansList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDoctorAssociation">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/UpdateDoctorAssociation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrimaryDoctorDetail">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/GetPrimaryDoctorDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssociateDoctorDetail">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/GetAssociateDoctorDetail" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

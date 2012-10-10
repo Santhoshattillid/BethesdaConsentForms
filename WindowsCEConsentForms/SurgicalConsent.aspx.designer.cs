@@ -58,13 +58,22 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.WebControls.Label LblTime;
         
         /// <summary>
-        /// LbldoctorName control.
+        /// DdlPrimaryDoctors control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LbldoctorName;
+        protected global::System.Web.UI.WebControls.DropDownList DdlPrimaryDoctors;
+        
+        /// <summary>
+        /// DdlAssociatedDoctors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlAssociatedDoctors;
         
         /// <summary>
         /// LnlPatientName control.

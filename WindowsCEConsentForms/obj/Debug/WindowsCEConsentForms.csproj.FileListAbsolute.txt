@@ -22,3 +22,8 @@ C:\Users\Santhosh\Desktop\BethesdaConsentForms\BethesdaConsentForms\WindowsCECon
 C:\Users\Santhosh\Desktop\BethesdaConsentForms\BethesdaConsentForms\WindowsCEConsentForms\bin\WindowsCEConsentForms.pdb
 C:\Users\Santhosh\Desktop\BethesdaConsentForms\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.dll
 C:\Users\Santhosh\Desktop\BethesdaConsentForms\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.pdb
+C:\Users\santhosh\Desktop\ConsentForms\BethesdaConsentForms\WindowsCEConsentForms\bin\WindowsCEConsentForms.dll
+C:\Users\santhosh\Desktop\ConsentForms\BethesdaConsentForms\WindowsCEConsentForms\bin\WindowsCEConsentForms.pdb
+C:\Users\santhosh\Desktop\ConsentForms\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\santhosh\Desktop\ConsentForms\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.dll
+C:\Users\santhosh\Desktop\ConsentForms\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.pdb

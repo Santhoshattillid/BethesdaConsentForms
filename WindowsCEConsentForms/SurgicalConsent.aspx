@@ -34,14 +34,39 @@
             </div>
         </li>
         <li>I here by authorize Doctor(s)
-            <asp:Label runat="server" ID="LbldoctorName" CssClass="errorInfo"></asp:Label>
+        </li>
+        <li>
+            <table>
+                <tr>
+                    <td>
+                        Select Primary doctor
+                    </td>
+                    <td colspan="4">
+                        <asp:DropDownList ID="DdlPrimaryDoctors" runat="server" 
+                            AutoPostBack="True" 
+                            onselectedindexchanged="DdlPrimaryDoctors_SelectedIndexChanged">
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Select Associated doctor
+                    </td>
+                    <td colspan="4">
+                        <asp:DropDownList ID="DdlAssociatedDoctors" runat="server">
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+            </table>
+        </li>
+        <li>
             to perform upon
             <asp:Label runat="server" ID="LnlPatientName" CssClass="errorInfo"></asp:Label>
             the following procedure or operation : Surgical Consent</li>
         <li>
             <div class="sig1 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage1" class="HdnImage1" />
+                <input type="hidden" name="HdnImage1" class="HdnImage1" value='<%= ViewState["Signature1"].ToString() %>' />
             </div>
             <div class="right">
                 The Physician has explained to me the nature of this operation it is generally carried
@@ -56,7 +81,7 @@
         <li>
             <div class="sig2 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage2" class="HdnImage2" />
+                <input type="hidden" name="HdnImage2" class="HdnImage2" value='<%= ViewState["Signature2"].ToString() %>' />
             </div>
             <div class="right">
                 In addition, the physician has explained to me that there are alternative ways of
@@ -68,7 +93,7 @@
         <li>
             <div class="sig3 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage3" class="HdnImage3" />
+                <input type="hidden" name="HdnImage3" class="HdnImage3" value='<%= ViewState["Signature3"].ToString() %>' />
             </div>
             <div class="right">
                 I consent to the administration of anesthesia by or under the direction of a fully
@@ -85,7 +110,7 @@
         <li>
             <div class="sig4 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage4" class="HdnImage4" />
+                <input type="hidden" name="HdnImage4" class="HdnImage4" value='<%= ViewState["Signature4"].ToString() %>' />
             </div>
             <div class="right">
                 I permit and authorize the physician and such other physicians qualifeid medical
@@ -97,7 +122,7 @@
         <li>
             <div class="sig5 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage5" class="HdnImage5" />
+                <input type="hidden" name="HdnImage5" class="HdnImage5" value='<%= ViewState["Signature1"].ToString() %>' />
             </div>
             <div class="right">
                 The Physician has explained to me that sometimes during surgery, it is discovered

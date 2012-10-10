@@ -17,7 +17,7 @@
                     </tr>
                     <tr>
                         <td>
-                            Patient #
+                            Patient
                         </td>
                         <td colspan="4">
                             <asp:DropDownList ID="DdlPatientIds" runat="server" OnSelectedIndexChanged="DdlPatientIds_SelectedIndexChanged"
@@ -29,8 +29,14 @@
                         <td>
                             Name
                         </td>
-                        <td colspan="4">
+                        <td>
                             <asp:Label ID="LblName" runat="server" Enabled="false"></asp:Label>
+                        </td>
+                        <td>
+                            Id
+                        </td>
+                        <td>
+                            <asp:Label ID="LblId" runat="server" Enabled="false"></asp:Label>
                         </td>
                     </tr>
                     <tr>

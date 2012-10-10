@@ -69,12 +69,16 @@
     <Content Include="CardiacCathLabConsentDeclaration.aspx" />
     <Content Include="BloodConsentOrRefusalDeclaration.aspx" />
     <Content Include="EndoscopyConsentDeclaration.aspx" />
+    <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\DataSources\System.Xml.Linq.XElement.datasource" />
     <None Include="Service References\ConsentFormsService\basic.disco" />
     <None Include="Service References\ConsentFormsService\basic2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ConsentFormsService\basic3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ConsentFormsService\basic4.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ConsentFormsService\configuration91.svcinfo" />
@@ -108,6 +112,9 @@
     </Content>
     <None Include="Service References\ConsentFormsService\basic1.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ConsentFormsService\WindowsCEConsentForms.ConsentFormsService.DoctorDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ConsentFormsService\WindowsCEConsentForms.ConsentFormsService.PatientDetail.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
