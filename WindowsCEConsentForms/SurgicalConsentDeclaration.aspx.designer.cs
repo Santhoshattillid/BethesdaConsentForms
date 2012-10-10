@@ -94,51 +94,6 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.WebControls.HiddenField HdnImage1;
         
         /// <summary>
-        /// HdnImage2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HdnImage2;
-        
-        /// <summary>
-        /// HdnImage3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HdnImage3;
-        
-        /// <summary>
-        /// HdnImage4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HdnImage4;
-        
-        /// <summary>
-        /// HdnImage5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HdnImage5;
-        
-        /// <summary>
-        /// HdnImage6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HdnImage6;
-        
-        /// <summary>
         /// LblError control.
         /// </summary>
         /// <remarks>

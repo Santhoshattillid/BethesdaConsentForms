@@ -69,47 +69,53 @@
             <div>
                 If patient is unable to sing/person authorized to sign consent / relationship to
                 patient.</div>
-            <div id="TxtSignature2" class="signature large" hdfld="HdnImage2">
+            <div class="sig1 sigWrapper">
+                <canvas class="pad" width="198" height="55"></canvas>
+                <input type="hidden" name="HdnImage1" class="HdnImage1" />
             </div>
             <div class="clear">
             </div>
-            <asp:HiddenField runat="server" ID="HdnImage2" />
         </li>
         <li>
             <div>
                 Patient Signature</div>
-            <div id="TxtSignature3" class="signature large" hdfld="HdnImage3">
+            <div class="sig2 sigWrapper">
+                <canvas class="pad" width="198" height="55"></canvas>
+                <input type="hidden" name="HdnImage2" class="HdnImage2" />
             </div>
+            
             <div class="clear">
             </div>
-            <asp:HiddenField runat="server" ID="HdnImage3" />
         </li>
         <li>
             <div>
                 Translated by (name & empl.#)</div>
-            <div id="TxtSignature4" class="signature large" hdfld="HdnImage4">
+            <div class="sig3 sigWrapper">
+                <canvas class="pad" width="198" height="55"></canvas>
+                <input type="hidden" name="HdnImage3" class="HdnImage3" />
             </div>
             <div class="clear">
             </div>
-            <asp:HiddenField runat="server" ID="HdnImage4" />
         </li>
         <li>
             <div>
                 Witness To Signature Only</div>
-            <div id="TxtSignature5" class="signature large" hdfld="HdnImage5">
+            <div class="sig4 sigWrapper">
+                <canvas class="pad" width="198" height="55"></canvas>
+                <input type="hidden" name="HdnImage4" class="HdnImage4" />
             </div>
             <div class="clear">
             </div>
-            <asp:HiddenField runat="server" ID="HdnImage5" />
         </li>
         <li>
             <div>
                 I declare that I or my associate Dr.</div>
-            <div id="TxtSignature6" class="signature large" hdfld="HdnImage6">
+            <div class="sig5 sigWrapper">
+                <canvas class="pad" width="198" height="55"></canvas>
+                <input type="hidden" name="HdnImage5" class="HdnImage5" />
             </div>
             <div class="clear">
             </div>
-            <asp:HiddenField runat="server" ID="HdnImage6" />
         </li>
         <li>Personally explained the above information to the patient or the patient's representative.
         </li>

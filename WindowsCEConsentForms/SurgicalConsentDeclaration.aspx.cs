@@ -57,11 +57,11 @@ namespace WindowsCEConsentForms
             try
             {
                 // need to save signatures here
-                if (string.IsNullOrEmpty(HdnImage2.Value) || string.IsNullOrEmpty(HdnImage3.Value) || string.IsNullOrEmpty(HdnImage4.Value) || string.IsNullOrEmpty(HdnImage5.Value) || string.IsNullOrEmpty(HdnImage6.Value))
-                {
-                    LblError.Text = "Please input signatures in all the fields";
-                    return;
-                }
+                //if (string.IsNullOrEmpty(HdnImage2.Value) || string.IsNullOrEmpty(HdnImage3.Value) || string.IsNullOrEmpty(HdnImage4.Value) || string.IsNullOrEmpty(HdnImage5.Value) || string.IsNullOrEmpty(HdnImage6.Value))
+                //{
+                //    LblError.Text = "Please input signatures in all the fields";
+                //    return;
+                //}
 
                 // uploading images here
 
@@ -81,23 +81,23 @@ namespace WindowsCEConsentForms
                 //bool result = formHandlerServiceClient.SavePatientSignature(patientId, ASCIIEncoding.ASCII.GetString(bytes), "SurgicalConsent", "signature6");
 
                 // updating signature2
-                var bytes = Encoding.ASCII.GetBytes(HdnImage2.Value);
+                var bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage1"]);
                 var result = formHandlerServiceClient.SavePatientSignature(patientId, ASCIIEncoding.ASCII.GetString(bytes), "SurgicalConsent", "signature7");
 
                 // updating signature3
-                bytes = Encoding.ASCII.GetBytes(HdnImage3.Value);
+                bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage2"]);
                 result = formHandlerServiceClient.SavePatientSignature(patientId, ASCIIEncoding.ASCII.GetString(bytes), "SurgicalConsent", "signature8");
 
                 // updating signature4
-                bytes = Encoding.ASCII.GetBytes(HdnImage4.Value);
+                bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage3"]);
                 result = formHandlerServiceClient.SavePatientSignature(patientId, ASCIIEncoding.ASCII.GetString(bytes), "SurgicalConsent", "signature9");
 
                 // updating signature5
-                bytes = Encoding.ASCII.GetBytes(HdnImage5.Value);
+                bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage4"]);
                 result = formHandlerServiceClient.SavePatientSignature(patientId, ASCIIEncoding.ASCII.GetString(bytes), "SurgicalConsent", "signature10");
 
                 // updating signature6
-                bytes = Encoding.ASCII.GetBytes(HdnImage6.Value);
+                bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage5"]);
                 result = formHandlerServiceClient.SavePatientSignature(patientId, ASCIIEncoding.ASCII.GetString(bytes), "SurgicalConsent", "signature11");
 
                 if ((bool)Session["CardiacCathLabConsent"])
