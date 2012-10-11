@@ -7,17 +7,20 @@
     <form id="form1" runat="server">
     <ul>
         <li>
+            <img src="Images/logo.png" />
+        </li>
+        <li>
             <table>
                 <tbody>
                     <tr>
-                        <td colspan="5" class="center">
+                        <td colspan="5">
                             <h3>
                                 Patient Consent Form</h3>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            Patient #
+                            Patient
                         </td>
                         <td colspan="4">
                             <asp:DropDownList ID="DdlPatientIds" runat="server" OnSelectedIndexChanged="DdlPatientIds_SelectedIndexChanged"
@@ -29,8 +32,14 @@
                         <td>
                             Name
                         </td>
-                        <td colspan="4">
+                        <td>
                             <asp:Label ID="LblName" runat="server" Enabled="false"></asp:Label>
+                        </td>
+                        <td>
+                            Id
+                        </td>
+                        <td>
+                            <asp:Label ID="LblId" runat="server" Enabled="false"></asp:Label>
                         </td>
                     </tr>
                     <tr>
@@ -43,10 +52,8 @@
                         <td>
                             Gender
                         </td>
-                        <td>
+                        <td colspan="2">
                             <asp:Label runat="server" ID="LblGender" Enabled="false"></asp:Label>
-                        </td>
-                        <td>
                         </td>
                     </tr>
                     <tr>
@@ -74,7 +81,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td class="noBorder">
                         </td>
                         <td colspan="4" class="noBorder">
                             <asp:DropDownList ID="DdlFormList" runat="server" Enabled="false" AutoPostBack="True"
@@ -83,28 +90,35 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="5" class="center">
+                        <td class="noBorder"></td>
+                        <td colspan="4">
                             <ul>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkSurgicalConcent" Text="Surgical Concent" Enabled="false" />
+                                    <asp:CheckBox runat="server" ID="ChkSurgicalConcent" Text="Surgical Consent" Enabled="false" />
                                 </li>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkCCLC" Text="Cardiac Cath Lab Concent" Enabled="false" />
+                                    <asp:CheckBox runat="server" ID="ChkCCLC" Text="Cardiac Cath Lab Consent" Enabled="false" />
                                 </li>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkEC" Text="Endoscopy Concent" Enabled="false" />
+                                    <asp:CheckBox runat="server" ID="ChkEC" Text="Endoscopy Consent" Enabled="false" />
                                 </li>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkBCOrR" Text="Blood  Concent/Refusal" Enabled="false" />
+                                    <asp:CheckBox runat="server" ID="ChkBCOrR" Text="Blood  Consent/Refusal" Enabled="false" />
                                 </li>
                             </ul>
                         </td>
                     </tr>
+                    <% if (!string.IsNullOrEmpty(LblError.Text))
+                       {%>
                     <tr>
                         <td colspan="5" class="center">
                             <asp:Label runat="server" ID="LblError" CssClass="errorInfo"></asp:Label>
-                            <br />
-                            <br />
+                        </td>
+                    </tr>
+                    <%
+                       }%>
+                    <tr>
+                        <td colspan="5" class="center">
                             <asp:Button runat="server" ID="BtnSign" Text="Sign" OnClick="BtnSign_Click" />
                             <asp:Button runat="server" ID="BtnPrint" Text="Print" OnClientClick="javascript:window.print();" />
                             <asp:Button runat="server" ID="BtnReset" Text="Reset" OnClick="BtnReset_Click" />

@@ -81,6 +81,30 @@
   <wsdl:message name="IFormHandlerService_GetAssociateDoctorDetail_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAssociateDoctorDetailResponse" />
   </wsdl:message>
+  <wsdl:message name="IFormHandlerService_UpdateTrackingInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTrackingInfo" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_UpdateTrackingInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTrackingInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GenerateAndUploadPDFtoSharePoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateAndUploadPDFtoSharePoint" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GenerateAndUploadPDFtoSharePoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateAndUploadPDFtoSharePointResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetProcedurenameList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProcedurenameList" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetProcedurenameList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProcedurenameListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_UpdatePatientProcedure_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePatientProcedure" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_UpdatePatientProcedure_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePatientProcedureResponse" />
+  </wsdl:message>
   <wsdl:portType name="IFormHandlerService">
     <wsdl:operation name="GetPatientDetails">
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientDetails" message="tns:IFormHandlerService_GetPatientDetails_InputMessage" />
@@ -129,6 +153,22 @@
     <wsdl:operation name="GetAssociateDoctorDetail">
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetAssociateDoctorDetail" message="tns:IFormHandlerService_GetAssociateDoctorDetail_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetAssociateDoctorDetailResponse" message="tns:IFormHandlerService_GetAssociateDoctorDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrackingInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/UpdateTrackingInfo" message="tns:IFormHandlerService_UpdateTrackingInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/UpdateTrackingInfoResponse" message="tns:IFormHandlerService_UpdateTrackingInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateAndUploadPDFtoSharePoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GenerateAndUploadPDFtoSharePoint" message="tns:IFormHandlerService_GenerateAndUploadPDFtoSharePoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GenerateAndUploadPDFtoSharePointResponse" message="tns:IFormHandlerService_GenerateAndUploadPDFtoSharePoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProcedurenameList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetProcedurenameList" message="tns:IFormHandlerService_GetProcedurenameList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetProcedurenameListResponse" message="tns:IFormHandlerService_GetProcedurenameList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePatientProcedure">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/UpdatePatientProcedure" message="tns:IFormHandlerService_UpdatePatientProcedure_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/UpdatePatientProcedureResponse" message="tns:IFormHandlerService_UpdatePatientProcedure_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IFormHandlerService" type="tns:IFormHandlerService">
@@ -234,6 +274,42 @@
     </wsdl:operation>
     <wsdl:operation name="GetAssociateDoctorDetail">
       <soap:operation soapAction="http://tempuri.org/IFormHandlerService/GetAssociateDoctorDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrackingInfo">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/UpdateTrackingInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateAndUploadPDFtoSharePoint">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/GenerateAndUploadPDFtoSharePoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcedurenameList">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/GetProcedurenameList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePatientProcedure">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/UpdatePatientProcedure" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

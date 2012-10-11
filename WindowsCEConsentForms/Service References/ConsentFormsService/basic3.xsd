@@ -5,8 +5,10 @@
       <xs:element minOccurs="0" name="AdmDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="AssociatedDoctorId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="AttnDr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DOB" type="xs:dateTime" />
       <xs:element minOccurs="0" name="MRHash" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PrimaryDoctorId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProcedureName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="age" type="xs:int" />
       <xs:element minOccurs="0" name="gender" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
@@ -22,4 +24,11 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DoctorDetails" nillable="true" type="tns:DoctorDetails" />
+  <xs:complexType name="TrackingInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Device" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IP" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackingInfo" nillable="true" type="tns:TrackingInfo" />
 </xs:schema>

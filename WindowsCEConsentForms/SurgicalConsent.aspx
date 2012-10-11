@@ -42,9 +42,18 @@
             <table>
                 <tr>
                     <td>
+                        Select Procedure
+                    </td>
+                    <td colspan="2">
+                        <asp:DropDownList ID="DdLProcedures" runat="server" >
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         Select Primary doctor
                     </td>
-                    <td colspan="4">
+                    <td colspan="2">
                         <asp:DropDownList ID="DdlPrimaryDoctors" runat="server" 
                             AutoPostBack="True" 
                             onselectedindexchanged="DdlPrimaryDoctors_SelectedIndexChanged">
@@ -55,7 +64,7 @@
                     <td>
                         Select Associated doctor
                     </td>
-                    <td colspan="4">
+                    <td colspan="2">
                         <asp:DropDownList ID="DdlAssociatedDoctors" runat="server">
                         </asp:DropDownList>
                     </td>
@@ -125,7 +134,7 @@
         <li>
             <div class="sig5 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage5" class="HdnImage5" value='<%= ViewState["Signature1"].ToString() %>' />
+                <input type="hidden" name="HdnImage5" class="HdnImage5" value='<%= ViewState["Signature5"].ToString() %>' />
             </div>
             <div class="right">
                 The Physician has explained to me that sometimes during surgery, it is discovered

@@ -32,10 +32,16 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         private string AttnDrField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DOBField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MRHashField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PrimaryDoctorIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProcedureNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ageField;
@@ -96,6 +102,19 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DOB {
+            get {
+                return this.DOBField;
+            }
+            set {
+                if ((this.DOBField.Equals(value) != true)) {
+                    this.DOBField = value;
+                    this.RaisePropertyChanged("DOB");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string MRHash {
             get {
                 return this.MRHashField;
@@ -117,6 +136,19 @@ namespace WindowsCEConsentForms.ConsentFormsService {
                 if ((object.ReferenceEquals(this.PrimaryDoctorIdField, value) != true)) {
                     this.PrimaryDoctorIdField = value;
                     this.RaisePropertyChanged("PrimaryDoctorId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ProcedureName {
+            get {
+                return this.ProcedureNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProcedureNameField, value) != true)) {
+                    this.ProcedureNameField = value;
+                    this.RaisePropertyChanged("ProcedureName");
                 }
             }
         }
@@ -263,6 +295,67 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TrackingInfo", Namespace="http://schemas.datacontract.org/2004/07/Consent.sp.wcf")]
+    [System.SerializableAttribute()]
+    public partial class TrackingInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DeviceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IPField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Device {
+            get {
+                return this.DeviceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DeviceField, value) != true)) {
+                    this.DeviceField = value;
+                    this.RaisePropertyChanged("Device");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IP {
+            get {
+                return this.IPField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IPField, value) != true)) {
+                    this.IPField = value;
+                    this.RaisePropertyChanged("IP");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ConsentFormsService.IFormHandlerService")]
     public interface IFormHandlerService {
@@ -302,6 +395,18 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetAssociateDoctorDetail", ReplyAction="http://tempuri.org/IFormHandlerService/GetAssociateDoctorDetailResponse")]
         WindowsCEConsentForms.ConsentFormsService.DoctorDetails GetAssociateDoctorDetail(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/UpdateTrackingInfo", ReplyAction="http://tempuri.org/IFormHandlerService/UpdateTrackingInfoResponse")]
+        void UpdateTrackingInfo(string PatientId, WindowsCEConsentForms.ConsentFormsService.TrackingInfo trackingInfo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GenerateAndUploadPDFtoSharePoint", ReplyAction="http://tempuri.org/IFormHandlerService/GenerateAndUploadPDFtoSharePointResponse")]
+        void GenerateAndUploadPDFtoSharePoint(string RelativeUrl, string PatientId, string FormName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetProcedurenameList", ReplyAction="http://tempuri.org/IFormHandlerService/GetProcedurenameListResponse")]
+        string[] GetProcedurenameList();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/UpdatePatientProcedure", ReplyAction="http://tempuri.org/IFormHandlerService/UpdatePatientProcedureResponse")]
+        void UpdatePatientProcedure(string PatientId, string Procedurename);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -377,6 +482,22 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         
         public WindowsCEConsentForms.ConsentFormsService.DoctorDetails GetAssociateDoctorDetail(string id) {
             return base.Channel.GetAssociateDoctorDetail(id);
+        }
+        
+        public void UpdateTrackingInfo(string PatientId, WindowsCEConsentForms.ConsentFormsService.TrackingInfo trackingInfo) {
+            base.Channel.UpdateTrackingInfo(PatientId, trackingInfo);
+        }
+        
+        public void GenerateAndUploadPDFtoSharePoint(string RelativeUrl, string PatientId, string FormName) {
+            base.Channel.GenerateAndUploadPDFtoSharePoint(RelativeUrl, PatientId, FormName);
+        }
+        
+        public string[] GetProcedurenameList() {
+            return base.Channel.GetProcedurenameList();
+        }
+        
+        public void UpdatePatientProcedure(string PatientId, string Procedurename) {
+            base.Channel.UpdatePatientProcedure(PatientId, Procedurename);
         }
     }
 }

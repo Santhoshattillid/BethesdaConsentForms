@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using WindowsCEConsentForms.ConsentFormsService;
+using System.Drawing.Imaging;
 
 namespace WindowsCEConsentForms
 {
@@ -19,7 +20,14 @@ namespace WindowsCEConsentForms
                 }
                 catch (Exception)
                 {
-                    Response.Redirect("/PatientConsent.aspx");
+                    try
+                    {
+                        patientId = Request.QueryString["PatientId"].ToString();
+                    }
+                    catch (Exception)
+                    {
+                        // Response.Redirect("/PatientConsent.aspx");
+                    }
                 }
                 var formHandlerServiceClient = new FormHandlerServiceClient();
                 var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId);
@@ -37,7 +45,6 @@ namespace WindowsCEConsentForms
                         if(doctorDetail != null)
                             LbldoctorName.Text += doctorDetail.Fname + " " + doctorDetail.Lname;
                     }
-
                     if (!string.IsNullOrEmpty(patientDetail.AssociatedDoctorId))
                     {
                         var doctorDetail = formHandlerServiceClient.GetAssociateDoctorDetail(patientDetail.AssociatedDoctorId);
@@ -73,7 +80,7 @@ namespace WindowsCEConsentForms
             }
             catch (Exception ex)
             {
-                Response.Redirect("/PatientConsent.aspx");
+                //Response.Redirect("/PatientConsent.aspx");
             }
         }
 
@@ -124,12 +131,24 @@ namespace WindowsCEConsentForms
                 bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage5"]);
                 result = formHandlerServiceClient.SavePatientSignature(patientId, ASCIIEncoding.ASCII.GetString(bytes), "SurgicalConsent", "signature11");
 
+                // temp code to generate images and store into local folder for testing
+
+                var signatureToImage = new SignatureToImage();
+                for(int i=1;i<6;i++)
+                    signatureToImage.SigJsonToImage(Request.Form["HdnImage" + i.ToString()]).Save(@"C:\Users\santhosh\Desktop\" + i.ToString() + ".jpg",ImageFormat.Jpeg);
+
+
                 string ip = Request.ServerVariables["REMOTE_ADDR"];
                 string device;
                 if (Request.Browser.IsMobileDevice)
-                    device = Request.UserAgent;
+                    device = Request.Browser.Browser + " " + Request.Browser.Version;
                 else
-                    device = Request.UserAgent;
+                    device = Request.Browser.Browser + " " + Request.Browser.Version;
+
+                formHandlerServiceClient.UpdateTrackingInfo(patientId, new TrackingInfo { IP = ip, Device = device });
+
+                formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/SurgicalConsent.aspx?PatientId=" + patientId, patientId, "SurgicalConsentForm1");
+                formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/SurgicalConsentDeclaration.aspx?PatientId=" + patientId, patientId, "SurgicalConsentForm2");
 
                 if ((bool)Session["CardiacCathLabConsent"])
                 {

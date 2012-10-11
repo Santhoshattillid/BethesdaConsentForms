@@ -215,4 +215,56 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="UpdateTrackingInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PatientId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Consent.sp.wcf" minOccurs="0" name="trackingInfo" nillable="true" type="q5:TrackingInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTrackingInfoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateAndUploadPDFtoSharePoint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RelativeUrl" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PatientId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FormName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateAndUploadPDFtoSharePointResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProcedurenameList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProcedurenameListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetProcedurenameListResult" nillable="true" type="q6:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePatientProcedure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PatientId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Procedurename" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePatientProcedureResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
