@@ -164,3 +164,11 @@
 {
     border:none;
 }
+.sigBox
+{
+    padding-top: 10px;
+	width: 200px;
+	height: 50px;
+	border: 1px solid #777;
+	float: left;
+}

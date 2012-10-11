@@ -103,6 +103,7 @@
     <Content Include="Scripts\Signature.js" />
     <Content Include="Stylesheets\ConsentForm.css" />
     <Content Include="SurgicalConsent.aspx" />
+    <Content Include="SurgicalConsentPrint.aspx" />
     <Content Include="Thanks.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -198,6 +199,13 @@
     </Compile>
     <Compile Include="SurgicalConsent.aspx.designer.cs">
       <DependentUpon>SurgicalConsent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SurgicalConsentPrint.aspx.cs">
+      <DependentUpon>SurgicalConsentPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SurgicalConsentPrint.aspx.designer.cs">
+      <DependentUpon>SurgicalConsentPrint.aspx</DependentUpon>
     </Compile>
     <Compile Include="Thanks.aspx.cs">
       <DependentUpon>Thanks.aspx</DependentUpon>

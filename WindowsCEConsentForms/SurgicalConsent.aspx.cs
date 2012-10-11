@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Drawing.Imaging;
-using System.IO;
 using System.Text;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
 using WindowsCEConsentForms.ConsentFormsService;
 using System.Data;
 
@@ -65,7 +61,8 @@ namespace WindowsCEConsentForms
                        // DdlAssociatedDoctors.SelectedValue = associatedDoctor.Lname + ", " + associatedDoctor.Fname;
                         DdlPrimaryDoctors.Items.FindByValue(patientDetail.PrimaryDoctorId).Selected = true;
                         DdlAssociatedDoctors.Items.FindByValue(patientDetail.AssociatedDoctorId).Selected = true;
-                        DdLProcedures.Items.FindByText(patientDetail.ProcedureName).Selected = true;
+                        if(!string.IsNullOrEmpty(patientDetail.ProcedureName))
+                            DdLProcedures.Items.FindByText(patientDetail.ProcedureName).Selected = true;
                     }
                     else 
                         DdlPrimaryDoctors.SelectedIndex = 0;

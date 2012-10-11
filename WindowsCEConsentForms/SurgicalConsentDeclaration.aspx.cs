@@ -37,7 +37,6 @@ namespace WindowsCEConsentForms
                     LblDate.Text = patientDetail.AdmDate.ToString("MMM dd yyyy");
                     LblPatientId.Text = patientId;
                     LblTime.Text = DateTime.Now.ToShortTimeString();
-                    LbldoctorName.Text = patientDetail.AttnDr;
                     LbldoctorName.Text = string.Empty;
                     if (!string.IsNullOrEmpty(patientDetail.PrimaryDoctorId))
                     {
@@ -55,6 +54,7 @@ namespace WindowsCEConsentForms
                             LbldoctorName.Text += doctorDetail.Fname + " " + doctorDetail.Lname;
                         }
                     }
+                    LblProcedurename.Text = patientDetail.ProcedureName;
                     /*
                     // Loading Signatures based on the selected patient
                     HdnImage1.Value = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent",
@@ -69,7 +69,6 @@ namespace WindowsCEConsentForms
                                                                                    "signature10");
                     HdnImage6.Value = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent",
                                                                                    "signature11"); */
-
                     // Loading Signatures based on the selected patient
                     ViewState["Signature1"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature7");
                     ViewState["Signature2"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature8");

@@ -12,65 +12,82 @@
       <Item value="ServerVariables" priority="0" />
       <Item value="Browser" priority="0" />
       <Item value="UserAgent" priority="1" />
+      <Item value="QueryString" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Default">
-      <Item value="Request" priority="4" />
-      <Item value="string" priority="2" />
-      <Item value="if" priority="1" />
+      <Item value="Request" priority="5" />
+      <Item value="string" priority="6" />
+      <Item value="if" priority="2" />
       <Item value="device" priority="1" />
       <Item value="else" priority="0" />
       <Item value="LblError" priority="0" />
+      <Item value="patientDetail" priority="0" />
+      <Item value="server" priority="0" />
+      <Item value="try" priority="0" />
+      <Item value="PatientId" priority="2" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Web.HttpBrowserCapabilities">
       <Item value="IsMobileDevice" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Web.UI.WebControls.Label">
-      <Item value="Text" priority="0" />
+      <Item value="Text" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.String">
-      <Item value="IsNullOrEmpty`0" priority="0" />
+      <Item value="IsNullOrEmpty`0" priority="2" />
+      <Item value="Empty" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:WindowsCEConsentForms.ConsentFormsService.PatientDetail">
+      <Item value="ProcedureName" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.Image">
+      <Item value="CssClass" priority="0" />
     </ItemStatistics>
   </CompletionStatisticsManager>
   <RecentFiles>
     <RecentFiles>
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsent.aspx.cs" caret="4244" fromTop="12" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx.cs" caret="7576" fromTop="18" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsent.aspx" caret="481" fromTop="9" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx" caret="499" fromTop="9" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Stylesheets/f:ConsentForm.css" caret="2134" fromTop="33" />
       <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PatientConsent.aspx" caret="3389" fromTop="5" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PatientConsent.aspx.cs" caret="3634" fromTop="23" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:Main.Master.cs" caret="199" fromTop="8" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsent.aspx.cs" caret="4394" fromTop="14" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx" caret="2137" fromTop="31" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx.cs" caret="8971" fromTop="20" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsent.aspx" caret="7183" fromTop="154" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Stylesheets/f:jquery.signaturepad.css" caret="76" fromTop="6" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Stylesheets/f:ConsentForm.css" caret="2167" fromTop="16" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentPrint.aspx" caret="5536" fromTop="120" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentPrint.aspx.cs" caret="560" fromTop="19" />
     </RecentFiles>
     <RecentEdits>
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsent.aspx.cs" caret="3728" fromTop="20" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsent.aspx.cs" caret="4518" fromTop="18" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsent.aspx.cs" caret="4787" fromTop="22" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsent.aspx.cs" caret="5056" fromTop="26" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsent.aspx.cs" caret="5325" fromTop="30" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsent.aspx.cs" caret="4125" fromTop="15" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx" caret="4317" fromTop="11" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx" caret="3957" fromTop="0" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx" caret="3593" fromTop="7" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx" caret="4550" fromTop="52" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx" caret="3227" fromTop="52" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx.cs" caret="3285" fromTop="17" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx.cs" caret="4120" fromTop="16" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx.cs" caret="4398" fromTop="20" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx.cs" caret="4672" fromTop="24" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx.cs" caret="4946" fromTop="28" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx.cs" caret="5221" fromTop="17" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx" caret="5082" fromTop="25" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx" caret="5455" fromTop="30" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx.cs" caret="7576" fromTop="18" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PatientConsent.aspx" caret="456" fromTop="9" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsent.aspx" caret="480" fromTop="9" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx" caret="499" fromTop="9" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PatientConsent.aspx" caret="598" fromTop="12" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PatientConsent.aspx" caret="5142" fromTop="30" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PatientConsent.aspx" caret="5334" fromTop="24" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Stylesheets/f:ConsentForm.css" caret="1341" fromTop="34" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Stylesheets/f:ConsentForm.css" caret="2155" fromTop="35" />
-      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PatientConsent.aspx" caret="3865" fromTop="2" />
       <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PatientConsent.aspx" caret="3389" fromTop="5" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsent.aspx.cs" caret="35" fromTop="2" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsent.aspx.cs" caret="3390" fromTop="16" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx" caret="4819" fromTop="31" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx" caret="2137" fromTop="31" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx.cs" caret="1508" fromTop="6" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx.cs" caret="2632" fromTop="23" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx.cs" caret="4012" fromTop="19" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx.cs" caret="8988" fromTop="20" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsent.aspx" caret="0" fromTop="0" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentPrint.aspx" caret="361" fromTop="4" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentPrint.aspx" caret="755" fromTop="14" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentPrint.aspx" caret="3647" fromTop="22" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentPrint.aspx" caret="4491" fromTop="29" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentPrint.aspx" caret="1018" fromTop="14" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentPrint.aspx" caret="725" fromTop="6" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentPrint.aspx" caret="1787" fromTop="3" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentPrint.aspx" caret="2119" fromTop="16" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentPrint.aspx" caret="2813" fromTop="30" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentPrint.aspx" caret="3239" fromTop="32" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentPrint.aspx" caret="4148" fromTop="33" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentPrint.aspx" caret="4572" fromTop="35" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Stylesheets/f:jquery.signaturepad.css" caret="76" fromTop="6" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Stylesheets/f:ConsentForm.css" caret="2160" fromTop="31" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Stylesheets/f:ConsentForm.css" caret="2267" fromTop="22" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentPrint.aspx" caret="512" fromTop="9" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentPrint.aspx" caret="5899" fromTop="36" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentPrint.aspx" caret="5665" fromTop="36" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentPrint.aspx.cs" caret="323" fromTop="11" />
+      <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentPrint.aspx.cs" caret="528" fromTop="19" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
