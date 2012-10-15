@@ -36,7 +36,7 @@
                             <asp:Label ID="LblName" runat="server" Enabled="false"></asp:Label>
                         </td>
                         <td>
-                            Id
+                            Patient#
                         </td>
                         <td>
                             <asp:Label ID="LblId" runat="server" Enabled="false"></asp:Label>
@@ -120,7 +120,8 @@
                     <tr>
                         <td colspan="5" class="center">
                             <asp:Button runat="server" ID="BtnSign" Text="Sign" OnClick="BtnSign_Click" />
-                            <asp:Button runat="server" ID="BtnPrint" Text="Print" OnClientClick="javascript:window.print();" />
+                            <asp:Button runat="server" ID="BtnPrint" Text="Print" 
+                                onclick="BtnPrint_Click" />
                             <asp:Button runat="server" ID="BtnReset" Text="Reset" OnClick="BtnReset_Click" />
                         </td>
                     </tr>
@@ -129,4 +130,5 @@
         </li>
     </ul>
     </form>
+
 </asp:Content>

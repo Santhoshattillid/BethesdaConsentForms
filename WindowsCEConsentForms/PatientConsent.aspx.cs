@@ -15,7 +15,7 @@ namespace WindowsCEConsentForms
                     // loading patient ids
                     var formHandlerServiceClient = new FormHandlerServiceClient();
                     DdlPatientIds.Items.Add("---------Select Patient--------");
-                    DdlFormList.Items.Add("------Select Consent Form Type------");
+                    DdlFormList.Items.Add("--Select Consent Form Type--");
                     var patientList = formHandlerServiceClient.GetPatientList();
                     if (patientList != null)
                     {
@@ -30,8 +30,10 @@ namespace WindowsCEConsentForms
                     DdlFormList.Items.Add("Pre Printed Order Form");
                     DdlPatientIds.SelectedIndex = 0;
                     DdlFormList.SelectedIndex = 0;
+
+                    Session["NewSession"] = true;
                 }
-                catch (Exception ex) { }
+                catch (Exception) { }
             }
         }
 
@@ -47,7 +49,7 @@ namespace WindowsCEConsentForms
                     var patientDetail = formHandlerServiceClient.GetPatientDetail(DdlPatientIds.SelectedValue);
                     if (patientDetail != null)
                     {
-                        LblId.Text = DdlPatientIds.SelectedValue; 
+                        LblId.Text = patientDetail.MRHash; // DdlPatientIds.SelectedValue; 
                         LblName.Text = patientDetail.name;
                         LblAdmDate.Text = patientDetail.AdmDate.ToString("MMM dd yyyy");
                         LblAge.Text = patientDetail.age.ToString();
@@ -97,7 +99,7 @@ namespace WindowsCEConsentForms
                 }
                 if (!ChkBCOrR.Checked && !ChkCCLC.Checked && !ChkEC.Checked && !ChkSurgicalConcent.Checked)
                 {
-                    LblError.Text = "Please Select any one of the able Consent";
+                    LblError.Text = "Please Select any one of the above Consent";
                     return;
                 }
 
@@ -144,6 +146,7 @@ namespace WindowsCEConsentForms
                     DdlPatientIds.SelectedIndex = 0;
                 if (DdlFormList.Items.Count > 0)
                     DdlFormList.SelectedIndex = 0;
+                LblId.Text = string.Empty;
                 LblAdmDate.Text = string.Empty;
                 LblAge.Text = string.Empty;
                 LblAttDr.Text = string.Empty;
@@ -156,7 +159,10 @@ namespace WindowsCEConsentForms
                 ChkEC.Checked = false;
                 ChkSurgicalConcent.Checked = false;
             }
-            catch (Exception ex) { }
+            catch (Exception)
+            {
+                return;
+            }
         }
 
         protected void DdlFormList_SelectedIndexChanged(object sender, EventArgs e)
@@ -164,12 +170,40 @@ namespace WindowsCEConsentForms
             try
             {
                 ChkSurgicalConcent.Enabled = (DdlFormList.SelectedIndex > 0);
-                ChkSurgicalConcent.Checked = (DdlFormList.SelectedIndex > 0);
+                //ChkSurgicalConcent.Checked = (DdlFormList.SelectedIndex > 0);
                 if (DdlFormList.SelectedIndex == 0)
                     LblError.Text = "Please select form type.";
             }
             catch (Exception ex)
             {
+            }
+        }
+
+        protected void BtnPrint_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LblError.Text = string.Empty;
+                if (DdlPatientIds.SelectedIndex == 0)
+                {
+                    LblError.Text = "Please select patient id and print";
+                    return;
+                }
+                if (DdlFormList.SelectedIndex == 0)
+                {
+                    LblError.Text = "Please select form type and print";
+                    return;
+                }
+                if (!ChkBCOrR.Checked && !ChkCCLC.Checked && !ChkEC.Checked && !ChkSurgicalConcent.Checked)
+                {
+                    LblError.Text = "Please select any one of the consent and print";
+                    return;
+                }
+                Response.Redirect("/SurgicalConsentPrint.aspx?PatientId=" + DdlPatientIds.SelectedValue);
+            }
+            catch (Exception)
+            {
+               
             }
         }
     }

@@ -22,13 +22,13 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// LblPatientId control.
+        /// LblPatientMRId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblPatientId;
+        protected global::System.Web.UI.WebControls.Label LblPatientMRId;
         
         /// <summary>
         /// LblPatientName control.
@@ -58,15 +58,6 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.WebControls.Label LblTime;
         
         /// <summary>
-        /// DdLProcedures control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdLProcedures;
-        
-        /// <summary>
         /// DdlPrimaryDoctors control.
         /// </summary>
         /// <remarks>
@@ -76,13 +67,13 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.WebControls.DropDownList DdlPrimaryDoctors;
         
         /// <summary>
-        /// DdlAssociatedDoctors control.
+        /// LblAssociatedDoctors control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlAssociatedDoctors;
+        protected global::System.Web.UI.WebControls.Label LblAssociatedDoctors;
         
         /// <summary>
         /// LnlPatientName control.
@@ -92,6 +83,15 @@ namespace WindowsCEConsentForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LnlPatientName;
+        
+        /// <summary>
+        /// DdLProcedures control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdLProcedures;
         
         /// <summary>
         /// LblError control.

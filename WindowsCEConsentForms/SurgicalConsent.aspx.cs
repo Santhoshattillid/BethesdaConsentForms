@@ -11,15 +11,24 @@ namespace WindowsCEConsentForms
         {
             try
             {
+                bool isItNewSession = true;
+                try
+                {
+                    isItNewSession = (bool) Session["NewSession"];
+                }
+                catch (Exception)
+                {}
+
                 for (int i = 0; i < 7; i++)
                     ViewState["Signature" + i] = string.Empty;
+
                 var formHandlerServiceClient = new FormHandlerServiceClient();
                 if (!IsPostBack)
                 {
                     DdLProcedures.Items.Clear();
                     DdLProcedures.Items.Add("-----Select Procedure-----");
                     foreach (string procedureName in formHandlerServiceClient.GetProcedurenameList())
-                        DdLProcedures.Items.Add(procedureName);
+                        DdLProcedures.Items.Add(procedureName.Trim());
                 }
                 string patientId = string.Empty;
                 try
@@ -30,7 +39,7 @@ namespace WindowsCEConsentForms
                 {
                     try
                     {
-                        patientId = Request.QueryString["PatientId"].ToString();
+                        patientId = Request.QueryString["PatientId"];
                     }
                     catch (Exception) {
                        // Response.Redirect("/PatientConsent.aspx");
@@ -44,7 +53,7 @@ namespace WindowsCEConsentForms
                     {
                         foreach (DataRow row in physicians.Rows)
                         {
-                            DdlPrimaryDoctors.Items.Add(new System.Web.UI.WebControls.ListItem(row["Lname"].ToString() + ", " + row["Fname"].ToString(), row["PhysicianId"].ToString()));
+                            DdlPrimaryDoctors.Items.Add(new System.Web.UI.WebControls.ListItem(row["Lname"] + ", " + row["Fname"], row["PhysicianId"].ToString()));
                         }
                     }
                     var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId);
@@ -52,27 +61,40 @@ namespace WindowsCEConsentForms
                     {
                         LblPatientName.Text = patientDetail.name;
                         LblDate.Text = patientDetail.AdmDate.ToString("MMM dd yyyy");
-                        LblPatientId.Text = patientId;
+                        LblPatientMRId.Text = patientDetail.MRHash;
                         LblTime.Text = DateTime.Now.ToShortTimeString();
                         //var primaryDoctor = formHandlerServiceClient.GetPrimaryDoctorDetail(patientDetail.PrimaryDoctorId);
                         //DdlPrimaryDoctors.SelectedValue = primaryDoctor.Lname + ", " + primaryDoctor.Fname;
-                        LoadAssociatedDoctors(patientDetail.AssociatedDoctorId);
+                        LoadAssociatedDoctors(patientDetail.PrimaryDoctorId);
                         //var associatedDoctor = formHandlerServiceClient.GetAssociateDoctorDetail(patientDetail.AssociatedDoctorId);
                        // DdlAssociatedDoctors.SelectedValue = associatedDoctor.Lname + ", " + associatedDoctor.Fname;
-                        DdlPrimaryDoctors.Items.FindByValue(patientDetail.PrimaryDoctorId).Selected = true;
-                        DdlAssociatedDoctors.Items.FindByValue(patientDetail.AssociatedDoctorId).Selected = true;
+                        if (!string.IsNullOrEmpty(patientDetail.PrimaryDoctorId))
+                            DdlPrimaryDoctors.Items.FindByValue(patientDetail.PrimaryDoctorId).Selected = true;
+
+                        //if (!string.IsNullOrEmpty(patientDetail.AssociatedDoctorId))
+                        //    DdlAssociatedDoctors.Items.FindByValue(patientDetail.AssociatedDoctorId).Selected = true;
+
                         if(!string.IsNullOrEmpty(patientDetail.ProcedureName))
-                            DdLProcedures.Items.FindByText(patientDetail.ProcedureName).Selected = true;
+                            DdLProcedures.Items.FindByText(patientDetail.ProcedureName.Trim()).Selected = true;
                     }
                     else 
                         DdlPrimaryDoctors.SelectedIndex = 0;
                 }
-                // Loading Signatures based on the selected patient
-                ViewState["Signature1"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature1");
-                ViewState["Signature2"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature2");
-                ViewState["Signature3"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature3");
-                ViewState["Signature4"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature4");
-                ViewState["Signature5"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature5");
+                if(!isItNewSession)
+                {
+                    // Loading Signatures based on the selected patient
+                    ViewState["Signature1"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent",
+                                                                                           "signature1");
+                    ViewState["Signature2"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent",
+                                                                                           "signature2");
+                    ViewState["Signature3"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent",
+                                                                                           "signature3");
+                    ViewState["Signature4"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent",
+                                                                                           "signature4");
+                    ViewState["Signature5"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent",
+                                                                                           "signature5");
+                    
+                }
             }
             catch (Exception ex)
             {
@@ -89,12 +111,12 @@ namespace WindowsCEConsentForms
                 if (DdlPrimaryDoctors.SelectedIndex > 0)
                 {
                     LoadAssociatedDoctors(DdlPrimaryDoctors.SelectedValue);
-                    DdlAssociatedDoctors.SelectedIndex = 0;
+                    //DdlAssociatedDoctors.SelectedIndex = 0;
                 }
                 else
                 {
                     LblError.Text = "Please select primary doctor";
-                    DdlAssociatedDoctors.Items.Clear();
+                    //DdlAssociatedDoctors.Items.Clear();
                 }
             }
             catch (Exception ex)
@@ -102,17 +124,21 @@ namespace WindowsCEConsentForms
             }
         }
 
-        private void LoadAssociatedDoctors( string PrimaryDoctorId)
+        private void LoadAssociatedDoctors(string PrimaryDoctorId)
         {
-            DdlAssociatedDoctors.Items.Clear();
+            //DdlAssociatedDoctors.Items.Clear();
             var formHandlerServiceClient = new FormHandlerServiceClient();
             var associatedDoctors = formHandlerServiceClient.GetAssociatedPhysiciansList(PrimaryDoctorId);
-            DdlAssociatedDoctors.Items.Add("----Select Associated Doctor----");
+            //DdlAssociatedDoctors.Items.Add("----Select Associated Doctor----");
+            LblAssociatedDoctors.Text = string.Empty;
             if (associatedDoctors != null)
             {
                 foreach (DataRow row in associatedDoctors.Rows)
                 {
-                    DdlAssociatedDoctors.Items.Add(new System.Web.UI.WebControls.ListItem(row["Lname"].ToString() + ", " + row["Fname"].ToString(), row["Id"].ToString()));
+                    //DdlAssociatedDoctors.Items.Add(new System.Web.UI.WebControls.ListItem(row["Lname"].ToString().Trim() + ", " + row["Fname"].ToString().Trim(), row["Id"].ToString().Trim()));
+                    if(!string.IsNullOrEmpty(LblAssociatedDoctors.Text))
+                        LblAssociatedDoctors.Text += " , ";
+                    LblAssociatedDoctors.Text += row["Lname"].ToString().Trim() + " " + row["Fname"].ToString().Trim();
                 }
             }
             else
@@ -137,7 +163,7 @@ namespace WindowsCEConsentForms
             // need to save signatures here
             try
             {
-                if (DdlPrimaryDoctors.SelectedIndex == 0 || DdlAssociatedDoctors.SelectedIndex == 0)
+                if (DdlPrimaryDoctors.SelectedIndex == 0) // || DdlAssociatedDoctors.SelectedIndex == 0)
                 {
                     LblError.Text = "Please select primary and associated doctor";
                     return;
@@ -168,7 +194,8 @@ namespace WindowsCEConsentForms
 
                 var formHandlerServiceClient = new FormHandlerServiceClient();
 
-                formHandlerServiceClient.UpdateDoctorAssociation(patientId, DdlPrimaryDoctors.SelectedValue, DdlAssociatedDoctors.SelectedValue);
+                //formHandlerServiceClient.UpdateDoctorAssociation(patientId, DdlPrimaryDoctors.SelectedValue, DdlAssociatedDoctors.SelectedValue);
+                formHandlerServiceClient.UpdateDoctorAssociation(patientId, DdlPrimaryDoctors.SelectedValue, "0");
                 formHandlerServiceClient.UpdatePatientProcedure(patientId, DdLProcedures.SelectedValue);
 
                 // updating signature1
@@ -190,66 +217,12 @@ namespace WindowsCEConsentForms
                 // updating signature4
                 bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage5"]);
                 result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), "SurgicalConsent", "signature5");
-                
 
-                //var document = new Document();
-                try
-                {
-                    //string tempPath = Path.GetTempPath() + "\\" + patientId + "Consent2.pdf";
+                Session["NewSession"] = false;
 
-                    //string tempPath = GetTempFilename() + "\\Consent2.pdf";
-                    //if (File.Exists(tempPath))
-                    //File.Delete(tempPath);
-
-                    //PdfWriter.GetInstance(document, new FileStream(tempPath, FileMode.OpenOrCreate));
-                    //document.Open();
-
-                    //var bytes = Encoding.ASCII.GetBytes(HdnImage1.Value);
-                    //var bytes = Encoding.ASCII.GetBytes(Uri.EscapeUriString(HdnImage1.Value));
-
-                    //var bytes = ASCIIEncoding.ASCII.GetBytes(HdnImage1.Value);
-                    //var bytes = ASCIIEncoding.ASCII.GetBytes(Uri.EscapeUriString(HdnImage1.Value));
-
-                    //var bytes = Convert.FromBase64String(Uri.EscapeUriString(HdnImage1.Value));
-                    //var bytes = Convert.FromBase64String(HdnImage1.Value);
-                    //var ms = new MemoryStream(bytes);
-
-                    //Image img = new ImgWMF(bytes);
-
-                    //document.Add(img);
-
-                    //System.Drawing.Image image1 = System.Drawing.Image.FromStream(ms);
-
-                    //string tempImagePath = GetTempFilename();
-                    //image1.Save(tempImagePath);
-                    //document.Add(Image.GetInstance(tempImagePath));
-
-                    /*
-                    bytes = Encoding.ASCII.GetBytes(HdnImage2.Value);
-                    image1 = Image.GetInstance(bytes);
-                    document.Add(image1);
-
-                    bytes = Encoding.ASCII.GetBytes(HdnImage3.Value);
-                    image1 = Image.GetInstance(bytes);
-                    document.Add(image1);
-
-                    bytes = Encoding.ASCII.GetBytes(HdnImage4.Value);
-                    image1 = Image.GetInstance(bytes);
-                    document.Add(image1);
-
-                    bytes = Encoding.ASCII.GetBytes(HdnImage5.Value);
-                    image1 = Image.GetInstance(bytes);
-                    document.Add(image1); */
-
-                    //document.Close();
-
-                    Response.Redirect("/SurgicalConsentDeclaration.aspx");
-                }
-                catch (Exception ex)
-                {
-                }
+                Response.Redirect("/SurgicalConsentDeclaration.aspx");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }

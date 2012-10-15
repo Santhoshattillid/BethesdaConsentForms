@@ -105,6 +105,12 @@
   <wsdl:message name="IFormHandlerService_UpdatePatientProcedure_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdatePatientProcedureResponse" />
   </wsdl:message>
+  <wsdl:message name="IFormHandlerService_UpdatePatientUnableSignReason_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePatientUnableSignReason" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_UpdatePatientUnableSignReason_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePatientUnableSignReasonResponse" />
+  </wsdl:message>
   <wsdl:portType name="IFormHandlerService">
     <wsdl:operation name="GetPatientDetails">
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientDetails" message="tns:IFormHandlerService_GetPatientDetails_InputMessage" />
@@ -169,6 +175,10 @@
     <wsdl:operation name="UpdatePatientProcedure">
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/UpdatePatientProcedure" message="tns:IFormHandlerService_UpdatePatientProcedure_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/UpdatePatientProcedureResponse" message="tns:IFormHandlerService_UpdatePatientProcedure_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePatientUnableSignReason">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/UpdatePatientUnableSignReason" message="tns:IFormHandlerService_UpdatePatientUnableSignReason_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/UpdatePatientUnableSignReasonResponse" message="tns:IFormHandlerService_UpdatePatientUnableSignReason_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IFormHandlerService" type="tns:IFormHandlerService">
@@ -310,6 +320,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdatePatientProcedure">
       <soap:operation soapAction="http://tempuri.org/IFormHandlerService/UpdatePatientProcedure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePatientUnableSignReason">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/UpdatePatientUnableSignReason" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

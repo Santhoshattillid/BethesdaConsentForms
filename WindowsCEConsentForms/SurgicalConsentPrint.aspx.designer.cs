@@ -22,13 +22,13 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// LblPatientId control.
+        /// LblPatientMRID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblPatientId;
+        protected global::System.Web.UI.WebControls.Label LblPatientMRID;
         
         /// <summary>
         /// LblPatientName control.
@@ -67,13 +67,13 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.WebControls.Label LblAuthoriseDoctors;
         
         /// <summary>
-        /// LnlPatientName control.
+        /// LblPatientName2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LnlPatientName;
+        protected global::System.Web.UI.WebControls.Label LblPatientName2;
         
         /// <summary>
         /// LblProcedureName control.

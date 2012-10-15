@@ -22,7 +22,7 @@
             <div class="right smallest">
                 MR # :</div>
             <div class="right small">
-                <asp:Label ID="LblPatientId" runat="server" CssClass="errorInfo"></asp:Label></div>
+                <asp:Label ID="LblPatientMRId" runat="server" CssClass="errorInfo"></asp:Label></div>
             <div class="right smallest">
                 Name :
             </div>

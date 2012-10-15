@@ -18,7 +18,7 @@
             <div class="right smallest">
                 MR # :</div>
             <div class="right small">
-                <asp:Label ID="LblPatientId" runat="server" CssClass="errorInfo"></asp:Label></div>
+                <asp:Label ID="LblPatientMRId" runat="server" CssClass="errorInfo"></asp:Label></div>
             <div class="right smallest">
                 Name :
             </div>
@@ -36,45 +36,14 @@
             <div class="clear">
             </div>
         </li>
-        <li>I here by authorize Doctor(s)
-        </li>
-        <li>
-            <table>
-                <tr>
-                    <td>
-                        Select Procedure
-                    </td>
-                    <td colspan="2">
-                        <asp:DropDownList ID="DdLProcedures" runat="server" >
-                        </asp:DropDownList>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Select Primary doctor
-                    </td>
-                    <td colspan="2">
-                        <asp:DropDownList ID="DdlPrimaryDoctors" runat="server" 
+        <li>I here by authorize Doctor(s) <asp:DropDownList ID="DdlPrimaryDoctors" runat="server" 
                             AutoPostBack="True" 
                             onselectedindexchanged="DdlPrimaryDoctors_SelectedIndexChanged">
-                        </asp:DropDownList>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Select Associated doctor
-                    </td>
-                    <td colspan="2">
-                        <asp:DropDownList ID="DdlAssociatedDoctors" runat="server">
-                        </asp:DropDownList>
-                    </td>
-                </tr>
-            </table>
-        </li>
-        <li>
-            to perform upon
+                        </asp:DropDownList> &nbsp; <asp:label id="LblAssociatedDoctors" runat="server" CssClass="errorInfo"></asp:label>
+            to perform upon &nbsp;
             <asp:Label runat="server" ID="LnlPatientName" CssClass="errorInfo"></asp:Label>
-            the following procedure or operation : Surgical Consent</li>
+            the procedure or operation : &nbsp; <asp:DropDownList ID="DdLProcedures" runat="server" >
+                        </asp:DropDownList></li>
         <li>
             <div class="sig1 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>

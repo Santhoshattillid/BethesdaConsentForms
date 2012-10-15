@@ -68,7 +68,9 @@
     <Content Include="BloodConsentOrRefusal.aspx" />
     <Content Include="CardiacCathLabConsentDeclaration.aspx" />
     <Content Include="BloodConsentOrRefusalDeclaration.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="EndoscopyConsentDeclaration.aspx" />
+    <Content Include="GetImage.ashx" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\DataSources\System.Xml.Linq.XElement.datasource" />
     <None Include="Service References\ConsentFormsService\basic.disco" />
@@ -88,6 +90,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Images\logo.png" />
+    <Content Include="PrintHeader.ascx" />
     <Content Include="Stylesheets\jquery.signaturepad.css" />
     <Content Include="Scripts\jquery.signaturepad.min.js" />
     <Content Include="Scripts\json2.min.js" />
@@ -104,6 +107,7 @@
     <Content Include="Stylesheets\ConsentForm.css" />
     <Content Include="SurgicalConsent.aspx" />
     <Content Include="SurgicalConsentPrint.aspx" />
+    <Content Include="SurgicalConsentPrintV2.aspx" />
     <Content Include="Thanks.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -151,12 +155,29 @@
     <Compile Include="BloodConsentOrRefusalDeclaration.aspx.designer.cs">
       <DependentUpon>BloodConsentOrRefusalDeclaration.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EndoscopyConsentDeclaration.aspx.cs">
       <DependentUpon>EndoscopyConsentDeclaration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="EndoscopyConsentDeclaration.aspx.designer.cs">
       <DependentUpon>EndoscopyConsentDeclaration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetImage.ashx.cs">
+      <DependentUpon>GetImage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="PrintHeader.ascx.cs">
+      <DependentUpon>PrintHeader.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrintHeader.ascx.designer.cs">
+      <DependentUpon>PrintHeader.ascx</DependentUpon>
     </Compile>
     <Compile Include="Service References\ConsentFormsService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -206,6 +227,13 @@
     </Compile>
     <Compile Include="SurgicalConsentPrint.aspx.designer.cs">
       <DependentUpon>SurgicalConsentPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SurgicalConsentPrintV2.aspx.cs">
+      <DependentUpon>SurgicalConsentPrintV2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SurgicalConsentPrintV2.aspx.designer.cs">
+      <DependentUpon>SurgicalConsentPrintV2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Thanks.aspx.cs">
       <DependentUpon>Thanks.aspx</DependentUpon>

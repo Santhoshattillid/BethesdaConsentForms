@@ -46,7 +46,8 @@
                 <asp:Label runat="server" ID="LbldoctorName" CssClass="errorInfo"></asp:Label>
                 to perform upon
                 <asp:Label runat="server" ID="LnlPatientName" CssClass="errorInfo"></asp:Label>
-                the following procedure or operation : Surgical Consent
+                the following procedure or operation : 
+                <asp:Label runat="server" ID="LblProcedurename" CssClass="errorInfo"></asp:Label>
             </p>
         </li>
         <li>

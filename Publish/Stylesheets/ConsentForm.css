@@ -79,7 +79,7 @@
 }
 .Container SELECT
 {
-	width: 300px;
+	width: 200px;
 	padding: 3px;
 }
 .Container INPUT
@@ -152,15 +152,40 @@
 {
 	width: auto;
 }
-.Container INPUT[type="button"]
-{
-	width: 80px;
-}
 .large
 {
 	width: 250px;
 }
 .noBorder
 {
-    border:none;
+	border: none;
+}
+.sigBox
+{
+	padding-top: 10px;
+	width: 200px;
+	height: 50px;
+	border: 1px solid #777;
+	float: left;
+}
+.Container .center INPUT
+{
+	width: 100px;
+	border: 1px solid #80A8BB;
+	padding: 4px;
+	background: #E9F6F2;
+	cursor: pointer;
+	margin-left: 5px;
+}
+.Container .center INPUT:hover
+{
+	background: #F5FBF9;
+}
+.print
+{
+	color: #444;
+}
+.Container, .print
+{
+	color: #222;
 }
