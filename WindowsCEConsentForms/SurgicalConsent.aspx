@@ -42,7 +42,7 @@
                         </asp:DropDownList> &nbsp; <asp:label id="LblAssociatedDoctors" runat="server" CssClass="errorInfo"></asp:label>
             to perform upon &nbsp;
             <asp:Label runat="server" ID="LnlPatientName" CssClass="errorInfo"></asp:Label>
-            the procedure or operation : &nbsp; <asp:DropDownList ID="DdLProcedures" runat="server" >
+            the procedure or operation : &nbsp; <asp:DropDownList ID="DdLProcedures" runat="server"   >
                         </asp:DropDownList></li>
         <li>
             <div class="sig1 sigWrapper">

@@ -10,8 +10,7 @@
             if ($('.HdnImage' + i.toString()).size() > 0)
                 value = $('.HdnImage' + i.toString()).val();
             if (value != undefined) {
-                try
-                {
+                try {
                     $('.sig' + +i.toString()).signaturePad(options).regenerate(value);
                 } catch (e) {
                     $('.sig' + +i.toString()).signaturePad(options);
@@ -19,6 +18,12 @@
             }
         }
     } catch (e) {
-
+    }
+    var procedures = $("select[id$='DdLProcedures']");
+    if (procedures.size() > 0) {
+        procedures.dropdownchecklist({
+            forceMultiple: true,
+            emptyText: "Please select procedure"
+        });
     }
 });

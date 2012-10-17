@@ -11,6 +11,7 @@ namespace WindowsCEConsentForms
         {
             try
             {
+                DdLProcedures.Attributes["multiple"] = "multiple";
                 bool isItNewSession = true;
                 try
                 {

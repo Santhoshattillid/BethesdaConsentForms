@@ -12,7 +12,6 @@
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PatientConsent.aspx.cs" caret="2322" fromTop="22" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PatientConsent.aspx" caret="1244" fromTop="0" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:Main.Master" caret="0" fromTop="0" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx.cs" caret="3300" fromTop="26" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentPrint.aspx" caret="361" fromTop="4" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentPrint.aspx.cs" caret="2948" fromTop="55" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PrintHeader.ascx.cs" caret="814" fromTop="20" />
@@ -20,6 +19,7 @@
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentPrintV2.aspx" caret="3990" fromTop="9" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PrintHeader.ascx" caret="1073" fromTop="7" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentPrintV2.aspx.cs" caret="1039" fromTop="16" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:SurgicalConsentDeclaration.aspx.cs" caret="0" fromTop="0" />
   </RecentFiles>
   <RecentEdits>
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:Thanks.aspx" caret="464" fromTop="10" />

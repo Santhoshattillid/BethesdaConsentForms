@@ -1,0 +1,9 @@
+﻿@media screen
+{
+    Body { font-family: verdana; font-weight: normal; font-size: 10pt;}
+    input { font-family: verdana; font-weight: normal; font-size: 10pt; color: #000099;}
+    option { font-family: verdana; font-weight: normal; font-size: 10pt; color: #000099;}
+    .TitleStyle { color: #330000; font-family: verdana; font-weight: bold; font-size: 14pt; }
+    .CaptionStyle { font-family: verdana; font-weight: bold; font-size: 10pt; color: #000;}
+    li.NoIconListStyle { list-style-type: none;  } 
+}

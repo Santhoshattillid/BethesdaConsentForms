@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Items</title>
+    <link href="Themes/EduPlain/EduPlain_Screen.css" rel="Stylesheet" type="text/css" />
+    <script src="jquery-1.3.2.js" type="text/javascript"></script>
+    <script type="text/javascript">
+function logTableFocusOn(multiSelectInstance) { $("#" + multiSelectInstance).attr("mouse_on_list", "1"); }
+function logTableFocusOut(multiSelectInstance) { $("#" + multiSelectInstance).attr("mouse_on_list", "0"); }
+function setFocusOnMultiSelectText(multiSelectInstance) { $("#Txt" + multiSelectInstance)[0].focus(); }
+function closeMultiSelectPnl(multiSelectInstance) 
+{ 
+    if ($("#" + multiSelectInstance).attr("mouse_on_list") == 0) { $("#PnlList" + multiSelectInstance).hide(); } 
+}
+jQuery.fn.setSelectedText = function(targetTextControlId, targetValueControlId) 
+{ 
+    $("#" + targetTextControlId).val("");
+    $("#" + targetValueControlId).val("");
+    return this.each(function()
+    { 
+        var me   = jQuery(this);
+        $("#" + targetTextControlId).val($("#" + targetTextControlId).val() + me.attr("text") + ";");
+        $("#" + targetValueControlId).val($("#" + targetValueControlId).val() + me.val() + ";");
+    });
+};
+function getSelectedText(targetMultiSelect){return $("#Txt" + targetMultiSelect).val();}
+function getSelectedValue(targetMultiSelect){return $("#HdnValue" + targetMultiSelect).val();}
+function toggleMultiSelectAll(multiSelectInstance) 
+{
+    if ($("#ChkToggleSelectAll" + multiSelectInstance).attr("checked") == true) 
+    {
+        $("#LstItems" + multiSelectInstance + " input").attr("checked", "checked");
+        $("#LstItems" + multiSelectInstance + " input:checked").setSelectedText("Txt" + multiSelectInstance, "HdnValue" + multiSelectInstance);
+    }
+    else 
+    {
+        $("#LstItems" + multiSelectInstance + " input").removeAttr("checked");
+        $("#Txt" + multiSelectInstance).val("");
+        $("#HdnValue" + multiSelectInstance).val("");
+    }
+}
+function OpenMultiSelectPnl(multiSelectInstance) 
+{
+    var offset = $("#Txt" + multiSelectInstance).offset();
+    $("#PnlList" + multiSelectInstance).css({ "left": offset.left + "px" });
+    $("#PnlList" + multiSelectInstance).css({ "top": (offset.top + 20) + "px" });
+    $("#PnlList" + multiSelectInstance).show();
+    setFocusOnMultiSelectText(multiSelectInstance);
+}
+function InitializeMultiSelectInstance(multiSelectInstance, postUrl)
+{
+    $("#PnlList" + multiSelectInstance).hide();
+    $("#ImgToggle" + multiSelectInstance).click(function() { OpenMultiSelectPnl(multiSelectInstance); });
+    $("#PnlList" + multiSelectInstance).mouseover(function() { logTableFocusOn(multiSelectInstance); });
+    $("#PnlList" + multiSelectInstance).mouseout(function() { logTableFocusOut(multiSelectInstance); });
+    $("#Txt" + multiSelectInstance).blur(function(event) { closeMultiSelectPnl(multiSelectInstance); });
+    $("#PnlList" + multiSelectInstance).click(function(event) { setFocusOnMultiSelectText(multiSelectInstance); });
+    $("#PnlList" + multiSelectInstance).mouseout(function(event) { setFocusOnMultiSelectText(multiSelectInstance); });
+    $("#Txt" + multiSelectInstance).keypress(function(event) { OpenMultiSelectPnl(multiSelectInstance); });
+    $.post(postUrl, {}, function(response) 
+    {
+        var oDateTime = new Date();
+        $("#DivStartTime" + multiSelectInstance).html(multiSelectInstance + " Start: " + oDateTime.getHours() + ":" + oDateTime.getMinutes() + ":" + oDateTime.getSeconds() + ":" + oDateTime.getMilliseconds()).show();
+        $("#LstItems" + multiSelectInstance).html(response);
+        var oDateTime = new Date();
+        $("#DivEndTime" + multiSelectInstance).html(multiSelectInstance + " End: " + oDateTime.getHours() + ":" + oDateTime.getMinutes() + ":" + oDateTime.getSeconds() + ":" + oDateTime.getMilliseconds()).show();
+        if($("#LstItems" + multiSelectInstance + " > ol").length > 0 ) 
+        { 
+            $("#LstItems" + multiSelectInstance + " > ol").attr("id", "LstItems" + multiSelectInstance);
+            $("#LstItems" + multiSelectInstance + " > ol").attr("style", "text-align: left; margin: 0px; padding:0px;" );
+        }
+        $("#LstItems" + multiSelectInstance + " li").addClass("NoIconListStyle");
+        $("#LstItems" + multiSelectInstance + " :input").change(function() 
+        { 
+            if($("#LstItems" + multiSelectInstance + " :input").length > $("#LstItems" + multiSelectInstance + " input:checked").length) 
+            { 
+                $("#ChkToggleSelectAll" + multiSelectInstance).removeAttr("checked"); 
+            } 
+            else 
+            { 
+                $("#ChkToggleSelectAll" + multiSelectInstance).attr("checked", "checked"); 
+            }
+            $("#LstItems" + multiSelectInstance + " input:checked").setSelectedText("Txt" + multiSelectInstance, "HdnValue" + multiSelectInstance); 
+        });
+    });
+    $("#ChkToggleSelectAll" + multiSelectInstance).change(function() { toggleMultiSelectAll(multiSelectInstance); });
+}
+function instantiateMultiSelect(containerID, postUrl)
+{  
+    var strHTMLContent = "<div style=\"vertical-align:bottom; border: solid 1px #789; padding: 1px; width: 180px;\">";
+    strHTMLContent += "<table cellpadding=\"0\" cellspacing=\"0\" style=\"border: none 0px transparent;\">"
+    strHTMLContent += "<tr><td><input type=\"text\" id=\"Txt" + containerID + "\" style=\"border: none 0px #fff;\"  /></td>";
+    strHTMLContent += "<td><img alt=\"click to toggle drop down\" id=\"ImgToggle" + containerID + "\" src=\"Themes/EduPlain/images/checkboxlisticon.jpg\" style=\"width: 23px; height: 21px; vertical-align:bottom;\" /></td></tr></table>";
+    strHTMLContent += "<input type=\"hidden\" id=\"HdnValue" + containerID + "\" /></div>";
+    strHTMLContent += "<div id=\"PnlList" + containerID + "\" style=\"position:absolute; padding: 1px; padding-left: 1px; background-color:#ddd; overflow-y: scroll; overflow-x: hidden; width: 214px; height: 304px;\">";
+    strHTMLContent += "<div><input id=\"ChkToggleSelectAll" + containerID + "\" type=\"checkbox\" />All</div>";
+    strHTMLContent += "<div id=\"LstCountries2Slot\"><ol id=\"LstItems" + containerID + "\"  style=\"margin:0px; padding:0px;text-align: left; \" ><li>Loading...</li></ol></div></div>";
+    strHTMLContent += "<div id=\"DivStartTime" + containerID + "\" style=\"display: none;\"></div><div id=\"DivEndTime" + containerID + "\" style=\"display: none;\"></div>";
+    $("#" + containerID).append(strHTMLContent);
+    InitializeMultiSelectInstance(containerID, postUrl);
+}
+$(document).ready(function() {
+    instantiateMultiSelect("MultiSelect3", "ItemListHandler.ashx?StrMethodName=GETCOUNTRIES");
+    instantiateMultiSelect("MultiSelect4", "ItemListHandler.ashx?StrMethodName=GETCOUNTRIES2");
+    $("#DivResult").hide();
+    $("#BtnSave").click(function() 
+    { 
+        $.post("ItemListHandler.ashx?StrMethodName=SHOWDATA", { StrSelectedText: getSelectedText("MultiSelect3"), StrSelectedValue: getSelectedValue("MultiSelect3") }, function(response) { $("#DivResult").html(response).show("slow"); } );
+    } );
+    $("#BtnClear").click(function(){ $("#DivResult").html("").hide("slow"); } );
+});
+</script>
+</head>
+<body>
+<form id="FrmSave">
+    <div id="MultiSelect3" mouse_on_list="0" >Section I:</div>
+    <div >
+    <div style="width: 300px;">We are testing multi-select check box lists. Note that in IE 6, the HTML drop down will come over the multi-select drop down. However
+    in IE8 and other browsers, this problem does not come.</div>
+    <div>sample text: <input type="text" /></div>
+    <div><select ><option>text</option><option>text</option></select></div>
+    </div>
+    <div id="MultiSelect4" mouse_on_list="0" >Section II:
+    </div>
+    <div><input type="button" id="BtnSave" value="Save First MultiSelect" /><input type="button" id="BtnClear" value="Clear Results" /></div>
+    <div id="DivResult"></div>
+</form>
+</body>
+</html>

@@ -89,8 +89,28 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Images\dropdown.png" />
+    <Content Include="Images\dropdown_hover.png" />
     <Content Include="Images\logo.png" />
     <Content Include="PrintHeader.ascx" />
+    <Content Include="Scripts\jquery-1.6.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.13.custom.min.js" />
+    <Content Include="Scripts\ui.core.js" />
+    <Content Include="Scripts\ui.dropdownchecklist.js" />
+    <Content Include="Stylesheets\dropdownchecklist.css" />
+    <Content Include="Stylesheets\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Stylesheets\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Stylesheets\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Stylesheets\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Stylesheets\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Stylesheets\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Stylesheets\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Stylesheets\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Stylesheets\images\ui-icons_222222_256x240.png" />
+    <Content Include="Stylesheets\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Stylesheets\images\ui-icons_454545_256x240.png" />
+    <Content Include="Stylesheets\images\ui-icons_888888_256x240.png" />
+    <Content Include="Stylesheets\images\ui-icons_cd0a0a_256x240.png" />
     <Content Include="Stylesheets\jquery.signaturepad.css" />
     <Content Include="Scripts\jquery.signaturepad.min.js" />
     <Content Include="Scripts\json2.min.js" />
