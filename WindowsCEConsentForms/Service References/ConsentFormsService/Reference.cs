@@ -382,8 +382,8 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientNumbers", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientNumbersResponse")]
         System.Xml.Linq.XElement GetPatientNumbers();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientIds", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientIdsResponse")]
-        string[] GetPatientIds();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientIdsList", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientIdsListResponse")]
+        string[] GetPatientIdsList();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientDetail", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientDetailResponse")]
         WindowsCEConsentForms.ConsentFormsService.PatientDetail GetPatientDetail(string patientNumber);
@@ -426,6 +426,18 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/UpdatePatientUnableSignReason", ReplyAction="http://tempuri.org/IFormHandlerService/UpdatePatientUnableSignReasonResponse")]
         void UpdatePatientUnableSignReason(string PatientId, string Reason);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientIds", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientIdsResponse")]
+        System.Xml.Linq.XElement GetPatientIds();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetAssociateDRDetails", ReplyAction="http://tempuri.org/IFormHandlerService/GetAssociateDRDetailsResponse")]
+        System.Xml.Linq.XElement GetAssociateDRDetails(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetAssociateDRDetail", ReplyAction="http://tempuri.org/IFormHandlerService/GetAssociateDRDetailResponse")]
+        System.Data.DataSet GetAssociateDRDetail(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientDetailWithDS", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientDetailWithDSResponse")]
+        System.Data.DataSet GetPatientDetailWithDS(string id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -463,8 +475,8 @@ namespace WindowsCEConsentForms.ConsentFormsService {
             return base.Channel.GetPatientNumbers();
         }
         
-        public string[] GetPatientIds() {
-            return base.Channel.GetPatientIds();
+        public string[] GetPatientIdsList() {
+            return base.Channel.GetPatientIdsList();
         }
         
         public WindowsCEConsentForms.ConsentFormsService.PatientDetail GetPatientDetail(string patientNumber) {
@@ -521,6 +533,22 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         
         public void UpdatePatientUnableSignReason(string PatientId, string Reason) {
             base.Channel.UpdatePatientUnableSignReason(PatientId, Reason);
+        }
+        
+        public System.Xml.Linq.XElement GetPatientIds() {
+            return base.Channel.GetPatientIds();
+        }
+        
+        public System.Xml.Linq.XElement GetAssociateDRDetails(int id) {
+            return base.Channel.GetAssociateDRDetails(id);
+        }
+        
+        public System.Data.DataSet GetAssociateDRDetail(int id) {
+            return base.Channel.GetAssociateDRDetail(id);
+        }
+        
+        public System.Data.DataSet GetPatientDetailWithDS(string id) {
+            return base.Channel.GetPatientDetailWithDS(id);
         }
     }
 }

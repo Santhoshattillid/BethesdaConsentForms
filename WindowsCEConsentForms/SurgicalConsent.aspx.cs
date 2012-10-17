@@ -27,7 +27,7 @@ namespace WindowsCEConsentForms
                 if (!IsPostBack)
                 {
                     DdLProcedures.Items.Clear();
-                    DdLProcedures.Items.Add("-----Select Procedure-----");
+                    //DdLProcedures.Items.Add("--------Selected Procedures--------");
                     foreach (string procedureName in formHandlerServiceClient.GetProcedurenameList())
                         DdLProcedures.Items.Add(procedureName.Trim());
                 }
@@ -57,29 +57,32 @@ namespace WindowsCEConsentForms
                             DdlPrimaryDoctors.Items.Add(new System.Web.UI.WebControls.ListItem(row["Lname"] + ", " + row["Fname"], row["PhysicianId"].ToString()));
                         }
                     }
-                    var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId);
-                    if (patientDetail != null)
+                    if (!string.IsNullOrEmpty(patientId))
                     {
-                        LblPatientName.Text = patientDetail.name;
-                        LblDate.Text = patientDetail.AdmDate.ToString("MMM dd yyyy");
-                        LblPatientMRId.Text = patientDetail.MRHash;
-                        LblTime.Text = DateTime.Now.ToShortTimeString();
-                        //var primaryDoctor = formHandlerServiceClient.GetPrimaryDoctorDetail(patientDetail.PrimaryDoctorId);
-                        //DdlPrimaryDoctors.SelectedValue = primaryDoctor.Lname + ", " + primaryDoctor.Fname;
-                        LoadAssociatedDoctors(patientDetail.PrimaryDoctorId);
-                        //var associatedDoctor = formHandlerServiceClient.GetAssociateDoctorDetail(patientDetail.AssociatedDoctorId);
-                       // DdlAssociatedDoctors.SelectedValue = associatedDoctor.Lname + ", " + associatedDoctor.Fname;
-                        if (!string.IsNullOrEmpty(patientDetail.PrimaryDoctorId))
-                            DdlPrimaryDoctors.Items.FindByValue(patientDetail.PrimaryDoctorId).Selected = true;
+                        var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId);
+                        if (patientDetail != null)
+                        {
+                            LblPatientName.Text = patientDetail.name;
+                            LblDate.Text = patientDetail.AdmDate.ToString("MMM dd yyyy");
+                            LblPatientMRId.Text = patientDetail.MRHash;
+                            LblTime.Text = DateTime.Now.ToShortTimeString();
+                            //var primaryDoctor = formHandlerServiceClient.GetPrimaryDoctorDetail(patientDetail.PrimaryDoctorId);
+                            //DdlPrimaryDoctors.SelectedValue = primaryDoctor.Lname + ", " + primaryDoctor.Fname;
+                            LoadAssociatedDoctors(patientDetail.PrimaryDoctorId);
+                            //var associatedDoctor = formHandlerServiceClient.GetAssociateDoctorDetail(patientDetail.AssociatedDoctorId);
+                            // DdlAssociatedDoctors.SelectedValue = associatedDoctor.Lname + ", " + associatedDoctor.Fname;
+                            if (!string.IsNullOrEmpty(patientDetail.PrimaryDoctorId))
+                                DdlPrimaryDoctors.Items.FindByValue(patientDetail.PrimaryDoctorId).Selected = true;
 
-                        //if (!string.IsNullOrEmpty(patientDetail.AssociatedDoctorId))
-                        //    DdlAssociatedDoctors.Items.FindByValue(patientDetail.AssociatedDoctorId).Selected = true;
+                            //if (!string.IsNullOrEmpty(patientDetail.AssociatedDoctorId))
+                            //    DdlAssociatedDoctors.Items.FindByValue(patientDetail.AssociatedDoctorId).Selected = true;
 
-                        if(!string.IsNullOrEmpty(patientDetail.ProcedureName))
-                            DdLProcedures.Items.FindByText(patientDetail.ProcedureName.Trim()).Selected = true;
+                            if (!string.IsNullOrEmpty(patientDetail.ProcedureName))
+                                DdLProcedures.Items.FindByText(patientDetail.ProcedureName.Trim()).Selected = true;
+                        }
+                        else
+                            DdlPrimaryDoctors.SelectedIndex = 0;
                     }
-                    else 
-                        DdlPrimaryDoctors.SelectedIndex = 0;
                 }
                 if(!isItNewSession)
                 {

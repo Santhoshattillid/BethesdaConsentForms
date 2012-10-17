@@ -71,6 +71,7 @@
     <Content Include="Default.aspx" />
     <Content Include="EndoscopyConsentDeclaration.aspx" />
     <Content Include="GetImage.ashx" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\DataSources\System.Xml.Linq.XElement.datasource" />
     <None Include="Service References\ConsentFormsService\basic.disco" />
@@ -81,6 +82,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ConsentFormsService\basic4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ConsentFormsService\basic5.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ConsentFormsService\configuration91.svcinfo" />
@@ -95,6 +99,7 @@
     <Content Include="PrintHeader.ascx" />
     <Content Include="Scripts\jquery-1.6.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.13.custom.min.js" />
+    <Content Include="Scripts\jquery.multiselect.min.js" />
     <Content Include="Scripts\ui.core.js" />
     <Content Include="Scripts\ui.dropdownchecklist.js" />
     <Content Include="Stylesheets\dropdownchecklist.css" />
@@ -111,9 +116,12 @@
     <Content Include="Stylesheets\images\ui-icons_454545_256x240.png" />
     <Content Include="Stylesheets\images\ui-icons_888888_256x240.png" />
     <Content Include="Stylesheets\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Stylesheets\jquery-ui.css" />
+    <Content Include="Stylesheets\jquery.multiselect.css" />
     <Content Include="Stylesheets\jquery.signaturepad.css" />
     <Content Include="Scripts\jquery.signaturepad.min.js" />
     <Content Include="Scripts\json2.min.js" />
+    <Content Include="Stylesheets\multiselect.css" />
     <Content Include="SurgicalConsentDeclaration.aspx" />
     <Content Include="EndoscopyConsent.aspx" />
     <Content Include="PatientConsent.aspx" />
