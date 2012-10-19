@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Text;
-using WindowsCEConsentForms.ConsentFormsService;
 using System.Data;
+using System.Text;
+using System.Web.UI.WebControls;
+using WindowsCEConsentForms.ConsentFormsService;
 
 namespace WindowsCEConsentForms
 {
@@ -15,10 +16,10 @@ namespace WindowsCEConsentForms
                 bool isItNewSession = true;
                 try
                 {
-                    isItNewSession = (bool) Session["NewSession"];
+                    isItNewSession = (bool)Session["NewSession"];
                 }
                 catch (Exception)
-                {}
+                { }
 
                 for (int i = 0; i < 7; i++)
                     ViewState["Signature" + i] = string.Empty;
@@ -27,6 +28,7 @@ namespace WindowsCEConsentForms
                 if (!IsPostBack)
                 {
                     DdLProcedures.Items.Clear();
+
                     //DdLProcedures.Items.Add("--------Selected Procedures--------");
                     foreach (string procedureName in formHandlerServiceClient.GetProcedurenameList())
                         DdLProcedures.Items.Add(procedureName.Trim());
@@ -42,8 +44,9 @@ namespace WindowsCEConsentForms
                     {
                         patientId = Request.QueryString["PatientId"];
                     }
-                    catch (Exception) {
-                       // Response.Redirect("/PatientConsent.aspx");
+                    catch (Exception)
+                    {
+                        // Response.Redirect("/PatientConsent.aspx");
                     }
                 }
                 if (!IsPostBack)
@@ -66,25 +69,34 @@ namespace WindowsCEConsentForms
                             LblDate.Text = patientDetail.AdmDate.ToString("MMM dd yyyy");
                             LblPatientMRId.Text = patientDetail.MRHash;
                             LblTime.Text = DateTime.Now.ToShortTimeString();
-                            //var primaryDoctor = formHandlerServiceClient.GetPrimaryDoctorDetail(patientDetail.PrimaryDoctorId);
-                            //DdlPrimaryDoctors.SelectedValue = primaryDoctor.Lname + ", " + primaryDoctor.Fname;
-                            LoadAssociatedDoctors(patientDetail.PrimaryDoctorId);
-                            //var associatedDoctor = formHandlerServiceClient.GetAssociateDoctorDetail(patientDetail.AssociatedDoctorId);
-                            // DdlAssociatedDoctors.SelectedValue = associatedDoctor.Lname + ", " + associatedDoctor.Fname;
-                            if (!string.IsNullOrEmpty(patientDetail.PrimaryDoctorId))
-                                DdlPrimaryDoctors.Items.FindByValue(patientDetail.PrimaryDoctorId).Selected = true;
 
-                            //if (!string.IsNullOrEmpty(patientDetail.AssociatedDoctorId))
-                            //    DdlAssociatedDoctors.Items.FindByValue(patientDetail.AssociatedDoctorId).Selected = true;
+                            if (!isItNewSession)
+                            {
+                                //var primaryDoctor = formHandlerServiceClient.GetPrimaryDoctorDetail(patientDetail.PrimaryDoctorId);
+                                //DdlPrimaryDoctors.SelectedValue = primaryDoctor.Lname + ", " + primaryDoctor.Fname;
+                                LoadAssociatedDoctors(patientDetail.PrimaryDoctorId);
 
-                            if (!string.IsNullOrEmpty(patientDetail.ProcedureName))
-                                DdLProcedures.Items.FindByText(patientDetail.ProcedureName.Trim()).Selected = true;
+                                //var associatedDoctor = formHandlerServiceClient.GetAssociateDoctorDetail(patientDetail.AssociatedDoctorId);
+                                // DdlAssociatedDoctors.SelectedValue = associatedDoctor.Lname + ", " + associatedDoctor.Fname;
+                                if (!string.IsNullOrEmpty(patientDetail.PrimaryDoctorId))
+                                    DdlPrimaryDoctors.Items.FindByValue(patientDetail.PrimaryDoctorId).Selected = true;
+
+                                //if (!string.IsNullOrEmpty(patientDetail.AssociatedDoctorId))
+                                //    DdlAssociatedDoctors.Items.FindByValue(patientDetail.AssociatedDoctorId).Selected = true;
+
+                                //if (!string.IsNullOrEmpty(patientDetail.ProcedureName))
+                                //    DdLProcedures.Items.FindByText(patientDetail.ProcedureName.Trim()).Selected = true;
+                                if (!string.IsNullOrEmpty(patientDetail.ProcedureName))
+                                {
+                                    HdnSelectedProcedures.Value = patientDetail.ProcedureName;
+                                }
+                            }
                         }
                         else
                             DdlPrimaryDoctors.SelectedIndex = 0;
                     }
                 }
-                if(!isItNewSession)
+                if (!isItNewSession)
                 {
                     // Loading Signatures based on the selected patient
                     ViewState["Signature1"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent",
@@ -97,10 +109,9 @@ namespace WindowsCEConsentForms
                                                                                            "signature4");
                     ViewState["Signature5"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent",
                                                                                            "signature5");
-                    
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Response.Redirect("/PatientConsent.aspx");
             }
@@ -115,11 +126,13 @@ namespace WindowsCEConsentForms
                 if (DdlPrimaryDoctors.SelectedIndex > 0)
                 {
                     LoadAssociatedDoctors(DdlPrimaryDoctors.SelectedValue);
+
                     //DdlAssociatedDoctors.SelectedIndex = 0;
                 }
                 else
                 {
                     LblError.Text = "Please select primary doctor";
+
                     //DdlAssociatedDoctors.Items.Clear();
                 }
             }
@@ -133,6 +146,7 @@ namespace WindowsCEConsentForms
             //DdlAssociatedDoctors.Items.Clear();
             var formHandlerServiceClient = new FormHandlerServiceClient();
             var associatedDoctors = formHandlerServiceClient.GetAssociatedPhysiciansList(PrimaryDoctorId);
+
             //DdlAssociatedDoctors.Items.Add("----Select Associated Doctor----");
             LblAssociatedDoctors.Text = string.Empty;
             if (associatedDoctors != null)
@@ -140,7 +154,7 @@ namespace WindowsCEConsentForms
                 foreach (DataRow row in associatedDoctors.Rows)
                 {
                     //DdlAssociatedDoctors.Items.Add(new System.Web.UI.WebControls.ListItem(row["Lname"].ToString().Trim() + ", " + row["Fname"].ToString().Trim(), row["Id"].ToString().Trim()));
-                    if(!string.IsNullOrEmpty(LblAssociatedDoctors.Text))
+                    if (!string.IsNullOrEmpty(LblAssociatedDoctors.Text))
                         LblAssociatedDoctors.Text += " , ";
                     LblAssociatedDoctors.Text += row["Lname"].ToString().Trim() + " " + row["Fname"].ToString().Trim();
                 }
@@ -173,13 +187,16 @@ namespace WindowsCEConsentForms
                     return;
                 }
 
-                if (DdLProcedures.SelectedIndex == 0)
+                string selectedProcedurenames = HdnSelectedProcedures.Value;
+
+                if (string.IsNullOrEmpty(selectedProcedurenames))
                 {
                     LblError.Text = "Please select the procedure and then go next.";
                     return;
                 }
 
                 if (string.IsNullOrEmpty(Request.Form["HdnImage1"]) || string.IsNullOrEmpty(Request.Form["HdnImage2"]) || string.IsNullOrEmpty(Request.Form["HdnImage3"]) || string.IsNullOrEmpty(Request.Form["HdnImage4"]) || string.IsNullOrEmpty(Request.Form["HdnImage5"]))
+
                 //if (true)
                 {
                     LblError.Text = "Please input your signatures in all the fields";
@@ -200,7 +217,8 @@ namespace WindowsCEConsentForms
 
                 //formHandlerServiceClient.UpdateDoctorAssociation(patientId, DdlPrimaryDoctors.SelectedValue, DdlAssociatedDoctors.SelectedValue);
                 formHandlerServiceClient.UpdateDoctorAssociation(patientId, DdlPrimaryDoctors.SelectedValue, "0");
-                formHandlerServiceClient.UpdatePatientProcedure(patientId, DdLProcedures.SelectedValue);
+
+                formHandlerServiceClient.UpdatePatientProcedures(patientId, selectedProcedurenames);
 
                 // updating signature1
                 var bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage1"]);
@@ -230,6 +248,5 @@ namespace WindowsCEConsentForms
             {
             }
         }
-       
     }
 }

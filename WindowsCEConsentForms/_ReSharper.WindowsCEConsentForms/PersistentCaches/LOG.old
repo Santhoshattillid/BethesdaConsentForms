@@ -1,5 +1,5 @@
-2012/10/16-12:04:36.701 ce4 Recovering log #6
-2012/10/16-12:04:36.728 ce4 Level-0 table #8: started
-2012/10/16-12:04:36.774 ce4 Level-0 table #8: 53023 bytes OK
-2012/10/16-12:04:36.799 ce4 Delete type=0 #6
-2012/10/16-12:04:36.799 ce4 Delete type=3 #4
+2012/10/17-10:47:40.351 908 Recovering log #9
+2012/10/17-10:47:40.360 908 Level-0 table #11: started
+2012/10/17-10:47:40.379 908 Level-0 table #11: 1773 bytes OK
+2012/10/17-10:47:40.404 908 Delete type=0 #9
+2012/10/17-10:47:40.404 908 Delete type=3 #7

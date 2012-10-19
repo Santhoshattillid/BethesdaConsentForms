@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Data;
+using System.Drawing.Imaging;
 using System.Text;
 using WindowsCEConsentForms.ConsentFormsService;
-using System.Drawing.Imaging;
 
 namespace WindowsCEConsentForms
 {
@@ -46,25 +46,27 @@ namespace WindowsCEConsentForms
                             var doctorDetail = formHandlerServiceClient.GetPrimaryDoctorDetail(patientDetail.PrimaryDoctorId);
                             if (doctorDetail != null)
                                 LbldoctorName.Text += doctorDetail.Fname + " " + doctorDetail.Lname;
-                            foreach (DataRow  row in formHandlerServiceClient.GetAssociatedPhysiciansList(patientDetail.PrimaryDoctorId).Rows)
+                            foreach (DataRow row in formHandlerServiceClient.GetAssociatedPhysiciansList(patientDetail.PrimaryDoctorId).Rows)
                             {
                                 LbldoctorName.Text += " " + row["Lname"].ToString().Trim() + " " + row["Fname"].ToString().Trim();
                             }
-                            
                         }
+
                         //if (!string.IsNullOrEmpty(patientDetail.AssociatedDoctorId))
                         //{
-                            //var doctorDetail = formHandlerServiceClient.GetAssociateDoctorDetail(patientDetail.PrimaryDoctorId);
-                            //if (doctorDetail != null)
-                            //{
-                            //    if (!string.IsNullOrEmpty(LbldoctorName.Text))
-                            //        LbldoctorName.Text += "  ,  ";
-                            //    LbldoctorName.Text += doctorDetail.Fname + " " + doctorDetail.Lname;
-                            //}  
+                        //var doctorDetail = formHandlerServiceClient.GetAssociateDoctorDetail(patientDetail.PrimaryDoctorId);
+                        //if (doctorDetail != null)
+                        //{
+                        //    if (!string.IsNullOrEmpty(LbldoctorName.Text))
+                        //        LbldoctorName.Text += "  ,  ";
+                        //    LbldoctorName.Text += doctorDetail.Fname + " " + doctorDetail.Lname;
+                        //}
                         //}
                         LblProcedurename.Text = patientDetail.ProcedureName;
+
                         //TxtPatientNotSignedBecause.Text = patientDetail.UnableToSignReason;
                         /*
+
                         // Loading Signatures based on the selected patient
                         ViewState["Signature1"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature7");
                         ViewState["Signature2"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature8");
@@ -92,6 +94,34 @@ namespace WindowsCEConsentForms
                 //    return;
                 //}
 
+                //validation
+
+                LblError.Text = string.Empty;
+
+                if (ChkPatientisUnableToSign.Checked)
+                {
+                    if (string.IsNullOrEmpty(TxtPatientNotSignedBecause.Text.Trim()))
+                    {
+                        LblError.Text = "Please input reason for why patient not able sign.";
+                    }
+                    if (string.IsNullOrEmpty(Request.Form["HdnImage1"]))
+                    {
+                        LblError.Text += " <br /> Please input patient authorized person signature.";
+                    }
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(Request.Form["HdnImage2"]))
+                    {
+                        LblError.Text += " <br /> Please input patient  signature.";
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(LblError.Text))
+                {
+                    return;
+                }
+
                 // uploading images here
                 string patientId = string.Empty;
                 try
@@ -109,15 +139,15 @@ namespace WindowsCEConsentForms
                 //bool result = formHandlerServiceClient.SavePatientSignature(patientId, ASCIIEncoding.ASCII.GetString(bytes), "SurgicalConsent", "signature6");
 
                 // updating signature2
-                var bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage1"]);
+                var bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage1"]); // If patient is unable to sing/person authorized to sign consent / relationship to patient
                 var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), "SurgicalConsent", "signature7");
 
                 // updating signature3
-                bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage2"]);
+                bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage2"]); // Patient Signature
                 result = formHandlerServiceClient.SavePatientSignature(patientId, ASCIIEncoding.ASCII.GetString(bytes), "SurgicalConsent", "signature8");
 
                 // updating signature4
-                bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage3"]);
+                bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage3"]); // Translated by (name & empl.#)
                 result = formHandlerServiceClient.SavePatientSignature(patientId, ASCIIEncoding.ASCII.GetString(bytes), "SurgicalConsent", "signature9");
 
                 // updating signature5
@@ -144,7 +174,7 @@ namespace WindowsCEConsentForms
                 formHandlerServiceClient.UpdateTrackingInfo(patientId, new TrackingInfo { IP = ip, Device = device });
                 formHandlerServiceClient.UpdatePatientUnableSignReason(patientId, TxtPatientNotSignedBecause.Text);
 
-                formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/SurgicalConsentPrint.aspx?PatientId=" + patientId, patientId, "SurgicalConsentForm1");
+                formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/SurgicalConsentPrintV3.aspx?PatientId=" + patientId, patientId, "SurgicalConsentForm1");
 
                 if ((bool)Session["CardiacCathLabConsent"])
                 {

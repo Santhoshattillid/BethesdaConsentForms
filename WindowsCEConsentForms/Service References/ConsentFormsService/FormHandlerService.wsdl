@@ -118,6 +118,12 @@
   <wsdl:message name="IFormHandlerService_GetPatientIds_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPatientIdsResponse" />
   </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetPatientID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientID" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetPatientID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientIDResponse" />
+  </wsdl:message>
   <wsdl:message name="IFormHandlerService_GetAssociateDRDetails_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAssociateDRDetails" />
   </wsdl:message>
@@ -135,6 +141,12 @@
   </wsdl:message>
   <wsdl:message name="IFormHandlerService_GetPatientDetailWithDS_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPatientDetailWithDSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_UpdatePatientProcedures_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePatientProcedures" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_UpdatePatientProcedures_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePatientProceduresResponse" />
   </wsdl:message>
   <wsdl:portType name="IFormHandlerService">
     <wsdl:operation name="GetPatientDetails">
@@ -209,6 +221,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientIds" message="tns:IFormHandlerService_GetPatientIds_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientIdsResponse" message="tns:IFormHandlerService_GetPatientIds_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetPatientID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientID" message="tns:IFormHandlerService_GetPatientID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientIDResponse" message="tns:IFormHandlerService_GetPatientID_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAssociateDRDetails">
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetAssociateDRDetails" message="tns:IFormHandlerService_GetAssociateDRDetails_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetAssociateDRDetailsResponse" message="tns:IFormHandlerService_GetAssociateDRDetails_OutputMessage" />
@@ -220,6 +236,10 @@
     <wsdl:operation name="GetPatientDetailWithDS">
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientDetailWithDS" message="tns:IFormHandlerService_GetPatientDetailWithDS_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientDetailWithDSResponse" message="tns:IFormHandlerService_GetPatientDetailWithDS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePatientProcedures">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/UpdatePatientProcedures" message="tns:IFormHandlerService_UpdatePatientProcedures_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/UpdatePatientProceduresResponse" message="tns:IFormHandlerService_UpdatePatientProcedures_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IFormHandlerService" type="tns:IFormHandlerService">
@@ -386,6 +406,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetPatientID">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/GetPatientID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAssociateDRDetails">
       <soap:operation soapAction="http://tempuri.org/IFormHandlerService/GetAssociateDRDetails" style="document" />
       <wsdl:input>
@@ -406,6 +435,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetPatientDetailWithDS">
       <soap:operation soapAction="http://tempuri.org/IFormHandlerService/GetPatientDetailWithDS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePatientProcedures">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/UpdatePatientProcedures" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

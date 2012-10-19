@@ -430,6 +430,9 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientIds", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientIdsResponse")]
         System.Xml.Linq.XElement GetPatientIds();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientID", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientIDResponse")]
+        System.Xml.Linq.XElement GetPatientID();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetAssociateDRDetails", ReplyAction="http://tempuri.org/IFormHandlerService/GetAssociateDRDetailsResponse")]
         System.Xml.Linq.XElement GetAssociateDRDetails(int id);
         
@@ -438,6 +441,9 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientDetailWithDS", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientDetailWithDSResponse")]
         System.Data.DataSet GetPatientDetailWithDS(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/UpdatePatientProcedures", ReplyAction="http://tempuri.org/IFormHandlerService/UpdatePatientProceduresResponse")]
+        void UpdatePatientProcedures(string PatientId, string Procedurenames);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -539,6 +545,10 @@ namespace WindowsCEConsentForms.ConsentFormsService {
             return base.Channel.GetPatientIds();
         }
         
+        public System.Xml.Linq.XElement GetPatientID() {
+            return base.Channel.GetPatientID();
+        }
+        
         public System.Xml.Linq.XElement GetAssociateDRDetails(int id) {
             return base.Channel.GetAssociateDRDetails(id);
         }
@@ -549,6 +559,10 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         
         public System.Data.DataSet GetPatientDetailWithDS(string id) {
             return base.Channel.GetPatientDetailWithDS(id);
+        }
+        
+        public void UpdatePatientProcedures(string PatientId, string Procedurenames) {
+            base.Channel.UpdatePatientProcedures(PatientId, Procedurenames);
         }
     }
 }
