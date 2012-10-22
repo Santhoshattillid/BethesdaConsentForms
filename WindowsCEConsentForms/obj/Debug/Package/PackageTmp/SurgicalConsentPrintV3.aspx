@@ -179,18 +179,6 @@
             <div class="clear">
             </div>
         </li>
-        <li>
-            <div class="sigBox">
-                <asp:Image runat="server" ID="ImgSignature5" />
-            </div>
-            <div class="right">
-                The Physician has explained to me that sometimes during surgery, it is discovered
-                that additional surgery is needed. If such additional surgery is deemed necessary
-                by the Physician, I permit the Physician to proceed.
-            </div>
-            <div class="clear">
-            </div>
-        </li>
     </ul>
     <ul class="content print">
         <li>
@@ -226,6 +214,18 @@
                 </tr>
             </table>
         </li>
+        <li>
+            <div class="sigBox">
+                <asp:Image runat="server" ID="ImgSignature5" />
+            </div>
+            <div class="right">
+                The Physician has explained to me that sometimes during surgery, it is discovered
+                that additional surgery is needed. If such additional surgery is deemed necessary
+                by the Physician, I permit the Physician to proceed.
+            </div>
+            <div class="clear">
+            </div>
+        </li>
         <li>I UNDERSTAND that no guarantees have been made to me that this operation will improve
             my condition. </li>
         <li>
@@ -240,7 +240,7 @@
                     <td>
                         <asp:Panel runat="server" ID="PnlAuthorizedSignature">
                             <div class="sigBox">
-                                <asp:Image runat="server" ID="ImgSignature8" />
+                                <asp:Image runat="server" ID="ImgSignature6" />
                             </div>
                             <asp:Label runat="server" ID="LblAuthorizedSignDateTime"></asp:Label>
                             <div class="clear">
@@ -252,7 +252,7 @@
                 <tr>
                     <td>
                         <div class="sigBox">
-                            <asp:Image runat="server" ID="ImgSignature7" />
+                            <asp:Image runat="server" ID="ImgSignature8" />
                         </div>
                         <asp:Label runat="server" ID="LblTranslatedDateTime"></asp:Label>
                         <div class="clear">
@@ -262,7 +262,7 @@
                     <td>
                         <asp:Panel runat="server" ID="PnlPatientSignature">
                             <div class="sigBox">
-                                <asp:Image runat="server" ID="ImgSignature6" />
+                                <asp:Image runat="server" ID="ImgSignature7" />
                             </div>
                             <asp:Label runat="server" ID="LblSignatureDateTime"></asp:Label>
                             <div class="clear">

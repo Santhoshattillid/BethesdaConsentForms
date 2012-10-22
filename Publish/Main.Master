@@ -4,13 +4,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Bethesda Consent Forms</title>
-    <script src="Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-1.6.1.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-ui-1.8.13.custom.min.js" type="text/javascript"></script>
     <script src="Scripts/jquery.signaturepad.min.js" type="text/javascript"></script>
     <script src="Scripts/flashcanvas.js" type="text/javascript"></script>
     <script src="Scripts/Signature.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.multiselect.min.js" type="text/javascript"></script>
+    
 
     <link href="Stylesheets/jquery.signaturepad.css" rel="stylesheet" type="text/css" />
     <link href="Stylesheets/ConsentForm.css" rel="stylesheet" type="text/css" />
+    <link href="Stylesheets/multiselect.css" rel="stylesheet" type="text/css" />
+    <link href="Stylesheets/jquery-ui.css" rel="stylesheet" type="text/css" />
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

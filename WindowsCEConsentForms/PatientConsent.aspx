@@ -151,7 +151,6 @@
                     <tr>
                         <td colspan="5" class="center">
                             <asp:Button runat="server" ID="BtnSign" Text="Sign" OnClick="BtnSign_Click" />
-                            <asp:Button runat="server" ID="BtnPrint" Text="Print" OnClick="BtnPrint_Click" />
                             <asp:Button runat="server" ID="BtnReset" Text="Reset" OnClick="BtnReset_Click" />
                         </td>
                     </tr>

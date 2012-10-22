@@ -64,12 +64,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CardiacCathLabConsent.aspx" />
-    <Content Include="BloodConsentOrRefusal.aspx" />
-    <Content Include="CardiacCathLabConsentDeclaration.aspx" />
-    <Content Include="BloodConsentOrRefusalDeclaration.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="EndoscopyConsentDeclaration.aspx" />
     <Content Include="GetImage.ashx" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
@@ -137,7 +132,6 @@
     <Content Include="Scripts\json2.min.js" />
     <Content Include="Stylesheets\multiselect.css" />
     <Content Include="SurgicalConsentDeclaration.aspx" />
-    <Content Include="EndoscopyConsent.aspx" />
     <Content Include="PatientConsent.aspx" />
     <Content Include="Scripts\flashcanvas.js" />
     <Content Include="Scripts\flashcanvas.swf" />
@@ -170,47 +164,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CardiacCathLabConsent.aspx.cs">
-      <DependentUpon>CardiacCathLabConsent.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CardiacCathLabConsent.aspx.designer.cs">
-      <DependentUpon>CardiacCathLabConsent.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="BloodConsentOrRefusal.aspx.cs">
-      <DependentUpon>BloodConsentOrRefusal.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BloodConsentOrRefusal.aspx.designer.cs">
-      <DependentUpon>BloodConsentOrRefusal.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CardiacCathLabConsentDeclaration.aspx.cs">
-      <DependentUpon>CardiacCathLabConsentDeclaration.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CardiacCathLabConsentDeclaration.aspx.designer.cs">
-      <DependentUpon>CardiacCathLabConsentDeclaration.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="BloodConsentOrRefusalDeclaration.aspx.cs">
-      <DependentUpon>BloodConsentOrRefusalDeclaration.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BloodConsentOrRefusalDeclaration.aspx.designer.cs">
-      <DependentUpon>BloodConsentOrRefusalDeclaration.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EndoscopyConsentDeclaration.aspx.cs">
-      <DependentUpon>EndoscopyConsentDeclaration.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EndoscopyConsentDeclaration.aspx.designer.cs">
-      <DependentUpon>EndoscopyConsentDeclaration.aspx</DependentUpon>
     </Compile>
     <Compile Include="GetImage.ashx.cs">
       <DependentUpon>GetImage.ashx</DependentUpon>
@@ -234,13 +193,6 @@
     </Compile>
     <Compile Include="SurgicalConsentDeclaration.aspx.designer.cs">
       <DependentUpon>SurgicalConsentDeclaration.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EndoscopyConsent.aspx.cs">
-      <DependentUpon>EndoscopyConsent.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EndoscopyConsent.aspx.designer.cs">
-      <DependentUpon>EndoscopyConsent.aspx</DependentUpon>
     </Compile>
     <Compile Include="PatientConsent.aspx.cs">
       <DependentUpon>PatientConsent.aspx</DependentUpon>
@@ -292,6 +244,7 @@
     <Compile Include="Thanks.aspx.designer.cs">
       <DependentUpon>Thanks.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

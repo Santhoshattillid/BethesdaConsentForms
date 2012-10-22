@@ -74,6 +74,7 @@ namespace WindowsCEConsentForms
                         PnlPatientUnableToSignBecause.Visible = false;
                         PnlAuthorizedSignature.Visible = false;
                     }
+
                     ImgSignature6.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=7";
                     ImgSignature7.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=8";
                     ImgSignature8.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=9";

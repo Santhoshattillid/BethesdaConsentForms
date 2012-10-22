@@ -1,24 +1,30 @@
 ﻿$(function () {
-    try {
-        for (var i = 0; i < 7; i++) {
-            var options = {
-                'drawOnly': true,
-                'output': '.HdnImage' + i.toString(),
-                'validateFields': false
-            };
-            var value = undefined;
-            if ($('.HdnImage' + i.toString()).size() > 0)
-                value = $('.HdnImage' + i.toString()).val();
-            if (value != undefined) {
-                try {
-                    $('.sig' + +i.toString()).signaturePad(options).regenerate(value);
-                } catch (e) {
-                    $('.sig' + +i.toString()).signaturePad(options);
+    function resetSignatures() {
+        try {
+            for (var i = 0; i < 7; i++) {
+                var options = {
+                    'drawOnly': true,
+                    'output': '.HdnImage' + i.toString(),
+                    'validateFields': false
+                };
+                var value = undefined;
+                if ($('.HdnImage' + i.toString()).size() > 0)
+                    value = $('.HdnImage' + i.toString()).val();
+                if (value != undefined) {
+                    try {
+                        $('.sig' + +i.toString()).signaturePad(options).regenerate(value);
+                    } catch (e) {
+                        $('.sig' + +i.toString()).signaturePad(options);
+                    }
                 }
             }
+        } catch (e) {
         }
-    } catch (e) {
     }
+
+    //resetSignatures();
+
+    //procedure method
     var procedures = $("select[id$='DdLProcedures']");
     if (procedures.size() > 0) {
         procedures.multiselect({
@@ -57,23 +63,38 @@
         }
     }
 
+    resetSignatures();
+
+    return;
     // Patient not able to sign check box handling here
     var checkbox = $('input[id$="ChkPatientisUnableToSign"]');
     if ($('input[id$="TxtPatientNotSignedBecause"]').val() == null || $('input[id$="TxtPatientNotSignedBecause"]').val() == '') {
-        $('.PatientReason').hide();
-        $('.PatientSign').show();
+        hideElement($('.PatientReason'));
+        showElement($('.PatientSign'));
+        setTimeout(resetSignatures, 1000);
     } else {
-        $('.DivReason').show();
-        $('.PatientSign').hide();
+        showElement($('.PatientReason'));
+        hideElement($('.PatientSign'));
+        setTimeout(resetSignatures, 1000);
     }
     checkbox.bind('click', function () {
         if ($(this).is(':checked')) {
-            $('.PatientReason').show();
-            $('.PatientSign').hide();
+            showElement($('.PatientReason'));
+            hideElement($('.PatientSign'));
+            setTimeout(resetSignatures, 1000);
             $('input[id$="TxtPatientNotSignedBecause"]').focus();
         } else {
-            $('.PatientReason').hide();
-            $('.PatientSign').show();
+            hideElement($('.PatientReason'));
+            showElement($('.PatientSign'));
+            setTimeout(resetSignatures, 1000);
         }
     });
+
+    function hideElement(element) {
+        element.hide();
+    }
+
+    function showElement(element) {
+        element.show();
+    }
 });

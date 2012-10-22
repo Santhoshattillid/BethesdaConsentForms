@@ -88,7 +88,9 @@
         </li>
         <li>
             <div class="boxLeft">
-                <asp:CheckBox runat="server" ID="ChkPatientisUnableToSign" Text="Patient is unable to sign?" />
+                <asp:CheckBox runat="server" ID="ChkPatientisUnableToSign" Text="Patient is unable to sign?"
+                    AutoPostBack="True"
+                    oncheckedchanged="ChkPatientisUnableToSign_CheckedChanged" />
             </div>
             <!--
             <div id="TxtSignature1" class="signature" hdfld="HdnImage1">
@@ -97,30 +99,37 @@
             </div>
             <asp:HiddenField runat="server" ID="HdnImage1" /> -->
         </li>
-        <li class="PatientReason">Please specify reason
-            <br />
-            <asp:TextBox runat="server" ID="TxtPatientNotSignedBecause"></asp:TextBox>
+        <li class="PatientReason">
+            <asp:Panel runat="server" ID="PnlPatientReason1">
+                Please specify reason
+                <br />
+                <asp:TextBox runat="server" ID="TxtPatientNotSignedBecause"></asp:TextBox>
+            </asp:Panel>
         </li>
         <li class="PatientReason">
-            <div>
-                If patient is unable to sing/person authorized to sign consent / relationship to
-                patient.</div>
-            <div class="sig1 sigWrapper">
-                <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage1" class="HdnImage1" value='<%= ViewState["Signature1"].ToString() %>' />
-            </div>
-            <div class="clear">
-            </div>
+            <asp:Panel runat="server" ID="PnlPatientReason2">
+                <div>
+                    If patient is unable to sing/person authorized to sign consent / relationship to
+                    patient.</div>
+                <div class="sig1 sigWrapper">
+                    <canvas class="pad" width="198" height="55"></canvas>
+                    <input type="hidden" name="HdnImage1" class="HdnImage1" value='<%= ViewState["Signature1"].ToString() %>' />
+                </div>
+                <div class="clear">
+                </div>
+            </asp:Panel>
         </li>
         <li class="PatientSign">
-            <div>
-                Patient Signature</div>
-            <div class="sig2 sigWrapper">
-                <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage2" class="HdnImage2" value='<%= ViewState["Signature2"].ToString() %>' />
-            </div>
-            <div class="clear">
-            </div>
+            <asp:Panel runat="server" ID="PnlPatientSign">
+                <div>
+                    Patient Signature</div>
+                <div class="sig2 sigWrapper">
+                    <canvas class="pad" width="198" height="55"></canvas>
+                    <input type="hidden" name="HdnImage2" class="HdnImage2" value='<%= ViewState["Signature2"].ToString() %>' />
+                </div>
+                <div class="clear">
+                </div>
+            </asp:Panel>
         </li>
         <li>
             <div>

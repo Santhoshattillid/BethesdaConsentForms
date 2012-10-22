@@ -202,13 +202,13 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.WebControls.Panel PnlAuthorizedSignature;
         
         /// <summary>
-        /// ImgSignature8 control.
+        /// ImgSignature6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ImgSignature8;
+        protected global::System.Web.UI.WebControls.Image ImgSignature6;
         
         /// <summary>
         /// LblAuthorizedSignDateTime control.
@@ -220,13 +220,13 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.WebControls.Label LblAuthorizedSignDateTime;
         
         /// <summary>
-        /// ImgSignature7 control.
+        /// ImgSignature8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ImgSignature7;
+        protected global::System.Web.UI.WebControls.Image ImgSignature8;
         
         /// <summary>
         /// LblTranslatedDateTime control.
@@ -247,13 +247,13 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.WebControls.Panel PnlPatientSignature;
         
         /// <summary>
-        /// ImgSignature6 control.
+        /// ImgSignature7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ImgSignature6;
+        protected global::System.Web.UI.WebControls.Image ImgSignature7;
         
         /// <summary>
         /// LblSignatureDateTime control.

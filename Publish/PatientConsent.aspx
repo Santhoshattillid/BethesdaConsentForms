@@ -5,9 +5,39 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
-    <ul>
+    <ul class="content">
         <li>
             <img src="Images/logo.png" />
+        </li>
+        <li>
+            <table class="noBorder">
+                <tr>
+                    <td class="edgeColumn">
+                        <h3>
+                            Bethesda Hospital East
+                            <br />
+                            2815 S. Seacrest Blvd
+                            <br />
+                            Boynton Beach,FL 33435
+                            <br />
+                            (561) 737-7733
+                        </h3>
+                    </td>
+                    <td class="middleColumn">
+                    </td>
+                    <td class="edgeColumn">
+                        <h3>
+                            Bethesda Hospital West
+                            <br />
+                            9655 Boynton Beach Blvd,
+                            <br />
+                            Boynton Beach, FL 33472
+                            <br />
+                            (561) 336-7000
+                        </h3>
+                    </td>
+                </tr>
+            </table>
         </li>
         <li>
             <table>
@@ -36,7 +66,7 @@
                             <asp:Label ID="LblName" runat="server" Enabled="false"></asp:Label>
                         </td>
                         <td>
-                            Id
+                            Patient#
                         </td>
                         <td>
                             <asp:Label ID="LblId" runat="server" Enabled="false"></asp:Label>
@@ -90,7 +120,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="noBorder"></td>
+                        <td class="noBorder">
+                        </td>
                         <td colspan="4">
                             <ul>
                                 <li>
@@ -120,8 +151,6 @@
                     <tr>
                         <td colspan="5" class="center">
                             <asp:Button runat="server" ID="BtnSign" Text="Sign" OnClick="BtnSign_Click" />
-                            <asp:Button runat="server" ID="BtnPrint" Text="Print" 
-                                onclick="BtnPrint_Click" />
                             <asp:Button runat="server" ID="BtnReset" Text="Reset" OnClick="BtnReset_Click" />
                         </td>
                     </tr>
@@ -130,5 +159,4 @@
         </li>
     </ul>
     </form>
-
 </asp:Content>

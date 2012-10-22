@@ -184,8 +184,54 @@
 .print
 {
 	color: #444;
+	background-color: #FFFFFF;
 }
 .Container, .print
 {
 	color: #222;
+	page-break-after: always;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	width: 680px;
+}
+.print .noBorder TR TD
+{
+	border: none;
+}
+.bigfont TR TD
+{
+	font: bold 14px sans-serif;
+}
+.print .right
+{
+	width: 450px;
+}
+.print .sigBox
+{
+	float: left;
+	border: none;
+	border-bottom: 2px solid #888;
+}
+.print .noBorder .edgeColumn
+{
+	font-size: 8pt;
+}
+.print .noBorder .middleColumn
+{
+}
+.print .pageBreak
+{
+	page-break-before: always;
+}
+.print .leftBox
+{
+	float: left;
+}
+.content .noBorder TR TD
+{
+	border: none;
+}
+.content LI .boxLeft
+{
+	margin-left: -20px;
 }

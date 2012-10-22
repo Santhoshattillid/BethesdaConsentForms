@@ -14,6 +14,12 @@ namespace WindowsCEConsentForms
             {
                 if (!IsPostBack)
                 {
+                    SetPanels(false);
+                    if (Utilities.IsDevelopmentMode)
+                    {
+                        Session["PatientID"] = 1;
+                    }
+
                     for (int i = 0; i < 7; i++)
                         ViewState["Signature" + i] = string.Empty;
                     string patientId = string.Empty;
@@ -139,24 +145,41 @@ namespace WindowsCEConsentForms
                 //bool result = formHandlerServiceClient.SavePatientSignature(patientId, ASCIIEncoding.ASCII.GetString(bytes), "SurgicalConsent", "signature6");
 
                 // updating signature2
-                var bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage1"]); // If patient is unable to sing/person authorized to sign consent / relationship to patient
-                var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), "SurgicalConsent", "signature7");
+                if (Request.Form["HdnImage1"] != null)
+                {
+                    var bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage1"]);
+
+                    // If patient is unable to sing/person authorized to sign consent / relationship to patient
+                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), "SurgicalConsent", "signature7");
+                }
 
                 // updating signature3
-                bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage2"]); // Patient Signature
-                result = formHandlerServiceClient.SavePatientSignature(patientId, ASCIIEncoding.ASCII.GetString(bytes), "SurgicalConsent", "signature8");
+                if (Request.Form["HdnImage2"] != null)
+                {
+                    var bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage2"]); // Patient Signature
+                    var result = formHandlerServiceClient.SavePatientSignature(patientId, ASCIIEncoding.ASCII.GetString(bytes), "SurgicalConsent", "signature8");
+                }
 
-                // updating signature4
-                bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage3"]); // Translated by (name & empl.#)
-                result = formHandlerServiceClient.SavePatientSignature(patientId, ASCIIEncoding.ASCII.GetString(bytes), "SurgicalConsent", "signature9");
+                if (Request.Form["HdnImage3"] != null)
+                {
+                    // updating signature4
+                    var bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage3"]); // Translated by (name & empl.#)
+                    var result = formHandlerServiceClient.SavePatientSignature(patientId, ASCIIEncoding.ASCII.GetString(bytes), "SurgicalConsent", "signature9");
+                }
 
                 // updating signature5
-                bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage4"]);
-                result = formHandlerServiceClient.SavePatientSignature(patientId, ASCIIEncoding.ASCII.GetString(bytes), "SurgicalConsent", "signature10");
+                if (Request.Form["HdnImage4"] != null)
+                {
+                    var bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage4"]);
+                    var result = formHandlerServiceClient.SavePatientSignature(patientId, ASCIIEncoding.ASCII.GetString(bytes), "SurgicalConsent", "signature10");
+                }
 
                 // updating signature6
-                bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage5"]);
-                result = formHandlerServiceClient.SavePatientSignature(patientId, ASCIIEncoding.ASCII.GetString(bytes), "SurgicalConsent", "signature11");
+                if (Request.Form["HdnImage5"] != null)
+                {
+                    var bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage5"]);
+                    var result = formHandlerServiceClient.SavePatientSignature(patientId, ASCIIEncoding.ASCII.GetString(bytes), "SurgicalConsent", "signature11");
+                }
 
                 /* temp code to generate images and store into local folder for testing
                 var signatureToImage = new SignatureToImage();
@@ -172,7 +195,7 @@ namespace WindowsCEConsentForms
                     device = Request.Browser.Browser + " " + Request.Browser.Version;
 
                 formHandlerServiceClient.UpdateTrackingInfo(patientId, new TrackingInfo { IP = ip, Device = device });
-                formHandlerServiceClient.UpdatePatientUnableSignReason(patientId, TxtPatientNotSignedBecause.Text);
+                formHandlerServiceClient.UpdatePatientUnableSignReason(patientId, ChkPatientisUnableToSign.Checked ? TxtPatientNotSignedBecause.Text : string.Empty);
 
                 formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/SurgicalConsentPrintV3.aspx?PatientId=" + patientId, patientId, "SurgicalConsentForm1");
 
@@ -205,6 +228,18 @@ namespace WindowsCEConsentForms
                 Response.Redirect("/SurgicalConsent.aspx");
             }
             catch (Exception ex) { }
+        }
+
+        protected void ChkPatientisUnableToSign_CheckedChanged(object sender, EventArgs e)
+        {
+            SetPanels(ChkPatientisUnableToSign.Checked);
+        }
+
+        private void SetPanels(bool flag)
+        {
+            PnlPatientReason1.Visible = flag;
+            PnlPatientReason2.Visible = flag;
+            PnlPatientSign.Visible = !flag;
         }
     }
 }

@@ -9,6 +9,36 @@
         <li>
             <img src="Images/logo.png" alt="" />
         </li>
+        <li>
+            <table class="noBorder">
+                <tr>
+                    <td class="edgeColumn">
+                        <h3>
+                            Bethesda Hospital East
+                            <br />
+                            2815 S. Seacrest Blvd
+                            <br />
+                            Boynton Beach,FL 33435
+                            <br />
+                            (561) 737-7733
+                        </h3>
+                    </td>
+                    <td class="middleColumn">
+                    </td>
+                    <td class="edgeColumn">
+                        <h3>
+                            Bethesda Hospital West
+                            <br />
+                            9655 Boynton Beach Blvd,
+                            <br />
+                            Boynton Beach, FL 33472
+                            <br />
+                            (561) 336-7000
+                        </h3>
+                    </td>
+                </tr>
+            </table>
+        </li>
         <li class="center">
             <h3>
                 Surgical Consent Form</h3>
@@ -18,7 +48,7 @@
             <div class="right smallest">
                 MR # :</div>
             <div class="right small">
-                <asp:Label ID="LblPatientId" runat="server" CssClass="errorInfo"></asp:Label></div>
+                <asp:Label ID="LblPatientMRId" runat="server" CssClass="errorInfo"></asp:Label></div>
             <div class="right smallest">
                 Name :
             </div>
@@ -36,14 +66,18 @@
             <div class="clear">
             </div>
         </li>
-        <li>I here by authorize Doctor(s) <asp:DropDownList ID="DdlPrimaryDoctors" runat="server" 
-                            AutoPostBack="True" 
-                            onselectedindexchanged="DdlPrimaryDoctors_SelectedIndexChanged">
-                        </asp:DropDownList> &nbsp; <asp:label id="LblAssociatedDoctors" runat="server" CssClass="errorInfo"></asp:label>
+        <li>I here by authorize Doctor(s)
+            <asp:DropDownList ID="DdlPrimaryDoctors" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DdlPrimaryDoctors_SelectedIndexChanged">
+            </asp:DropDownList>
+            &nbsp;
+            <asp:Label ID="LblAssociatedDoctors" runat="server" CssClass="errorInfo"></asp:Label>
             to perform upon &nbsp;
             <asp:Label runat="server" ID="LnlPatientName" CssClass="errorInfo"></asp:Label>
-            the procedure or operation : &nbsp; <asp:DropDownList ID="DdLProcedures" runat="server" >
-                        </asp:DropDownList></li>
+            the procedure or operation : &nbsp;
+            <asp:DropDownList ID="DdLProcedures" runat="server" Width="400px">
+            </asp:DropDownList>
+            <asp:HiddenField runat="server" ID="HdnSelectedProcedures" />
+        </li>
         <li>
             <div class="sig1 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>

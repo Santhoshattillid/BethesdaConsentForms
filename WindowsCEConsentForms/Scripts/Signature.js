@@ -22,7 +22,7 @@
         }
     }
 
-    resetSignatures();
+    //resetSignatures();
 
     //procedure method
     var procedures = $("select[id$='DdLProcedures']");
@@ -63,33 +63,38 @@
         }
     }
 
+    resetSignatures();
+
+    return;
     // Patient not able to sign check box handling here
     var checkbox = $('input[id$="ChkPatientisUnableToSign"]');
     if ($('input[id$="TxtPatientNotSignedBecause"]').val() == null || $('input[id$="TxtPatientNotSignedBecause"]').val() == '') {
         hideElement($('.PatientReason'));
         showElement($('.PatientSign'));
+        setTimeout(resetSignatures, 1000);
     } else {
         showElement($('.PatientReason'));
         hideElement($('.PatientSign'));
+        setTimeout(resetSignatures, 1000);
     }
     checkbox.bind('click', function () {
         if ($(this).is(':checked')) {
             showElement($('.PatientReason'));
             hideElement($('.PatientSign'));
+            setTimeout(resetSignatures, 1000);
             $('input[id$="TxtPatientNotSignedBecause"]').focus();
         } else {
             hideElement($('.PatientReason'));
             showElement($('.PatientSign'));
+            setTimeout(resetSignatures, 1000);
         }
     });
 
     function hideElement(element) {
-        //element.hide();
-        //setTimeout(resetSignatures(), 1000);
+        element.hide();
     }
 
     function showElement(element) {
-        //element.show();
-        //setTimeout(resetSignatures(), 1000);
+        element.show();
     }
 });

@@ -103,6 +103,15 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.WebControls.HiddenField HdnImage1;
         
         /// <summary>
+        /// PnlPatientReason1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PnlPatientReason1;
+        
+        /// <summary>
         /// TxtPatientNotSignedBecause control.
         /// </summary>
         /// <remarks>
@@ -110,6 +119,24 @@ namespace WindowsCEConsentForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtPatientNotSignedBecause;
+        
+        /// <summary>
+        /// PnlPatientReason2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PnlPatientReason2;
+        
+        /// <summary>
+        /// PnlPatientSign control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PnlPatientSign;
         
         /// <summary>
         /// LblError control.

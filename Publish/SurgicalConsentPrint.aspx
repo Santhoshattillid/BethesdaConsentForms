@@ -1,40 +1,50 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="SurgicalConsentPrint.aspx.cs" Inherits="WindowsCEConsentForms.SurgicalConsentPrint" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true"
+    CodeBehind="SurgicalConsentPrint.aspx.cs" Inherits="WindowsCEConsentForms.SurgicalConsentPrint" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
- <form id="form1" runat="server">
+    <form id="form1" runat="server">
     <ul class="content print">
         <li>
             <img src="Images/logo.png" alt="logo" />
         </li>
         <li>
             <h3>
-                BOYNTON BEACH, FLORIDA <br />
-                (561) 737-7733 <br />
-                CONSENT FOR DIAGNOSTIC PROCEDURE OR OPERATION           
+                BOYNTON BEACH, FLORIDA
+                <br />
+                (561) 737-7733
+                <br />
+                CONSENT FOR DIAGNOSTIC PROCEDURE OR OPERATION
             </h3>
         </li>
         <li>
-            <label>MR #</label>
-                <asp:Label ID="LblPatientMRID" runat="server" CssClass="errorInfo"></asp:Label>
-        </li>
-        <li><label>
-                Patient :</label>
-                <asp:Label runat="server" ID="LblPatientName" CssClass="errorInfo"></asp:Label>
+            <label>
+                MR #</label>
+            <asp:Label ID="LblPatientMRID" runat="server" CssClass="errorInfo"></asp:Label>
         </li>
         <li>
-            <label>Date :</label>
+            <label>
+                Patient :</label>
+            <asp:Label runat="server" ID="LblPatientName" CssClass="errorInfo"></asp:Label>
+        </li>
+        <li>
+            <label>
+                Date :</label>
             <asp:Label runat="server" ID="LblDate" CssClass="errorInfo"></asp:Label>
         </li>
         <li>
-            <label>Time :</label>
+            <label>
+                Time :</label>
             <asp:Label runat="server" ID="LblTime" CssClass="errorInfo"></asp:Label>
         </li>
-        <li>I here by authorize Doctor(s) 
+        <li>I here by authorize Doctor(s)
             <asp:Label runat="server" ID="LblAuthoriseDoctors" CssClass="errorInfo"></asp:Label>
             to perform upon
             <asp:Label runat="server" ID="LblPatientName2" CssClass="errorInfo"></asp:Label>
-            the following procedure or operation <br /> <asp:Label runat="server" ID="LblProcedureName" CssClass="errorInfo"></asp:Label></li>
+            the following procedure or operation
+            <br />
+            <asp:Label runat="server" ID="LblProcedureName" CssClass="errorInfo"></asp:Label></li>
         <li>
             <div class="sigBox">
                 <asp:Image runat="server" ID="ImgSignature1" />
@@ -99,12 +109,12 @@
             <div class="clear">
             </div>
         </li>
-        <li>
-            I UNDERSTAND that no guarantees have been made to me that this operation will improve my condition.
-        </li>
+        <li>I UNDERSTAND that no guarantees have been made to me that this operation will improve
+            my condition. </li>
         <li>
             <div class="right">
-                Pt. is unable to sign because: <asp:Label runat="server" ID="LblReason" CssClass="errorInfo"></asp:Label>
+                Pt. is unable to sign because:
+                <asp:Label runat="server" ID="LblReason" CssClass="errorInfo"></asp:Label>
             </div>
             <div class="right sigBox">
                 <asp:Image runat="server" ID="ImgPatientSignature" />
@@ -112,8 +122,9 @@
             <div class="clear">
             </div>
         </li>
-        <li>
-            I declare that I or my associate, Dr. <asp:Label runat="server" ID="LblPrimaryDoctor" CssClass="errorInfo"></asp:Label> , personally explained   the above information to the patient or the patient's representative.                                                                      
+        <li>I declare that I or my associate, Dr.
+            <asp:Label runat="server" ID="LblPrimaryDoctor" CssClass="errorInfo"></asp:Label>
+            , personally explained the above information to the patient or the patient's representative.
         </li>
     </ul>
     </form>
