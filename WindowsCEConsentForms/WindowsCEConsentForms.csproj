@@ -106,6 +106,12 @@
     <Content Include="Images\ui-icons_ef8c08_256x240.png" />
     <Content Include="Images\ui-icons_ffd27a_256x240.png" />
     <Content Include="Images\ui-icons_ffffff_256x240.png" />
+    <Content Include="OutsideOR\OutsideORConsent.aspx" />
+    <Content Include="OutsideOR\OutsideORConsentDeclaration.aspx" />
+    <Content Include="OutsideOR\OutsideORConsentPrintV1.aspx" />
+    <Content Include="PICC\ConsentDeclaration.aspx" />
+    <Content Include="PICC\Consent.aspx" />
+    <Content Include="PICC\ConsentPrintV1.aspx" />
     <Content Include="PrintHeader.ascx" />
     <Content Include="Scripts\jquery-1.6.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.13.custom.min.js" />
@@ -131,7 +137,7 @@
     <Content Include="Scripts\jquery.signaturepad.min.js" />
     <Content Include="Scripts\json2.min.js" />
     <Content Include="Stylesheets\multiselect.css" />
-    <Content Include="SurgicalConsentDeclaration.aspx" />
+    <Content Include="Surgical\ConsentDeclaration.aspx" />
     <Content Include="PatientConsent.aspx" />
     <Content Include="Scripts\flashcanvas.js" />
     <Content Include="Scripts\flashcanvas.swf" />
@@ -141,10 +147,10 @@
     <Content Include="Scripts\jSignature.min.js" />
     <Content Include="Scripts\Signature.js" />
     <Content Include="Stylesheets\ConsentForm.css" />
-    <Content Include="SurgicalConsent.aspx" />
-    <Content Include="SurgicalConsentPrint.aspx" />
-    <Content Include="SurgicalConsentPrintV2.aspx" />
-    <Content Include="SurgicalConsentPrintV3.aspx" />
+    <Content Include="Surgical\Consent.aspx" />
+    <Content Include="Surgical\ConsentPrint.aspx" />
+    <Content Include="Surgical\ConsentPrintV2.aspx" />
+    <Content Include="Surgical\ConsentPrintV3.aspx" />
     <Content Include="Thanks.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -174,6 +180,48 @@
     <Compile Include="GetImage.ashx.cs">
       <DependentUpon>GetImage.ashx</DependentUpon>
     </Compile>
+    <Compile Include="OutsideOR\OutsideORConsent.aspx.cs">
+      <DependentUpon>OutsideORConsent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OutsideOR\OutsideORConsent.aspx.designer.cs">
+      <DependentUpon>OutsideORConsent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OutsideOR\OutsideORConsentDeclaration.aspx.cs">
+      <DependentUpon>OutsideORConsentDeclaration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OutsideOR\OutsideORConsentDeclaration.aspx.designer.cs">
+      <DependentUpon>OutsideORConsentDeclaration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OutsideOR\OutsideORConsentPrintV1.aspx.cs">
+      <DependentUpon>OutsideORConsentPrintV1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OutsideOR\OutsideORConsentPrintV1.aspx.designer.cs">
+      <DependentUpon>OutsideORConsentPrintV1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PICC\Consent.aspx.cs">
+      <DependentUpon>Consent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PICC\Consent.aspx.designer.cs">
+      <DependentUpon>Consent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PICC\ConsentDeclaration.aspx.cs">
+      <DependentUpon>ConsentDeclaration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PICC\ConsentDeclaration.aspx.designer.cs">
+      <DependentUpon>ConsentDeclaration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PICC\ConsentPrintV1.aspx.cs">
+      <DependentUpon>ConsentPrintV1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PICC\ConsentPrintV1.aspx.designer.cs">
+      <DependentUpon>ConsentPrintV1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PrintHeader.ascx.cs">
       <DependentUpon>PrintHeader.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -187,12 +235,12 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="SignatureToImage.cs" />
-    <Compile Include="SurgicalConsentDeclaration.aspx.cs">
-      <DependentUpon>SurgicalConsentDeclaration.aspx</DependentUpon>
+    <Compile Include="Surgical\ConsentDeclaration.aspx.cs">
+      <DependentUpon>ConsentDeclaration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SurgicalConsentDeclaration.aspx.designer.cs">
-      <DependentUpon>SurgicalConsentDeclaration.aspx</DependentUpon>
+    <Compile Include="Surgical\ConsentDeclaration.aspx.designer.cs">
+      <DependentUpon>ConsentDeclaration.aspx</DependentUpon>
     </Compile>
     <Compile Include="PatientConsent.aspx.cs">
       <DependentUpon>PatientConsent.aspx</DependentUpon>
@@ -209,33 +257,33 @@
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SurgicalConsent.aspx.cs">
-      <DependentUpon>SurgicalConsent.aspx</DependentUpon>
+    <Compile Include="Surgical\Consent.aspx.cs">
+      <DependentUpon>Consent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SurgicalConsent.aspx.designer.cs">
-      <DependentUpon>SurgicalConsent.aspx</DependentUpon>
+    <Compile Include="Surgical\Consent.aspx.designer.cs">
+      <DependentUpon>Consent.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SurgicalConsentPrint.aspx.cs">
-      <DependentUpon>SurgicalConsentPrint.aspx</DependentUpon>
+    <Compile Include="Surgical\ConsentPrint.aspx.cs">
+      <DependentUpon>ConsentPrint.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SurgicalConsentPrint.aspx.designer.cs">
-      <DependentUpon>SurgicalConsentPrint.aspx</DependentUpon>
+    <Compile Include="Surgical\ConsentPrint.aspx.designer.cs">
+      <DependentUpon>ConsentPrint.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SurgicalConsentPrintV2.aspx.cs">
-      <DependentUpon>SurgicalConsentPrintV2.aspx</DependentUpon>
+    <Compile Include="Surgical\ConsentPrintV2.aspx.cs">
+      <DependentUpon>ConsentPrintV2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SurgicalConsentPrintV2.aspx.designer.cs">
-      <DependentUpon>SurgicalConsentPrintV2.aspx</DependentUpon>
+    <Compile Include="Surgical\ConsentPrintV2.aspx.designer.cs">
+      <DependentUpon>ConsentPrintV2.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SurgicalConsentPrintV3.aspx.cs">
-      <DependentUpon>SurgicalConsentPrintV3.aspx</DependentUpon>
+    <Compile Include="Surgical\ConsentPrintV3.aspx.cs">
+      <DependentUpon>ConsentPrintV3.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SurgicalConsentPrintV3.aspx.designer.cs">
-      <DependentUpon>SurgicalConsentPrintV3.aspx</DependentUpon>
+    <Compile Include="Surgical\ConsentPrintV3.aspx.designer.cs">
+      <DependentUpon>ConsentPrintV3.aspx</DependentUpon>
     </Compile>
     <Compile Include="Thanks.aspx.cs">
       <DependentUpon>Thanks.aspx</DependentUpon>

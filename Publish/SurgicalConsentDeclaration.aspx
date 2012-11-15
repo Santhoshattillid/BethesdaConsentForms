@@ -89,8 +89,7 @@
         <li>
             <div class="boxLeft">
                 <asp:CheckBox runat="server" ID="ChkPatientisUnableToSign" Text="Patient is unable to sign?"
-                    AutoPostBack="True"
-                    oncheckedchanged="ChkPatientisUnableToSign_CheckedChanged" />
+                    AutoPostBack="True" OnCheckedChanged="ChkPatientisUnableToSign_CheckedChanged" />
             </div>
             <!--
             <div id="TxtSignature1" class="signature" hdfld="HdnImage1">
@@ -151,9 +150,14 @@
             <div class="clear">
             </div>
         </li>
+        <!--
         <li>
             <div>
-                I declare that I or my associate Dr.</div>
+                I declare that I or my associates doctors
+                <asp:Label runat="server" ID="LblAssociateDoctors" CssClass="errorInfo"></asp:Label>
+                Personally explained the above information to the patient or the patient's representative.</div>
+        </li>
+        <li>
             <div class="sig5 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
                 <input type="hidden" name="HdnImage5" class="HdnImage5" value='<%= ViewState["Signature5"].ToString() %>' />
@@ -161,8 +165,7 @@
             <div class="clear">
             </div>
         </li>
-        <li>Personally explained the above information to the patient or the patient's representative.
-        </li>
+-->
         <li>
             <asp:Label runat="server" ID="LblError" CssClass="errorInfo"></asp:Label>
         </li>

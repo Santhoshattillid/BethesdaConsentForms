@@ -121,6 +121,15 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.WebControls.CheckBox ChkCCLC;
         
         /// <summary>
+        /// ChkORConsent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ChkORConsent;
+        
+        /// <summary>
         /// ChkEC control.
         /// </summary>
         /// <remarks>
@@ -137,6 +146,24 @@ namespace WindowsCEConsentForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox ChkBCOrR;
+        
+        /// <summary>
+        /// ChkPA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ChkPA;
+        
+        /// <summary>
+        /// ChkPICCConsent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ChkPICCConsent;
         
         /// <summary>
         /// LblError control.

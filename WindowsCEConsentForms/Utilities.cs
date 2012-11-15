@@ -2,6 +2,6 @@
 {
     public class Utilities
     {
-        public static bool IsDevelopmentMode = true;
+        public static bool IsDevelopmentMode = false;
     }
 }

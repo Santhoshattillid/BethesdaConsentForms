@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Web;
 using WindowsCEConsentForms.ConsentFormsService;
-using System.Drawing.Imaging;
 
 namespace WindowsCEConsentForms
 {
@@ -12,7 +12,6 @@ namespace WindowsCEConsentForms
     /// </summary>
     public class GetImage : IHttpHandler
     {
-
         public void ProcessRequest(HttpContext context)
         {
             string patientId;
@@ -37,8 +36,19 @@ namespace WindowsCEConsentForms
                 }
                 if (!string.IsNullOrEmpty(signatureID))
                 {
+                    string consentType;
+                    try
+                    {
+                        consentType = context.Request.QueryString["ConsentType"];
+                    }
+                    catch (Exception)
+                    {
+                        consentType = string.Empty;
+                    }
+                    if (string.IsNullOrEmpty(consentType))
+                        consentType = "SurgicalConsent";
                     var formHandlerServiceClient = new FormHandlerServiceClient();
-                    var content = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature" + signatureID);
+                    var content = formHandlerServiceClient.GetPatientSignature(patientId, consentType, "signature" + signatureID);
                     var signatureToImage = new SignatureToImage();
                     var bitmap = signatureToImage.SigJsonToImage(content);
                     bitmap.Save(context.Response.OutputStream, ImageFormat.Jpeg);

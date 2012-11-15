@@ -1,39 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <publishData>
-  <publishProfile publishUrl="C:\Users\santhosh\Desktop\ConsentForms\BethesdaConsentForms\Publish" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+  <publishProfile publishUrl="C:\Users\santhosh\Desktop\My Works\ConsentForms\BethesdaConsentForms\Publish" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Images/dropdown_hover.png" publishTime="10/17/2012 11:44:13" />
     <file relUrl="Default.aspx" publishTime="10/12/2012 12:50:35" />
-    <file relUrl="Images/ui-bg_glass_100_f6f6f6_1x400.png" publishTime="10/18/2012 11:38:40" />
     <file relUrl="Stylesheets/jquery-ui.css" publishTime="10/18/2012 11:50:39" />
     <file relUrl="Stylesheets/images/ui-bg_flat_75_ffffff_40x100.png" publishTime="10/17/2012 11:01:23" />
     <file relUrl="Images/ui-bg_diagonals-thick_18_b81900_40x40.png" publishTime="10/18/2012 11:38:40" />
     <file relUrl="Scripts/jquery.multiselect.min.js" publishTime="10/17/2012 19:15:01" />
     <file relUrl="Stylesheets/images/ui-bg_highlight-soft_75_cccccc_1x100.png" publishTime="10/17/2012 11:01:25" />
     <file relUrl="Stylesheets/images/ui-bg_glass_65_ffffff_1x400.png" publishTime="10/17/2012 11:01:23" />
-    <file relUrl="bin/WindowsCEConsentForms.pdb" publishTime="10/22/2012 16:02:39" />
-    <file relUrl="SurgicalConsentDeclaration.aspx" publishTime="10/22/2012 15:15:09" />
+    <file relUrl="bin/WindowsCEConsentForms.pdb" publishTime="11/14/2012 18:28:18" />
+    <file relUrl="SurgicalConsentDeclaration.aspx" publishTime="11/14/2012 13:24:45" />
     <file relUrl="Images/ui-icons_ffffff_256x240.png" publishTime="10/18/2012 11:38:40" />
     <file relUrl="Images/ui-icons_222222_256x240.png" publishTime="10/18/2012 11:38:40" />
-    <file relUrl="Web.config" publishTime="10/19/2012 19:15:30" />
-    <file relUrl="Images/dropdown_hover.png" publishTime="10/17/2012 11:44:13" />
+    <file relUrl="Web.config" publishTime="11/14/2012 18:28:27" />
+    <file relUrl="Stylesheets/images/ui-bg_glass_75_dadada_1x400.png" publishTime="10/17/2012 11:01:24" />
+    <file relUrl="Scripts/Signature.js" publishTime="11/14/2012 13:19:42" />
     <file relUrl="Main.Master" publishTime="10/17/2012 19:16:12" />
+    <file relUrl="PICCConsentPrintV1.aspx" publishTime="11/14/2012 15:59:09" />
     <file relUrl="Images/ui-icons_ef8c08_256x240.png" publishTime="10/18/2012 11:38:40" />
+    <file relUrl="Stylesheets/images/ui-icons_2e83ff_256x240.png" publishTime="10/17/2012 11:01:26" />
+    <file relUrl="PICCConsent.aspx" publishTime="11/14/2012 13:39:37" />
     <file relUrl="Stylesheets/images/ui-bg_glass_95_fef1ec_1x400.png" publishTime="10/17/2012 11:01:25" />
     <file relUrl="Scripts/jquery.signaturepad.min.js" publishTime="10/11/2012 09:55:53" />
-    <file relUrl="SurgicalConsent.aspx" publishTime="10/19/2012 18:40:52" />
+    <file relUrl="SurgicalConsent.aspx" publishTime="11/14/2012 13:18:55" />
     <file relUrl="Stylesheets/images/ui-icons_888888_256x240.png" publishTime="10/17/2012 11:01:26" />
     <file relUrl="Images/ui-bg_flat_10_000000_40x100.png" publishTime="10/18/2012 11:38:40" />
     <file relUrl="Scripts/jquery-ui-1.8.13.custom.min.js" publishTime="10/17/2012 11:01:52" />
     <file relUrl="Images/ui-bg_highlight-soft_75_ffe45c_1x100.png" publishTime="10/18/2012 11:38:40" />
     <file relUrl="Scripts/jquery-1.4.1.min.js" publishTime="10/11/2012 09:55:53" />
+    <file relUrl="PICCConsentDeclaration.aspx" publishTime="11/14/2012 14:13:48" />
+    <file relUrl="OutsideORConsent.aspx" publishTime="11/14/2012 16:20:46" />
     <file relUrl="Scripts/jquery-1.4.1.js" publishTime="10/11/2012 09:55:53" />
     <file relUrl="Thanks.aspx" publishTime="10/11/2012 09:55:53" />
     <file relUrl="Scripts/jSignature.min.js" publishTime="10/11/2012 09:55:53" />
     <file relUrl="Stylesheets/images/ui-icons_222222_256x240.png" publishTime="10/17/2012 11:01:26" />
+    <file relUrl="OutsideORConsentPrintV1.aspx" publishTime="11/14/2012 18:16:28" />
     <file relUrl="Scripts/jquery-1.4.1-vsdoc.js" publishTime="10/11/2012 09:55:53" />
-    <file relUrl="Scripts/ui.dropdownchecklist.js" publishTime="10/17/2012 11:46:53" />
-    <file relUrl="bin/WindowsCEConsentForms.dll" publishTime="10/22/2012 16:02:40" />
+    <file relUrl="PrintHeader.ascx" publishTime="10/19/2012 18:40:52" />
+    <file relUrl="OutsideORConsentDeclaration.aspx" publishTime="11/14/2012 16:31:41" />
+    <file relUrl="bin/WindowsCEConsentForms.dll" publishTime="11/14/2012 18:28:18" />
+    <file relUrl="Images/ui-bg_glass_100_f6f6f6_1x400.png" publishTime="10/18/2012 11:38:40" />
     <file relUrl="Images/dropdown.png" publishTime="10/17/2012 11:44:01" />
     <file relUrl="Scripts/flashcanvas.swf" publishTime="10/11/2012 09:55:53" />
+    <file relUrl="Scripts/ui.dropdownchecklist.js" publishTime="10/17/2012 11:46:53" />
     <file relUrl="SurgicalConsentPrintV2.aspx" publishTime="10/15/2012 16:11:45" />
     <file relUrl="Stylesheets/images/ui-icons_454545_256x240.png" publishTime="10/17/2012 11:01:26" />
     <file relUrl="Stylesheets/images/ui-icons_cd0a0a_256x240.png" publishTime="10/17/2012 11:01:26" />
@@ -44,27 +54,23 @@
     <file relUrl="Stylesheets/jquery.signaturepad.css" publishTime="10/12/2012 10:40:56" />
     <file relUrl="Images/ui-icons_228ef1_256x240.png" publishTime="10/18/2012 11:38:40" />
     <file relUrl="Images/ui-bg_glass_65_ffffff_1x400.png" publishTime="10/18/2012 11:38:40" />
-    <file relUrl="Stylesheets/images/ui-bg_glass_75_dadada_1x400.png" publishTime="10/17/2012 11:01:24" />
+    <file relUrl="Images/ui-bg_highlight-soft_100_eeeeee_1x100.png" publishTime="10/18/2012 11:38:40" />
     <file relUrl="Stylesheets/images/ui-bg_flat_0_aaaaaa_40x100.png" publishTime="10/17/2012 11:01:22" />
     <file relUrl="Scripts/flashcanvas.js" publishTime="10/11/2012 09:55:53" />
-    <file relUrl="Scripts/Signature.js" publishTime="10/22/2012 15:16:47" />
     <file relUrl="GetImage.ashx" publishTime="10/12/2012 11:36:57" />
     <file relUrl="SurgicalConsentPrint.aspx" publishTime="10/19/2012 18:40:51" />
-    <file relUrl="Images/ui-bg_highlight-soft_100_eeeeee_1x100.png" publishTime="10/18/2012 11:38:40" />
     <file relUrl="Stylesheets/multiselect.css" publishTime="10/18/2012 11:23:23" />
     <file relUrl="Images/ui-bg_diagonals-thick_20_666666_40x40.png" publishTime="10/18/2012 11:38:40" />
     <file relUrl="Scripts/json2.min.js" publishTime="10/11/2012 09:55:53" />
-    <file relUrl="PatientConsent.aspx" publishTime="10/22/2012 15:47:42" />
-    <file relUrl="SurgicalConsentPrintV3.aspx" publishTime="10/22/2012 16:02:38" />
+    <file relUrl="PatientConsent.aspx" publishTime="11/14/2012 13:47:36" />
+    <file relUrl="SurgicalConsentPrintV3.aspx" publishTime="11/14/2012 13:28:50" />
     <file relUrl="Scripts/ui.core.js" publishTime="10/17/2012 11:46:29" />
     <file relUrl="Stylesheets/dropdownchecklist.css" publishTime="10/17/2012 11:55:58" />
     <file relUrl="bin/itextsharp.dll" publishTime="10/11/2012 09:55:53" />
     <file relUrl="Images/ui-bg_gloss-wave_35_f6a828_500x100.png" publishTime="10/18/2012 11:38:40" />
-    <file relUrl="Stylesheets/ConsentForm.css" publishTime="10/19/2012 19:04:15" />
-    <file relUrl="PrintHeader.ascx" publishTime="10/19/2012 18:40:52" />
+    <file relUrl="Stylesheets/ConsentForm.css" publishTime="11/14/2012 15:56:34" />
     <file relUrl="Images/Logo.jpg" publishTime="10/19/2012 18:39:03" />
     <file relUrl="Images/ui-bg_glass_100_fdf5ce_1x400.png" publishTime="10/18/2012 11:38:40" />
-    <file relUrl="Stylesheets/images/ui-icons_2e83ff_256x240.png" publishTime="10/17/2012 11:01:26" />
     <file relUrl="Images/ui-icons_ffd27a_256x240.png" publishTime="10/18/2012 11:38:40" />
   </publishProfile>
 </publishData>

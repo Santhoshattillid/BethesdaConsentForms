@@ -131,10 +131,19 @@
                                     <asp:CheckBox runat="server" ID="ChkCCLC" Text="Cardiac Cath Lab Consent" Enabled="false" />
                                 </li>
                                 <li>
+                                    <asp:CheckBox runat="server" ID="ChkORConsent" Text="Outside O.R. Consent" Enabled="false" />
+                                </li>
+                                <li>
                                     <asp:CheckBox runat="server" ID="ChkEC" Text="Endoscopy Consent" Enabled="false" />
                                 </li>
                                 <li>
                                     <asp:CheckBox runat="server" ID="ChkBCOrR" Text="Blood  Consent/Refusal" Enabled="false" />
+                                </li>
+                                <li>
+                                    <asp:CheckBox runat="server" ID="ChkPA" Text="Plasman Apheresis" Enabled="false" />
+                                </li>
+                                <li>
+                                    <asp:CheckBox runat="server" ID="ChkPICCConsent" Text="PICC Consent" Enabled="false" />
                                 </li>
                             </ul>
                         </td>

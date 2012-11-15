@@ -77,6 +77,12 @@
             <asp:DropDownList ID="DdLProcedures" runat="server" Width="400px">
             </asp:DropDownList>
             <asp:HiddenField runat="server" ID="HdnSelectedProcedures" />
+            <div id="DivOtherProcedure">
+                <label>
+                    Specify procedure</label>
+                &nbsp;
+                <asp:TextBox runat="server" ID="TxtOtherProcedure"></asp:TextBox>
+            </div>
         </li>
         <li>
             <div class="sig1 sigWrapper">

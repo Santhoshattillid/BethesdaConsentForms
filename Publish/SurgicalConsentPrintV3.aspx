@@ -273,6 +273,7 @@
                 </tr>
             </table>
         </li>
+        <!--
         <li>
             <div class="leftBox">
                 I declare that my associate, Dr.
@@ -287,6 +288,7 @@
             <div class="clear">
             </div>
         </li>
+        -->
     </ul>
     </form>
 </asp:Content>
