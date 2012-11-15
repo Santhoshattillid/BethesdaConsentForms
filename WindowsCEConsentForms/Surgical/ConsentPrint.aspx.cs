@@ -1,57 +1,84 @@
 ﻿using System;
 using System.Data;
+using System.Globalization;
 using WindowsCEConsentForms.ConsentFormsService;
 
-namespace WindowsCEConsentForms
+namespace WindowsCEConsentForms.Surgical
 {
-    public partial class SurgicalConsentPrint : System.Web.UI.Page
+    public partial class SurgicalConsentPrintV3 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string PatientId; 
+            string patientId;
             try
             {
-                PatientId = Request.QueryString["PatientID"];
+                patientId = Request.QueryString["PatientID"];
             }
             catch (Exception)
             {
-                PatientId = string.Empty;
+                patientId = string.Empty;
             }
-            if(!string.IsNullOrEmpty(PatientId))
+            if (!string.IsNullOrEmpty(patientId))
             {
                 var formHandlerServiceClient = new FormHandlerServiceClient();
-                var patientDetails = formHandlerServiceClient.GetPatientDetail(PatientId);
+                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId);
                 if (patientDetails != null)
                 {
-                    LblPatientMRID.Text = patientDetails.MRHash;
-                    LblPatientName.Text = patientDetails.name;
-                    LblDate.Text = patientDetails.AdmDate.ToString("MM dd yyyy");
-                    LblTime.Text = DateTime.Now.ToShortTimeString();
-                    LblPatientName2.Text = patientDetails.name;
-                    LblProcedureName.Text = patientDetails.ProcedureName;
                     var primaryDoctor = formHandlerServiceClient.GetPrimaryDoctorDetail(patientDetails.PrimaryDoctorId);
                     if (primaryDoctor != null)
                     {
-                        LblPrimaryDoctor.Text = primaryDoctor.Fname + " " + primaryDoctor.Lname;
+                        LblAssociatedDoctor.Text = primaryDoctor.Fname + " " + primaryDoctor.Lname;
                         LblAuthoriseDoctors.Text = primaryDoctor.Fname + " " + primaryDoctor.Lname;
                     }
-
-                    //var secondaryDoctor = formHandlerServiceClient.GetAssociateDoctorDetail(patientDetails.PrimaryDoctorId);
-                    //if (secondaryDoctor != null)
-                        //LblAuthoriseDoctors.Text = secondaryDoctor.Fname + " , " + secondaryDoctor.Lname;
-
                     foreach (DataRow row in formHandlerServiceClient.GetAssociatedPhysiciansList(patientDetails.PrimaryDoctorId).Rows)
                     {
                         LblAuthoriseDoctors.Text += " , " + row["Lname"].ToString().Trim() + " " + row["Fname"].ToString().Trim();
                     }
 
-                    ImgSignature1.ImageUrl = "/GetImage.ashx?PatientId=" + PatientId + "&Signature=1";
-                    ImgSignature2.ImageUrl = "/GetImage.ashx?PatientId=" + PatientId + "&Signature=2";
-                    ImgSignature3.ImageUrl = "/GetImage.ashx?PatientId=" + PatientId + "&Signature=3";
-                    ImgSignature4.ImageUrl = "/GetImage.ashx?PatientId=" + PatientId + "&Signature=4";
-                    ImgSignature5.ImageUrl = "/GetImage.ashx?PatientId=" + PatientId + "&Signature=5";
-                    ImgPatientSignature.ImageUrl = "/GetImage.ashx?PatientId=" + PatientId + "&Signature=7";
-                   
+                    LblDOB.Text = DateTime.Now.ToString("MMM dd yyyy");
+                    LblPatientAdminDate.Text = patientDetails.AdmDate.ToString("MMM dd yyyy");
+                    LblPatientAdminTime.Text = patientDetails.AdmDate.ToLongTimeString();
+                    LblPatientId.Text = patientId;
+                    LblPatientMrHash.Text = patientDetails.MRHash;
+                    LblPatientName.Text = patientDetails.name;
+                    LblPatientName2.Text = patientDetails.name;
+                    LblPatientUnableToSignBecause.Text = patientDetails.UnableToSignReason;
+                    LblProcedureName.Text = patientDetails.ProcedureName;
+
+                    LblSignatureDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
+                    LblTranslatedDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
+                    LblAuthorizedSignDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
+                    LblAssociatedDoctorTimeStamp.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
+
+                    LblDate.Text = DateTime.Now.ToString("MMM dd yyyy");
+                    LblAge.Text = patientDetails.age.ToString(CultureInfo.InvariantCulture);
+                    LblGender.Text = patientDetails.gender;
+
+                    ImgSignature1.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=1&ConsentType=" + ConsentType.Surgical.ToString();
+                    ImgSignature2.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=2&ConsentType=" + ConsentType.Surgical.ToString();
+                    ImgSignature3.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=3&ConsentType=" + ConsentType.Surgical.ToString();
+                    ImgSignature4.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=4&ConsentType=" + ConsentType.Surgical.ToString();
+                    ImgSignature5.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=5&ConsentType=" + ConsentType.Surgical.ToString();
+
+                    if (!string.IsNullOrEmpty(LblPatientUnableToSignBecause.Text.Trim()))
+                    {
+                        PnlPatientSignature.Visible = false;
+
+                        PnlPatientUnableToSignBecause.Visible = true;
+                        PnlAuthorizedSignature.Visible = true;
+                    }
+                    else
+                    {
+                        PnlPatientSignature.Visible = true;
+
+                        PnlPatientUnableToSignBecause.Visible = false;
+                        PnlAuthorizedSignature.Visible = false;
+                    }
+
+                    ImgSignature6.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=7&ConsentType=" + ConsentType.Surgical.ToString();
+                    ImgSignature7.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=8&ConsentType=" + ConsentType.Surgical.ToString();
+                    ImgSignature8.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=9&ConsentType=" + ConsentType.Surgical.ToString();
+                    ImgSignature9.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=10&ConsentType=" + ConsentType.Surgical.ToString();
                 }
             }
         }

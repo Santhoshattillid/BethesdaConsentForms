@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing.Imaging;
-using System.Linq;
 using System.Web;
 using WindowsCEConsentForms.ConsentFormsService;
 
@@ -25,16 +23,16 @@ namespace WindowsCEConsentForms
             }
             if (!string.IsNullOrEmpty(patientId))
             {
-                string signatureID;
+                string signatureId;
                 try
                 {
-                    signatureID = context.Request.QueryString["Signature"];
+                    signatureId = context.Request.QueryString["Signature"];
                 }
                 catch (Exception)
                 {
-                    signatureID = string.Empty;
+                    signatureId = string.Empty;
                 }
-                if (!string.IsNullOrEmpty(signatureID))
+                if (!string.IsNullOrEmpty(signatureId))
                 {
                     string consentType;
                     try
@@ -48,7 +46,7 @@ namespace WindowsCEConsentForms
                     if (string.IsNullOrEmpty(consentType))
                         consentType = "SurgicalConsent";
                     var formHandlerServiceClient = new FormHandlerServiceClient();
-                    var content = formHandlerServiceClient.GetPatientSignature(patientId, consentType, "signature" + signatureID);
+                    var content = formHandlerServiceClient.GetPatientSignature(patientId, consentType, "signature" + signatureId);
                     var signatureToImage = new SignatureToImage();
                     var bitmap = signatureToImage.SigJsonToImage(content);
                     bitmap.Save(context.Response.OutputStream, ImageFormat.Jpeg);

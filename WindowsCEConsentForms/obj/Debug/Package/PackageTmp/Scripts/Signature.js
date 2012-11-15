@@ -31,8 +31,8 @@
             selectedList: 4,
             header: "Choose procedures below",
             noneSelectedText: 'Procedures',
-            click: function () {
-                setProcedures();
+            click: function (e) {
+                setProcedures(e);
             }
         });
     }
@@ -51,7 +51,15 @@
             }
         });
 
-        function setProcedures() {
+        function setProcedures(e) {
+            // code to check whether the doctor selects other
+            if (e.srcElement != undefined && e.srcElement.value == "Other") {
+                if ($(e.srcElement).is(':checked')) {
+                    $('#DivOtherProcedure').show();
+                } else {
+                    $('#DivOtherProcedure').hide();
+                }
+            }
             var values = '';
             procedures.multiselect("widget").find(":checkbox").each(function () {
                 var thisObj = $(this);

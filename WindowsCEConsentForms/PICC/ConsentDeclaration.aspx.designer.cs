@@ -7,82 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsCEConsentForms {
+namespace WindowsCEConsentForms.PICC {
     
     
     public partial class PICCConsentDeclaration {
         
         /// <summary>
-        /// form1 control.
+        /// PatientDetails1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::WindowsCEConsentForms.PatientDetails PatientDetails1;
         
         /// <summary>
-        /// LblPatientMRId control.
+        /// DoctorsAndProcedures1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblPatientMRId;
-        
-        /// <summary>
-        /// LblPatientName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblPatientName;
-        
-        /// <summary>
-        /// LblDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblDate;
-        
-        /// <summary>
-        /// LblTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblTime;
-        
-        /// <summary>
-        /// LbldoctorName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LbldoctorName;
-        
-        /// <summary>
-        /// LnlPatientName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LnlPatientName;
-        
-        /// <summary>
-        /// LblProcedurename control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblProcedurename;
+        protected global::WindowsCEConsentForms.DoctorsAndProcedures DoctorsAndProcedures1;
         
         /// <summary>
         /// ChkPatientisUnableToSign control.
@@ -139,6 +85,15 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.WebControls.Panel PnlPatientSign;
         
         /// <summary>
+        /// PnlAdditionalwitness control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PnlAdditionalwitness;
+        
+        /// <summary>
         /// LblAssociateDoctors control.
         /// </summary>
         /// <remarks>
@@ -155,15 +110,6 @@ namespace WindowsCEConsentForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblError;
-        
-        /// <summary>
-        /// BtnPrevious control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnPrevious;
         
         /// <summary>
         /// BtnCompleted control.

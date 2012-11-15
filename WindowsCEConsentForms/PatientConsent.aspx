@@ -4,41 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form1" runat="server">
     <ul class="content">
-        <li>
-            <img src="Images/logo.png" />
-        </li>
-        <li>
-            <table class="noBorder">
-                <tr>
-                    <td class="edgeColumn">
-                        <h3>
-                            Bethesda Hospital East
-                            <br />
-                            2815 S. Seacrest Blvd
-                            <br />
-                            Boynton Beach,FL 33435
-                            <br />
-                            (561) 737-7733
-                        </h3>
-                    </td>
-                    <td class="middleColumn">
-                    </td>
-                    <td class="edgeColumn">
-                        <h3>
-                            Bethesda Hospital West
-                            <br />
-                            9655 Boynton Beach Blvd,
-                            <br />
-                            Boynton Beach, FL 33472
-                            <br />
-                            (561) 336-7000
-                        </h3>
-                    </td>
-                </tr>
-            </table>
-        </li>
         <li>
             <table>
                 <tbody>
@@ -137,7 +103,7 @@
                                     <asp:CheckBox runat="server" ID="ChkEC" Text="Endoscopy Consent" Enabled="false" />
                                 </li>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkBCOrR" Text="Blood  Consent/Refusal" Enabled="false" />
+                                    <asp:CheckBox runat="server" ID="ChkBCOrR" Text="Blood Consent/Refusal" Enabled="false" />
                                 </li>
                                 <li>
                                     <asp:CheckBox runat="server" ID="ChkPA" Text="Plasman Apheresis" Enabled="false" />
@@ -167,5 +133,4 @@
             </table>
         </li>
     </ul>
-    </form>
 </asp:Content>

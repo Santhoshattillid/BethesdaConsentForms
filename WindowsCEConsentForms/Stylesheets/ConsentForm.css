@@ -52,13 +52,14 @@
 {
     color: inherit !important;
     width: 600px;
-    background: #F6FCFA;
+    background: #fff;
     padding: 5px;
+    border: 1px solid #DDD;
 }
 .Container TABLE, .content
 {
     width: 100%;
-    border: 1px solid #EEE;
+    border-top: 1px solid #EEE;
     font: 17px Calibri;
 }
 .Container, .content .header
@@ -82,7 +83,7 @@
     width: 200px;
     padding: 3px;
 }
-.Container INPUT
+.Container INPUT[type="text"], input[type="submit"]
 {
     width: 60px;
 }
@@ -168,7 +169,7 @@
     border: 1px solid #777;
     float: left;
 }
-.Container .center INPUT
+.Container .center INPUT[type="button"], INPUT[type="submit"]
 {
     width: 100px;
     border: 1px solid #80A8BB;
@@ -241,7 +242,7 @@
 }
 .small-header
 {
-    font: 11px;
+    font-size: 11px;
     font-weight: bold;
 }
 .small-content
@@ -256,4 +257,27 @@
     padding-top: 45px;
     border-bottom: 2px solid #777;
     width: 200px;
+}
+.PatientReason
+{
+}
+.PatientSign
+{
+}
+.HdnImage1, .HdnImage2, .HdnImage3, .HdnImage4, .HdnImage5
+{
+}
+.pad
+{
+}
+.sig1, .sig2, .sig3, .sig4, .sig5
+{
+}
+.Hide
+{
+    display: none;
+}
+.leftPush
+{
+    margin-left: 200px;
 }

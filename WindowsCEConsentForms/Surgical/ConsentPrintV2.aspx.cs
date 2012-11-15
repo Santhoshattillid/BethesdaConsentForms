@@ -2,7 +2,7 @@
 using System.Data;
 using WindowsCEConsentForms.ConsentFormsService;
 
-namespace WindowsCEConsentForms
+namespace WindowsCEConsentForms.Surgical
 {
     public partial class SurgicalConsentPrintV2 : System.Web.UI.Page
     {
@@ -31,23 +31,20 @@ namespace WindowsCEConsentForms
                     }
                     LblPatientName2.Text = patientDetails.name;
                     LblProcedureName.Text = patientDetails.ProcedureName;
-                    foreach (
-                        DataRow row in
-                            formHandlerServiceClient.GetAssociatedPhysiciansList(patientDetails.PrimaryDoctorId).Rows)
+                    foreach (DataRow row in formHandlerServiceClient.GetAssociatedPhysiciansList(patientDetails.PrimaryDoctorId).Rows)
                     {
-                        LblAuthoriseDoctors.Text += " , " + row["Lname"].ToString().Trim() + " " +
-                                                    row["Fname"].ToString().Trim();
+                        LblAuthoriseDoctors.Text += " , " + row["Lname"].ToString().Trim() + " " + row["Fname"].ToString().Trim();
                     }
-                    ImgSignature1.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=1";
-                    ImgSignature2.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=2";
-                    ImgSignature3.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=3";
-                    ImgSignature4.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=4";
-                    ImgSignature5.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=5";
-                    ImgSignature7.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=7";
-                    ImgSignature8.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=8";
-                    ImgSignature9.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=9";
-                    ImgSignature10.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=10";
-                    ImgSignature11.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=11";
+                    ImgSignature1.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=1&ConsentType=" + ConsentType.Surgical.ToString();
+                    ImgSignature2.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=2&ConsentType=" + ConsentType.Surgical.ToString();
+                    ImgSignature3.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=3&ConsentType=" + ConsentType.Surgical.ToString();
+                    ImgSignature4.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=4&ConsentType=" + ConsentType.Surgical.ToString();
+                    ImgSignature5.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=5&ConsentType=" + ConsentType.Surgical.ToString();
+                    ImgSignature7.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=7&ConsentType=" + ConsentType.Surgical.ToString();
+                    ImgSignature8.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=8&ConsentType=" + ConsentType.Surgical.ToString();
+                    ImgSignature9.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=9&ConsentType=" + ConsentType.Surgical.ToString();
+                    ImgSignature10.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=10&ConsentType=" + ConsentType.Surgical.ToString();
+                    ImgSignature11.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=11&ConsentType=" + ConsentType.Surgical.ToString();
                 }
             }
         }

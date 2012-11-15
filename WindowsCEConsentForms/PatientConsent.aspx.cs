@@ -37,9 +37,13 @@ namespace WindowsCEConsentForms
                     DdlPatientIds.SelectedIndex = 0;
                     DdlFormList.SelectedIndex = 0;
 
-                    Session["NewSessionSurgicalConsent"] = true;
-                    Session["NewSessionForOutSideORConsent"] = true;
-                    Session["NewSessionPICCConsent"] = true;
+                    Session["NewSessionFor" + ConsentType.Surgical.ToString()] = true;
+                    Session["NewSessionFor" + ConsentType.BloodConsentOrRefusal.ToString()] = true;
+                    Session["NewSessionFor" + ConsentType.CardiacCathLab.ToString()] = true;
+                    Session["NewSessionFor" + ConsentType.Endoscopy.ToString()] = true;
+                    Session["NewSessionFor" + ConsentType.PlasmanApheresis.ToString()] = true;
+                    Session["NewSessionFor" + ConsentType.OutsideOR.ToString()] = true;
+                    Session["NewSessionFor" + ConsentType.PICC.ToString()] = true;
                 }
                 catch (Exception) { }
             }
@@ -90,71 +94,6 @@ namespace WindowsCEConsentForms
             }
         }
 
-        protected void BtnSign_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                LblError.Text = string.Empty;
-                if (DdlPatientIds.SelectedIndex == 0)
-                {
-                    LblError.Text = "Please Select Patient Id";
-                    return;
-                }
-                if (DdlFormList.SelectedIndex == 0)
-                {
-                    LblError.Text = "Please Select Form Type";
-                    return;
-                }
-                if (!ChkBCOrR.Checked && !ChkCCLC.Checked && !ChkEC.Checked && !ChkSurgicalConcent.Checked && !ChkPICCConsent.Checked && !ChkORConsent.Checked)
-                {
-                    LblError.Text = "Please Select any one of the above Consent";
-                    return;
-                }
-
-                //actual storage part starts here
-
-                Session.Add("SurgicalConsent", ChkSurgicalConcent.Checked);
-                Session.Add("BloodConsentRefusal", ChkBCOrR.Checked);
-                Session.Add("EndoscopyConsent", ChkEC.Checked);
-                Session.Add("CardiacCathLabConsent", ChkCCLC.Checked);
-                Session.Add("PICCConsent", ChkPICCConsent.Checked);
-                Session.Add("OutsideORConsent", ChkORConsent.Checked);
-
-                if (ChkSurgicalConcent.Checked)
-                {
-                    Response.Redirect("/SurgicalConsent.aspx");
-                    return;
-                }
-                if (ChkCCLC.Checked)
-                {
-                    Response.Redirect("/CardiacCathLabConsent.aspx");
-                    return;
-                }
-                if (ChkORConsent.Checked)
-                {
-                    Response.Redirect("/OutsideORConsent.aspx");
-                    return;
-                }
-                if (ChkEC.Checked)
-                {
-                    Response.Redirect("/EndoscopyConsent.aspx");
-                    return;
-                }
-                if (ChkBCOrR.Checked)
-                {
-                    Response.Redirect("/BloodConsentOrRefusal.aspx");
-                }
-                if (ChkPICCConsent.Checked)
-                {
-                    Response.Redirect("/PICCConsent.aspx");
-                }
-            }
-            catch (Exception)
-            {
-                return;
-            }
-        }
-
         protected void BtnReset_Click(object sender, EventArgs e)
         {
             Reset();
@@ -194,6 +133,7 @@ namespace WindowsCEConsentForms
                 ChkSurgicalConcent.Enabled = (DdlFormList.SelectedIndex > 0);
                 ChkPICCConsent.Enabled = (DdlFormList.SelectedIndex > 0);
                 ChkORConsent.Enabled = (DdlFormList.SelectedIndex > 0);
+                ChkBCOrR.Enabled = (DdlFormList.SelectedIndex > 0);
 
                 //ChkSurgicalConcent.Checked = (DdlFormList.SelectedIndex > 0);
                 if (DdlFormList.SelectedIndex == 0)
@@ -205,6 +145,7 @@ namespace WindowsCEConsentForms
             }
         }
 
+        // un used code
         protected void BtnPrint_Click(object sender, EventArgs e)
         {
             try
@@ -229,6 +170,72 @@ namespace WindowsCEConsentForms
             }
             catch (Exception)
             {
+            }
+        }
+
+        protected void BtnSign_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LblError.Text = string.Empty;
+                if (DdlPatientIds.SelectedIndex == 0)
+                {
+                    LblError.Text = "Please Select Patient Id";
+                    return;
+                }
+                if (DdlFormList.SelectedIndex == 0)
+                {
+                    LblError.Text = "Please Select Form Type";
+                    return;
+                }
+                if (!ChkBCOrR.Checked && !ChkCCLC.Checked && !ChkEC.Checked && !ChkSurgicalConcent.Checked && !ChkPICCConsent.Checked && !ChkORConsent.Checked)
+                {
+                    LblError.Text = "Please Select any one of the above Consent";
+                    return;
+                }
+
+                //actual storage part starts here
+
+                Session.Add("SurgicalConsent", ChkSurgicalConcent.Checked);
+                Session.Add("CardiacCathLabConsent", ChkCCLC.Checked);
+                Session.Add("OutsideORConsent", ChkORConsent.Checked);
+                Session.Add("EndoscopyConsent", ChkEC.Checked);
+                Session.Add("BloodConsentRefusal", ChkBCOrR.Checked);
+                Session.Add("PlasmanApheresis", ChkPA.Checked);
+                Session.Add("PICCConsent", ChkPICCConsent.Checked);
+
+                if (ChkSurgicalConcent.Checked)
+                {
+                    Response.Redirect("/Surgical/Consent.aspx");
+                    return;
+                }
+                if (ChkCCLC.Checked)
+                {
+                    Response.Redirect("/CardiacCathLabConsent.aspx");
+                    return;
+                }
+                if (ChkORConsent.Checked)
+                {
+                    Response.Redirect("/OutsideOR/Consent.aspx");
+                    return;
+                }
+                if (ChkEC.Checked)
+                {
+                    Response.Redirect("/EndoscopyConsent.aspx");
+                    return;
+                }
+                if (ChkBCOrR.Checked)
+                {
+                    Response.Redirect("/BloodConsentOrRefusal/ConsentDeclaration.aspx");
+                }
+                if (ChkPICCConsent.Checked)
+                {
+                    Response.Redirect("/PICC/ConsentDeclaration.aspx");
+                }
+            }
+            catch (Exception)
+            {
+                return;
             }
         }
     }
