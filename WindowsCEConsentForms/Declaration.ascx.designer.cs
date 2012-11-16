@@ -31,6 +31,15 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.WebControls.Label LbldoctorName;
         
         /// <summary>
+        /// LblAssociateDoctors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblAssociateDoctors;
+        
+        /// <summary>
         /// LnlPatientName control.
         /// </summary>
         /// <remarks>
@@ -101,15 +110,6 @@ namespace WindowsCEConsentForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel PnlAdditionalwitness;
-        
-        /// <summary>
-        /// LblAssociateDoctors control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblAssociateDoctors;
         
         /// <summary>
         /// LblError control.

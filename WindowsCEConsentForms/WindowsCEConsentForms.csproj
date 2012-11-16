@@ -65,10 +65,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BloodConsentOrRefusal\ConsentDeclaration.aspx" />
+    <Content Include="BloodConsentOrRefusal\ConsentPrint.aspx" />
+    <Content Include="Cardiovascular\ConsentDeclaration.aspx" />
+    <Content Include="Cardiovascular\ConsentPrint.aspx" />
     <Content Include="Consent.ascx" />
+    <Content Include="ConsentSignatures.ascx" />
     <Content Include="Declaration.ascx" />
+    <Content Include="DeclarationSignatures.ascx" />
     <Content Include="Default.aspx" />
     <Content Include="DoctorsAndProcedures.ascx" />
+    <Content Include="Endoscopy\ConsentDeclaration.aspx" />
+    <Content Include="Endoscopy\ConsentPrint.aspx" />
     <Content Include="GetImage.ashx" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
@@ -185,6 +192,27 @@
     <Compile Include="BloodConsentOrRefusal\ConsentDeclaration.aspx.designer.cs">
       <DependentUpon>ConsentDeclaration.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BloodConsentOrRefusal\ConsentPrint.aspx.cs">
+      <DependentUpon>ConsentPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BloodConsentOrRefusal\ConsentPrint.aspx.designer.cs">
+      <DependentUpon>ConsentPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cardiovascular\ConsentDeclaration.aspx.cs">
+      <DependentUpon>ConsentDeclaration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cardiovascular\ConsentDeclaration.aspx.designer.cs">
+      <DependentUpon>ConsentDeclaration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cardiovascular\ConsentPrint.aspx.cs">
+      <DependentUpon>ConsentPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cardiovascular\ConsentPrint.aspx.designer.cs">
+      <DependentUpon>ConsentPrint.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Consent.ascx.cs">
       <DependentUpon>Consent.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -192,12 +220,26 @@
     <Compile Include="Consent.ascx.designer.cs">
       <DependentUpon>Consent.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ConsentSignatures.ascx.cs">
+      <DependentUpon>ConsentSignatures.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsentSignatures.ascx.designer.cs">
+      <DependentUpon>ConsentSignatures.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Declaration.ascx.cs">
       <DependentUpon>Declaration.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Declaration.ascx.designer.cs">
       <DependentUpon>Declaration.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DeclarationSignatures.ascx.cs">
+      <DependentUpon>DeclarationSignatures.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeclarationSignatures.ascx.designer.cs">
+      <DependentUpon>DeclarationSignatures.ascx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -212,6 +254,20 @@
     </Compile>
     <Compile Include="DoctorsAndProcedures.ascx.designer.cs">
       <DependentUpon>DoctorsAndProcedures.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Endoscopy\ConsentDeclaration.aspx.cs">
+      <DependentUpon>ConsentDeclaration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Endoscopy\ConsentDeclaration.aspx.designer.cs">
+      <DependentUpon>ConsentDeclaration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Endoscopy\ConsentPrint.aspx.cs">
+      <DependentUpon>ConsentPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Endoscopy\ConsentPrint.aspx.designer.cs">
+      <DependentUpon>ConsentPrint.aspx</DependentUpon>
     </Compile>
     <Compile Include="GetImage.ashx.cs">
       <DependentUpon>GetImage.ashx</DependentUpon>

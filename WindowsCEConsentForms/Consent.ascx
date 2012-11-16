@@ -9,24 +9,25 @@
     <li class="center">
         <p>
             <%= SubHeading %></p>
-        </li> </ul>
-        <uc1:PatientDetails ID="PatientDetails1" runat="server" />
-        <uc1:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" />
-        <ul class="content">
-            <li>
-                <div class="sig1 sigWrapper">
-                    <canvas class="pad" width="198" height="55"></canvas>
-                    <input type="hidden" name="HdnImage1" class="HdnImage1" value='<%= ViewState["Signature1"].ToString() %>' />
-                </div>
-                <div class="right">
-                    The Physician has explained to me the nature of this operation it is generally carried
-                    out. I understand that all procedures surgeries involve general risks such as severe
-                    loss of blood, infection, heart stoppage or death. The physician has discussed with
-                    me the specific risks, benefits and possible side effects of this procedure and
-                    I understand them.
-                </div>
-                <div class="clear">
-                </div>
+    </li>
+</ul>
+<uc1:PatientDetails ID="PatientDetails1" runat="server" />
+<uc1:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" />
+<ul class="content">
+    <li>
+        <div class="sig1 sigWrapper">
+            <canvas class="pad" width="198" height="55"></canvas>
+            <input type="hidden" name="HdnImage1" class="HdnImage1" value='<%= ViewState["Signature1"].ToString() %>' />
+        </div>
+        <div class="right">
+            The Physician has explained to me the nature of this operation it is generally carried
+            out. I understand that all procedures surgeries involve general risks such as severe
+            loss of blood, infection, heart stoppage or death. The physician has discussed with
+            me the specific risks, benefits and possible side effects of this procedure and
+            I understand them.
+        </div>
+        <div class="clear">
+        </div>
     </li>
     <li>
         <div class="sig2 sigWrapper">

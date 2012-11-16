@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsCEConsentForms.Surgical {
+namespace WindowsCEConsentForms.Cardiovascular {
     
     
-    public partial class SurgicalConsent {
+    public partial class ConsentDeclaration {
         
         /// <summary>
         /// Consent1 control.

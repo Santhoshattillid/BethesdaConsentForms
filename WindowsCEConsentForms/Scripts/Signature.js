@@ -1,7 +1,7 @@
 ﻿$(function () {
     function resetSignatures() {
         try {
-            for (var i = 0; i < 7; i++) {
+            for (var i = 0; i < 20; i++) {
                 var options = {
                     'drawOnly': true,
                     'output': '.HdnImage' + i.toString(),

@@ -8,8 +8,8 @@
         {
             if (consentType == ConsentType.Surgical)
             {
-                if ((bool)sessionState["CardiacCathLabConsent"])
-                    return "/CardiacCathLabConsent.aspx";
+                if ((bool)sessionState["Cardiovascular"])
+                    return "/Cardiovascular/ConsentDeclaration.aspx";
                 if ((bool)sessionState["OutsideORConsent"])
                     return "/OutsideOR/Consent.aspx";
                 if ((bool)sessionState["EndoscopyConsent"])
@@ -19,7 +19,7 @@
                 if ((bool)sessionState["PICCConsent"])
                     return "/PICC/ConsentDeclaration.aspx"; //return "/PICC/Consent.aspx";
             }
-            else if (consentType == ConsentType.CardiacCathLab)
+            else if (consentType == ConsentType.Cardiovascular)
             {
                 if ((bool)sessionState["OutsideORConsent"])
                     return "/OutsideOR/Consent.aspx";
@@ -58,11 +58,27 @@
     public enum ConsentType
     {
         Surgical,
-        CardiacCathLab,
+        Cardiovascular,
         OutsideOR,
         Endoscopy,
         BloodConsentOrRefusal,
         PlasmanApheresis,
         PICC
+    }
+
+    public enum SignatureType
+    {
+        DoctorSign1,
+        DoctorSign2,
+        DoctorSign3,
+        DoctorSign4,
+        DoctorSign5,
+        DoctorSign6,
+        DoctorSign7,
+        PatientSign,
+        PatientAuthorizeSign,
+        TranslatedBySign,
+        WitnessSignature1,
+        WitnessSignature2
     }
 }

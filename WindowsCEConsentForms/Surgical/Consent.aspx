@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true"
-    CodeBehind="Consent.aspx.cs" Inherits="WindowsCEConsentForms.Surgical.SurgicalConsent" %>
+    CodeBehind="Consent.aspx.cs" Inherits="WindowsCEConsentForms.Cardiovascular.ConsentDeclaration" %>
 
 <%@ Register Src="../Consent.ascx" TagName="Consent" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">

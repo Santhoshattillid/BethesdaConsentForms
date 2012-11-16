@@ -39,7 +39,7 @@ namespace WindowsCEConsentForms
 
                     Session["NewSessionFor" + ConsentType.Surgical.ToString()] = true;
                     Session["NewSessionFor" + ConsentType.BloodConsentOrRefusal.ToString()] = true;
-                    Session["NewSessionFor" + ConsentType.CardiacCathLab.ToString()] = true;
+                    Session["NewSessionFor" + ConsentType.Cardiovascular.ToString()] = true;
                     Session["NewSessionFor" + ConsentType.Endoscopy.ToString()] = true;
                     Session["NewSessionFor" + ConsentType.PlasmanApheresis.ToString()] = true;
                     Session["NewSessionFor" + ConsentType.OutsideOR.ToString()] = true;
@@ -134,6 +134,8 @@ namespace WindowsCEConsentForms
                 ChkPICCConsent.Enabled = (DdlFormList.SelectedIndex > 0);
                 ChkORConsent.Enabled = (DdlFormList.SelectedIndex > 0);
                 ChkBCOrR.Enabled = (DdlFormList.SelectedIndex > 0);
+                ChkEC.Enabled = (DdlFormList.SelectedIndex > 0);
+                ChkCCLC.Enabled = (DdlFormList.SelectedIndex > 0);
 
                 //ChkSurgicalConcent.Checked = (DdlFormList.SelectedIndex > 0);
                 if (DdlFormList.SelectedIndex == 0)
@@ -211,7 +213,7 @@ namespace WindowsCEConsentForms
                 }
                 if (ChkCCLC.Checked)
                 {
-                    Response.Redirect("/CardiacCathLabConsent.aspx");
+                    Response.Redirect("/Cardiovascular/ConsentDeclaration.aspx");
                     return;
                 }
                 if (ChkORConsent.Checked)
@@ -221,7 +223,7 @@ namespace WindowsCEConsentForms
                 }
                 if (ChkEC.Checked)
                 {
-                    Response.Redirect("/EndoscopyConsent.aspx");
+                    Response.Redirect("/Endoscopy/ConsentDeclaration.aspx");
                     return;
                 }
                 if (ChkBCOrR.Checked)

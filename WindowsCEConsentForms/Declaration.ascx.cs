@@ -29,6 +29,7 @@ namespace WindowsCEConsentForms
 
                     for (int i = 0; i < 7; i++)
                         ViewState["Signature" + i] = string.Empty;
+
                     string patientId = string.Empty;
                     try
                     {
@@ -42,7 +43,7 @@ namespace WindowsCEConsentForms
                         }
                         catch (Exception)
                         {
-                            // Response.Redirect("/PatientConsent.aspx");
+                            Response.Redirect("/PatientConsent.aspx");
                         }
                     }
                     var formHandlerServiceClient = new FormHandlerServiceClient();
@@ -52,17 +53,18 @@ namespace WindowsCEConsentForms
                         LbldoctorName.Text = string.Empty;
                         if (!string.IsNullOrEmpty(patientDetail.PrimaryDoctorId))
                         {
-                            var doctorDetail = formHandlerServiceClient.GetPrimaryDoctorDetail(patientDetail.PrimaryDoctorId);
+                            var doctorDetail =
+                                formHandlerServiceClient.GetPrimaryDoctorDetail(patientDetail.PrimaryDoctorId);
                             if (doctorDetail != null)
                                 LbldoctorName.Text += doctorDetail.Fname + " " + doctorDetail.Lname;
                             LblAssociateDoctors.Text = string.Empty;
                             foreach (DataRow row in formHandlerServiceClient.GetAssociatedPhysiciansList(patientDetail.PrimaryDoctorId).Rows)
                             {
                                 LbldoctorName.Text += " " + row["Lname"].ToString().Trim() + " " + row["Fname"].ToString().Trim();
-                                if (!string.IsNullOrEmpty(LblAssociateDoctors.Text))
-                                    LblAssociateDoctors.Text += " , ";
-                                LblAssociateDoctors.Text += row["Lname"].ToString().Trim() + " " +
-                                                               row["Fname"].ToString().Trim();
+
+                                //if (!string.IsNullOrEmpty(LblAssociateDoctors.Text))
+                                //    LblAssociateDoctors.Text += " , ";
+                                //LblAssociateDoctors.Text += row["Lname"].ToString().Trim() + " " + row["Fname"].ToString().Trim();
                             }
                         }
                         LblProcedurename.Text = patientDetail.ProcedureName;
@@ -72,8 +74,7 @@ namespace WindowsCEConsentForms
                         ViewState["Signature2"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature8");
                         ViewState["Signature3"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature9");
                         ViewState["Signature4"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature10");
-                        ViewState["Signature5"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature11");
-                         */
+                        ViewState["Signature5"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature11"); */
                     }
                 }
                 else

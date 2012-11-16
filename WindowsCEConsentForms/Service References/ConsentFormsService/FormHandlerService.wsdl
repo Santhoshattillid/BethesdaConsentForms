@@ -100,6 +100,12 @@
   <wsdl:message name="IFormHandlerService_GetProcedurenameList_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetProcedurenameListResponse" />
   </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetEndoscopyProcedurenameList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEndoscopyProcedurenameList" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetEndoscopyProcedurenameList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEndoscopyProcedurenameListResponse" />
+  </wsdl:message>
   <wsdl:message name="IFormHandlerService_UpdatePatientProcedure_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdatePatientProcedure" />
   </wsdl:message>
@@ -147,6 +153,12 @@
   </wsdl:message>
   <wsdl:message name="IFormHandlerService_UpdatePatientProcedures_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdatePatientProceduresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_SendSignatures_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendSignatures" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_SendSignatures_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendSignaturesResponse" />
   </wsdl:message>
   <wsdl:portType name="IFormHandlerService">
     <wsdl:operation name="GetPatientDetails">
@@ -209,6 +221,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetProcedurenameList" message="tns:IFormHandlerService_GetProcedurenameList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetProcedurenameListResponse" message="tns:IFormHandlerService_GetProcedurenameList_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetEndoscopyProcedurenameList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetEndoscopyProcedurenameList" message="tns:IFormHandlerService_GetEndoscopyProcedurenameList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetEndoscopyProcedurenameListResponse" message="tns:IFormHandlerService_GetEndoscopyProcedurenameList_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="UpdatePatientProcedure">
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/UpdatePatientProcedure" message="tns:IFormHandlerService_UpdatePatientProcedure_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/UpdatePatientProcedureResponse" message="tns:IFormHandlerService_UpdatePatientProcedure_OutputMessage" />
@@ -240,6 +256,10 @@
     <wsdl:operation name="UpdatePatientProcedures">
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/UpdatePatientProcedures" message="tns:IFormHandlerService_UpdatePatientProcedures_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/UpdatePatientProceduresResponse" message="tns:IFormHandlerService_UpdatePatientProcedures_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSignatures">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/SendSignatures" message="tns:IFormHandlerService_SendSignatures_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/SendSignaturesResponse" message="tns:IFormHandlerService_SendSignatures_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IFormHandlerService" type="tns:IFormHandlerService">
@@ -379,6 +399,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetEndoscopyProcedurenameList">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/GetEndoscopyProcedurenameList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="UpdatePatientProcedure">
       <soap:operation soapAction="http://tempuri.org/IFormHandlerService/UpdatePatientProcedure" style="document" />
       <wsdl:input>
@@ -444,6 +473,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdatePatientProcedures">
       <soap:operation soapAction="http://tempuri.org/IFormHandlerService/UpdatePatientProcedures" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSignatures">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/SendSignatures" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
