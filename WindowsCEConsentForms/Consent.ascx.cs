@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Data;
 using System.Text;
-using System.Web.UI.WebControls;
 using WindowsCEConsentForms.ConsentFormsService;
 
 namespace WindowsCEConsentForms
@@ -13,6 +11,8 @@ namespace WindowsCEConsentForms
         public string ConsentFolder;
 
         public string Heading;
+
+        public string SubHeading;
 
         protected void Page_Load(object sender, EventArgs e)
         {

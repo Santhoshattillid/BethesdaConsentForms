@@ -57,26 +57,26 @@ namespace WindowsCEConsentForms
                         patientId = string.Empty;
                     }
                 }
-                if (!IsPostBack)
+                if (!string.IsNullOrEmpty(patientId))
                 {
-                    if (!string.IsNullOrEmpty(patientId))
+                    var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId);
+                    if (patientDetail != null)
                     {
-                        var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId);
-                        if (patientDetail != null)
+                        if (!isItNewSession)
                         {
-                            if (!isItNewSession)
+                            if (!string.IsNullOrEmpty(patientDetail.PrimaryDoctorId))
                             {
-                                if (!string.IsNullOrEmpty(patientDetail.PrimaryDoctorId))
-                                    DdlPrimaryDoctors.Items.FindByValue(patientDetail.PrimaryDoctorId).Selected = true;
-                                if (!string.IsNullOrEmpty(patientDetail.ProcedureName))
-                                {
-                                    HdnSelectedProcedures.Value = patientDetail.ProcedureName;
-                                }
+                                DdlPrimaryDoctors.Items.FindByValue(patientDetail.PrimaryDoctorId).Selected = true;
+                                LoadAssociatedDoctors(patientDetail.PrimaryDoctorId);
+                            }
+                            if (!string.IsNullOrEmpty(patientDetail.ProcedureName))
+                            {
+                                HdnSelectedProcedures.Value = patientDetail.ProcedureName;
                             }
                         }
-                        else
-                            DdlPrimaryDoctors.SelectedIndex = 0;
                     }
+                    else
+                        DdlPrimaryDoctors.SelectedIndex = 0;
                 }
             }
         }

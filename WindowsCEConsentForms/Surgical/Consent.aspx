@@ -6,5 +6,5 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <uc1:Consent ID="Consent1" runat="server" ConsentType="Surgical" ConsentFolder="Surgical"
-        Heading="Surgical Consent Form" />
+        Heading="Surgical Consent Form" SubHeading="CONSENT FOR DIAGNOSTIC PROCEDURE OR OPERATION" />
 </asp:Content>

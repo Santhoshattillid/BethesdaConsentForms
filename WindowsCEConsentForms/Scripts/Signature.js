@@ -39,17 +39,22 @@
 
     // setting values here
     var ddlSelectedProcedures = $('input[id$="SelectedProcedures"]');
+
     if (ddlSelectedProcedures.size() > 0) {
-        var proceduresList = $('input[id$="SelectedProcedures"]').val().split(',');
+        var proceduresList = $('input[id$="SelectedProcedures"]').val().split('#');
         procedures.multiselect("widget").find(":checkbox").each(function () {
             var thisObj = $(this);
             for (var j = 0; j < proceduresList.length; j++) {
                 if (thisObj.val().trim() == proceduresList[j].toString().trim()) {
+                    thisObj.attr('checked', false);
                     thisObj.click();
+                    thisObj.attr('checked', true);
                     break;
                 }
             }
         });
+
+        updateSelectedProcedures();
 
         function setProcedures(e) {
             // code to check whether the doctor selects other
@@ -60,6 +65,10 @@
                     $('#DivOtherProcedure').hide();
                 }
             }
+            updateSelectedProcedures();
+        }
+
+        function updateSelectedProcedures() {
             var values = '';
             procedures.multiselect("widget").find(":checkbox").each(function () {
                 var thisObj = $(this);

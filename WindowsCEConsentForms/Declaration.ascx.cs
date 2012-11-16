@@ -13,6 +13,8 @@ namespace WindowsCEConsentForms
 
         public string Heading;
 
+        public string SubHeading;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -72,6 +74,14 @@ namespace WindowsCEConsentForms
                         ViewState["Signature4"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature10");
                         ViewState["Signature5"] = formHandlerServiceClient.GetPatientSignature(patientId, "SurgicalConsent", "signature11");
                          */
+                    }
+                }
+                else
+                {
+                    for (int i = 1; i < 6; i++)
+                    {
+                        if (Request.Form["HdnImage" + i.ToString()] != null)
+                            ViewState["Signature" + i.ToString()] = Request.Form["HdnImage" + i.ToString()];
                     }
                 }
             }
@@ -175,6 +185,7 @@ namespace WindowsCEConsentForms
                     device = Request.Browser.Browser + " " + Request.Browser.Version;
 
                 formHandlerServiceClient.UpdateTrackingInfo(patientId, new TrackingInfo { IP = ip, Device = device });
+
                 formHandlerServiceClient.UpdatePatientUnableSignReason(patientId, ChkPatientisUnableToSign.Checked ? TxtPatientNotSignedBecause.Text : string.Empty);
 
                 formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/" + ConsentFolder + "/ConsentPrint.aspx?PatientId=" + patientId, patientId, ConsentType.ToString());

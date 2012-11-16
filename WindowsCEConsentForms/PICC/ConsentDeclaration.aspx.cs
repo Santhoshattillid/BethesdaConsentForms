@@ -21,37 +21,6 @@ namespace WindowsCEConsentForms.PICC
 
                     for (int i = 0; i < 7; i++)
                         ViewState["Signature" + i] = string.Empty;
-                    string patientId;
-                    try
-                    {
-                        patientId = Session["PatientID"].ToString();
-                    }
-                    catch (Exception)
-                    {
-                        try
-                        {
-                            patientId = Request.QueryString["PatientId"];
-                        }
-                        catch (Exception)
-                        {
-                            patientId = string.Empty;
-                        }
-                    }
-                    var formHandlerServiceClient = new FormHandlerServiceClient();
-                    var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId);
-                    if (patientDetail != null)
-                    {
-                        if (!string.IsNullOrEmpty(patientDetail.PrimaryDoctorId))
-                        {
-                            LblAssociateDoctors.Text = string.Empty;
-                            foreach (DataRow row in formHandlerServiceClient.GetAssociatedPhysiciansList(patientDetail.PrimaryDoctorId).Rows)
-                            {
-                                if (!string.IsNullOrEmpty(LblAssociateDoctors.Text))
-                                    LblAssociateDoctors.Text += " , ";
-                                LblAssociateDoctors.Text += row["Lname"].ToString().Trim() + " " + row["Fname"].ToString().Trim();
-                            }
-                        }
-                    }
                 }
             }
             catch (Exception)
