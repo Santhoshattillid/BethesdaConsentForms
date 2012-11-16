@@ -168,13 +168,7 @@
             </div>
             <asp:HiddenField runat="server" ID="HdnImage1" /> -->
         </li>
-        <li class="PatientReason">
-            <asp:Panel runat="server" ID="PnlPatientReason1">
-                Please specify reason
-                <br />
-                <asp:TextBox runat="server" ID="TxtPatientNotSignedBecause"></asp:TextBox>
-            </asp:Panel>
-        </li>
+        
         <li class="PatientReason">
             <asp:Panel runat="server" ID="PnlPatientReason2">
                 <div>
@@ -186,6 +180,13 @@
                 </div>
                 <div class="clear">
                 </div>
+            </asp:Panel>
+        </li>
+        <li class="PatientReason">
+            <asp:Panel runat="server" ID="PnlPatientReason1">
+                Please specify reason
+                <br />
+                <asp:TextBox runat="server" ID="TxtPatientNotSignedBecause"></asp:TextBox>
             </asp:Panel>
         </li>
         <li class="PatientSign">

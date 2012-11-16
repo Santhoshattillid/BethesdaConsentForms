@@ -1,11 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true"
-    CodeBehind="ConsentPrint.aspx.cs" Inherits="WindowsCEConsentForms.OutsideOR.OutsideORConsentPrintV1" %>
+    CodeBehind="ConsentPrint.aspx.cs" Inherits="WindowsCEConsentForms.Surgical.SurgicalConsentPrintV3" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <ul class="content print">
-       
+        <div class="center">
+            <li>
+                <h3>
+                    ENDOSCOPY CONSENT FORM
+                </h3>
+            </li>
+            <li>
+                <h3>
+                    CONSENT FOR PROCEDURES OUTSIDE OF THE OPERATING ROOM
+                </h3>
+            </li>
+        </div>
         <li>
             <table class="bigfont">
                 <tr>
@@ -13,7 +24,7 @@
                         FORM:
                     </td>
                     <td>
-                        Outside OR Consent Form
+                        ENDOSCOPY CONSENT FORM
                     </td>
                     <td>
                         MR#:
@@ -89,21 +100,15 @@
             <asp:Label runat="server" ID="LblProcedureName" CssClass="errorInfo"></asp:Label>
         </li>
         <li>
-            <h4>
-                PATIENT - PLEASE INITIAL the lines next to each paragraph of this consent to indicate
-                your agreement with the statements therein.
-            </h4>
-        </li>
-        <li>
             <div class="sigBox">
                 <asp:Image runat="server" ID="ImgSignature1" />
             </div>
             <div class="right">
-                The Physician has explained to me the nature of this operation it is generally carried
-                out. I understand that all procedures surgeries involve general risks such as severe
-                loss of blood, infection, heart stoppage or death. The physician has discussed with
-                me the specific risks, benefits and possible side effects of this procedure and
-                I understand them.
+                THE PHYSICIAN HAS EXPLAINED TO ME the nature of this procedure and how it is carried
+                out. I UNDERSTAND that all surgeries and procedures involve general risks, such
+                as severe loss of blood, infection, heart stoppage and in rare cases death. The
+                physician has discussed with me the specific risks, benefits and possible side effects
+                of this procedure and I understand them.
             </div>
             <div class="clear">
             </div>
@@ -113,7 +118,7 @@
                 <asp:Image runat="server" ID="ImgSignature2" />
             </div>
             <div class="right">
-                In addition, the physician has explained to me that there are alternative ways of
+                IN ADDITION, the physician has explained to me that there are alternative ways of
                 treating my condition but I have chosen this procedure.
             </div>
             <div class="clear">
@@ -124,13 +129,15 @@
                 <asp:Image runat="server" ID="ImgSignature3" />
             </div>
             <div class="right">
-                I consent to the administration of anesthesia by or under the direction of a fully
-                qualified anesthestist and to the use of such anesthetics as may be deemed advisable.
-                I consent to the administration of blood and blood products, to the disposal by
-                authorities of Bethesda Memorial Hospital of any tissue or parts which may be removed;
-                to the taking and publication of photographs or video taping in the course of operation;
-                and to the admittance of observers to the operating room for the purpose of advancement
-                and medical education.
+                I CONSENT TO THE ADMINISTRATION OF SEDATION with or without analgesia by or under
+                the direction of the above physician and to the use of such medications as may be
+                deemed advisable. When an anesthesiologist or nurse anesthetist is involved, an
+                evaluation will be performed by them and the administration of sedation will be
+                directed by them. I consent to the administration of blood and blood products; to
+                the disposal by authorities of Bethesda Memorial Hospital of any tissue or parts
+                which may be removed; to the taking and publication of photographs or videotaping;
+                and to the admittance of observers to the procedure room for the purpose of advancement
+                of medical education.
             </div>
             <div class="clear">
             </div>
@@ -140,8 +147,8 @@
                 <asp:Image runat="server" ID="ImgSignature4" />
             </div>
             <div class="right">
-                I permit and authorize the physician and such other physicians qualifeid medical
-                persons as are needed to perform this operation on me.
+                I PERMIT AND AUTHORIZE the physician and such other physicians or qualified medical
+                persons as are needed to perform this procedure on me.
             </div>
             <div class="clear">
             </div>
@@ -186,18 +193,18 @@
                 <asp:Image runat="server" ID="ImgSignature5" />
             </div>
             <div class="right">
-                The Physician has explained to me that sometimes during surgery, it is discovered
+                THE PHYSICIAN HAS EXPLAINED TO ME that sometimes during the procedure it is discovered
                 that additional surgery is needed. If such additional surgery is deemed necessary
-                by the Physician, I permit the Physician to proceed.
+                by the physician, I permit the physician to proceed.
             </div>
             <div class="clear">
             </div>
         </li>
-        <li>I UNDERSTAND that no guarantees have been made to me that this operation will improve
-            my condition. </li>
+        <li>I UNDERSTAND THAT NO GUARANTEES HAVE BEEN MADE TO ME that this procedure will improve
+            my Condition. </li>
         <li>
             <table class="noBorder">
-                <tr>
+                    <tr>
                     <td>
                         <asp:Panel runat="server" ID="PnlPatientUnableToSignBecause">
                             Pt. is unable to sign because:
@@ -216,29 +223,80 @@
                         </asp:Panel>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <div class="sigBox">
-                            <asp:Image runat="server" ID="ImgSignature8" />
-                        </div>
-                        <asp:Label runat="server" ID="LblTranslatedDateTime"></asp:Label>
-                        <div class="clear">
-                        </div>
-                        Translated by (name & empl. #)
-                    </td>
-                    <td>
-                        <asp:Panel runat="server" ID="PnlPatientSignature">
+                    <tr>
+                        <td>
                             <div class="sigBox">
-                                <asp:Image runat="server" ID="ImgSignature7" />
+                                <asp:Image runat="server" ID="ImgPatientSignature" />
                             </div>
-                            <asp:Label runat="server" ID="LblSignatureDateTime"></asp:Label>
                             <div class="clear">
                             </div>
-                            (PATIENT SIGNATURE)
-                        </asp:Panel>
-                    </td>
-                </tr>
-            </table>
+                            Patient Signature / Legal Guardian
+                        </td>
+                        <td>
+                            <div class="timeBox">
+                                <asp:Label runat="server" ID="LblSignature1DateTime"></asp:Label>
+                            </div>
+                            <div class="clear">
+                            </div>
+                            Date Time
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="sigBox">
+                                <asp:Image runat="server" ID="ImgTranslatedBySignature" />
+                            </div>
+                            <div class="clear">
+                            </div>
+                            Translated By
+                        </td>
+                        <td>
+                            <div class="timeBox">
+                                <asp:Label runat="server" ID="LblTranslatedBySignature"></asp:Label>
+                            </div>
+                            <div class="clear">
+                            </div>
+                            Date Time
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="sigBox">
+                                <asp:Image runat="server" ID="ImgWitnessSignature" />
+                            </div>
+                            <div class="clear">
+                            </div>
+                            Witness to signature
+                        </td>
+                        <td>
+                            <div class="timeBox">
+                                <asp:Label runat="server" ID="LblWitnessDateTime"></asp:Label>
+                            </div>
+                            <div class="clear">
+                            </div>
+                            Date Time
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <div class="sigBox">
+                                <asp:Image runat="server" ID="ImgWitnessSignature2" />
+                            </div>
+                            <div class="clear">
+                            </div>
+                            Witness to signature
+                        </td>
+                        <td>
+                            <div class="timeBox">
+                                <asp:Label runat="server" ID="LblWitnessDateTime2"></asp:Label>
+                            </div>
+                            <div class="clear">
+                            </div>
+                            Date Time
+                        </td>
+                    </tr>
+                    
+                </table>
         </li>
         <!--
         <li>

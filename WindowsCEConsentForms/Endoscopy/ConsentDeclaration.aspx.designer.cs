@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsCEConsentForms.BloodConsentOrRefusal {
+namespace WindowsCEConsentForms {
     
     
     public partial class Consent {
@@ -19,7 +19,7 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::WindowsCEConsentForms.PatientDetails PatientDetails1;
+        protected global::System.Web.UI.UserControl PatientDetails1;
         
         /// <summary>
         /// DoctorsAndProcedures1 control.
@@ -29,60 +29,6 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::WindowsCEConsentForms.DoctorsAndProcedures DoctorsAndProcedures1;
-        
-        /// <summary>
-        /// RdoStatementOfConsentAccepted control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RdoStatementOfConsentAccepted;
-        
-        /// <summary>
-        /// RdoStatementOfConsentRefusal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RdoStatementOfConsentRefusal;
-        
-        /// <summary>
-        /// Chk1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox Chk1;
-        
-        /// <summary>
-        /// CheckBox1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
-        
-        /// <summary>
-        /// ChkPatientisUnableToSign control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkPatientisUnableToSign;
-        
-        /// <summary>
-        /// HdnImage1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HdnImage1;
         
         /// <summary>
         /// PnlPatientReason2 control.
@@ -146,5 +92,32 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnCompleted;
+        
+        /// <summary>
+        /// LblError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblError;
+        
+        /// <summary>
+        /// BtnPrevious control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnPrevious;
+        
+        /// <summary>
+        /// BtnNext control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnNext;
     }
 }

@@ -33,3 +33,8 @@ C:\Users\santhosh\Desktop\My Works\ConsentForms\BethesdaConsentForms\WindowsCECo
 C:\Users\santhosh\Desktop\My Works\ConsentForms\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\santhosh\Desktop\My Works\ConsentForms\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.dll
 C:\Users\santhosh\Desktop\My Works\ConsentForms\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.pdb
+D:\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\bin\WindowsCEConsentForms.dll
+D:\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\bin\WindowsCEConsentForms.pdb
+D:\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\ResolveAssemblyReference.cache
+D:\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.dll
+D:\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.pdb
