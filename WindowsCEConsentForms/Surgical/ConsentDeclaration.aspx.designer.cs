@@ -13,12 +13,39 @@ namespace WindowsCEConsentForms.Surgical {
     public partial class SurgicalConsentDeclaration {
         
         /// <summary>
-        /// Declaration1 control.
+        /// PatientDetails1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::WindowsCEConsentForms.Declaration Declaration1;
+        protected global::WindowsCEConsentForms.PatientDetails PatientDetails1;
+        
+        /// <summary>
+        /// DoctorsAndProcedures1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WindowsCEConsentForms.DoctorsAndProcedures DoctorsAndProcedures1;
+        
+        /// <summary>
+        /// ConsentSignatures control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WindowsCEConsentForms.ConsentSignatures ConsentSignatures;
+        
+        /// <summary>
+        /// DeclarationSignatures control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WindowsCEConsentForms.DeclarationSignatures DeclarationSignatures;
     }
 }

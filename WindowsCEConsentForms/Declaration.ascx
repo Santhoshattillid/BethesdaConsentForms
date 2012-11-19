@@ -35,7 +35,7 @@
         </p>
     </li>
     <li>
-        <div class="boxLeft">
+        <div>
             <asp:CheckBox runat="server" ID="ChkPatientisUnableToSign" Text="Patient is unable to sign?"
                 AutoPostBack="True" OnCheckedChanged="ChkPatientisUnableToSign_CheckedChanged" />
         </div>
@@ -109,7 +109,7 @@
         <asp:Label runat="server" ID="LblError" CssClass="errorInfo"></asp:Label>
     </li>
     <li class="center">
-        <asp:Button runat="server" ID="BtnPrevious" Text="Prev" OnClick="BtnPrevious_Click1" />
+       <!-- <asp:Button runat="server" ID="BtnPrevious" Text="Prev" OnClick="BtnPrevious_Click1" /> -->
         <asp:Button runat="server" ID="BtnCompleted" Text="Complete" OnClick="BtnCompleted_Click"
             OnClientClick="javascript: return confirm('Are you sure that do you want to complete the form?');" />
     </li>

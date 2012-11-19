@@ -17,6 +17,7 @@ namespace WindowsCEConsentForms.Endoscopy
         {
             try
             {
+                const ConsentType consentType = ConsentType.Endoscopy ;
                 //validation
                 var lblError = DeclarationSignatures.LblError;
                 var chkPatientisUnableToSign = DeclarationSignatures.ChkPatientisUnableToSign;
@@ -28,7 +29,7 @@ namespace WindowsCEConsentForms.Endoscopy
                    string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign2.ToString()]) ||
                    string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign3.ToString()]) ||
                    string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign4.ToString()]) ||
-                    string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign5.ToString()]))
+                   string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign5.ToString()]))
                 {
                     lblError.Text = "Please input signatures.";
                 }
@@ -103,64 +104,64 @@ namespace WindowsCEConsentForms.Endoscopy
                 if (Request.Form[SignatureType.DoctorSign1.ToString()] != null)
                 {
                     var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign1.ToString()]);
-                    bool result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType.Endoscopy.ToString(), SignatureType.DoctorSign1.ToString());
+                    bool result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.DoctorSign1.ToString());
                 }
 
                 if (Request.Form[SignatureType.DoctorSign2.ToString()] != null)
                 {
                     var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign2.ToString()]);
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType.Endoscopy.ToString(), SignatureType.DoctorSign2.ToString());
+                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.DoctorSign2.ToString());
                 }
 
                 if (Request.Form[SignatureType.DoctorSign3.ToString()] != null)
                 {
                     var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign3.ToString()]);
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType.Endoscopy.ToString(), SignatureType.DoctorSign3.ToString());
+                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.DoctorSign3.ToString());
                 }
 
                 if (Request.Form[SignatureType.DoctorSign4.ToString()] != null)
                 {
                     var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign4.ToString()]);
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType.Endoscopy.ToString(), SignatureType.DoctorSign4.ToString());
+                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.DoctorSign4.ToString());
                 }
 
                 if (Request.Form[SignatureType.DoctorSign5.ToString()] != null)
                 {
                     var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign5.ToString()]);
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType.Endoscopy.ToString(), SignatureType.DoctorSign5.ToString());
+                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.DoctorSign5.ToString());
                 }
 
                 if (Request.Form[SignatureType.PatientSign.ToString()] != null)
                 {
                     var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.PatientSign.ToString()]);
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType.BloodConsentOrRefusal.ToString(), SignatureType.PatientSign.ToString());
+                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.PatientSign.ToString());
                 }
 
                 if (Request.Form[SignatureType.PatientAuthorizeSign.ToString()] != null)
                 {
                     var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.PatientAuthorizeSign.ToString()]); // Patient Signature
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType.BloodConsentOrRefusal.ToString(), SignatureType.PatientAuthorizeSign.ToString());
+                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.PatientAuthorizeSign.ToString());
                 }
 
                 if (Request.Form[SignatureType.TranslatedBySign.ToString()] != null)
                 {
                     // updating signature4
                     var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.TranslatedBySign.ToString()]); // Translated by (name & empl.#)
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType.BloodConsentOrRefusal.ToString(), SignatureType.TranslatedBySign.ToString());
+                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.TranslatedBySign.ToString());
                 }
 
                 // updating signature5
                 if (Request.Form[SignatureType.WitnessSignature1.ToString()] != null)
                 {
                     var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.WitnessSignature1.ToString()]);
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType.BloodConsentOrRefusal.ToString(), SignatureType.WitnessSignature1.ToString());
+                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.WitnessSignature1.ToString());
                 }
 
                 // updating signature6
                 if (Request.Form[SignatureType.WitnessSignature2.ToString()] != null)
                 {
                     var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.WitnessSignature2.ToString()]);
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType.BloodConsentOrRefusal.ToString(), SignatureType.WitnessSignature2.ToString());
+                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.WitnessSignature2.ToString());
                 }
 
                 string ip = Request.ServerVariables["REMOTE_ADDR"];
@@ -174,9 +175,9 @@ namespace WindowsCEConsentForms.Endoscopy
 
                 formHandlerServiceClient.UpdatePatientUnableSignReason(patientId, chkPatientisUnableToSign.Checked ? txtPatientNotSignedBecause.Text : string.Empty);
 
-                formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/Endoscopy/ConsentPrint.aspx?PatientId=" + patientId, patientId, ConsentType.BloodConsentOrRefusal.ToString());
+                formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/" + consentType + @"/ConsentPrint.aspx?PatientId=" + patientId, patientId, consentType.ToString());
 
-                Response.Redirect(Utilities.GetNextFormUrl(ConsentType.Endoscopy, Session));
+                Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));
             }
             catch (Exception)
             {
@@ -185,3 +186,5 @@ namespace WindowsCEConsentForms.Endoscopy
         }
     }
 }
+
+                    

@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true"
     CodeBehind="ConsentDeclaration.aspx.cs" Inherits="WindowsCEConsentForms.Cardiovascular.ConsentDeclaration1" %>
+<%@ Import Namespace="WindowsCEConsentForms" %>
 
 <%@ Register TagPrefix="uc1" TagName="PatientDetails" Src="~/PatientDetails.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="DoctorsAndProcedures" Src="~/DoctorsAndProcedures.ascx" %>
@@ -81,7 +82,8 @@
         <li>
             <div class="sig1 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage1" class="HdnImage1" value='<%= ViewState["Signature1"].ToString() %>' />
+                <input type="hidden" class="HdnImage1" name="<%= SignatureType.DoctorSign1.ToString() %>"
+                value='<%= ViewState[SignatureType.DoctorSign1.ToString()].ToString() %>' />
             </div>
             <div class="right">
                 The nature of my conditions; the purposes and techniques of the proposed procedure(s);
@@ -95,7 +97,8 @@
         <li>
             <div class="sig2 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage2" class="HdnImage2" value='<%= ViewState["Signature2"].ToString() %>' />
+                <input type="hidden" class="HdnImage2" name="<%= SignatureType.DoctorSign2.ToString() %>"
+                value='<%= ViewState[SignatureType.DoctorSign2.ToString()].ToString() %>' />
             </div>
             <div class="right">
                 I understand that this procedure is done under local anesthesia. Small tubes (catheters)
@@ -111,7 +114,8 @@
         <li>
             <div class="sig3 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage3" class="HdnImage3" value='<%= ViewState["Signature3"].ToString() %>' />
+                <input type="hidden" class="HdnImage3" name="<%= SignatureType.DoctorSign3.ToString() %>"
+                value='<%= ViewState[SignatureType.DoctorSign3.ToString()].ToString() %>' />
             </div>
             <div class="right">
                 There are certain risks, hazards, complications and consequences associated with
@@ -129,7 +133,8 @@
         <li>
             <div class="sig4 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage4" class="HdnImage4" value='<%= ViewState["Signature4"].ToString() %>' />
+                <input type="hidden" class="HdnImage4" name="<%= SignatureType.DoctorSign4.ToString() %>"
+                value='<%= ViewState[SignatureType.DoctorSign4.ToString()].ToString() %>' />
             </div>
             <div class="right">
                 I consent to the administration of moderate sedation. I understand that the expected
@@ -143,7 +148,8 @@
         <li>
             <div class="sig5 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage5" class="HdnImage5" value='<%= ViewState["Signature5"].ToString() %>' />
+                <input type="hidden" class="HdnImage5" name="<%= SignatureType.DoctorSign5.ToString() %>"
+                value='<%= ViewState[SignatureType.DoctorSign5.ToString()].ToString() %>' />
             </div>
             <div class="right">
                 Although this procedure and its complications have been explained to me, I acknowledge

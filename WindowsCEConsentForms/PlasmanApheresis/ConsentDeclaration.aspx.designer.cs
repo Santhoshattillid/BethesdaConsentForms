@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsCEConsentForms.OutsideOR {
+namespace WindowsCEConsentForms.PlasmanApheresis {
     
     
-    public partial class Declaration {
+    public partial class ConsentDeclaration {
         
         /// <summary>
         /// PatientDetails1 control.
@@ -31,21 +31,30 @@ namespace WindowsCEConsentForms.OutsideOR {
         protected global::WindowsCEConsentForms.DoctorsAndProcedures DoctorsAndProcedures1;
         
         /// <summary>
-        /// ConsentSignatures control.
+        /// LblPatientName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::WindowsCEConsentForms.ConsentSignatures ConsentSignatures;
+        protected global::System.Web.UI.WebControls.Label LblPatientName;
         
         /// <summary>
-        /// DeclarationSignatures control.
+        /// DdlPhysicainList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::WindowsCEConsentForms.DeclarationSignatures DeclarationSignatures;
+        protected global::System.Web.UI.WebControls.DropDownList DdlPhysicainList;
+        
+        /// <summary>
+        /// LblPhysicianName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblPhysicianName;
     }
 }

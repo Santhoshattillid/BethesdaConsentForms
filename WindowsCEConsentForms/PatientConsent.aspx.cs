@@ -136,7 +136,7 @@ namespace WindowsCEConsentForms
                 ChkBCOrR.Enabled = (DdlFormList.SelectedIndex > 0);
                 ChkEC.Enabled = (DdlFormList.SelectedIndex > 0);
                 ChkCCLC.Enabled = (DdlFormList.SelectedIndex > 0);
-
+                ChkPA.Enabled = (DdlFormList.SelectedIndex > 0);
                 //ChkSurgicalConcent.Checked = (DdlFormList.SelectedIndex > 0);
                 if (DdlFormList.SelectedIndex == 0)
                     LblError.Text = "Please select form type.";
@@ -190,7 +190,7 @@ namespace WindowsCEConsentForms
                     LblError.Text = "Please Select Form Type";
                     return;
                 }
-                if (!ChkBCOrR.Checked && !ChkCCLC.Checked && !ChkEC.Checked && !ChkSurgicalConcent.Checked && !ChkPICCConsent.Checked && !ChkORConsent.Checked)
+                if (!ChkBCOrR.Checked && !ChkCCLC.Checked && !ChkEC.Checked && !ChkSurgicalConcent.Checked && !ChkPICCConsent.Checked && !ChkORConsent.Checked && !ChkPA.Checked)
                 {
                     LblError.Text = "Please Select any one of the above Consent";
                     return;
@@ -208,7 +208,7 @@ namespace WindowsCEConsentForms
 
                 if (ChkSurgicalConcent.Checked)
                 {
-                    Response.Redirect("/Surgical/Consent.aspx");
+                    Response.Redirect("/Surgical/ConsentDeclaration.aspx");
                     return;
                 }
                 if (ChkCCLC.Checked)
@@ -218,7 +218,7 @@ namespace WindowsCEConsentForms
                 }
                 if (ChkORConsent.Checked)
                 {
-                    Response.Redirect("/OutsideOR/Consent.aspx");
+                    Response.Redirect("/OutsideOR/ConsentDeclaration.aspx");
                     return;
                 }
                 if (ChkEC.Checked)
