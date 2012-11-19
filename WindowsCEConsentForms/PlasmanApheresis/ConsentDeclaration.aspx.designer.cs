@@ -40,13 +40,13 @@ namespace WindowsCEConsentForms.PlasmanApheresis {
         protected global::System.Web.UI.WebControls.Label LblPatientName;
         
         /// <summary>
-        /// DdlPhysicainList control.
+        /// LblPhyisicianList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlPhysicainList;
+        protected global::System.Web.UI.WebControls.Label LblPhyisicianList;
         
         /// <summary>
         /// LblPhysicianName control.
@@ -56,5 +56,14 @@ namespace WindowsCEConsentForms.PlasmanApheresis {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblPhysicianName;
+        
+        /// <summary>
+        /// DeclarationSignatures control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WindowsCEConsentForms.DeclarationSignatures DeclarationSignatures;
     }
 }

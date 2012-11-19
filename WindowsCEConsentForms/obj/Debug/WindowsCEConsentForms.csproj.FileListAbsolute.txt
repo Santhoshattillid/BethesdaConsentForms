@@ -42,3 +42,4 @@ C:\Users\Santhosh\Desktop\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\bi
 C:\Users\Santhosh\Desktop\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\bin\WindowsCEConsentForms.pdb
 C:\Users\Santhosh\Desktop\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.dll
 C:\Users\Santhosh\Desktop\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.pdb
+C:\Users\Santhosh\Desktop\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.csprojResolveAssemblyReference.cache

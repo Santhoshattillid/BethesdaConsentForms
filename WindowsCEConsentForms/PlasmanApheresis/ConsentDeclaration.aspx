@@ -16,39 +16,58 @@
             <p>
                 CONSENT FOR THERAPEUTIC APHERESIS</p>
         </li>
-    </ul>
-    <uc1:PatientDetails ID="PatientDetails1" runat="server"  />
-    <uc1:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" ConsentType="Surgical"  />
-<ul>
+</ul>
+<uc1:PatientDetails ID="PatientDetails1" runat="server"  />
+<uc1:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" ConsentType="Surgical"  />
+<ul class="content">
     <li>
-        <asp:Label ID="LblPatientName" runat="server"/> of therapeutic apheresis to be performed by or under the direction of 
-        <asp:DropDownList ID="DdlPhysicainList" runat="server"/>
+        <div class="small-content">
+            <asp:Label ID="LblPatientName" runat="server" CssClass="errorInfo"/> of therapeutic apheresis to be performed by or under the direction of 
+            <asp:Label ID="LblPhyisicianList" runat="server" CssClass="errorInfo"></asp:Label>
+        </div>
     </li>
     <li>
-        The nature and purpose of the procedure  necessary to treat my condition, possible alternative methods of treatment, the risks involved, the possible consequences, and the possibility of complications have been explained to me by <asp:Label ID="LblPhysicianName" runat="server"></asp:Label> and I understand the nature of the procedure to be as follows.
+        <div class="small-content">
+            The nature and purpose of the procedure  necessary to treat my condition, possible alternative methods of treatment, the risks involved, the possible consequences, and the possibility of complications have been explained to me by 
+            <asp:Label ID="LblPhysicianName" runat="server" CssClass="errorInfo"></asp:Label> and I understand the nature of the procedure to be as follows.
+        </div>
     </li>
     <li>
-        Therapeutic Apheresis involves the separation, removal and replacement of specific blood cells or plasma components from my blood. This involves the passage of my blood from my circulatory system into a machine, where it is circulated through a device which acts to remove the specific blood cells or plasma.
+        <div class="small-content">
+            Therapeutic Apheresis involves the separation, removal and replacement of specific blood cells or plasma components from my blood. This involves the passage of my blood from my circulatory system into a machine, where it is circulated through a device which acts to remove the specific blood cells or plasma.
+        </div>
     </li>
     <li>
-        I have been made aware of certain risks and consequences that may be associated with the procedure heren described. Among others there are:
+        <div class="small-content">
+            I have been made aware of certain risks and consequences that may be associated with the procedure heren described. Among others there are:
+        </div>
     </li>
     <li>
-        <ul>
+        <ul class="content">
             <li>
-                The possibility of contamination of the blood with various bacteria or germs, which can result in bloodstream infection.
+                <div class="small-content">
+                    The possibility of contamination of the blood with various bacteria or germs, which can result in bloodstream infection.
+                </div>
             </li>
             <li>
-                The possiblity of excess bleeding occuring within the body as a result of clotting problems of the blood, or externally due to disconnection of the bloodline.
+                <div class="small-content">
+                    The possiblity of excess bleeding occuring within the body as a result of clotting problems of the blood, or externally due to disconnection of the bloodline.
+                </div>
             </li>
             <li>
-                The possibility of contracting infection of the puncture site of catherer which allows access to the bloodsteam.
+                <div class="small-content">
+                    The possibility of contracting infection of the puncture site of catherer which allows access to the bloodsteam.
+                </div>
             </li>
             <li>
-                The potential hazard of air heartbeats, tingling or numbness of the fingers chest, mouth of face, nausea, bruising at the site of neede insertion, or decrease blood pressure resulting from certain chemical shifts within the patient's system. 
+                <div class="small-content">
+                    The potential hazard of air heartbeats, tingling or numbness of the fingers chest, mouth of face, nausea, bruising at the site of neede insertion, or decrease blood pressure resulting from certain chemical shifts within the patient's system. 
+                </div>
             </li>
             <li>
-                The possibility of a re-action to medication and/or replacement fluids given during the treatment which may result in adverse effects ranging from mid to (rarely) fatal shock ot cardiac arrest.
+                <div class="small-content">
+                    The possibility of a re-action to medication and/or replacement fluids given during the treatment which may result in adverse effects ranging from mid to (rarely) fatal shock ot cardiac arrest.
+                </div>
             </li>
         </ul>
     </li>
@@ -101,4 +120,5 @@
             </div>
      </li>
 </ul>
+<uc1:DeclarationSignatures ID="DeclarationSignatures" runat="server" />
 </asp:Content>

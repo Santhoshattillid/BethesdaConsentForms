@@ -230,6 +230,10 @@ namespace WindowsCEConsentForms
                 {
                     Response.Redirect("/BloodConsentOrRefusal/ConsentDeclaration.aspx");
                 }
+                if(ChkPA.Checked)
+                {
+                    Response.Redirect("/PlasmanApheresis/ConsentDeclaration.aspx");
+                }
                 if (ChkPICCConsent.Checked)
                 {
                     Response.Redirect("/PICC/ConsentDeclaration.aspx");

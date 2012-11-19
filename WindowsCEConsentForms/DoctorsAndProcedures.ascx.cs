@@ -43,7 +43,7 @@ namespace WindowsCEConsentForms
                 bool isItNewSession;
                 try
                 {
-                    isItNewSession = (bool)Session["NewSessionFor" + ConsentType.ToString()];
+                    isItNewSession = (bool)Session["NewSessionFor" + ConsentType];
                 }
                 catch (Exception)
                 {
