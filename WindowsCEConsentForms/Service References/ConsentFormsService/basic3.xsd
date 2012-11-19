@@ -1,35 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Consent.sp.wcf" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Consent.sp.wcf" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="PatientDetail">
+<xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfstring">
     <xs:sequence>
-      <xs:element minOccurs="0" name="AdmDate" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="AssociatedDoctorId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="AttnDr" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DOB" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="MRHash" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PrimaryDoctorId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ProcedureName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="UnableToSignReason" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="age" type="xs:int" />
-      <xs:element minOccurs="0" name="gender" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="PatientDetail" nillable="true" type="tns:PatientDetail" />
-  <xs:complexType name="DoctorDetails">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Fname" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="IsPrimaryDoctor" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Lname" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="DoctorDetails" nillable="true" type="tns:DoctorDetails" />
-  <xs:complexType name="TrackingInfo">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Device" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="IP" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="TrackingInfo" nillable="true" type="tns:TrackingInfo" />
+  <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
 </xs:schema>

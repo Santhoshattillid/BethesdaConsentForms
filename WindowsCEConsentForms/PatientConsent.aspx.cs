@@ -12,31 +12,6 @@ namespace WindowsCEConsentForms
             {
                 try
                 {
-                    // loading patient ids
-                    var formHandlerServiceClient = new FormHandlerServiceClient();
-                    DdlPatientIds.Items.Add("---------Select Patient--------");
-                    DdlFormList.Items.Add("--Select Consent Form Type--");
-                    var patientList = formHandlerServiceClient.GetPatientList();
-                    if (patientList != null)
-                    {
-                        foreach (DataRow row in patientList.Rows)
-                        {
-                            if (!string.IsNullOrEmpty(row["BirthDate"].ToString()) && !string.IsNullOrEmpty(row["Lname"].ToString()) && !string.IsNullOrEmpty(row["Fname"].ToString()) && !string.IsNullOrEmpty(row["PatientId"].ToString()))
-                            {
-                                var dt = Convert.ToDateTime(row["BirthDate"].ToString());
-                                DdlPatientIds.Items.Add(
-                                    new System.Web.UI.WebControls.ListItem(
-                                        row["Lname"] + ", " + row["Fname"] + ", " +
-                                        dt.ToShortDateString(), row["PatientId"].ToString()));
-                            }
-                        }
-                    }
-                    DdlFormList.Items.Add("Name Printed in Consent Form");
-                    DdlFormList.Items.Add("Blank Consent Form");
-                    DdlFormList.Items.Add("Pre Printed Order Form");
-                    DdlPatientIds.SelectedIndex = 0;
-                    DdlFormList.SelectedIndex = 0;
-
                     Session["NewSessionFor" + ConsentType.Surgical.ToString()] = true;
                     Session["NewSessionFor" + ConsentType.BloodConsentOrRefusal.ToString()] = true;
                     Session["NewSessionFor" + ConsentType.Cardiovascular.ToString()] = true;
@@ -119,6 +94,10 @@ namespace WindowsCEConsentForms
                 ChkCCLC.Checked = false;
                 ChkEC.Checked = false;
                 ChkSurgicalConcent.Checked = false;
+                RdoBMH.Checked = false;
+                RdoBHE.Checked = false;
+                DdlPatientIds.Items.Clear();
+                DdlFormList.Items.Clear();
             }
             catch (Exception)
             {
@@ -136,6 +115,7 @@ namespace WindowsCEConsentForms
                 ChkBCOrR.Enabled = (DdlFormList.SelectedIndex > 0);
                 ChkEC.Enabled = (DdlFormList.SelectedIndex > 0);
                 ChkCCLC.Enabled = (DdlFormList.SelectedIndex > 0);
+                ChkPA.Enabled = (DdlFormList.SelectedIndex > 0);
 
                 //ChkSurgicalConcent.Checked = (DdlFormList.SelectedIndex > 0);
                 if (DdlFormList.SelectedIndex == 0)
@@ -190,7 +170,7 @@ namespace WindowsCEConsentForms
                     LblError.Text = "Please Select Form Type";
                     return;
                 }
-                if (!ChkBCOrR.Checked && !ChkCCLC.Checked && !ChkEC.Checked && !ChkSurgicalConcent.Checked && !ChkPICCConsent.Checked && !ChkORConsent.Checked)
+                if (!ChkBCOrR.Checked && !ChkCCLC.Checked && !ChkEC.Checked && !ChkSurgicalConcent.Checked && !ChkPICCConsent.Checked && !ChkORConsent.Checked && !ChkPA.Checked)
                 {
                     LblError.Text = "Please Select any one of the above Consent";
                     return;
@@ -199,7 +179,7 @@ namespace WindowsCEConsentForms
                 //actual storage part starts here
 
                 Session.Add("SurgicalConsent", ChkSurgicalConcent.Checked);
-                Session.Add("CardiacCathLabConsent", ChkCCLC.Checked);
+                Session.Add("Cardiovascular", ChkCCLC.Checked);
                 Session.Add("OutsideORConsent", ChkORConsent.Checked);
                 Session.Add("EndoscopyConsent", ChkEC.Checked);
                 Session.Add("BloodConsentRefusal", ChkBCOrR.Checked);
@@ -208,7 +188,7 @@ namespace WindowsCEConsentForms
 
                 if (ChkSurgicalConcent.Checked)
                 {
-                    Response.Redirect("/Surgical/Consent.aspx");
+                    Response.Redirect("/Surgical/ConsentDeclaration.aspx");
                     return;
                 }
                 if (ChkCCLC.Checked)
@@ -218,7 +198,7 @@ namespace WindowsCEConsentForms
                 }
                 if (ChkORConsent.Checked)
                 {
-                    Response.Redirect("/OutsideOR/Consent.aspx");
+                    Response.Redirect("/OutsideOR/ConsentDeclaration.aspx");
                     return;
                 }
                 if (ChkEC.Checked)
@@ -230,6 +210,10 @@ namespace WindowsCEConsentForms
                 {
                     Response.Redirect("/BloodConsentOrRefusal/ConsentDeclaration.aspx");
                 }
+                if (ChkPA.Checked)
+                {
+                    Response.Redirect("/PlasmanApheresis/ConsentDeclaration.aspx");
+                }
                 if (ChkPICCConsent.Checked)
                 {
                     Response.Redirect("/PICC/ConsentDeclaration.aspx");
@@ -239,6 +223,44 @@ namespace WindowsCEConsentForms
             {
                 return;
             }
+        }
+
+        protected void RdoBMH_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadPatients("BMH");
+            RdoBHE.Checked = !RdoBMH.Checked;
+        }
+
+        protected void RdoBHE_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadPatients("BHE");
+            RdoBMH.Checked = !RdoBHE.Checked;
+        }
+
+        private void LoadPatients(string location)
+        {
+            // loading patient ids
+            DdlPatientIds.Items.Clear();
+            var formHandlerServiceClient = new FormHandlerServiceClient();
+            DdlPatientIds.Items.Add("---------Select Patient--------");
+            var patientList = formHandlerServiceClient.GetPatientfromLocation(location);
+            if (patientList != null)
+            {
+                foreach (DataRow row in patientList.Rows)
+                {
+                    if (!string.IsNullOrEmpty(row["BirthDate"].ToString()) && !string.IsNullOrEmpty(row["Lname"].ToString()) && !string.IsNullOrEmpty(row["Fname"].ToString()) && !string.IsNullOrEmpty(row["PatientId"].ToString()))
+                    {
+                        var dt = Convert.ToDateTime(row["BirthDate"].ToString());
+                        DdlPatientIds.Items.Add(new System.Web.UI.WebControls.ListItem(row["Lname"] + ", " + row["Fname"] + ", " + dt.ToShortDateString(), row["PatientId"].ToString()));
+                    }
+                }
+            }
+            DdlFormList.Items.Clear();
+            DdlFormList.Items.Add("--Select Consent Form Type--");
+            DdlFormList.Items.Add("Name Printed in Consent Form");
+            DdlFormList.Items.Add("Blank Consent Form");
+            DdlFormList.SelectedIndex = 0;
+            DdlPatientIds.SelectedIndex = 0;
         }
     }
 }

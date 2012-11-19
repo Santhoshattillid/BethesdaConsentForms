@@ -379,6 +379,9 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientDetails", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientDetailsResponse")]
         System.Xml.Linq.XElement GetPatientDetails(string patientNumber);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientfromLocation", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientfromLocationResponse")]
+        System.Data.DataTable GetPatientfromLocation(string Location);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientNumbers", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientNumbersResponse")]
         System.Xml.Linq.XElement GetPatientNumbers();
         
@@ -404,7 +407,7 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         System.Data.DataTable GetAssociatedPhysiciansList(string primaryPhysicianId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/UpdateDoctorAssociation", ReplyAction="http://tempuri.org/IFormHandlerService/UpdateDoctorAssociationResponse")]
-        void UpdateDoctorAssociation(string patientId, string primaryDoctorId, string associatedDoctorId);
+        void UpdateDoctorAssociation(string patientId, string primaryDoctorId, string associatedDoctorId, string ConsentFormType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPrimaryDoctorDetail", ReplyAction="http://tempuri.org/IFormHandlerService/GetPrimaryDoctorDetailResponse")]
         WindowsCEConsentForms.ConsentFormsService.DoctorDetails GetPrimaryDoctorDetail(string id);
@@ -424,8 +427,12 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetEndoscopyProcedurenameList", ReplyAction="http://tempuri.org/IFormHandlerService/GetEndoscopyProcedurenameListResponse")]
         string[] GetEndoscopyProcedurenameList();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetCardiovascularProcedurenameList", ReplyAction="http://tempuri.org/IFormHandlerService/GetCardiovascularProcedurenameListResponse" +
+            "")]
+        string[] GetCardiovascularProcedurenameList();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/UpdatePatientProcedure", ReplyAction="http://tempuri.org/IFormHandlerService/UpdatePatientProcedureResponse")]
-        void UpdatePatientProcedure(string PatientId, string Procedurename);
+        void UpdatePatientProcedure(string PatientId, string Procedures, string ConsentFormType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/UpdatePatientUnableSignReason", ReplyAction="http://tempuri.org/IFormHandlerService/UpdatePatientUnableSignReasonResponse")]
         void UpdatePatientUnableSignReason(string PatientId, string Reason);
@@ -446,7 +453,7 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         System.Data.DataSet GetPatientDetailWithDS(string id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/UpdatePatientProcedures", ReplyAction="http://tempuri.org/IFormHandlerService/UpdatePatientProceduresResponse")]
-        void UpdatePatientProcedures(string PatientId, string Procedurenames);
+        void UpdatePatientProcedures(string PatientId, string Procedures, string ConsentFormType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/SendSignatures", ReplyAction="http://tempuri.org/IFormHandlerService/SendSignaturesResponse")]
         void SendSignatures(int id, string signatures);
@@ -483,6 +490,10 @@ namespace WindowsCEConsentForms.ConsentFormsService {
             return base.Channel.GetPatientDetails(patientNumber);
         }
         
+        public System.Data.DataTable GetPatientfromLocation(string Location) {
+            return base.Channel.GetPatientfromLocation(Location);
+        }
+        
         public System.Xml.Linq.XElement GetPatientNumbers() {
             return base.Channel.GetPatientNumbers();
         }
@@ -515,8 +526,8 @@ namespace WindowsCEConsentForms.ConsentFormsService {
             return base.Channel.GetAssociatedPhysiciansList(primaryPhysicianId);
         }
         
-        public void UpdateDoctorAssociation(string patientId, string primaryDoctorId, string associatedDoctorId) {
-            base.Channel.UpdateDoctorAssociation(patientId, primaryDoctorId, associatedDoctorId);
+        public void UpdateDoctorAssociation(string patientId, string primaryDoctorId, string associatedDoctorId, string ConsentFormType) {
+            base.Channel.UpdateDoctorAssociation(patientId, primaryDoctorId, associatedDoctorId, ConsentFormType);
         }
         
         public WindowsCEConsentForms.ConsentFormsService.DoctorDetails GetPrimaryDoctorDetail(string id) {
@@ -543,8 +554,12 @@ namespace WindowsCEConsentForms.ConsentFormsService {
             return base.Channel.GetEndoscopyProcedurenameList();
         }
         
-        public void UpdatePatientProcedure(string PatientId, string Procedurename) {
-            base.Channel.UpdatePatientProcedure(PatientId, Procedurename);
+        public string[] GetCardiovascularProcedurenameList() {
+            return base.Channel.GetCardiovascularProcedurenameList();
+        }
+        
+        public void UpdatePatientProcedure(string PatientId, string Procedures, string ConsentFormType) {
+            base.Channel.UpdatePatientProcedure(PatientId, Procedures, ConsentFormType);
         }
         
         public void UpdatePatientUnableSignReason(string PatientId, string Reason) {
@@ -571,8 +586,8 @@ namespace WindowsCEConsentForms.ConsentFormsService {
             return base.Channel.GetPatientDetailWithDS(id);
         }
         
-        public void UpdatePatientProcedures(string PatientId, string Procedurenames) {
-            base.Channel.UpdatePatientProcedures(PatientId, Procedurenames);
+        public void UpdatePatientProcedures(string PatientId, string Procedures, string ConsentFormType) {
+            base.Channel.UpdatePatientProcedures(PatientId, Procedures, ConsentFormType);
         }
         
         public void SendSignatures(int id, string signatures) {

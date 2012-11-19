@@ -13,12 +13,39 @@ namespace WindowsCEConsentForms.OutsideOR {
     public partial class Declaration {
         
         /// <summary>
-        /// Declaration1 control.
+        /// PatientDetails1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::WindowsCEConsentForms.Declaration Declaration1;
+        protected global::WindowsCEConsentForms.PatientDetails PatientDetails1;
+        
+        /// <summary>
+        /// DoctorsAndProcedures1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WindowsCEConsentForms.DoctorsAndProcedures DoctorsAndProcedures1;
+        
+        /// <summary>
+        /// ConsentSignatures1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WindowsCEConsentForms.ConsentSignatures ConsentSignatures1;
+        
+        /// <summary>
+        /// DeclarationSignatures1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WindowsCEConsentForms.DeclarationSignatures DeclarationSignatures1;
     }
 }

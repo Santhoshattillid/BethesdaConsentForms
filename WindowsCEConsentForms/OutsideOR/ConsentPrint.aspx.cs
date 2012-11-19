@@ -27,7 +27,7 @@ namespace WindowsCEConsentForms.OutsideOR
                     var primaryDoctor = formHandlerServiceClient.GetPrimaryDoctorDetail(patientDetails.PrimaryDoctorId);
                     if (primaryDoctor != null)
                     {
-                        LblAssociatedDoctor.Text = primaryDoctor.Fname + " " + primaryDoctor.Lname;
+                        //LblAssociatedDoctor.Text = primaryDoctor.Fname + " " + primaryDoctor.Lname;
                         LblAuthoriseDoctors.Text = primaryDoctor.Fname + " " + primaryDoctor.Lname;
                     }
                     foreach (DataRow row in formHandlerServiceClient.GetAssociatedPhysiciansList(patientDetails.PrimaryDoctorId).Rows)
@@ -47,7 +47,8 @@ namespace WindowsCEConsentForms.OutsideOR
                     LblSignatureDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
                     LblTranslatedDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
                     LblAuthorizedSignDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
-                    LblAssociatedDoctorTimeStamp.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
+
+                    //LblAssociatedDoctorTimeStamp.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
                     LblDate.Text = DateTime.Now.ToString("MMM dd yyyy");
                     LblAge.Text = patientDetails.age.ToString(CultureInfo.InvariantCulture);
                     LblGender.Text = patientDetails.gender;
@@ -71,7 +72,8 @@ namespace WindowsCEConsentForms.OutsideOR
                     ImgSignature6.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=7&ConsentType=" + ConsentType.OutsideOR.ToString();
                     ImgSignature7.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=8&ConsentType=" + ConsentType.OutsideOR.ToString();
                     ImgSignature8.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=9&ConsentType=" + ConsentType.OutsideOR.ToString();
-                    ImgSignature9.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=10&ConsentType=" + ConsentType.OutsideOR.ToString();
+
+                    //ImgSignature9.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=10&ConsentType=" + ConsentType.OutsideOR.ToString();
                 }
             }
         }

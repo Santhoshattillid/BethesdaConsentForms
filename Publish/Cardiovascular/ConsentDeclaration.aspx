@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true"
     CodeBehind="ConsentDeclaration.aspx.cs" Inherits="WindowsCEConsentForms.Cardiovascular.ConsentDeclaration1" %>
 
+<%@ Import Namespace="WindowsCEConsentForms" %>
 <%@ Register TagPrefix="uc1" TagName="PatientDetails" Src="~/PatientDetails.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="DoctorsAndProcedures" Src="~/DoctorsAndProcedures.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="DeclarationSignatures" Src="~/DeclarationSignatures.ascx" %>
@@ -15,73 +16,13 @@
         <li class="center">Cardiovascular Laboratiry Consent Form</li>
     </ul>
     <uc1:PatientDetails ID="PatientDetails1" runat="server" />
-    <uc1:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" />
-    and such designee or assistants as he may designate to perform:
-    <ul class="content">
-        <li>
-            <table class="noBorder">
-                <tr>
-                    <td>
-                        <asp:CheckBox runat="server" ID="Chk1" Text="Left Heart Catheterization, which may include coronary angioplasty"
-                            CssClass="leftPush" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:CheckBox runat="server" ID="Chk2" Text="Right Heart Catheterization" CssClass="leftPush" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:CheckBox runat="server" ID="Chk3" Text="Temporary pacemaker Insertion" CssClass="leftPush" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:CheckBox runat="server" ID="Chk4" Text="Insertion of Intra Aortic Balloon Pump"
-                            CssClass="leftPush" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:CheckBox runat="server" ID="Chk5" Text="Moderate Sedation" CssClass="leftPush" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:CheckBox runat="server" ID="Chk6" Text="Percutaneous Transluminal Coronary Angioplasty"
-                            CssClass="leftPush" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:CheckBox runat="server" ID="Chk7" Text="Stent Placement" CssClass="leftPush" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:CheckBox runat="server" ID="Chk8" Text="Percutaneous Transluminal Coronary Rotational Angioplasty"
-                            CssClass="leftPush" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:CheckBox runat="server" ID="Chk9" Text="Intravasular Ultrasound" CssClass="leftPush" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:CheckBox runat="server" ID="Chk10" Text="Angiojet" CssClass="leftPush" />
-                    </td>
-                </tr>
-            </table>
-        </li>
-    </ul>
+    <uc1:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" ConsentType="Cardiovascular" />
     <ul class="content">
         <li>
             <div class="sig1 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage1" class="HdnImage1" value='<%= ViewState["Signature1"].ToString() %>' />
+                <input type="hidden" class="HdnImage1" name="<%= SignatureType.DoctorSign1.ToString() %>"
+                    value='<%= ViewState[SignatureType.DoctorSign1.ToString()].ToString() %>' />
             </div>
             <div class="right">
                 The nature of my conditions; the purposes and techniques of the proposed procedure(s);
@@ -95,7 +36,8 @@
         <li>
             <div class="sig2 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage2" class="HdnImage2" value='<%= ViewState["Signature2"].ToString() %>' />
+                <input type="hidden" class="HdnImage2" name="<%= SignatureType.DoctorSign2.ToString() %>"
+                    value='<%= ViewState[SignatureType.DoctorSign2.ToString()].ToString() %>' />
             </div>
             <div class="right">
                 I understand that this procedure is done under local anesthesia. Small tubes (catheters)
@@ -111,7 +53,8 @@
         <li>
             <div class="sig3 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage3" class="HdnImage3" value='<%= ViewState["Signature3"].ToString() %>' />
+                <input type="hidden" class="HdnImage3" name="<%= SignatureType.DoctorSign3.ToString() %>"
+                    value='<%= ViewState[SignatureType.DoctorSign3.ToString()].ToString() %>' />
             </div>
             <div class="right">
                 There are certain risks, hazards, complications and consequences associated with
@@ -129,7 +72,8 @@
         <li>
             <div class="sig4 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage4" class="HdnImage4" value='<%= ViewState["Signature4"].ToString() %>' />
+                <input type="hidden" class="HdnImage4" name="<%= SignatureType.DoctorSign4.ToString() %>"
+                    value='<%= ViewState[SignatureType.DoctorSign4.ToString()].ToString() %>' />
             </div>
             <div class="right">
                 I consent to the administration of moderate sedation. I understand that the expected
@@ -143,7 +87,8 @@
         <li>
             <div class="sig5 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage5" class="HdnImage5" value='<%= ViewState["Signature5"].ToString() %>' />
+                <input type="hidden" class="HdnImage5" name="<%= SignatureType.DoctorSign5.ToString() %>"
+                    value='<%= ViewState[SignatureType.DoctorSign5.ToString()].ToString() %>' />
             </div>
             <div class="right">
                 Although this procedure and its complications have been explained to me, I acknowledge

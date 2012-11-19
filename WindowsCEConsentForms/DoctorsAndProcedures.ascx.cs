@@ -22,6 +22,11 @@ namespace WindowsCEConsentForms
                     foreach (string procedureName in formHandlerServiceClient.GetEndoscopyProcedurenameList())
                         DdLProcedures.Items.Add(procedureName.Trim());
                 }
+                else if (ConsentType == ConsentType.Cardiovascular)
+                {
+                    foreach (string procedureName in formHandlerServiceClient.GetCardiovascularProcedurenameList())
+                        DdLProcedures.Items.Add(procedureName.Trim());
+                }
                 else
                 {
                     foreach (string procedureName in formHandlerServiceClient.GetProcedurenameList())
@@ -43,7 +48,7 @@ namespace WindowsCEConsentForms
                 bool isItNewSession;
                 try
                 {
-                    isItNewSession = (bool)Session["NewSessionFor" + ConsentType.ToString()];
+                    isItNewSession = (bool)Session["NewSessionFor" + ConsentType];
                 }
                 catch (Exception)
                 {

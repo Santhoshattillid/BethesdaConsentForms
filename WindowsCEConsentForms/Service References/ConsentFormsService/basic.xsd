@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import schemaLocation="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Consent.sp.wcf" />
+  <xs:import schemaLocation="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Consent.sp.wcf" />
   <xs:element name="GetPatientDetails">
     <xs:complexType>
       <xs:sequence>
@@ -16,6 +16,32 @@
           <xs:complexType>
             <xs:sequence>
               <xs:any minOccurs="0" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPatientfromLocation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPatientfromLocationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPatientfromLocationResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -179,6 +205,7 @@
         <xs:element minOccurs="0" name="patientId" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="primaryDoctorId" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="associatedDoctorId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ConsentFormType" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -266,11 +293,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetCardiovascularProcedurenameList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCardiovascularProcedurenameListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetCardiovascularProcedurenameListResult" nillable="true" type="q8:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="UpdatePatientProcedure">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="PatientId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Procedurename" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Procedures" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ConsentFormType" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -404,7 +444,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="PatientId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Procedurenames" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Procedures" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ConsentFormType" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

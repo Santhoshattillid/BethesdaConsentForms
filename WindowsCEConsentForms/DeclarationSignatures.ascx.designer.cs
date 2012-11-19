@@ -19,7 +19,7 @@ namespace WindowsCEConsentForms {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public  global::System.Web.UI.WebControls.CheckBox ChkPatientisUnableToSign;
+        public global::System.Web.UI.WebControls.CheckBox ChkPatientisUnableToSign;
         
         /// <summary>
         /// PnlPatientReason1 control.
@@ -37,7 +37,7 @@ namespace WindowsCEConsentForms {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public  global::System.Web.UI.WebControls.TextBox TxtPatientNotSignedBecause;
+        public global::System.Web.UI.WebControls.TextBox TxtPatientNotSignedBecause;
         
         /// <summary>
         /// PnlPatientReason2 control.
@@ -83,5 +83,14 @@ namespace WindowsCEConsentForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         public global::System.Web.UI.WebControls.Button BtnCompleted;
+        
+        /// <summary>
+        /// BtnReset control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        public global::System.Web.UI.WebControls.Button BtnReset;
     }
 }

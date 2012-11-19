@@ -44,9 +44,9 @@ namespace WindowsCEConsentForms
                         consentType = string.Empty;
                     }
                     if (string.IsNullOrEmpty(consentType))
-                        consentType = "SurgicalConsent";
+                        return;
                     var formHandlerServiceClient = new FormHandlerServiceClient();
-                    var content = formHandlerServiceClient.GetPatientSignature(patientId, consentType, "signature" + signatureId);
+                    var content = formHandlerServiceClient.GetPatientSignature(patientId, consentType, signatureId);
                     var signatureToImage = new SignatureToImage();
                     var bitmap = signatureToImage.SigJsonToImage(content);
                     bitmap.Save(context.Response.OutputStream, ImageFormat.Jpeg);

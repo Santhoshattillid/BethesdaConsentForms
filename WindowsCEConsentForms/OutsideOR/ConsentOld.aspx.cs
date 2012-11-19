@@ -222,10 +222,9 @@ namespace WindowsCEConsentForms.OutsideOR
 
                 var formHandlerServiceClient = new FormHandlerServiceClient();
 
-                //formHandlerServiceClient.UpdateDoctorAssociation(patientId, DdlPrimaryDoctors.SelectedValue, DdlAssociatedDoctors.SelectedValue);
-                formHandlerServiceClient.UpdateDoctorAssociation(patientId, DdlPrimaryDoctors.SelectedValue, "0");
+                formHandlerServiceClient.UpdateDoctorAssociation(patientId, DdlPrimaryDoctors.SelectedValue, LblAssociatedDoctors.Text, ConsentType.OutsideOR.ToString());
 
-                formHandlerServiceClient.UpdatePatientProcedures(patientId, selectedProcedurenames);
+                formHandlerServiceClient.UpdatePatientProcedures(patientId, selectedProcedurenames, ConsentType.OutsideOR.ToString());
 
                 // updating signature1
                 var bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage1"]);

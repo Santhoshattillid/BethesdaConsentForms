@@ -7,13 +7,7 @@ namespace WindowsCEConsentForms
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
-                ViewState[SignatureType.PatientAuthorizeSign.ToString()] = string.Empty;
-                ViewState[SignatureType.PatientSign.ToString()] = string.Empty;
-                ViewState[SignatureType.TranslatedBySign.ToString()] = string.Empty;
-                ViewState[SignatureType.WitnessSignature1.ToString()] = string.Empty;
-                ViewState[SignatureType.WitnessSignature2.ToString()] = string.Empty;
-            }
+                ResetSignatures();
             else
             {
                 if (Request.Form[SignatureType.PatientAuthorizeSign.ToString()] != null)
@@ -35,12 +29,21 @@ namespace WindowsCEConsentForms
             SetPanels(ChkPatientisUnableToSign.Checked);
         }
 
-        private void SetPanels(bool flag)
+        public void SetPanels(bool flag)
         {
             PnlPatientReason1.Visible = flag;
             PnlPatientReason2.Visible = flag;
             PnlPatientSign.Visible = !flag;
             PnlAdditionalwitness.Visible = flag;
+        }
+
+        public void ResetSignatures()
+        {
+            ViewState[SignatureType.PatientAuthorizeSign.ToString()] = string.Empty;
+            ViewState[SignatureType.PatientSign.ToString()] = string.Empty;
+            ViewState[SignatureType.TranslatedBySign.ToString()] = string.Empty;
+            ViewState[SignatureType.WitnessSignature1.ToString()] = string.Empty;
+            ViewState[SignatureType.WitnessSignature2.ToString()] = string.Empty;
         }
     }
 }

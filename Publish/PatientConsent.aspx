@@ -16,6 +16,20 @@
                     </tr>
                     <tr>
                         <td>
+                            <h4>
+                                Select Location</h4>
+                        </td>
+                        <td>
+                            <asp:RadioButton runat="server" ID="RdoBMH" Text="BMH" OnCheckedChanged="RdoBMH_CheckedChanged"
+                                AutoPostBack="True" />
+                        </td>
+                        <td colspan="3">
+                            <asp:RadioButton runat="server" ID="RdoBHE" Text="BHE" OnCheckedChanged="RdoBHE_CheckedChanged"
+                                AutoPostBack="True" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                             Patient
                         </td>
                         <td colspan="4">
@@ -81,7 +95,7 @@
                         </td>
                         <td colspan="4" class="noBorder">
                             <asp:DropDownList ID="DdlFormList" runat="server" Enabled="false" AutoPostBack="True"
-                                OnSelectedIndexChanged="DdlFormList_SelectedIndexChanged">
+                                OnSelectedIndexChanged="DdlFormList_SelectedIndexChanged" EnableViewState="True">
                             </asp:DropDownList>
                         </td>
                     </tr>

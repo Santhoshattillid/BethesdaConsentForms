@@ -89,5 +89,6 @@
     </li>
     <li class="center">
         <asp:Button runat="server" ID="BtnCompleted" Text="Complete" OnClientClick="javascript: return confirm('Are you sure that do you want to complete the form?');" />
+        <asp:Button runat="server" ID="BtnReset" Text="Reset" />
     </li>
 </ul>

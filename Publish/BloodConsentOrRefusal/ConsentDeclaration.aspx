@@ -3,6 +3,7 @@
 
 <%@ Register TagPrefix="uc1" TagName="PatientDetails" Src="~/PatientDetails.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="DoctorsAndProcedures" Src="~/DoctorsAndProcedures.ascx" %>
+<%@ Register src="../DeclarationSignatures.ascx" tagname="DeclarationSignatures" tagprefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -163,89 +164,6 @@
                 </li>
             </ul>
         </li>
-        <li>
-            <p>
-                I Understand and that no guarantee have been made to me that this operation will
-                improve my condition.
-            </p>
-        </li>
-        <li>
-            <div>
-                <asp:CheckBox runat="server" ID="ChkPatientisUnableToSign" Text="Patient is unable to sign?"
-                    AutoPostBack="True" OnCheckedChanged="ChkPatientisUnableToSign_CheckedChanged" />
-            </div>
-        </li>
-        <li class="PatientReason">
-            <asp:Panel runat="server" ID="PnlPatientReason1">
-                Please specify reason
-                <br />
-                <asp:TextBox runat="server" ID="TxtPatientNotSignedBecause"></asp:TextBox>
-            </asp:Panel>
-        </li>
-        <li class="PatientReason">
-            <asp:Panel runat="server" ID="PnlPatientReason2">
-                <div>
-                    If patient is unable to sign/person authorized to sign consent / relationship to
-                    patient.</div>
-                <div class="sig1 sigWrapper">
-                    <canvas class="pad" width="198" height="55"></canvas>
-                    <input type="hidden" name="HdnImage1" class="HdnImage1" value='<%= ViewState["Signature1"].ToString() %>' />
-                </div>
-                <div class="clear">
-                </div>
-            </asp:Panel>
-        </li>
-        <li class="PatientSign">
-            <asp:Panel runat="server" ID="PnlPatientSign">
-                <div>
-                    Patient Signature</div>
-                <div class="sig2 sigWrapper">
-                    <canvas class="pad" width="198" height="55"></canvas>
-                    <input type="hidden" name="HdnImage2" class="HdnImage2" value='<%= ViewState["Signature2"].ToString() %>' />
-                </div>
-                <div class="clear">
-                </div>
-            </asp:Panel>
-        </li>
-        <li>
-            <div>
-                Translated by (name & empl.#)</div>
-            <div class="sig3 sigWrapper">
-                <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage3" class="HdnImage3" value='<%= ViewState["Signature3"].ToString() %>' />
-            </div>
-            <div class="clear">
-            </div>
-        </li>
-        <li>
-            <div>
-                Witness To Signature Only</div>
-            <div class="sig4 sigWrapper">
-                <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage4" class="HdnImage4" value='<%= ViewState["Signature4"].ToString() %>' />
-            </div>
-            <div class="clear">
-            </div>
-        </li>
-        <li>
-            <asp:Panel runat="server" ID="PnlAdditionalwitness">
-                <div>
-                    Witness To signature
-                </div>
-                <div class="sig5 sigWrapper">
-                    <canvas class="pad" width="198" height="55"></canvas>
-                    <input type="hidden" name="HdnImage5" class="HdnImage5" value='<%= ViewState["Signature5"].ToString() %>' />
-                </div>
-                <div class="clear">
-                </div>
-            </asp:Panel>
-        </li>
-        <li>
-            <asp:Label runat="server" ID="LblError" CssClass="errorInfo"></asp:Label>
-        </li>
-        <li class="center">
-            <asp:Button runat="server" ID="BtnCompleted" Text="Complete" OnClick="BtnCompleted_Click"
-                OnClientClick="javascript: return confirm('Are you sure that do you want to complete the form?');" />
-        </li>
-    </ul>
+</ul>
+<uc2:DeclarationSignatures ID="DeclarationSignatures" runat="server" />
 </asp:Content>

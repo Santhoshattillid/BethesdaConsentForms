@@ -5,7 +5,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <ul class="content print">
-       
         <li>
             <table class="bigfont">
                 <tr>
@@ -240,21 +239,5 @@
                 </tr>
             </table>
         </li>
-        <!--
-        <li>
-            <div class="leftBox">
-                I declare that my associate, Dr.
-                <asp:Label runat="server" ID="LblAssociatedDoctor" CssClass="errorInfo"></asp:Label>
-                , or I personally explained the above information to the patient or the patient's
-                representative.
-            </div>
-            <div class="sigBox">
-                <asp:Image runat="server" ID="ImgSignature9" />
-            </div>
-            <asp:Label runat="server" ID="LblAssociatedDoctorTimeStamp"></asp:Label>
-            <div class="clear">
-            </div>
-        </li>
-        -->
     </ul>
 </asp:Content>

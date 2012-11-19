@@ -7,18 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsCEConsentForms.Cardiovascular {
+namespace WindowsCEConsentForms.Surgical {
     
     
-    public partial class ConsentDeclaration {
-        
-        /// <summary>
-        /// Consent1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::WindowsCEConsentForms.Consent Consent1;
+    public partial class SurgicalConsent {
     }
 }

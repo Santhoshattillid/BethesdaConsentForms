@@ -57,12 +57,6 @@
                 <asp:CheckBox runat="server" ID="ChkPatientisUnableToSign" Text="Patient is unable to sign?"
                     AutoPostBack="True" OnCheckedChanged="ChkPatientisUnableToSign_CheckedChanged" />
             </div>
-            <!--
-            <div id="TxtSignature1" class="signature" hdfld="HdnImage1">
-            </div>
-            <div class="clear">
-            </div>
-            <asp:HiddenField runat="server" ID="HdnImage1" /> -->
         </li>
         <li class="PatientReason">
             <asp:Panel runat="server" ID="PnlPatientReason1">

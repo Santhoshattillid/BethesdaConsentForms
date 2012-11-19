@@ -68,9 +68,10 @@
     <Content Include="BloodConsentOrRefusal\ConsentPrint.aspx" />
     <Content Include="Cardiovascular\ConsentDeclaration.aspx" />
     <Content Include="Cardiovascular\ConsentPrint.aspx" />
-    <Content Include="Consent.ascx" />
+    <Content Include="ConsentPrint.ascx" />
+    <Content Include="UnUsed\Consent.ascx" />
     <Content Include="ConsentSignatures.ascx" />
-    <Content Include="Declaration.ascx" />
+    <Content Include="UnUsed\Declaration.ascx" />
     <Content Include="DeclarationSignatures.ascx" />
     <Content Include="Default.aspx" />
     <Content Include="DoctorsAndProcedures.ascx" />
@@ -127,6 +128,8 @@
     <Content Include="PICC\ConsentDeclaration.aspx" />
     <Content Include="PICC\ConsentUnUsed.aspx" />
     <Content Include="PICC\ConsentPrint.aspx" />
+    <Content Include="PlasmanApheresis\ConsentDeclaration.aspx" />
+    <Content Include="PlasmanApheresis\ConsentPrint.aspx" />
     <Content Include="PrintHeader.ascx" />
     <Content Include="Scripts\jquery-1.6.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.13.custom.min.js" />
@@ -166,7 +169,6 @@
     <Content Include="Surgical\ConsentPrintV0.aspx" />
     <Content Include="Surgical\ConsentPrintV2.aspx" />
     <Content Include="Surgical\ConsentPrint.aspx" />
-    <Content Include="Thanks.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -213,11 +215,18 @@
     <Compile Include="Cardiovascular\ConsentPrint.aspx.designer.cs">
       <DependentUpon>ConsentPrint.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Consent.ascx.cs">
+    <Compile Include="ConsentPrint.ascx.cs">
+      <DependentUpon>ConsentPrint.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsentPrint.ascx.designer.cs">
+      <DependentUpon>ConsentPrint.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UnUsed\Consent.ascx.cs">
       <DependentUpon>Consent.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Consent.ascx.designer.cs">
+    <Compile Include="UnUsed\Consent.ascx.designer.cs">
       <DependentUpon>Consent.ascx</DependentUpon>
     </Compile>
     <Compile Include="ConsentSignatures.ascx.cs">
@@ -227,11 +236,11 @@
     <Compile Include="ConsentSignatures.ascx.designer.cs">
       <DependentUpon>ConsentSignatures.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Declaration.ascx.cs">
+    <Compile Include="UnUsed\Declaration.ascx.cs">
       <DependentUpon>Declaration.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Declaration.ascx.designer.cs">
+    <Compile Include="UnUsed\Declaration.ascx.designer.cs">
       <DependentUpon>Declaration.ascx</DependentUpon>
     </Compile>
     <Compile Include="DeclarationSignatures.ascx.cs">
@@ -342,6 +351,20 @@
     <Compile Include="PICC\ConsentPrint.aspx.designer.cs">
       <DependentUpon>ConsentPrint.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PlasmanApheresis\ConsentDeclaration.aspx.cs">
+      <DependentUpon>ConsentDeclaration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlasmanApheresis\ConsentDeclaration.aspx.designer.cs">
+      <DependentUpon>ConsentDeclaration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlasmanApheresis\ConsentPrint.aspx.cs">
+      <DependentUpon>ConsentPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlasmanApheresis\ConsentPrint.aspx.designer.cs">
+      <DependentUpon>ConsentPrint.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PrintHeader.ascx.cs">
       <DependentUpon>PrintHeader.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -404,13 +427,6 @@
     </Compile>
     <Compile Include="Surgical\ConsentPrint.aspx.designer.cs">
       <DependentUpon>ConsentPrint.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Thanks.aspx.cs">
-      <DependentUpon>Thanks.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Thanks.aspx.designer.cs">
-      <DependentUpon>Thanks.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utilities.cs" />
   </ItemGroup>
