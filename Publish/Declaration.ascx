@@ -8,7 +8,7 @@
     </li>
     <li class="center">
         <p>
-            CONSENT FOR DIAGNOSTIC PROCEDURE OR OPERATION
+            <%= SubHeading %>
         </p>
     </li>
 </ul>
@@ -18,12 +18,16 @@
         <p>
             I here by authorize Doctor(s)
             <asp:Label runat="server" ID="LbldoctorName" CssClass="errorInfo"></asp:Label>
+            ,
+            <asp:Label ID="LblAssociateDoctors" runat="server" CssClass="errorInfo"></asp:Label>
             to perform upon
             <asp:Label runat="server" ID="LnlPatientName" CssClass="errorInfo"></asp:Label>
             the following procedure or operation :
             <asp:Label runat="server" ID="LblProcedurename" CssClass="errorInfo"></asp:Label>
         </p>
     </li>
+</ul>
+<ul class="content">
     <li>
         <p>
             I Understand and that no guarantee have been made to me that this operation will
@@ -35,12 +39,6 @@
             <asp:CheckBox runat="server" ID="ChkPatientisUnableToSign" Text="Patient is unable to sign?"
                 AutoPostBack="True" OnCheckedChanged="ChkPatientisUnableToSign_CheckedChanged" />
         </div>
-        <!--
-            <div id="TxtSignature1" class="signature" hdfld="HdnImage1">
-            </div>
-            <div class="clear">
-            </div>
-            <asp:HiddenField runat="server" ID="HdnImage1" /> -->
     </li>
     <li class="PatientReason">
         <asp:Panel runat="server" ID="PnlPatientReason1">
@@ -107,22 +105,6 @@
             </div>
         </asp:Panel>
     </li>
-    <!--
-        <li>
-            <div>
-                I declare that I or my associates doctors
-                <asp:Label runat="server" ID="LblAssociateDoctors" CssClass="errorInfo"></asp:Label>
-                Personally explained the above information to the patient or the patient's representative.</div>
-        </li>
-        <li>
-            <div class="sig5 sigWrapper">
-                <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" name="HdnImage5" class="HdnImage5" value='<%= ViewState["Signature5"].ToString() %>' />
-            </div>
-            <div class="clear">
-            </div>
-        </li>
--->
     <li>
         <asp:Label runat="server" ID="LblError" CssClass="errorInfo"></asp:Label>
     </li>

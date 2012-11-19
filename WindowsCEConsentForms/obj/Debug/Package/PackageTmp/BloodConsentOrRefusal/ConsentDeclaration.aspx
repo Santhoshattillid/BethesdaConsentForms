@@ -17,7 +17,7 @@
         </li>
     </ul>
     <uc1:PatientDetails ID="PatientDetails1" runat="server" />
-    <uc1:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" />
+    <uc1:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" ConsentType="BloodConsentOrRefusal" />
     <ul class="content noBorder">
         <li>
             <div class="small-content">
@@ -78,15 +78,28 @@
             <script language="javascript" type="text/javascript">
                 $(function () {
                     $("input[id$='RdoStatementOfConsentAccepted']").click(function () {
+                        showAccepted();
+                    });
+                    $("input[id$='RdoStatementOfConsentRefusal']").click(function () {
+                        showRefusal();
+                    });
+
+                    if ($("input[id$='RdoStatementOfConsentAccepted']").is(':checked')) {
+                        showAccepted();
+                    }
+                    if ($("input[id$='RdoStatementOfConsentRefusal']").is(':checked')) {
+                        showRefusal();
+                    }
+                    function showAccepted() {
                         $('#ListElementRefusal').hide();
                         $('#ListElementAccepted').show();
                         $("input[id$='RdoStatementOfConsentRefusal']").attr('checked', false);
-                    });
-                    $("input[id$='RdoStatementOfConsentRefusal']").click(function () {
+                    }
+                    function showRefusal() {
                         $('#ListElementAccepted').hide();
                         $('#ListElementRefusal').show();
                         $("input[id$='RdoStatementOfConsentAccepted']").attr('checked', false);
-                    });
+                    }
                 })
             </script>
             <table class="noBorder">
@@ -161,12 +174,6 @@
                 <asp:CheckBox runat="server" ID="ChkPatientisUnableToSign" Text="Patient is unable to sign?"
                     AutoPostBack="True" OnCheckedChanged="ChkPatientisUnableToSign_CheckedChanged" />
             </div>
-            <!--
-            <div id="TxtSignature1" class="signature" hdfld="HdnImage1">
-            </div>
-            <div class="clear">
-            </div>
-            <asp:HiddenField runat="server" ID="HdnImage1" /> -->
         </li>
         <li class="PatientReason">
             <asp:Panel runat="server" ID="PnlPatientReason1">
@@ -199,6 +206,16 @@
                 <div class="clear">
                 </div>
             </asp:Panel>
+        </li>
+        <li>
+            <div>
+                Translated by (name & empl.#)</div>
+            <div class="sig3 sigWrapper">
+                <canvas class="pad" width="198" height="55"></canvas>
+                <input type="hidden" name="HdnImage3" class="HdnImage3" value='<%= ViewState["Signature3"].ToString() %>' />
+            </div>
+            <div class="clear">
+            </div>
         </li>
         <li>
             <div>

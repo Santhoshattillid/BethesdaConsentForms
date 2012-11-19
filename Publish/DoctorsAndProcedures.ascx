@@ -11,7 +11,7 @@
         the procedure or operation : &nbsp;
         <asp:DropDownList ID="DdLProcedures" runat="server" Width="400px">
         </asp:DropDownList>
-        <asp:HiddenField runat="server" ID="HdnSelectedProcedures" />
+        <asp:HiddenField runat="server" ID="HdnSelectedProcedures" EnableViewState="True" />
         <div id="DivOtherProcedure">
             <label>
                 Specify procedure</label>

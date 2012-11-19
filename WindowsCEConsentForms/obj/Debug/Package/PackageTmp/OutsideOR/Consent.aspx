@@ -6,5 +6,5 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <uc1:Consent ID="Consent1" runat="server" ConsentFolder="OutsideOR" ConsentType="OutsideOR"
-        Heading="Outside OR Consent Form" />
+        Heading="Outside OR Consent Form" SubHeading="CONSENT FOR PROCEDURES OUTSIDE OPERATING ROOM" />
 </asp:Content>

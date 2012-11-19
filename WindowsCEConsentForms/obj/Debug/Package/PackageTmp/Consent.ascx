@@ -6,7 +6,10 @@
         <h3>
             <%= Heading%></h3>
     </li>
-    <li class="center">CONSENT FOR DIAGNOSTIC PROCEDURE OR OPERATION </li>
+    <li class="center">
+        <p>
+            <%= SubHeading %></p>
+    </li>
 </ul>
 <uc1:PatientDetails ID="PatientDetails1" runat="server" />
 <uc1:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" />
