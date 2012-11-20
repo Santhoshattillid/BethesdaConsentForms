@@ -89,6 +89,9 @@
                 <asp:CheckBox runat="server" ID="ChkPatientisUnableToSign" Text="Patient is unable to sign?"
                     AutoPostBack="True" OnCheckedChanged="ChkPatientisUnableToSign_CheckedChanged" />
             </div>
+            <div>
+                <asp:CheckBox runat="server" ID="ChkTelephoneConsent" Text="Telephone Consent" />
+            </div>
         </li>
         <li class="PatientReason">
             <asp:Panel runat="server" ID="PnlPatientReason1">
@@ -126,18 +129,6 @@
         </li>
         <li>
             <div>
-                Translated By
-            </div>
-            <div class="sig13 sigWrapper">
-                <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" class="HdnImage13" name="<%= SignatureType.TranslatedBySign.ToString() %>"
-                    value='<%= ViewState[SignatureType.TranslatedBySign.ToString()].ToString() %>' />
-            </div>
-            <div class="clear">
-            </div>
-        </li>
-        <li>
-            <div>
                 Witness To Signature Only</div>
             <div class="sig14 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
@@ -160,6 +151,18 @@
                 <div class="clear">
                 </div>
             </asp:Panel>
+        </li>
+        <li>
+            <div>
+                Translated By
+            </div>
+            <div class="sig13 sigWrapper">
+                <canvas class="pad" width="198" height="55"></canvas>
+                <input type="hidden" class="HdnImage13" name="<%= SignatureType.TranslatedBySign.ToString() %>"
+                    value='<%= ViewState[SignatureType.TranslatedBySign.ToString()].ToString() %>' />
+            </div>
+            <div class="clear">
+            </div>
         </li>
         <li>
             <div>

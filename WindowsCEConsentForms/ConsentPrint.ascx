@@ -202,7 +202,7 @@
                     FORM:
                 </td>
                 <td>
-                    Surgical Consent Form
+                    <%= ConsentType.ToString() %> Consent Form
                 </td>
                 <td>
                     MR#:

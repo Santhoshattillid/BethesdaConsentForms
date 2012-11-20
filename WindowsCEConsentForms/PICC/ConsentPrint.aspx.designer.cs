@@ -13,6 +13,51 @@ namespace WindowsCEConsentForms.PICC {
     public partial class PICCConsentPrintV1 {
         
         /// <summary>
+        /// LblPatientName3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblPatientName3;
+        
+        /// <summary>
+        /// LblAuthoriseDoctors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblAuthoriseDoctors;
+        
+        /// <summary>
+        /// LblPatientName2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblPatientName2;
+        
+        /// <summary>
+        /// LblProcedureName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblProcedureName;
+        
+        /// <summary>
+        /// PnlPatientSignature control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PnlPatientSignature;
+        
+        /// <summary>
         /// ImgPatientSignature control.
         /// </summary>
         /// <remarks>
@@ -22,31 +67,112 @@ namespace WindowsCEConsentForms.PICC {
         protected global::System.Web.UI.WebControls.Image ImgPatientSignature;
         
         /// <summary>
-        /// LblSignature1DateTime control.
+        /// LblPatientSignatureDateTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblSignature1DateTime;
+        protected global::System.Web.UI.WebControls.Label LblPatientSignatureDateTime;
         
         /// <summary>
-        /// ImgWitnessSignature control.
+        /// PnlPatientUnableToSignBecause control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ImgWitnessSignature;
+        protected global::System.Web.UI.WebControls.Panel PnlPatientUnableToSignBecause;
         
         /// <summary>
-        /// LblWitnessDateTime control.
+        /// LblPatientUnableToSignBecause control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblWitnessDateTime;
+        protected global::System.Web.UI.WebControls.Label LblPatientUnableToSignBecause;
+        
+        /// <summary>
+        /// PnlAuthorizedSignature control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PnlAuthorizedSignature;
+        
+        /// <summary>
+        /// ImgAuthorizedSignature control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ImgAuthorizedSignature;
+        
+        /// <summary>
+        /// LblAuthorizedSignDateTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblAuthorizedSignDateTime;
+        
+        /// <summary>
+        /// ImgWitnessSignature1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ImgWitnessSignature1;
+        
+        /// <summary>
+        /// LblWitnessSignature1DateTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblWitnessSignature1DateTime;
+        
+        /// <summary>
+        /// ImgWitnessSignature2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ImgWitnessSignature2;
+        
+        /// <summary>
+        /// LblWitnessSignature2DateTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblWitnessSignature2DateTime;
+        
+        /// <summary>
+        /// ImgTranslatedBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ImgTranslatedBy;
+        
+        /// <summary>
+        /// LblTranslatedDateTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblTranslatedDateTime;
         
         /// <summary>
         /// ImgPICCNurse control.
@@ -58,21 +184,93 @@ namespace WindowsCEConsentForms.PICC {
         protected global::System.Web.UI.WebControls.Image ImgPICCNurse;
         
         /// <summary>
-        /// LblImgPICCNurseDateTime control.
+        /// LblPICCNurseDateTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblImgPICCNurseDateTime;
+        protected global::System.Web.UI.WebControls.Label LblPICCNurseDateTime;
         
         /// <summary>
-        /// LblPatientName control.
+        /// LblPatientMrHash control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblPatientName;
+        protected global::System.Web.UI.WebControls.Label LblPatientMrHash;
+        
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// LblDOB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblDOB;
+        
+        /// <summary>
+        /// LblPatientId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblPatientId;
+        
+        /// <summary>
+        /// LblAge control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblAge;
+        
+        /// <summary>
+        /// LblGender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblGender;
+        
+        /// <summary>
+        /// LblDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblDate;
+        
+        /// <summary>
+        /// LblPatientAdminDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblPatientAdminDate;
+        
+        /// <summary>
+        /// LblPatientAdminTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblPatientAdminTime;
     }
 }

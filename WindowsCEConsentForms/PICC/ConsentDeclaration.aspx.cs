@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Text;
 using WindowsCEConsentForms.ConsentFormsService;
 
@@ -52,38 +51,30 @@ namespace WindowsCEConsentForms.PICC
                 LblError.Text = string.Empty;
 
                 if (DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedIndex == 0)
-                {
                     LblError.Text += "Please select primary and associated doctor";
-                }
 
                 if (string.IsNullOrEmpty(DoctorsAndProcedures1.HdnSelectedProcedures.Value))
-                {
                     LblError.Text += " <br /> Please select the procedures and then go next.";
-                }
 
                 if (ChkPatientisUnableToSign.Checked)
                 {
                     if (string.IsNullOrEmpty(TxtPatientNotSignedBecause.Text.Trim()))
-                    {
                         LblError.Text += " <br /> Please input reason for why patient not able sign.";
-                    }
+
                     if (string.IsNullOrEmpty(Request.Form[SignatureType.PatientAuthorizeSign.ToString()]))
-                    {
                         LblError.Text += " <br /> Please input patient authorized person signature.";
-                    }
                 }
                 else
                 {
                     if (string.IsNullOrEmpty(Request.Form[SignatureType.PatientSign.ToString()]))
-                    {
                         LblError.Text += " <br /> Please input patient  signature.";
-                    }
                 }
 
+                if (ChkTelephoneConsent.Checked && string.IsNullOrEmpty(Request.Form[SignatureType.WitnessSignature1.ToString()]))
+                    LblError.Text += " <br /> Please input witness 2 signature.";
+
                 if (!string.IsNullOrEmpty(LblError.Text))
-                {
                     return;
-                }
 
                 // uploading images here
                 string patientId = string.Empty;

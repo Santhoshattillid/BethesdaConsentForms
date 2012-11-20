@@ -51,31 +51,24 @@ namespace WindowsCEConsentForms.Surgical
                 if (chkPatientisUnableToSign.Checked)
                 {
                     if (string.IsNullOrEmpty(txtPatientNotSignedBecause.Text.Trim()))
-                    {
                         lblError.Text += " <br /> Please input reason for why patient not able sign.";
-                    }
                     if (string.IsNullOrEmpty(Request.Form[SignatureType.PatientAuthorizeSign.ToString()]))
-                    {
                         lblError.Text += " <br /> Please input patient authorized person signature.";
-                    }
                 }
                 else
                 {
                     if (string.IsNullOrEmpty(Request.Form[SignatureType.PatientSign.ToString()]))
-                    {
                         lblError.Text += " <br /> Please input patient  signature.";
-                    }
                 }
 
                 if (string.IsNullOrEmpty(Request.Form[SignatureType.WitnessSignature1.ToString()]))
-                {
                     lblError.Text += " <br /> Please input witness signature.";
-                }
+
+                if (DeclarationSignatures.ChkTelephoneConsent.Checked && string.IsNullOrEmpty(Request.Form[SignatureType.WitnessSignature1.ToString()]))
+                    lblError.Text += " <br /> Please input witness 2 signature.";
 
                 if (!string.IsNullOrEmpty(lblError.Text))
-                {
                     return;
-                }
 
                 string patientId = string.Empty;
                 try

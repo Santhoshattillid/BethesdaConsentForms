@@ -7,18 +7,20 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <ul class="content">
         <li>
-            <div class="center">
                 <li>
+                    <div class="center">
                     <h3>
                         ENDOSCOPY CONSENT FORM
                     </h3>
+                    </div>
                 </li>
                 <li>
+                    <div class="center">
                     <h3>
                         CONSENT FOR PROCEDURES OUTSIDE OF THE OPERATING ROOM
                     </h3>
+                    </div>
                 </li>
-            </div>
         </li>
     </ul>
     <uc1:consentprint ID="ConsentPrint1" runat="server" consenttype="Endoscopy" />
