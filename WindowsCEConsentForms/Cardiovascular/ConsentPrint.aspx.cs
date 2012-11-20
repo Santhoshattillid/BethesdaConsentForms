@@ -23,7 +23,8 @@ namespace WindowsCEConsentForms.Cardiovascular
             if (!string.IsNullOrEmpty(patientId))
             {
                 var formHandlerServiceClient = new FormHandlerServiceClient();
-                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId);
+                ConsentType = ConsentType.Cardiovascular;
+                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
                 if (patientDetails != null)
                 {
                     var primaryDoctor = formHandlerServiceClient.GetPrimaryDoctorDetail(patientDetails.PrimaryDoctorId);
@@ -81,7 +82,6 @@ namespace WindowsCEConsentForms.Cardiovascular
                     ImgAuthorizedSignature.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.PatientAuthorizeSign + "&ConsentType=" + ConsentType.ToString();
                     ImgWitnessSignature1.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.WitnessSignature1 + "&ConsentType=" + ConsentType.ToString();
                     ImgWitnessSignature2.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.WitnessSignature2 + "&ConsentType=" + ConsentType.ToString();
-                    ImgTranslatedBy.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.TranslatedBySign + "&ConsentType=" + ConsentType.ToString();
                 }
             }
         }

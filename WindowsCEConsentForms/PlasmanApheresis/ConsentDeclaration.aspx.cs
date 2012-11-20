@@ -28,7 +28,7 @@ namespace WindowsCEConsentForms.PlasmanApheresis
             if (!string.IsNullOrEmpty(patientId))
             {
                 var formHandlerServiceClient = new FormHandlerServiceClient();
-                var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId);
+                var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.PlasmanApheresis.ToString());
                 if (patientDetail != null)
                 {
                     LblPatientName.Text = patientDetail.name;
@@ -202,13 +202,6 @@ namespace WindowsCEConsentForms.PlasmanApheresis
                     var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.PatientAuthorizeSign.ToString());
                 }
 
-                if (Request.Form[SignatureType.TranslatedBySign.ToString()] != null)
-                {
-                    // updating signature4
-                    var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.TranslatedBySign.ToString()]); // Translated by (name & empl.#)
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.TranslatedBySign.ToString());
-                }
-
                 // updating signature5
                 if (Request.Form[SignatureType.WitnessSignature1.ToString()] != null)
                 {
@@ -230,9 +223,11 @@ namespace WindowsCEConsentForms.PlasmanApheresis
                 else
                     device = Request.Browser.Browser + " " + Request.Browser.Version;
 
-                formHandlerServiceClient.UpdateTrackingInfo(patientId, new TrackingInfo { IP = ip, Device = device });
+                formHandlerServiceClient.UpdateTrackingInfo(patientId, new TrackingInfo { IP = ip, Device = device }, consentType.ToString());
 
-                formHandlerServiceClient.UpdatePatientUnableSignReason(patientId, chkPatientisUnableToSign.Checked ? txtPatientNotSignedBecause.Text : string.Empty);
+                formHandlerServiceClient.UpdatePatientUnableSignReason(patientId, chkPatientisUnableToSign.Checked ? txtPatientNotSignedBecause.Text : string.Empty, consentType.ToString());
+
+                formHandlerServiceClient.UpdateTranslatedby(patientId, consentType.ToString(), DeclarationSignatures.TxtTranslatedBy.Text);
 
                 Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId);
 

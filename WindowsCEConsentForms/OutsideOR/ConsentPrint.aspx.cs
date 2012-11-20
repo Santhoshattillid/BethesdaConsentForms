@@ -21,7 +21,7 @@ namespace WindowsCEConsentForms.OutsideOR
             if (!string.IsNullOrEmpty(patientId))
             {
                 var formHandlerServiceClient = new FormHandlerServiceClient();
-                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId);
+                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.OutsideOR.ToString());
                 if (patientDetails != null)
                 {
                     var primaryDoctor = formHandlerServiceClient.GetPrimaryDoctorDetail(patientDetails.PrimaryDoctorId);
@@ -44,7 +44,6 @@ namespace WindowsCEConsentForms.OutsideOR
                     LblPatientName2.Text = patientDetails.name;
                     LblPatientUnableToSignBecause.Text = patientDetails.UnableToSignReason;
                     LblProcedureName.Text = patientDetails.ProcedureName;
-                    LblSignatureDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
                     LblTranslatedDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
                     LblAuthorizedSignDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
 
@@ -69,11 +68,10 @@ namespace WindowsCEConsentForms.OutsideOR
                         PnlPatientUnableToSignBecause.Visible = false;
                         PnlAuthorizedSignature.Visible = false;
                     }
-                    ImgSignature6.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=7&ConsentType=" + ConsentType.OutsideOR.ToString();
-                    ImgSignature7.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=8&ConsentType=" + ConsentType.OutsideOR.ToString();
-                    ImgSignature8.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=9&ConsentType=" + ConsentType.OutsideOR.ToString();
-
-                    //ImgSignature9.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=10&ConsentType=" + ConsentType.OutsideOR.ToString();
+                    ImgPatientSignature.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.PatientSign + "&ConsentType=" + ConsentType.OutsideOR.ToString();
+                    ImgAuthorizedSignature.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.PatientAuthorizeSign + "&ConsentType=" + ConsentType.OutsideOR.ToString();
+                    ImgWitnessSignature1.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.WitnessSignature1 + "&ConsentType=" + ConsentType.OutsideOR.ToString();
+                    ImgWitnessSignature2.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.WitnessSignature2 + "&ConsentType=" + ConsentType.OutsideOR.ToString();
                 }
             }
         }

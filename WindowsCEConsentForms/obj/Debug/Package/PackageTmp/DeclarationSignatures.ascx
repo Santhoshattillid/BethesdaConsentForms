@@ -14,6 +14,11 @@
                 AutoPostBack="True" OnCheckedChanged="ChkPatientisUnableToSign_CheckedChanged" />
         </div>
     </li>
+    <li>
+        <div>
+            <asp:CheckBox runat="server" ID="ChkTelephoneConsent" Text="Telephone Consent" />
+        </div>
+    </li>
     <li class="PatientReason">
         <asp:Panel runat="server" ID="PnlPatientReason1">
             Please specify reason
@@ -50,17 +55,6 @@
     </li>
     <li>
         <div>
-            Translated by (name & empl.#)</div>
-        <div class="sig13 sigWrapper">
-            <canvas class="pad" width="198" height="55"></canvas>
-            <input type="hidden" class="HdnImage13" name="<%= SignatureType.TranslatedBySign.ToString() %>"
-                value='<%= ViewState[SignatureType.TranslatedBySign.ToString()].ToString() %>' />
-        </div>
-        <div class="clear">
-        </div>
-    </li>
-    <li>
-        <div>
             Witness To Signature Only</div>
         <div class="sig14 sigWrapper">
             <canvas class="pad" width="198" height="55"></canvas>
@@ -83,6 +77,15 @@
             <div class="clear">
             </div>
         </asp:Panel>
+    </li>
+    <li>
+        <div>
+            Translated by (name & empl.#)</div>
+        <div>
+            <asp:TextBox runat="server" ID="TxtTranslatedBy"></asp:TextBox>
+        </div>
+        <div class="clear">
+        </div>
     </li>
     <li>
         <asp:Label runat="server" ID="LblError" CssClass="errorInfo"></asp:Label>

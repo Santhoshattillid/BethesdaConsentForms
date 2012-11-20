@@ -38,7 +38,7 @@ namespace WindowsCEConsentForms.OutsideOR
                         }
                     }
                     var formHandlerServiceClient = new FormHandlerServiceClient();
-                    var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId);
+                    var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.OutsideOR.ToString());
                     if (patientDetail != null)
                     {
                         LblPatientName.Text = patientDetail.name;
@@ -165,10 +165,10 @@ namespace WindowsCEConsentForms.OutsideOR
                 else
                     device = Request.Browser.Browser + " " + Request.Browser.Version;
 
-                formHandlerServiceClient.UpdateTrackingInfo(patientId, new TrackingInfo { IP = ip, Device = device });
-                formHandlerServiceClient.UpdatePatientUnableSignReason(patientId, ChkPatientisUnableToSign.Checked ? TxtPatientNotSignedBecause.Text : string.Empty);
+                formHandlerServiceClient.UpdateTrackingInfo(patientId, new TrackingInfo { IP = ip, Device = device }, ConsentType.OutsideOR.ToString());
+                formHandlerServiceClient.UpdatePatientUnableSignReason(patientId, ChkPatientisUnableToSign.Checked ? TxtPatientNotSignedBecause.Text : string.Empty, ConsentType.OutsideOR.ToString());
 
-                formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/OutsideOR/ConsentPrintV1.aspx?PatientId=" + patientId, patientId, "OutsideORConsentForm1");
+                formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/OutsideOR/ConsentPrintV1.aspx?PatientId=" + patientId, patientId, "OutsideORConsentForm1", ConsentType.OutsideOR.ToString());
 
                 if ((bool)Session["EndoscopyConsent"])
                 {

@@ -5,6 +5,8 @@ namespace WindowsCEConsentForms
 {
     public partial class PrintHeader : System.Web.UI.UserControl
     {
+        public ConsentType ConsentType;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             string patientId;
@@ -19,7 +21,7 @@ namespace WindowsCEConsentForms
             if (!string.IsNullOrEmpty(patientId))
             {
                 var formHandlerServiceClient = new FormHandlerServiceClient();
-                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId);
+                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
                 if (patientDetails != null)
                 {
                     LblPatientMRID.Text = patientDetails.MRHash;

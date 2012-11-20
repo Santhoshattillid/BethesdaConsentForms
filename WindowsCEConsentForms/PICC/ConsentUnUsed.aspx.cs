@@ -67,7 +67,7 @@ namespace WindowsCEConsentForms.PICC
                     }
                     if (!string.IsNullOrEmpty(patientId))
                     {
-                        var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId);
+                        var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.PICC.ToString());
                         if (patientDetail != null)
                         {
                             LblPatientName.Text = patientDetail.name;

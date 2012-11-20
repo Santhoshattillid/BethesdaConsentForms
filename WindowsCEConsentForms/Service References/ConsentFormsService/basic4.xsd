@@ -9,6 +9,7 @@
       <xs:element minOccurs="0" name="MRHash" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PrimaryDoctorId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ProcedureName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Translatedby" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UnableToSignReason" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="age" type="xs:int" />
       <xs:element minOccurs="0" name="gender" nillable="true" type="xs:string" />

@@ -44,6 +44,9 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         private string ProcedureNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TranslatedbyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UnableToSignReasonField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -152,6 +155,19 @@ namespace WindowsCEConsentForms.ConsentFormsService {
                 if ((object.ReferenceEquals(this.ProcedureNameField, value) != true)) {
                     this.ProcedureNameField = value;
                     this.RaisePropertyChanged("ProcedureName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Translatedby {
+            get {
+                return this.TranslatedbyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TranslatedbyField, value) != true)) {
+                    this.TranslatedbyField = value;
+                    this.RaisePropertyChanged("Translatedby");
                 }
             }
         }
@@ -389,10 +405,13 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         string[] GetPatientIdsList();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientDetail", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientDetailResponse")]
-        WindowsCEConsentForms.ConsentFormsService.PatientDetail GetPatientDetail(string patientNumber);
+        WindowsCEConsentForms.ConsentFormsService.PatientDetail GetPatientDetail(string patientNumber, string ConsentFormType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/SavePatientSignature", ReplyAction="http://tempuri.org/IFormHandlerService/SavePatientSignatureResponse")]
         bool SavePatientSignature(string PatientNumber, string SignaturesContent, string FormType, string type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/UpdateTranslatedby", ReplyAction="http://tempuri.org/IFormHandlerService/UpdateTranslatedbyResponse")]
+        bool UpdateTranslatedby(string PatientNumber, string ConsentFormType, string Translatedby);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientSignature", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientSignatureResponse")]
         string GetPatientSignature(string PatientNumber, string FormType, string type);
@@ -416,10 +435,10 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         WindowsCEConsentForms.ConsentFormsService.DoctorDetails GetAssociateDoctorDetail(string id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/UpdateTrackingInfo", ReplyAction="http://tempuri.org/IFormHandlerService/UpdateTrackingInfoResponse")]
-        void UpdateTrackingInfo(string PatientId, WindowsCEConsentForms.ConsentFormsService.TrackingInfo trackingInfo);
+        void UpdateTrackingInfo(string PatientId, WindowsCEConsentForms.ConsentFormsService.TrackingInfo trackingInfo, string ConsentFormType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GenerateAndUploadPDFtoSharePoint", ReplyAction="http://tempuri.org/IFormHandlerService/GenerateAndUploadPDFtoSharePointResponse")]
-        void GenerateAndUploadPDFtoSharePoint(string RelativeUrl, string PatientId, string FormName);
+        void GenerateAndUploadPDFtoSharePoint(string RelativeUrl, string PatientId, string FormName, string ConsentFormType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetProcedurenameList", ReplyAction="http://tempuri.org/IFormHandlerService/GetProcedurenameListResponse")]
         string[] GetProcedurenameList();
@@ -431,11 +450,8 @@ namespace WindowsCEConsentForms.ConsentFormsService {
             "")]
         string[] GetCardiovascularProcedurenameList();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/UpdatePatientProcedure", ReplyAction="http://tempuri.org/IFormHandlerService/UpdatePatientProcedureResponse")]
-        void UpdatePatientProcedure(string PatientId, string Procedures, string ConsentFormType);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/UpdatePatientUnableSignReason", ReplyAction="http://tempuri.org/IFormHandlerService/UpdatePatientUnableSignReasonResponse")]
-        void UpdatePatientUnableSignReason(string PatientId, string Reason);
+        void UpdatePatientUnableSignReason(string PatientId, string Reason, string ConsentFormType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientIds", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientIdsResponse")]
         System.Xml.Linq.XElement GetPatientIds();
@@ -502,12 +518,16 @@ namespace WindowsCEConsentForms.ConsentFormsService {
             return base.Channel.GetPatientIdsList();
         }
         
-        public WindowsCEConsentForms.ConsentFormsService.PatientDetail GetPatientDetail(string patientNumber) {
-            return base.Channel.GetPatientDetail(patientNumber);
+        public WindowsCEConsentForms.ConsentFormsService.PatientDetail GetPatientDetail(string patientNumber, string ConsentFormType) {
+            return base.Channel.GetPatientDetail(patientNumber, ConsentFormType);
         }
         
         public bool SavePatientSignature(string PatientNumber, string SignaturesContent, string FormType, string type) {
             return base.Channel.SavePatientSignature(PatientNumber, SignaturesContent, FormType, type);
+        }
+        
+        public bool UpdateTranslatedby(string PatientNumber, string ConsentFormType, string Translatedby) {
+            return base.Channel.UpdateTranslatedby(PatientNumber, ConsentFormType, Translatedby);
         }
         
         public string GetPatientSignature(string PatientNumber, string FormType, string type) {
@@ -538,12 +558,12 @@ namespace WindowsCEConsentForms.ConsentFormsService {
             return base.Channel.GetAssociateDoctorDetail(id);
         }
         
-        public void UpdateTrackingInfo(string PatientId, WindowsCEConsentForms.ConsentFormsService.TrackingInfo trackingInfo) {
-            base.Channel.UpdateTrackingInfo(PatientId, trackingInfo);
+        public void UpdateTrackingInfo(string PatientId, WindowsCEConsentForms.ConsentFormsService.TrackingInfo trackingInfo, string ConsentFormType) {
+            base.Channel.UpdateTrackingInfo(PatientId, trackingInfo, ConsentFormType);
         }
         
-        public void GenerateAndUploadPDFtoSharePoint(string RelativeUrl, string PatientId, string FormName) {
-            base.Channel.GenerateAndUploadPDFtoSharePoint(RelativeUrl, PatientId, FormName);
+        public void GenerateAndUploadPDFtoSharePoint(string RelativeUrl, string PatientId, string FormName, string ConsentFormType) {
+            base.Channel.GenerateAndUploadPDFtoSharePoint(RelativeUrl, PatientId, FormName, ConsentFormType);
         }
         
         public string[] GetProcedurenameList() {
@@ -558,12 +578,8 @@ namespace WindowsCEConsentForms.ConsentFormsService {
             return base.Channel.GetCardiovascularProcedurenameList();
         }
         
-        public void UpdatePatientProcedure(string PatientId, string Procedures, string ConsentFormType) {
-            base.Channel.UpdatePatientProcedure(PatientId, Procedures, ConsentFormType);
-        }
-        
-        public void UpdatePatientUnableSignReason(string PatientId, string Reason) {
-            base.Channel.UpdatePatientUnableSignReason(PatientId, Reason);
+        public void UpdatePatientUnableSignReason(string PatientId, string Reason, string ConsentFormType) {
+            base.Channel.UpdatePatientUnableSignReason(PatientId, Reason, ConsentFormType);
         }
         
         public System.Xml.Linq.XElement GetPatientIds() {

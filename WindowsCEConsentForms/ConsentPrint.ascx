@@ -184,14 +184,7 @@
     <li>
         <div>
             Interpreted By:
-        </div>
-        <div class="sigBox">
-            <asp:Image runat="server" ID="ImgTranslatedBy" />
-        </div>
-        <div class="right">
-            <asp:Label runat="server" ID="LblTranslatedDateTime"></asp:Label>
-        </div>
-        <div class="clear">
+            <asp:Label runat="server" ID="LblTranslatedBy" CssClass="errorInfo"></asp:Label>
         </div>
     </li>
     <li></li>
@@ -202,7 +195,8 @@
                     FORM:
                 </td>
                 <td>
-                    <%= ConsentType.ToString() %> Consent Form
+                    <%= ConsentType.ToString() %>
+                    Consent Form
                 </td>
                 <td>
                     MR#:

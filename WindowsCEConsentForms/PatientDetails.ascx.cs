@@ -5,6 +5,8 @@ namespace WindowsCEConsentForms
 {
     public partial class PatientDetails : System.Web.UI.UserControl
     {
+        public ConsentType ConsentType;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             string patientId;
@@ -28,7 +30,7 @@ namespace WindowsCEConsentForms
                 if (!string.IsNullOrEmpty(patientId))
                 {
                     var formHandlerServiceClient = new FormHandlerServiceClient();
-                    var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId);
+                    var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
                     if (patientDetail != null)
                     {
                         LblPatientName.Text = patientDetail.name;

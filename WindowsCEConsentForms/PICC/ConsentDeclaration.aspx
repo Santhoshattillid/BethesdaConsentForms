@@ -9,8 +9,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <ul class="content">
         <li class="center">
-            <h3>
-                PICC Consent Form</h3>
+            <%--  <h3>
+                PICC Consent Form</h3>--%>
         </li>
         <li class="center">
             <p>
@@ -156,10 +156,8 @@
             <div>
                 Translated By
             </div>
-            <div class="sig13 sigWrapper">
-                <canvas class="pad" width="198" height="55"></canvas>
-                <input type="hidden" class="HdnImage13" name="<%= SignatureType.TranslatedBySign.ToString() %>"
-                    value='<%= ViewState[SignatureType.TranslatedBySign.ToString()].ToString() %>' />
+            <div>
+                <asp:TextBox runat="server" ID="TxtTranslatedBy"></asp:TextBox>
             </div>
             <div class="clear">
             </div>

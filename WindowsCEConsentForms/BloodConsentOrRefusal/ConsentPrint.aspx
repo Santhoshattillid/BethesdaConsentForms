@@ -197,7 +197,7 @@
                 Interpreted By:
             </div>
             <div class="sigBox">
-                <asp:Image runat="server" ID="ImgTranslatedBy" />
+                <asp:Label runat="server" ID="LblTranslatedBy"></asp:Label>
             </div>
             <div class="right">
                 <asp:Label runat="server" ID="LblTranslatedDateTime"></asp:Label>

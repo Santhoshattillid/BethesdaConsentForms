@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Data;
 using System.Text;
+using System.Web.UI.WebControls;
 using WindowsCEConsentForms.ConsentFormsService;
 
 namespace WindowsCEConsentForms.Surgical
@@ -10,14 +12,87 @@ namespace WindowsCEConsentForms.Surgical
         {
             DeclarationSignatures.BtnCompleted.Click += BtnCompleted_Click;
             DeclarationSignatures.BtnReset.Click += BtnReset_Click;
+
+            var formHandlerServiceClient = new FormHandlerServiceClient();
+            if (!IsPostBack)
+            {
+                DdlPrimaryDoctors.Items.Add("----Select Primary Doctor----");
+                var physicians = formHandlerServiceClient.GetPrimaryPhysiciansList();
+                if (physicians != null)
+                {
+                    foreach (DataRow row in physicians.Rows)
+                    {
+                        DdlPrimaryDoctors.Items.Add(new ListItem(row["Lname"] + ", " + row["Fname"],
+                                                                 row["PhysicianId"].ToString()));
+                    }
+                }
+
+                bool isItNewSession;
+                try
+                {
+                    isItNewSession = (bool)Session["NewSessionFor" + ConsentType.Surgical.ToString()];
+                }
+                catch (Exception)
+                {
+                    isItNewSession = true;
+                }
+
+                string patientId;
+                try
+                {
+                    patientId = Session["PatientID"].ToString();
+                }
+                catch (Exception)
+                {
+                    try
+                    {
+                        patientId = Request.QueryString["PatientId"];
+                    }
+                    catch (Exception)
+                    {
+                        patientId = string.Empty;
+                    }
+                }
+                if (!string.IsNullOrEmpty(patientId))
+                {
+                    var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.Surgical.ToString());
+                    if (patientDetail != null)
+                    {
+                        if (!isItNewSession)
+                        {
+                            if (!string.IsNullOrEmpty(patientDetail.PrimaryDoctorId))
+                            {
+                                DdlPrimaryDoctors.Items.FindByValue(patientDetail.PrimaryDoctorId).Selected = true;
+                                LoadAssociatedDoctors(patientDetail.PrimaryDoctorId);
+                            }
+                        }
+                    }
+                    else
+                        DdlPrimaryDoctors.SelectedIndex = 0;
+                }
+            }
+        }
+
+        protected void DdlPrimaryDoctors_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // load all the fields here
+            try
+            {
+                // loading select form type box and patient details
+                if (DdlPrimaryDoctors.SelectedIndex > 0)
+                    LoadAssociatedDoctors(DdlPrimaryDoctors.SelectedValue);
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
 
         private void BtnReset_Click(object sender, EventArgs e)
         {
-            DoctorsAndProcedures1.DdLProcedures.SelectedIndex = 0;
-            DoctorsAndProcedures1.LblAssociatedDoctors.Text = string.Empty;
-            DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedIndex = 0;
-            DoctorsAndProcedures1.HdnSelectedProcedures.Value = string.Empty;
+            LblAssociatedDoctors.Text = string.Empty;
+            DdlPrimaryDoctors.SelectedIndex = 0;
+            TxtProcedure.Text = string.Empty;
 
             DeclarationSignatures.ResetSignatures();
             DeclarationSignatures.ChkPatientisUnableToSign.Checked = false;
@@ -38,6 +113,9 @@ namespace WindowsCEConsentForms.Surgical
                 var txtPatientNotSignedBecause = DeclarationSignatures.TxtPatientNotSignedBecause;
 
                 lblError.Text = string.Empty;
+
+                if (string.IsNullOrEmpty(TxtProcedure.Text))
+                    lblError.Text += " <br /> Please procedure.";
 
                 if (string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign1.ToString()]) ||
                    string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign2.ToString()]) ||
@@ -80,32 +158,11 @@ namespace WindowsCEConsentForms.Surgical
                     Response.Redirect("/PatientConsent.aspx");
                 }
 
-                string selectedProcedurenames = string.Empty;
-
-                // validation for other procedure
-                foreach (string procedurename in DoctorsAndProcedures1.HdnSelectedProcedures.Value.Split('#'))
-                {
-                    if (!string.IsNullOrEmpty(procedurename))
-                    {
-                        if (procedurename.Trim().ToLower() == "other")
-                        {
-                            if (string.IsNullOrEmpty(DoctorsAndProcedures1.TxtOtherProcedure.Text))
-                            {
-                                lblError.Text = "Please input your signatures in all the fields";
-                                return;
-                            }
-                            selectedProcedurenames += DoctorsAndProcedures1.TxtOtherProcedure.Text;
-                        }
-                        else
-                            selectedProcedurenames += procedurename + "#";
-                    }
-                }
-
                 var formHandlerServiceClient = new FormHandlerServiceClient();
 
-                formHandlerServiceClient.UpdateDoctorAssociation(patientId, DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedValue, DoctorsAndProcedures1.LblAssociatedDoctors.Text, consentType.ToString());
+                formHandlerServiceClient.UpdateDoctorAssociation(patientId, DdlPrimaryDoctors.SelectedValue, LblAssociatedDoctors.Text, consentType.ToString());
 
-                formHandlerServiceClient.UpdatePatientProcedures(patientId, selectedProcedurenames, consentType.ToString());
+                formHandlerServiceClient.UpdatePatientProcedures(patientId, TxtProcedure.Text, consentType.ToString());
 
                 if (Request.Form[SignatureType.DoctorSign1.ToString()] != null)
                 {
@@ -149,13 +206,6 @@ namespace WindowsCEConsentForms.Surgical
                     var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.PatientAuthorizeSign.ToString());
                 }
 
-                if (Request.Form[SignatureType.TranslatedBySign.ToString()] != null)
-                {
-                    // updating signature4
-                    var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.TranslatedBySign.ToString()]); // Translated by (name & empl.#)
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.TranslatedBySign.ToString());
-                }
-
                 // updating signature5
                 if (Request.Form[SignatureType.WitnessSignature1.ToString()] != null)
                 {
@@ -177,9 +227,11 @@ namespace WindowsCEConsentForms.Surgical
                 else
                     device = Request.Browser.Browser + " " + Request.Browser.Version;
 
-                formHandlerServiceClient.UpdateTrackingInfo(patientId, new TrackingInfo { IP = ip, Device = device });
+                formHandlerServiceClient.UpdateTrackingInfo(patientId, new TrackingInfo { IP = ip, Device = device }, consentType.ToString());
 
-                formHandlerServiceClient.UpdatePatientUnableSignReason(patientId, chkPatientisUnableToSign.Checked ? txtPatientNotSignedBecause.Text : string.Empty);
+                formHandlerServiceClient.UpdatePatientUnableSignReason(patientId, chkPatientisUnableToSign.Checked ? txtPatientNotSignedBecause.Text : string.Empty, consentType.ToString());
+
+                formHandlerServiceClient.UpdateTranslatedby(patientId, consentType.ToString(), DeclarationSignatures.TxtTranslatedBy.Text);
 
                 Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId);
 
@@ -188,6 +240,26 @@ namespace WindowsCEConsentForms.Surgical
             catch (Exception)
             {
                 return;
+            }
+        }
+
+        private void LoadAssociatedDoctors(string primaryDoctorId)
+        {
+            //DdlAssociatedDoctors.Items.Clear();
+            var formHandlerServiceClient = new FormHandlerServiceClient();
+            var associatedDoctors = formHandlerServiceClient.GetAssociatedPhysiciansList(primaryDoctorId);
+
+            //DdlAssociatedDoctors.Items.Add("----Select Associated Doctor----");
+            LblAssociatedDoctors.Text = string.Empty;
+            if (associatedDoctors != null)
+            {
+                foreach (DataRow row in associatedDoctors.Rows)
+                {
+                    //DdlAssociatedDoctors.Items.Add(new System.Web.UI.WebControls.ListItem(row["Lname"].ToString().Trim() + ", " + row["Fname"].ToString().Trim(), row["Id"].ToString().Trim()));
+                    if (!string.IsNullOrEmpty(LblAssociatedDoctors.Text))
+                        LblAssociatedDoctors.Text += " , ";
+                    LblAssociatedDoctors.Text += row["Lname"].ToString().Trim() + " " + row["Fname"].ToString().Trim();
+                }
             }
         }
     }

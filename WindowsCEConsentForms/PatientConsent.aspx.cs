@@ -33,7 +33,7 @@ namespace WindowsCEConsentForms
                 if (DdlPatientIds.SelectedIndex > 0)
                 {
                     var formHandlerServiceClient = new FormHandlerServiceClient();
-                    var patientDetail = formHandlerServiceClient.GetPatientDetail(DdlPatientIds.SelectedValue);
+                    var patientDetail = formHandlerServiceClient.GetPatientDetail(DdlPatientIds.SelectedValue, ConsentType.None.ToString());
                     if (patientDetail != null)
                     {
                         LblId.Text = patientDetail.MRHash; // DdlPatientIds.SelectedValue;

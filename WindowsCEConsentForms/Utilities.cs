@@ -71,7 +71,8 @@ namespace WindowsCEConsentForms
         Endoscopy,
         BloodConsentOrRefusal,
         PlasmanApheresis,
-        PICC
+        PICC,
+        None
     }
 
     public enum SignatureType
@@ -85,7 +86,6 @@ namespace WindowsCEConsentForms
         DoctorSign7,
         PatientSign,
         PatientAuthorizeSign,
-        TranslatedBySign,
         WitnessSignature1,
         WitnessSignature2,
         PICCSignature

@@ -76,7 +76,7 @@
                     </tr>
                     <tr>
                         <td>
-                            Att Dr.
+                            Attending Physician
                         </td>
                         <td colspan="4">
                             <asp:Label runat="server" ID="LblAttDr" Enabled="false"></asp:Label>
@@ -120,7 +120,7 @@
                                     <asp:CheckBox runat="server" ID="ChkBCOrR" Text="Blood Consent/Refusal" Enabled="false" />
                                 </li>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkPA" Text="Plasman Apheresis" Enabled="false" />
+                                    <asp:CheckBox runat="server" ID="ChkPA" Text="Plasma Apheresis" Enabled="false" />
                                 </li>
                                 <li>
                                     <asp:CheckBox runat="server" ID="ChkPICCConsent" Text="PICC Consent" Enabled="false" />

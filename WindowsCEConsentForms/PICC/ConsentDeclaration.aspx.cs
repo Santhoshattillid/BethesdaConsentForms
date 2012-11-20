@@ -17,8 +17,6 @@ namespace WindowsCEConsentForms.PICC
                     ViewState[SignatureType.PatientAuthorizeSign.ToString()] = Request.Form[SignatureType.PatientAuthorizeSign.ToString()];
                 if (Request.Form[SignatureType.PatientSign.ToString()] != null)
                     ViewState[SignatureType.PatientSign.ToString()] = Request.Form[SignatureType.PatientSign.ToString()];
-                if (Request.Form[SignatureType.TranslatedBySign.ToString()] != null)
-                    ViewState[SignatureType.TranslatedBySign.ToString()] = Request.Form[SignatureType.TranslatedBySign.ToString()];
                 if (Request.Form[SignatureType.WitnessSignature1.ToString()] != null)
                     ViewState[SignatureType.WitnessSignature1.ToString()] = Request.Form[SignatureType.WitnessSignature1.ToString()];
                 if (Request.Form[SignatureType.WitnessSignature2.ToString()] != null)
@@ -126,13 +124,6 @@ namespace WindowsCEConsentForms.PICC
                     var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.PatientAuthorizeSign.ToString());
                 }
 
-                if (Request.Form[SignatureType.TranslatedBySign.ToString()] != null)
-                {
-                    // updating signature4
-                    var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.TranslatedBySign.ToString()]); // Translated by (name & empl.#)
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.TranslatedBySign.ToString());
-                }
-
                 // updating signature5
                 if (Request.Form[SignatureType.WitnessSignature1.ToString()] != null)
                 {
@@ -160,8 +151,10 @@ namespace WindowsCEConsentForms.PICC
                 else
                     device = Request.Browser.Browser + " " + Request.Browser.Version;
 
-                formHandlerServiceClient.UpdateTrackingInfo(patientId, new TrackingInfo { IP = ip, Device = device });
-                formHandlerServiceClient.UpdatePatientUnableSignReason(patientId, ChkPatientisUnableToSign.Checked ? TxtPatientNotSignedBecause.Text : string.Empty);
+                formHandlerServiceClient.UpdateTrackingInfo(patientId, new TrackingInfo { IP = ip, Device = device }, consentType.ToString());
+                formHandlerServiceClient.UpdatePatientUnableSignReason(patientId, ChkPatientisUnableToSign.Checked ? TxtPatientNotSignedBecause.Text : string.Empty, consentType.ToString());
+
+                formHandlerServiceClient.UpdateTranslatedby(patientId, consentType.ToString(), TxtTranslatedBy.Text);
 
                 Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId);
 
@@ -190,7 +183,6 @@ namespace WindowsCEConsentForms.PICC
         {
             ViewState[SignatureType.PatientAuthorizeSign.ToString()] = string.Empty;
             ViewState[SignatureType.PatientSign.ToString()] = string.Empty;
-            ViewState[SignatureType.TranslatedBySign.ToString()] = string.Empty;
             ViewState[SignatureType.WitnessSignature1.ToString()] = string.Empty;
             ViewState[SignatureType.WitnessSignature2.ToString()] = string.Empty;
             ViewState[SignatureType.PICCSignature.ToString()] = string.Empty;

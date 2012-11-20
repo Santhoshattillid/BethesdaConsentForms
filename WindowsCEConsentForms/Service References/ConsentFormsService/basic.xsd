@@ -82,6 +82,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="patientNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ConsentFormType" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -106,6 +107,22 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="SavePatientSignatureResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTranslatedby">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PatientNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ConsentFormType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Translatedby" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTranslatedbyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateTranslatedbyResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -247,6 +264,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="PatientId" nillable="true" type="xs:string" />
         <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Consent.sp.wcf" minOccurs="0" name="trackingInfo" nillable="true" type="q5:TrackingInfo" />
+        <xs:element minOccurs="0" name="ConsentFormType" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -261,6 +279,7 @@
         <xs:element minOccurs="0" name="RelativeUrl" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="PatientId" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="FormName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ConsentFormType" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -305,25 +324,12 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdatePatientProcedure">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="PatientId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Procedures" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="ConsentFormType" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdatePatientProcedureResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
   <xs:element name="UpdatePatientUnableSignReason">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="PatientId" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="Reason" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ConsentFormType" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

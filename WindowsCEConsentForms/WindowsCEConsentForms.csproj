@@ -69,9 +69,7 @@
     <Content Include="Cardiovascular\ConsentDeclaration.aspx" />
     <Content Include="Cardiovascular\ConsentPrint.aspx" />
     <Content Include="ConsentPrint.ascx" />
-    <Content Include="UnUsed\Consent.ascx" />
     <Content Include="ConsentSignatures.ascx" />
-    <Content Include="UnUsed\Declaration.ascx" />
     <Content Include="DeclarationSignatures.ascx" />
     <Content Include="Default.aspx" />
     <Content Include="DoctorsAndProcedures.ascx" />
@@ -118,7 +116,6 @@
     <Content Include="Images\ui-icons_ef8c08_256x240.png" />
     <Content Include="Images\ui-icons_ffd27a_256x240.png" />
     <Content Include="Images\ui-icons_ffffff_256x240.png" />
-    <Content Include="OutsideOR\Consent.aspx" />
     <Content Include="OutsideOR\ConsentOld.aspx" />
     <Content Include="OutsideOR\ConsentDeclarationOld.aspx" />
     <Content Include="OutsideOR\ConsentPrint.aspx" />
@@ -222,26 +219,12 @@
     <Compile Include="ConsentPrint.ascx.designer.cs">
       <DependentUpon>ConsentPrint.ascx</DependentUpon>
     </Compile>
-    <Compile Include="UnUsed\Consent.ascx.cs">
-      <DependentUpon>Consent.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UnUsed\Consent.ascx.designer.cs">
-      <DependentUpon>Consent.ascx</DependentUpon>
-    </Compile>
     <Compile Include="ConsentSignatures.ascx.cs">
       <DependentUpon>ConsentSignatures.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ConsentSignatures.ascx.designer.cs">
       <DependentUpon>ConsentSignatures.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="UnUsed\Declaration.ascx.cs">
-      <DependentUpon>Declaration.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UnUsed\Declaration.ascx.designer.cs">
-      <DependentUpon>Declaration.ascx</DependentUpon>
     </Compile>
     <Compile Include="DeclarationSignatures.ascx.cs">
       <DependentUpon>DeclarationSignatures.ascx</DependentUpon>
@@ -280,13 +263,6 @@
     </Compile>
     <Compile Include="GetImage.ashx.cs">
       <DependentUpon>GetImage.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="OutsideOR\Consent.aspx.cs">
-      <DependentUpon>Consent.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="OutsideOR\Consent.aspx.designer.cs">
-      <DependentUpon>Consent.aspx</DependentUpon>
     </Compile>
     <Compile Include="OutsideOR\ConsentOld.aspx.cs">
       <DependentUpon>ConsentOld.aspx</DependentUpon>

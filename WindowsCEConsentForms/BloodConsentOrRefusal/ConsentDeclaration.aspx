@@ -3,14 +3,15 @@
 
 <%@ Register TagPrefix="uc1" TagName="PatientDetails" Src="~/PatientDetails.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="DoctorsAndProcedures" Src="~/DoctorsAndProcedures.ascx" %>
-<%@ Register src="../DeclarationSignatures.ascx" tagname="DeclarationSignatures" tagprefix="uc2" %>
+<%@ Register Src="../DeclarationSignatures.ascx" TagName="DeclarationSignatures"
+    TagPrefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <ul class="content">
         <li class="center">
-            <h3>
-                Blood Transfusion Consent</h3>
+            <%--<h3>
+                Blood Transfusion Consent</h3>--%>
         </li>
         <li class="center">
             <h3>
@@ -164,6 +165,6 @@
                 </li>
             </ul>
         </li>
-</ul>
-<uc2:DeclarationSignatures ID="DeclarationSignatures" runat="server" />
+    </ul>
+    <uc2:DeclarationSignatures ID="DeclarationSignatures" runat="server" />
 </asp:Content>

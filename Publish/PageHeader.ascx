@@ -2,7 +2,7 @@
     Inherits="WindowsCEConsentForms.PageHeader" %>
 <ul class="content">
     <li>
-        <img src="/Images/logo.png" />
+        <%--<img src="/Images/logo.png" />--%>
     </li>
     <li>
         <table class="noBorder">

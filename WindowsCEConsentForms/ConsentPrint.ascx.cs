@@ -23,7 +23,7 @@ namespace WindowsCEConsentForms
             if (!string.IsNullOrEmpty(patientId))
             {
                 var formHandlerServiceClient = new FormHandlerServiceClient();
-                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId);
+                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
                 if (patientDetails != null)
                 {
                     var primaryDoctor = formHandlerServiceClient.GetPrimaryDoctorDetail(patientDetails.PrimaryDoctorId);
@@ -52,7 +52,6 @@ namespace WindowsCEConsentForms
                     LblAuthorizedSignDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
                     LblWitnessSignature1DateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
                     LblWitnessSignature2DateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
-                    LblTranslatedDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
 
                     LblDate.Text = DateTime.Now.ToString("MMM dd yyyy");
                     LblAge.Text = patientDetails.age.ToString(CultureInfo.InvariantCulture);
@@ -82,7 +81,8 @@ namespace WindowsCEConsentForms
                     ImgAuthorizedSignature.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.PatientAuthorizeSign + "&ConsentType=" + ConsentType.ToString();
                     ImgWitnessSignature1.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.WitnessSignature1 + "&ConsentType=" + ConsentType.ToString();
                     ImgWitnessSignature2.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.WitnessSignature2 + "&ConsentType=" + ConsentType.ToString();
-                    ImgTranslatedBy.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.TranslatedBySign + "&ConsentType=" + ConsentType.ToString();
+
+                    LblTranslatedBy.Text = patientDetails.Translatedby;
                 }
             }
         }

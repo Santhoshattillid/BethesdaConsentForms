@@ -65,7 +65,7 @@ namespace WindowsCEConsentForms.OutsideOR
                     }
                     if (!string.IsNullOrEmpty(patientId))
                     {
-                        var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId);
+                        var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.OutsideOR.ToString());
                         if (patientDetail != null)
                         {
                             LblPatientName.Text = patientDetail.name;

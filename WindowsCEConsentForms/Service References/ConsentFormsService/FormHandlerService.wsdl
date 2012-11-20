@@ -46,6 +46,12 @@
   <wsdl:message name="IFormHandlerService_SavePatientSignature_OutputMessage">
     <wsdl:part name="parameters" element="tns:SavePatientSignatureResponse" />
   </wsdl:message>
+  <wsdl:message name="IFormHandlerService_UpdateTranslatedby_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTranslatedby" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_UpdateTranslatedby_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTranslatedbyResponse" />
+  </wsdl:message>
   <wsdl:message name="IFormHandlerService_GetPatientSignature_InputMessage">
     <wsdl:part name="parameters" element="tns:GetPatientSignature" />
   </wsdl:message>
@@ -117,12 +123,6 @@
   </wsdl:message>
   <wsdl:message name="IFormHandlerService_GetCardiovascularProcedurenameList_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCardiovascularProcedurenameListResponse" />
-  </wsdl:message>
-  <wsdl:message name="IFormHandlerService_UpdatePatientProcedure_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdatePatientProcedure" />
-  </wsdl:message>
-  <wsdl:message name="IFormHandlerService_UpdatePatientProcedure_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdatePatientProcedureResponse" />
   </wsdl:message>
   <wsdl:message name="IFormHandlerService_UpdatePatientUnableSignReason_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdatePatientUnableSignReason" />
@@ -197,6 +197,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/SavePatientSignature" message="tns:IFormHandlerService_SavePatientSignature_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/SavePatientSignatureResponse" message="tns:IFormHandlerService_SavePatientSignature_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateTranslatedby">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/UpdateTranslatedby" message="tns:IFormHandlerService_UpdateTranslatedby_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/UpdateTranslatedbyResponse" message="tns:IFormHandlerService_UpdateTranslatedby_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetPatientSignature">
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientSignature" message="tns:IFormHandlerService_GetPatientSignature_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientSignatureResponse" message="tns:IFormHandlerService_GetPatientSignature_OutputMessage" />
@@ -244,10 +248,6 @@
     <wsdl:operation name="GetCardiovascularProcedurenameList">
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetCardiovascularProcedurenameList" message="tns:IFormHandlerService_GetCardiovascularProcedurenameList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetCardiovascularProcedurenameListResponse" message="tns:IFormHandlerService_GetCardiovascularProcedurenameList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdatePatientProcedure">
-      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/UpdatePatientProcedure" message="tns:IFormHandlerService_UpdatePatientProcedure_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/UpdatePatientProcedureResponse" message="tns:IFormHandlerService_UpdatePatientProcedure_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdatePatientUnableSignReason">
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/UpdatePatientUnableSignReason" message="tns:IFormHandlerService_UpdatePatientUnableSignReason_InputMessage" />
@@ -331,6 +331,15 @@
     </wsdl:operation>
     <wsdl:operation name="SavePatientSignature">
       <soap:operation soapAction="http://tempuri.org/IFormHandlerService/SavePatientSignature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTranslatedby">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/UpdateTranslatedby" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -439,15 +448,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetCardiovascularProcedurenameList">
       <soap:operation soapAction="http://tempuri.org/IFormHandlerService/GetCardiovascularProcedurenameList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdatePatientProcedure">
-      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/UpdatePatientProcedure" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

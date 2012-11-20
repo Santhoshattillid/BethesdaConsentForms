@@ -20,7 +20,7 @@ namespace WindowsCEConsentForms.Surgical
             if (!string.IsNullOrEmpty(patientId))
             {
                 var formHandlerServiceClient = new FormHandlerServiceClient();
-                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId);
+                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.Surgical.ToString());
                 if (patientDetails != null)
                 {
                     LblPatientMRID.Text = patientDetails.MRHash;

@@ -73,7 +73,7 @@ namespace WindowsCEConsentForms
                 }
                 if (!string.IsNullOrEmpty(patientId))
                 {
-                    var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId);
+                    var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
                     if (patientDetail != null)
                     {
                         if (!isItNewSession)

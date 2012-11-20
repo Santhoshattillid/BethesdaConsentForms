@@ -22,13 +22,40 @@ namespace WindowsCEConsentForms.Surgical {
         protected global::WindowsCEConsentForms.PatientDetails PatientDetails1;
         
         /// <summary>
-        /// DoctorsAndProcedures1 control.
+        /// DdlPrimaryDoctors control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::WindowsCEConsentForms.DoctorsAndProcedures DoctorsAndProcedures1;
+        protected global::System.Web.UI.WebControls.DropDownList DdlPrimaryDoctors;
+        
+        /// <summary>
+        /// LblAssociatedDoctors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblAssociatedDoctors;
+        
+        /// <summary>
+        /// LnlPatientName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LnlPatientName;
+        
+        /// <summary>
+        /// TxtProcedure control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtProcedure;
         
         /// <summary>
         /// ConsentSignatures control.
