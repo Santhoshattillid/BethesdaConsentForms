@@ -7,7 +7,7 @@
     <ul class="content print">
         <li>
             <label>
-                MR #</label>
+                MRIN #</label>
             <asp:Label ID="LblPatientMRID" runat="server" CssClass="errorInfo"></asp:Label>
         </li>
         <li>

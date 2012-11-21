@@ -13,22 +13,13 @@ namespace WindowsCEConsentForms.PICC {
     public partial class PICCConsentDeclaration {
         
         /// <summary>
-        /// PatientDetails1 control.
+        /// PatientDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::WindowsCEConsentForms.PatientDetails PatientDetails1;
-        
-        /// <summary>
-        /// DoctorsAndProcedures1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::WindowsCEConsentForms.DoctorsAndProcedures DoctorsAndProcedures1;
+        protected global::WindowsCEConsentForms.PatientDetails PatientDetails;
         
         /// <summary>
         /// ChkPatientisUnableToSign control.

@@ -16,7 +16,7 @@
         </li>
         <li>
             <div class="right smallest">
-                MR # :</div>
+                MRIN# :</div>
             <div class="right small">
                 <asp:Label ID="LblPatientMRId" runat="server" CssClass="errorInfo"></asp:Label></div>
             <div class="right smallest">
@@ -92,7 +92,8 @@
         </li>
         <li>
             <div>
-                Translated by (name & empl.#)</div>
+                Interpreted by
+            </div>
             <div class="sig3 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
                 <input type="hidden" name="HdnImage3" class="HdnImage3" value='<%= ViewState["Signature3"].ToString() %>' />

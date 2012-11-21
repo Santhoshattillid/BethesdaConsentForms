@@ -2,7 +2,6 @@
     CodeBehind="ConsentDeclaration.aspx.cs" Inherits="WindowsCEConsentForms.PICC.PICCConsentDeclaration" %>
 
 <%@ Import Namespace="WindowsCEConsentForms" %>
-<%@ Register Src="../DoctorsAndProcedures.ascx" TagName="DoctorsAndProcedures" TagPrefix="uc1" %>
 <%@ Register TagPrefix="uc1" TagName="PatientDetails" Src="~/PatientDetails.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -18,8 +17,7 @@
             </p>
         </li>
     </ul>
-    <uc1:PatientDetails ID="PatientDetails1" runat="server" />
-    <uc1:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" />
+    <uc1:PatientDetails ID="PatientDetails" runat="server" ConsentType="PICC" />
     <ul class="content">
         <li>
             <div class="center">
@@ -77,12 +75,6 @@
                     PICC</span> nurse is unable to successfully put in the catheter or the catheter
                 needs to be redirected.
             </div>
-        </li>
-        <li>
-            <p>
-                I Understand and that no guarantee have been made to me that this operation will
-                improve my condition.
-            </p>
         </li>
         <li>
             <div>
@@ -154,7 +146,7 @@
         </li>
         <li>
             <div>
-                Translated By
+                Interpreted By
             </div>
             <div>
                 <asp:TextBox runat="server" ID="TxtTranslatedBy"></asp:TextBox>

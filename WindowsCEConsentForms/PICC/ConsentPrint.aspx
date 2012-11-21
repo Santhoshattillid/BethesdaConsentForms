@@ -14,14 +14,6 @@
         <li>PATIENT:
             <asp:Label runat="server" ID="LblPatientName3" CssClass="errorInfo"></asp:Label>
         </li>
-        <li>I here by authorize Doctor(s)
-            <asp:Label runat="server" ID="LblAuthoriseDoctors" CssClass="errorInfo"></asp:Label>
-            to perform upon
-            <asp:Label runat="server" ID="LblPatientName2" CssClass="errorInfo"></asp:Label>
-            the following procedure or operation:
-            <br />
-            <asp:Label runat="server" ID="LblProcedureName" CssClass="errorInfo"></asp:Label>
-        </li>
         <li>
             <div class="small-content">
                 <span class="small-header">A PICC</span> is long, small flexible plastic tube that
@@ -73,8 +65,6 @@
                 needs to be redirected.
             </div>
         </li>
-        <li><span class="content-heading">I UNDERSTAND that no guarantees have been made to
-            me that this operation will improve my condition. </span></li>
         <li>
             <asp:Panel runat="server" ID="PnlPatientSignature">
                 <div class="sigBox">
@@ -174,7 +164,7 @@
                         Blood Transfusion Consent Form
                     </td>
                     <td>
-                        MR#:
+                        MRIN#:
                     </td>
                     <td>
                         <asp:Label runat="server" ID="LblPatientMrHash"></asp:Label>

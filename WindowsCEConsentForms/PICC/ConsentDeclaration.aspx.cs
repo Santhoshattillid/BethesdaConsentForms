@@ -28,11 +28,6 @@ namespace WindowsCEConsentForms.PICC
 
         protected void BtnReset_Click(object sender, EventArgs e)
         {
-            DoctorsAndProcedures1.DdLProcedures.SelectedIndex = 0;
-            DoctorsAndProcedures1.LblAssociatedDoctors.Text = string.Empty;
-            DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedIndex = 0;
-            DoctorsAndProcedures1.HdnSelectedProcedures.Value = string.Empty;
-
             ResetSignatures();
             ChkPatientisUnableToSign.Checked = false;
             SetPanels(false);
@@ -47,12 +42,6 @@ namespace WindowsCEConsentForms.PICC
                 const ConsentType consentType = ConsentType.PICC;
 
                 LblError.Text = string.Empty;
-
-                if (DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedIndex == 0)
-                    LblError.Text += "Please select primary and associated doctor";
-
-                if (string.IsNullOrEmpty(DoctorsAndProcedures1.HdnSelectedProcedures.Value))
-                    LblError.Text += " <br /> Please select the procedures and then go next.";
 
                 if (ChkPatientisUnableToSign.Checked)
                 {
@@ -85,32 +74,9 @@ namespace WindowsCEConsentForms.PICC
                     Response.Redirect("/PatientConsent.aspx");
                 }
 
-                string selectedProcedurenames = string.Empty;
-
                 // validation for other procedure
-                foreach (string procedurename in DoctorsAndProcedures1.HdnSelectedProcedures.Value.Split('#'))
-                {
-                    if (!string.IsNullOrEmpty(procedurename))
-                    {
-                        if (procedurename.Trim().ToLower() == "other")
-                        {
-                            if (string.IsNullOrEmpty(DoctorsAndProcedures1.TxtOtherProcedure.Text))
-                            {
-                                LblError.Text = "Please input your signatures in all the fields";
-                                return;
-                            }
-                            selectedProcedurenames += DoctorsAndProcedures1.TxtOtherProcedure.Text;
-                        }
-                        else
-                            selectedProcedurenames += procedurename + "#";
-                    }
-                }
 
                 var formHandlerServiceClient = new FormHandlerServiceClient();
-
-                formHandlerServiceClient.UpdateDoctorAssociation(patientId, DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedValue, DoctorsAndProcedures1.LblAssociatedDoctors.Text, consentType.ToString());
-
-                formHandlerServiceClient.UpdatePatientProcedures(patientId, selectedProcedurenames, consentType.ToString());
 
                 if (Request.Form[SignatureType.PatientSign.ToString()] != null)
                 {

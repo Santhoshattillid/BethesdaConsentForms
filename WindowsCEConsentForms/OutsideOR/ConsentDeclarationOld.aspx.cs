@@ -135,7 +135,7 @@ namespace WindowsCEConsentForms.OutsideOR
                 if (Request.Form["HdnImage3"] != null)
                 {
                     // updating signature4
-                    var bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage3"]); // Translated by (name & empl.#)
+                    var bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage3"]); // Translated by
                     var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType.OutsideOR.ToString(), "signature9");
                 }
 

@@ -168,7 +168,7 @@
                         Blood Transfusion Consent Form
                     </td>
                     <td>
-                        MR#:
+                        MRIN#:
                     </td>
                     <td>
                     </td>
