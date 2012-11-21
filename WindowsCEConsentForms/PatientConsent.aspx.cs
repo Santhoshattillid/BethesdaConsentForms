@@ -120,6 +120,12 @@ namespace WindowsCEConsentForms
                 //ChkSurgicalConcent.Checked = (DdlFormList.SelectedIndex > 0);
                 if (DdlFormList.SelectedIndex == 0)
                     LblError.Text = "Please select form type.";
+
+                if (DdlFormList.SelectedIndex == 1)
+                {
+                    BtnSign.Text = "Print";
+                    BtnSign.Attributes.Add("OnClientClick", "javascript://window.open('/blankprint.aspx'");
+                }
             }
             catch (Exception)
             {

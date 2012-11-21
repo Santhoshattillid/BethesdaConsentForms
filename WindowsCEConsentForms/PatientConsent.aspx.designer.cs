@@ -13,15 +13,6 @@ namespace WindowsCEConsentForms {
     public partial class ConsentForm {
         
         /// <summary>
-        /// RdoBMH control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RdoBMH;
-        
-        /// <summary>
         /// RdoBHE control.
         /// </summary>
         /// <remarks>
@@ -29,6 +20,15 @@ namespace WindowsCEConsentForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton RdoBHE;
+        
+        /// <summary>
+        /// RdoBMH control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton RdoBMH;
         
         /// <summary>
         /// DdlPatientIds control.

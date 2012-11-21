@@ -20,11 +20,11 @@
                                 Select Location</h4>
                         </td>
                         <td>
-                            <asp:RadioButton runat="server" ID="RdoBMH" Text="BMH" OnCheckedChanged="RdoBMH_CheckedChanged"
+                            <asp:RadioButton runat="server" ID="RdoBHE" Text="BHE" OnCheckedChanged="RdoBHE_CheckedChanged"
                                 AutoPostBack="True" />
                         </td>
                         <td colspan="3">
-                            <asp:RadioButton runat="server" ID="RdoBHE" Text="BHE" OnCheckedChanged="RdoBHE_CheckedChanged"
+                            <asp:RadioButton runat="server" ID="RdoBMH" Text="BHW" OnCheckedChanged="RdoBMH_CheckedChanged"
                                 AutoPostBack="True" />
                         </td>
                     </tr>
@@ -68,7 +68,7 @@
                     </tr>
                     <tr>
                         <td>
-                            MR #
+                            MRIN#
                         </td>
                         <td colspan="4">
                             <asp:Label runat="server" ID="LblSalutation" Enabled="false"></asp:Label>
@@ -84,7 +84,7 @@
                     </tr>
                     <tr>
                         <td>
-                            Adm Date
+                            Admission Date
                         </td>
                         <td colspan="4">
                             <asp:Label runat="server" ID="LblAdmDate" Enabled="false"></asp:Label>
@@ -105,25 +105,31 @@
                         <td colspan="4">
                             <ul>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkSurgicalConcent" Text="Surgical Consent" Enabled="false" />
+                                    <asp:CheckBox runat="server" ID="ChkSurgicalConcent" Text="CONSENT TO DIAGNOSTIC PROCEDURE OR OPERATION"
+                                        Enabled="false" />
                                 </li>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkCCLC" Text="Cardiac Cath Lab Consent" Enabled="false" />
+                                    <asp:CheckBox runat="server" ID="ChkCCLC" Text="CARDIOVASCULAR LABORATORY CONSENT"
+                                        Enabled="false" />
                                 </li>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkORConsent" Text="Outside O.R. Consent" Enabled="false" />
+                                    <asp:CheckBox runat="server" ID="ChkORConsent" Text="CONSENT FOR PROCEDURES OUTSIDE OF THE OPERATING ROOM"
+                                        Enabled="false" />
                                 </li>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkEC" Text="Endoscopy Consent" Enabled="false" />
+                                    <asp:CheckBox runat="server" ID="ChkEC" Text="ENDOSCOPY CONSENT" Enabled="false" />
                                 </li>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkBCOrR" Text="Blood Consent/Refusal" Enabled="false" />
+                                    <asp:CheckBox runat="server" ID="ChkBCOrR" Text="CONSENT FOR TRANSFUSION OF BLOOD OR BLOOD PRODUCTS"
+                                        Enabled="false" />
                                 </li>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkPA" Text="Plasma Apheresis" Enabled="false" />
+                                    <asp:CheckBox runat="server" ID="ChkPA" Text="CONSENT FOR THERAPEUTIC APHERESIS"
+                                        Enabled="false" />
                                 </li>
                                 <li>
-                                    <asp:CheckBox runat="server" ID="ChkPICCConsent" Text="PICC Consent" Enabled="false" />
+                                    <asp:CheckBox runat="server" ID="ChkPICCConsent" Text="AUTHORIZATION FOR PERIPHERALLY INSERTED CENTRAL CATHETER (PICC)"
+                                        Enabled="false" />
                                 </li>
                             </ul>
                         </td>

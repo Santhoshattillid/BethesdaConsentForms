@@ -1,5 +1,5 @@
-2012/11/20-14:22:51.443 1da4 Recovering log #61
-2012/11/20-14:22:51.454 1da4 Level-0 table #63: started
-2012/11/20-14:22:51.476 1da4 Level-0 table #63: 229805 bytes OK
-2012/11/20-14:22:51.501 1da4 Delete type=0 #61
-2012/11/20-14:22:51.502 1da4 Delete type=3 #59
+2012/11/21-12:35:37.509 5fc Recovering log #64
+2012/11/21-12:35:37.524 5fc Level-0 table #66: started
+2012/11/21-12:35:37.545 5fc Level-0 table #66: 141529 bytes OK
+2012/11/21-12:35:37.570 5fc Delete type=0 #64
+2012/11/21-12:35:37.570 5fc Delete type=3 #62

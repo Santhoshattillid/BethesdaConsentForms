@@ -64,6 +64,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BlankPrint.aspx" />
     <Content Include="BloodConsentOrRefusal\ConsentDeclaration.aspx" />
     <Content Include="BloodConsentOrRefusal\ConsentPrint.aspx" />
     <Content Include="Cardiovascular\ConsentDeclaration.aspx" />
@@ -184,6 +185,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlankPrint.aspx.cs">
+      <DependentUpon>BlankPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BlankPrint.aspx.designer.cs">
+      <DependentUpon>BlankPrint.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BloodConsentOrRefusal\ConsentDeclaration.aspx.cs">
       <DependentUpon>ConsentDeclaration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

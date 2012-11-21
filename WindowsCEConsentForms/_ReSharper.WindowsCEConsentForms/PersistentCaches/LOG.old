@@ -1,5 +1,5 @@
-2012/11/19-10:23:54.176 e84 Recovering log #57
-2012/11/19-10:23:54.176 e84 Level-0 table #60: started
-2012/11/19-10:23:54.212 e84 Level-0 table #60: 265 bytes OK
-2012/11/19-10:23:54.310 e84 Delete type=0 #57
-2012/11/19-10:23:54.310 e84 Delete type=3 #55
+2012/11/20-14:22:51.443 1da4 Recovering log #61
+2012/11/20-14:22:51.454 1da4 Level-0 table #63: started
+2012/11/20-14:22:51.476 1da4 Level-0 table #63: 229805 bytes OK
+2012/11/20-14:22:51.501 1da4 Delete type=0 #61
+2012/11/20-14:22:51.502 1da4 Delete type=3 #59
