@@ -79,9 +79,9 @@
         <li>
             <% if (IsStatementOfConsent)
                {%>
-            <ul class="content">
+            <ul class="content noBorder">
                 <li>
-                    <h3>
+                    <h3 class="center">
                         STATEMENT OF CONSENT</h3>
                 </li>
                 <li>
@@ -92,12 +92,13 @@
                         <table class="noBorder">
                             <tr>
                                 <td>
-                                    <asp:CheckBox runat="server" ID="Chk1" Text="I have Directed Units" CssClass="leftPush" />
+                                    <asp:CheckBox runat="server" ID="ChkDirectedUnits" Text="I have Directed Units" CssClass="leftPush" />
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:CheckBox runat="server" ID="CheckBox1" Text="I have Autologous Units" CssClass="leftPush" />
+                                    <asp:CheckBox runat="server" ID="ChkAutologousUnits" Text="I have Autologous Units"
+                                        CssClass="leftPush" />
                                 </td>
                             </tr>
                         </table>
@@ -108,7 +109,7 @@
                }
                else
                {%>
-            <ul class="content">
+            <ul class="content noBorder">
                 <li>
                     <h3 class="center">
                         STATEMENT OF REFUSAL</h3>
@@ -196,8 +197,8 @@
             <div>
                 Interpreted By:
             </div>
-            <div class="sigBox">
-                <asp:Label runat="server" ID="LblTranslatedBy"></asp:Label>
+            <div class="leftBox">
+                <asp:Label runat="server" ID="LblTranslatedBy" CssClass="errorInfo"></asp:Label>
             </div>
             <div class="right">
                 <asp:Label runat="server" ID="LblTranslatedDateTime"></asp:Label>

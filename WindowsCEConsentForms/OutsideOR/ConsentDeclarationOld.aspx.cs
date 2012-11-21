@@ -168,7 +168,7 @@ namespace WindowsCEConsentForms.OutsideOR
                 formHandlerServiceClient.UpdateTrackingInfo(patientId, new TrackingInfo { IP = ip, Device = device }, ConsentType.OutsideOR.ToString());
                 formHandlerServiceClient.UpdatePatientUnableSignReason(patientId, ChkPatientisUnableToSign.Checked ? TxtPatientNotSignedBecause.Text : string.Empty, ConsentType.OutsideOR.ToString());
 
-                formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/OutsideOR/ConsentPrintV1.aspx?PatientId=" + patientId, patientId, "OutsideORConsentForm1", ConsentType.OutsideOR.ToString());
+                formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/OutsideOR/ConsentPrintV1.aspx?PatientId=" + patientId, patientId, ConsentType.OutsideOR.ToString());
 
                 if ((bool)Session["EndoscopyConsent"])
                 {

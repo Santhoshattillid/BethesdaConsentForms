@@ -74,10 +74,20 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
                         PnlAuthorizedSignature.Visible = false;
                     }
 
+                    LblTranslatedBy.Text = patientDetails.Translatedby;
                     ImgPatientSignature.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.PatientSign + "&ConsentType=" + ConsentType.ToString();
                     ImgAuthorizedSignature.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.PatientAuthorizeSign + "&ConsentType=" + ConsentType.ToString();
                     ImgWitnessSignature1.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.WitnessSignature1 + "&ConsentType=" + ConsentType.ToString();
                     ImgWitnessSignature2.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.WitnessSignature2 + "&ConsentType=" + ConsentType.ToString();
+
+                    if (patientDetails.StatementOfConsent != null)
+                    {
+                        IsStatementOfConsent = true;
+                        ChkAutologousUnits.Checked = patientDetails.StatementOfConsent.AutologousUnits;
+                        ChkDirectedUnits.Checked = patientDetails.StatementOfConsent.DirectedUnits;
+                    }
+                    else
+                        IsStatementOfConsent = false;
                 }
             }
         }

@@ -106,6 +106,12 @@
   <wsdl:message name="IFormHandlerService_GenerateAndUploadPDFtoSharePoint_OutputMessage">
     <wsdl:part name="parameters" element="tns:GenerateAndUploadPDFtoSharePointResponse" />
   </wsdl:message>
+  <wsdl:message name="IFormHandlerService_UpdateConsentFormStatementType_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateConsentFormStatementType" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_UpdateConsentFormStatementType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateConsentFormStatementTypeResponse" />
+  </wsdl:message>
   <wsdl:message name="IFormHandlerService_GetProcedurenameList_InputMessage">
     <wsdl:part name="parameters" element="tns:GetProcedurenameList" />
   </wsdl:message>
@@ -236,6 +242,10 @@
     <wsdl:operation name="GenerateAndUploadPDFtoSharePoint">
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GenerateAndUploadPDFtoSharePoint" message="tns:IFormHandlerService_GenerateAndUploadPDFtoSharePoint_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GenerateAndUploadPDFtoSharePointResponse" message="tns:IFormHandlerService_GenerateAndUploadPDFtoSharePoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConsentFormStatementType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/UpdateConsentFormStatementType" message="tns:IFormHandlerService_UpdateConsentFormStatementType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/UpdateConsentFormStatementTypeResponse" message="tns:IFormHandlerService_UpdateConsentFormStatementType_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetProcedurenameList">
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetProcedurenameList" message="tns:IFormHandlerService_GetProcedurenameList_InputMessage" />
@@ -421,6 +431,15 @@
     </wsdl:operation>
     <wsdl:operation name="GenerateAndUploadPDFtoSharePoint">
       <soap:operation soapAction="http://tempuri.org/IFormHandlerService/GenerateAndUploadPDFtoSharePoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConsentFormStatementType">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/UpdateConsentFormStatementType" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

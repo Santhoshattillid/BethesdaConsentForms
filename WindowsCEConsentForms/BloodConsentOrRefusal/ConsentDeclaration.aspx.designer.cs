@@ -49,22 +49,22 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal {
         protected global::System.Web.UI.WebControls.RadioButton RdoStatementOfConsentRefusal;
         
         /// <summary>
-        /// Chk1 control.
+        /// ChkDirectedUnits control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox Chk1;
+        protected global::System.Web.UI.WebControls.CheckBox ChkDirectedUnits;
         
         /// <summary>
-        /// CheckBox1 control.
+        /// ChkAutologousUnits control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
+        protected global::System.Web.UI.WebControls.CheckBox ChkAutologousUnits;
         
         /// <summary>
         /// DeclarationSignatures control.

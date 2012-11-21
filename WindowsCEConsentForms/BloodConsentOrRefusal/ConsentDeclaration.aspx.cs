@@ -141,6 +141,8 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
 
                 formHandlerServiceClient.UpdatePatientUnableSignReason(patientId, chkPatientisUnableToSign.Checked ? txtPatientNotSignedBecause.Text : string.Empty, consentType.ToString());
 
+                formHandlerServiceClient.UpdateConsentFormStatementType(patientId, RdoStatementOfConsentAccepted.Checked ? new StatementOfConsent() { AutologousUnits = ChkAutologousUnits.Checked, DirectedUnits = ChkDirectedUnits.Checked } : null, consentType.ToString());
+
                 Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId);
 
                 Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));

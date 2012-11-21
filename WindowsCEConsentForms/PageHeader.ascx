@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PageHeader.ascx.cs"
     Inherits="WindowsCEConsentForms.PageHeader" %>
-<ul class="content">
+<ul class="content noBorder">
     <li>
         <%--<img src="/Images/logo.png" />--%>
     </li>

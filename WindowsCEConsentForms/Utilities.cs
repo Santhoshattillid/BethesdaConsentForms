@@ -59,7 +59,7 @@ namespace WindowsCEConsentForms
 
         public static void GeneratePdfAndUploadToSharePointSite(FormHandlerServiceClient formHandlerServiceClient, ConsentType consentType, string patientId)
         {
-            //formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/" + consentType + @"/ConsentPrint.aspx?PatientId=" + patientId, patientId, consentType.ToString());
+            formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/" + consentType + @"/ConsentPrint.aspx?PatientId=" + patientId, patientId, consentType.ToString());
         }
     }
 
@@ -89,5 +89,11 @@ namespace WindowsCEConsentForms
         WitnessSignature1,
         WitnessSignature2,
         PICCSignature
+    }
+
+    public enum StatementType
+    {
+        Accepted,
+        Refused
     }
 }

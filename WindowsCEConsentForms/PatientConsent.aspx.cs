@@ -121,11 +121,12 @@ namespace WindowsCEConsentForms
                 if (DdlFormList.SelectedIndex == 0)
                     LblError.Text = "Please select form type.";
 
-                if (DdlFormList.SelectedIndex == 1)
-                {
-                    BtnSign.Text = "Print";
-                    BtnSign.Attributes.Add("OnClientClick", "javascript://window.open('/blankprint.aspx'");
-                }
+                PnlConsentChkboxes.Visible = DdlFormList.SelectedIndex != 2;
+                PnlPrintLinks.Visible = DdlFormList.SelectedIndex == 2;
+                BtnSign.Enabled = DdlFormList.SelectedIndex != 2;
+
+                if (DdlFormList.SelectedIndex == 2)
+                    LblError.Text = string.Empty;
             }
             catch (Exception)
             {

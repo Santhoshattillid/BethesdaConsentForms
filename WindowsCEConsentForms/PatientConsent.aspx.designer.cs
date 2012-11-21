@@ -112,6 +112,15 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.WebControls.DropDownList DdlFormList;
         
         /// <summary>
+        /// PnlConsentChkboxes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PnlConsentChkboxes;
+        
+        /// <summary>
         /// ChkSurgicalConcent control.
         /// </summary>
         /// <remarks>
@@ -173,6 +182,15 @@ namespace WindowsCEConsentForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox ChkPICCConsent;
+        
+        /// <summary>
+        /// PnlPrintLinks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PnlPrintLinks;
         
         /// <summary>
         /// LblError control.

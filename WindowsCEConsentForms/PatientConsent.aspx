@@ -103,35 +103,53 @@
                         <td class="noBorder">
                         </td>
                         <td colspan="4">
-                            <ul>
-                                <li>
-                                    <asp:CheckBox runat="server" ID="ChkSurgicalConcent" Text="CONSENT TO DIAGNOSTIC PROCEDURE OR OPERATION"
-                                        Enabled="false" />
-                                </li>
-                                <li>
-                                    <asp:CheckBox runat="server" ID="ChkCCLC" Text="CARDIOVASCULAR LABORATORY CONSENT"
-                                        Enabled="false" />
-                                </li>
-                                <li>
-                                    <asp:CheckBox runat="server" ID="ChkORConsent" Text="CONSENT FOR PROCEDURES OUTSIDE OF THE OPERATING ROOM"
-                                        Enabled="false" />
-                                </li>
-                                <li>
-                                    <asp:CheckBox runat="server" ID="ChkEC" Text="ENDOSCOPY CONSENT" Enabled="false" />
-                                </li>
-                                <li>
-                                    <asp:CheckBox runat="server" ID="ChkBCOrR" Text="CONSENT FOR TRANSFUSION OF BLOOD OR BLOOD PRODUCTS"
-                                        Enabled="false" />
-                                </li>
-                                <li>
-                                    <asp:CheckBox runat="server" ID="ChkPA" Text="CONSENT FOR THERAPEUTIC APHERESIS"
-                                        Enabled="false" />
-                                </li>
-                                <li>
-                                    <asp:CheckBox runat="server" ID="ChkPICCConsent" Text="AUTHORIZATION FOR PERIPHERALLY INSERTED CENTRAL CATHETER (PICC)"
-                                        Enabled="false" />
-                                </li>
-                            </ul>
+                            <asp:Panel runat="server" ID="PnlConsentChkboxes">
+                                <ul>
+                                    <li>
+                                        <asp:CheckBox runat="server" ID="ChkSurgicalConcent" Text="CONSENT TO DIAGNOSTIC PROCEDURE OR OPERATION"
+                                            Enabled="false" />
+                                    </li>
+                                    <li>
+                                        <asp:CheckBox runat="server" ID="ChkCCLC" Text="CARDIOVASCULAR LABORATORY CONSENT"
+                                            Enabled="false" />
+                                    </li>
+                                    <li>
+                                        <asp:CheckBox runat="server" ID="ChkORConsent" Text="CONSENT FOR PROCEDURES OUTSIDE OF THE OPERATING ROOM"
+                                            Enabled="false" />
+                                    </li>
+                                    <li>
+                                        <asp:CheckBox runat="server" ID="ChkEC" Text="ENDOSCOPY CONSENT" Enabled="false" />
+                                    </li>
+                                    <li>
+                                        <asp:CheckBox runat="server" ID="ChkBCOrR" Text="CONSENT FOR TRANSFUSION OF BLOOD OR BLOOD PRODUCTS"
+                                            Enabled="false" />
+                                    </li>
+                                    <li>
+                                        <asp:CheckBox runat="server" ID="ChkPA" Text="CONSENT FOR THERAPEUTIC APHERESIS"
+                                            Enabled="false" />
+                                    </li>
+                                    <li>
+                                        <asp:CheckBox runat="server" ID="ChkPICCConsent" Text="AUTHORIZATION FOR PERIPHERALLY INSERTED CENTRAL CATHETER (PICC)"
+                                            Enabled="false" />
+                                    </li>
+                                </ul>
+                            </asp:Panel>
+                            <asp:Panel runat="server" ID="PnlPrintLinks" Visible="False">
+                                <ul>
+                                    <li><a href="Print/Surgical/Surgical.pdf">PDF for CONSENT TO DIAGNOSTIC PROCEDURE OR
+                                        OPERATION</a></li>
+                                    <li><a href="Print/Cardiovascular/Cardiovascular.pdf">PDF for CARDIOVASCULAR LABORATORY
+                                        CONSENT</a></li>
+                                    <li><a href="Print/OutsideOR/OutsideOR.pdf">PDF for CONSENT FOR PROCEDURES OUTSIDE OF
+                                        THE OPERATING ROOM</a></li>
+                                    <li><a href="Print/Endoscopy/Endoscopy.pdf">PDF for ENDOSCOPY CONSENT</a></li>
+                                    <li><a href="Print/BloodConsentOrRefusal/BloodConsentOfRefusal.pdf">PDF for CONSENT
+                                        FOR TRANSFUSION OF BLOOD OR BLOOD PRODUCTS</a></li>
+                                    <li><a href="Print/PlasmanApheresis/PlasmanApheresis.pdf">PDF forCONSENT FOR THERAPEUTIC APHERESIS</a></li>
+                                    <li><a href="Print/PICC/PICC.pdf">PDF for AUTHORIZATION FOR PERIPHERALLY INSERTED CENTRAL
+                                        CATHETER (PICC)</a></li>
+                                </ul>
+                            </asp:Panel>
                         </td>
                     </tr>
                     <% if (!string.IsNullOrEmpty(LblError.Text))

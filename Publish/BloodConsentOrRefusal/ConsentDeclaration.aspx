@@ -133,12 +133,13 @@
                         <table class="noBorder">
                             <tr>
                                 <td>
-                                    <asp:CheckBox runat="server" ID="Chk1" Text="I have Directed Units" CssClass="leftPush" />
+                                    <asp:CheckBox runat="server" ID="ChkDirectedUnits" Text="I have Directed Units" CssClass="leftPush" />
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:CheckBox runat="server" ID="CheckBox1" Text="I have Autologous Units" CssClass="leftPush" />
+                                    <asp:CheckBox runat="server" ID="ChkAutologousUnits" Text="I have Autologous Units"
+                                        CssClass="leftPush" />
                                 </td>
                             </tr>
                         </table>

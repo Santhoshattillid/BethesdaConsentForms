@@ -9,6 +9,7 @@
       <xs:element minOccurs="0" name="MRHash" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PrimaryDoctorId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ProcedureName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StatementOfConsent" nillable="true" type="tns:StatementOfConsent" />
       <xs:element minOccurs="0" name="Translatedby" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UnableToSignReason" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="age" type="xs:int" />
@@ -17,6 +18,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PatientDetail" nillable="true" type="tns:PatientDetail" />
+  <xs:complexType name="StatementOfConsent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AutologousUnits" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DirectedUnits" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StatementOfConsent" nillable="true" type="tns:StatementOfConsent" />
   <xs:complexType name="DoctorDetails">
     <xs:sequence>
       <xs:element minOccurs="0" name="Fname" nillable="true" type="xs:string" />

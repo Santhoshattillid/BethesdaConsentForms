@@ -286,3 +286,15 @@
     font-weight: bold;
     font-size: 13px;
 }
+.PrintsigBox
+{
+    padding-top: 10px;
+    width: 200px;
+    height: 30px;
+    border: 1px solid #777;
+    float: left;
+}
+.Container a
+{
+    color: #6c80f3;
+}

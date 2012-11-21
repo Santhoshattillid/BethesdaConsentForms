@@ -44,6 +44,9 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         private string ProcedureNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WindowsCEConsentForms.ConsentFormsService.StatementOfConsent StatementOfConsentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TranslatedbyField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -160,6 +163,19 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public WindowsCEConsentForms.ConsentFormsService.StatementOfConsent StatementOfConsent {
+            get {
+                return this.StatementOfConsentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatementOfConsentField, value) != true)) {
+                    this.StatementOfConsentField = value;
+                    this.RaisePropertyChanged("StatementOfConsent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Translatedby {
             get {
                 return this.TranslatedbyField;
@@ -220,6 +236,67 @@ namespace WindowsCEConsentForms.ConsentFormsService {
                 if ((object.ReferenceEquals(this.nameField, value) != true)) {
                     this.nameField = value;
                     this.RaisePropertyChanged("name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StatementOfConsent", Namespace="http://schemas.datacontract.org/2004/07/Consent.sp.wcf")]
+    [System.SerializableAttribute()]
+    public partial class StatementOfConsent : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool AutologousUnitsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool DirectedUnitsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool AutologousUnits {
+            get {
+                return this.AutologousUnitsField;
+            }
+            set {
+                if ((this.AutologousUnitsField.Equals(value) != true)) {
+                    this.AutologousUnitsField = value;
+                    this.RaisePropertyChanged("AutologousUnits");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool DirectedUnits {
+            get {
+                return this.DirectedUnitsField;
+            }
+            set {
+                if ((this.DirectedUnitsField.Equals(value) != true)) {
+                    this.DirectedUnitsField = value;
+                    this.RaisePropertyChanged("DirectedUnits");
                 }
             }
         }
@@ -438,7 +515,10 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         void UpdateTrackingInfo(string PatientId, WindowsCEConsentForms.ConsentFormsService.TrackingInfo trackingInfo, string ConsentFormType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GenerateAndUploadPDFtoSharePoint", ReplyAction="http://tempuri.org/IFormHandlerService/GenerateAndUploadPDFtoSharePointResponse")]
-        void GenerateAndUploadPDFtoSharePoint(string RelativeUrl, string PatientId, string FormName, string ConsentFormType);
+        void GenerateAndUploadPDFtoSharePoint(string RelativeUrl, string PatientId, string ConsentFormType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/UpdateConsentFormStatementType", ReplyAction="http://tempuri.org/IFormHandlerService/UpdateConsentFormStatementTypeResponse")]
+        void UpdateConsentFormStatementType(string PatientNumber, WindowsCEConsentForms.ConsentFormsService.StatementOfConsent StatementType, string ConsentFormType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetProcedurenameList", ReplyAction="http://tempuri.org/IFormHandlerService/GetProcedurenameListResponse")]
         string[] GetProcedurenameList();
@@ -562,8 +642,12 @@ namespace WindowsCEConsentForms.ConsentFormsService {
             base.Channel.UpdateTrackingInfo(PatientId, trackingInfo, ConsentFormType);
         }
         
-        public void GenerateAndUploadPDFtoSharePoint(string RelativeUrl, string PatientId, string FormName, string ConsentFormType) {
-            base.Channel.GenerateAndUploadPDFtoSharePoint(RelativeUrl, PatientId, FormName, ConsentFormType);
+        public void GenerateAndUploadPDFtoSharePoint(string RelativeUrl, string PatientId, string ConsentFormType) {
+            base.Channel.GenerateAndUploadPDFtoSharePoint(RelativeUrl, PatientId, ConsentFormType);
+        }
+        
+        public void UpdateConsentFormStatementType(string PatientNumber, WindowsCEConsentForms.ConsentFormsService.StatementOfConsent StatementType, string ConsentFormType) {
+            base.Channel.UpdateConsentFormStatementType(PatientNumber, StatementType, ConsentFormType);
         }
         
         public string[] GetProcedurenameList() {

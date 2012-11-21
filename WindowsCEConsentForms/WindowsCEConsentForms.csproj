@@ -77,6 +77,13 @@
     <Content Include="Endoscopy\ConsentDeclaration.aspx" />
     <Content Include="Endoscopy\ConsentPrint.aspx" />
     <Content Include="GetImage.ashx" />
+    <None Include="Print\BloodConsentOrRefusal\BloodConsentOfRefusal.pdf" />
+    <None Include="Print\Cardiovascular\Cardiovascular.pdf" />
+    <None Include="Print\Endoscopy\Endoscopy.pdf" />
+    <None Include="Print\OutsideOR\OutsideOR.pdf" />
+    <None Include="Print\PICC\PICC.pdf" />
+    <None Include="Print\PlasmanApheresis\PlasmanApheresis.pdf" />
+    <None Include="Print\Surgical\Surgical.pdf" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\DataSources\System.Xml.Linq.XElement.datasource" />
@@ -129,6 +136,13 @@
     <Content Include="PlasmanApheresis\ConsentDeclaration.aspx" />
     <Content Include="PlasmanApheresis\ConsentPrint.aspx" />
     <Content Include="PrintHeader.ascx" />
+    <Content Include="Print\BloodConsentOrRefusal\BlankPrint.aspx" />
+    <Content Include="Print\Cardiovascular\BlankPrint.aspx" />
+    <Content Include="Print\Endoscopy\BlankPrint.aspx" />
+    <Content Include="Print\OutsideOR\BlankPrint.aspx" />
+    <Content Include="Print\PICC\BlankPrint.aspx" />
+    <Content Include="Print\PlasmanApheresis\BlankPrint.aspx" />
+    <Content Include="Print\Surgical\BlankPrint.aspx" />
     <Content Include="Scripts\jquery-1.6.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.13.custom.min.js" />
     <Content Include="Scripts\jquery.multiselect.min.js" />
