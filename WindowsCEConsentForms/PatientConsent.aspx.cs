@@ -8,20 +8,6 @@ namespace WindowsCEConsentForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                try
-                {
-                    Session["NewSessionFor" + ConsentType.Surgical.ToString()] = true;
-                    Session["NewSessionFor" + ConsentType.BloodConsentOrRefusal.ToString()] = true;
-                    Session["NewSessionFor" + ConsentType.Cardiovascular.ToString()] = true;
-                    Session["NewSessionFor" + ConsentType.Endoscopy.ToString()] = true;
-                    Session["NewSessionFor" + ConsentType.PlasmanApheresis.ToString()] = true;
-                    Session["NewSessionFor" + ConsentType.OutsideOR.ToString()] = true;
-                    Session["NewSessionFor" + ConsentType.PICC.ToString()] = true;
-                }
-                catch (Exception) { }
-            }
         }
 
         protected void DdlPatientIds_SelectedIndexChanged(object sender, EventArgs e)

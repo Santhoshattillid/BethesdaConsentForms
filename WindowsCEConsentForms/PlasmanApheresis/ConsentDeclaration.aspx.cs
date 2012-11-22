@@ -32,11 +32,12 @@ namespace WindowsCEConsentForms.PlasmanApheresis
                 if (patientDetail != null)
                 {
                     LblPatientName.Text = patientDetail.name;
-                    if (DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedItem != null)
-                    {
-                        LblPhysicianName.Text = DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedItem.Text;
-                        LblPhyisicianList.Text = DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedItem.Text;
-                    }
+
+                    //if (DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedItem != null)
+                    //{
+                    //    LblPhysicianName.Text = DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedItem.Text;
+                    //    LblPhyisicianList.Text = DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedItem.Text;
+                    //}
                 }
             }
 
@@ -67,8 +68,8 @@ namespace WindowsCEConsentForms.PlasmanApheresis
         private void BtnReset_Click(object sender, EventArgs e)
         {
             DoctorsAndProcedures1.DdLProcedures.SelectedIndex = 0;
-            DoctorsAndProcedures1.LblAssociatedDoctors.Text = string.Empty;
-            DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedIndex = 0;
+
+            // DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedIndex = 0;
             DoctorsAndProcedures1.HdnSelectedProcedures.Value = string.Empty;
 
             ResetSignatures();
@@ -156,7 +157,7 @@ namespace WindowsCEConsentForms.PlasmanApheresis
 
                 var formHandlerServiceClient = new FormHandlerServiceClient();
 
-                formHandlerServiceClient.UpdateDoctorAssociation(patientId, DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedValue, DoctorsAndProcedures1.LblAssociatedDoctors.Text, consentType.ToString());
+                //    formHandlerServiceClient.UpdateDoctorAssociation(patientId, DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedValue, DoctorsAndProcedures1.LblAssociatedDoctors.Text, consentType.ToString());
 
                 formHandlerServiceClient.UpdatePatientProcedures(patientId, selectedProcedurenames, consentType.ToString());
 

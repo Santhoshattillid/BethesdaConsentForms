@@ -19,7 +19,7 @@
         </li>
     </ul>
     <uc1:PatientDetails ID="PatientDetails1" runat="server" ConsentType="Surgical" />
-    <uc2:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" IsStaticTextBoxForPrecedures="True" />
+    <uc2:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" IsStaticTextBoxForPrecedures="False" />
     <%--<ul class="content">
         <li>I here by authorize Doctor(s)
             <asp:DropDownList ID="DdlPrimaryDoctors" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DdlPrimaryDoctors_SelectedIndexChanged">

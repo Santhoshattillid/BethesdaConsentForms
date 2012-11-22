@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
-using System.Web.UI.WebControls;
 using WindowsCEConsentForms.ConsentFormsService;
 
 namespace WindowsCEConsentForms
@@ -16,46 +16,40 @@ namespace WindowsCEConsentForms
             var formHandlerServiceClient = new FormHandlerServiceClient();
             if (!IsPostBack)
             {
-                DdLProcedures.Attributes["multiple"] = "multiple";
-                DdLProcedures.Items.Clear();
+                if (!IsStaticTextBoxForPrecedures)
+                {
+                    DdLProcedures.Attributes["multiple"] = "multiple";
+                    DdLProcedures.Items.Clear();
+                    if (ConsentType == ConsentType.Endoscopy)
+                    {
+                        foreach (string procedureName in formHandlerServiceClient.GetEndoscopyProcedurenameList())
+                            DdLProcedures.Items.Add(procedureName.Trim());
+                    }
+                    else if (ConsentType == ConsentType.Cardiovascular)
+                    {
+                        foreach (string procedureName in formHandlerServiceClient.GetCardiovascularProcedurenameList())
+                            DdLProcedures.Items.Add(procedureName.Trim());
+                    }
+                    else
+                    {
+                        foreach (string procedureName in formHandlerServiceClient.GetProcedurenameList())
+                            DdLProcedures.Items.Add(procedureName.Trim());
+                    }
+                    DdLProcedures.Items.Add("Other");
+                }
 
-                if (ConsentType == ConsentType.Endoscopy)
-                {
-                    foreach (string procedureName in formHandlerServiceClient.GetEndoscopyProcedurenameList())
-                        DdLProcedures.Items.Add(procedureName.Trim());
-                }
-                else if (ConsentType == ConsentType.Cardiovascular)
-                {
-                    foreach (string procedureName in formHandlerServiceClient.GetCardiovascularProcedurenameList())
-                        DdLProcedures.Items.Add(procedureName.Trim());
-                }
-                else
-                {
-                    foreach (string procedureName in formHandlerServiceClient.GetProcedurenameList())
-                        DdLProcedures.Items.Add(procedureName.Trim());
-                }
-                DdLProcedures.Items.Add("Other");
-
-                DdlPrimaryDoctors.Items.Add("----Select Primary Doctor----");
+                var primaryDoctors = new List<PrimaryDoctor>();
+                primaryDoctors.Add(new PrimaryDoctor() { Id = 0, Name = "----Select Primary Doctor----" });
                 var physicians = formHandlerServiceClient.GetPrimaryPhysiciansList();
                 if (physicians != null)
                 {
                     foreach (DataRow row in physicians.Rows)
                     {
-                        DdlPrimaryDoctors.Items.Add(new ListItem(row["Lname"] + ", " + row["Fname"],
-                                                                 row["PhysicianId"].ToString()));
+                        primaryDoctors.Add(new PrimaryDoctor { Name = row["Lname"] + ", " + row["Fname"], Id = int.Parse(row["PhysicianId"].ToString()) });
                     }
                 }
 
-                bool isItNewSession;
-                try
-                {
-                    isItNewSession = (bool)Session["NewSessionFor" + ConsentType];
-                }
-                catch (Exception)
-                {
-                    isItNewSession = true;
-                }
+                ViewState["PrimaryDoctors"] = primaryDoctors;
 
                 string patientId;
                 try
@@ -78,64 +72,55 @@ namespace WindowsCEConsentForms
                     var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
                     if (patientDetail != null)
                     {
-                        if (!isItNewSession)
+                        if (!string.IsNullOrEmpty(patientDetail.ProcedureName))
                         {
-                            if (!string.IsNullOrEmpty(patientDetail.PrimaryDoctorId))
-                            {
-                                DdlPrimaryDoctors.Items.FindByValue(patientDetail.PrimaryDoctorId).Selected = true;
-                                LoadAssociatedDoctors(patientDetail.PrimaryDoctorId);
-                            }
-                            if (!string.IsNullOrEmpty(patientDetail.ProcedureName))
-                            {
-                                HdnSelectedProcedures.Value = patientDetail.ProcedureName;
-                            }
+                            HdnSelectedProcedures.Value = patientDetail.ProcedureName;
                         }
                     }
-                    else
-                        DdlPrimaryDoctors.SelectedIndex = 0;
                 }
-            }
-        }
-
-        protected void DdlPrimaryDoctors_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // load all the fields here
-            try
-            {
-                // loading select form type box and patient details
-                if (DdlPrimaryDoctors.SelectedIndex > 0)
-                    LoadAssociatedDoctors(DdlPrimaryDoctors.SelectedValue);
-            }
-            catch (Exception)
-            {
-                return;
-            }
-        }
-
-        private void LoadAssociatedDoctors(string primaryDoctorId)
-        {
-            //DdlAssociatedDoctors.Items.Clear();
-            var formHandlerServiceClient = new FormHandlerServiceClient();
-            var associatedDoctors = formHandlerServiceClient.GetAssociatedPhysiciansList(primaryDoctorId);
-
-            //DdlAssociatedDoctors.Items.Add("----Select Associated Doctor----");
-            LblAssociatedDoctors.Text = string.Empty;
-            if (associatedDoctors != null)
-            {
-                foreach (DataRow row in associatedDoctors.Rows)
+                var doctorsProceduresState = new DoctorsProceduresState
                 {
-                    //DdlAssociatedDoctors.Items.Add(new System.Web.UI.WebControls.ListItem(row["Lname"].ToString().Trim() + ", " + row["Fname"].ToString().Trim(), row["Id"].ToString().Trim()));
-                    if (!string.IsNullOrEmpty(LblAssociatedDoctors.Text))
-                        LblAssociatedDoctors.Text += " , ";
-                    LblAssociatedDoctors.Text += row["Lname"].ToString().Trim() + " " + row["Fname"].ToString().Trim();
-                }
+                    SelectedDoctorsIndex = new[] { "0" },
+                    Procedures = new[] { "" }
+                };
+                ViewState["DoctorsProceduresState"] = doctorsProceduresState;
+            }
+            else
+            {
+                var doctorsProceduresState = new DoctorsProceduresState
+                                                 {
+                                                     SelectedDoctorsIndex = Request.Form["DdlPrimaryDoctors"].Split(','),
+                                                     Procedures = Request.Form["TxtProcedures"].Split(',')
+                                                 };
+                ViewState["DoctorsProceduresState"] = doctorsProceduresState;
             }
         }
 
-        public string GetProcedures()
+        public List<TreamentDoctorsAndProcedures> GetDoctorsAndProcedures()
         {
+            var outPut = new List<TreamentDoctorsAndProcedures>();
             if (IsStaticTextBoxForPrecedures)
-                return TxtProcedures.Text.Trim();
+            {
+                int index = 0;
+                string[] primaryDoctors = Request.Form["DdlPrimaryDoctors"].Split(',');
+                foreach (string procedure in Request.Form["TxtProcedures"].Split(','))
+                {
+                    if (primaryDoctors.GetUpperBound(0) < index)
+                    {
+                        if (!string.IsNullOrEmpty(primaryDoctors[index]) && !string.IsNullOrEmpty(procedure))
+                        {
+                            outPut.Add(new TreamentDoctorsAndProcedures() { PrimaryDoctorId = primaryDoctors[index], TreatmentProcedures = procedure });
+
+                            //if (string.IsNullOrEmpty(procedure))
+                            //    throw new Exception("Please input your signatures in all the fields");
+                        }
+                        index++;
+                    }
+                    else
+                        break;
+                }
+                return outPut;
+            }
 
             string selectedProcedurenames = string.Empty;
 
@@ -157,7 +142,29 @@ namespace WindowsCEConsentForms
                 }
             }
 
-            return selectedProcedurenames;
+            return outPut;
         }
+    }
+
+    [Serializable]
+    public class PrimaryDoctor
+    {
+        public string Name { get; set; }
+
+        public int Id { get; set; }
+    }
+
+    [Serializable]
+    public class DoctorsProceduresState
+    {
+        public string[] SelectedDoctorsIndex;
+
+        public string[] Procedures;
+    }
+
+    public class TreamentDoctorsAndProcedures
+    {
+        public string PrimaryDoctorId;
+        public string TreatmentProcedures;
     }
 }

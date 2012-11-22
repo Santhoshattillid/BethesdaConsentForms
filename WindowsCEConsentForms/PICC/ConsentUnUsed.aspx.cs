@@ -13,16 +13,6 @@ namespace WindowsCEConsentForms.PICC
             try
             {
                 DdLProcedures.Attributes["multiple"] = "multiple";
-                bool isItNewSession;
-                try
-                {
-                    isItNewSession = (bool)Session["NewSessionPICCConsent"];
-                }
-                catch (Exception)
-                {
-                    isItNewSession = true;
-                }
-
                 for (int i = 0; i < 7; i++)
                     ViewState["Signature" + i] = string.Empty;
 
@@ -74,28 +64,16 @@ namespace WindowsCEConsentForms.PICC
                             LblDate.Text = patientDetail.AdmDate.ToString("MMM dd yyyy");
                             LblPatientMRId.Text = patientDetail.MRHash;
                             LblTime.Text = DateTime.Now.ToShortTimeString();
-                            if (!isItNewSession)
-                            {
-                                LoadAssociatedDoctors(patientDetail.PrimaryDoctorId);
-                                if (!string.IsNullOrEmpty(patientDetail.PrimaryDoctorId))
-                                    if (!string.IsNullOrEmpty(patientDetail.ProcedureName))
-                                    {
-                                        HdnSelectedProcedures.Value = patientDetail.ProcedureName;
-                                    }
-                            }
+                            LoadAssociatedDoctors(patientDetail.PrimaryDoctorId);
+                            if (!string.IsNullOrEmpty(patientDetail.PrimaryDoctorId))
+                                if (!string.IsNullOrEmpty(patientDetail.ProcedureName))
+                                {
+                                    HdnSelectedProcedures.Value = patientDetail.ProcedureName;
+                                }
                         }
                         else
                             DdlPrimaryDoctors.SelectedIndex = 0;
                     }
-                }
-                if (!isItNewSession)
-                {
-                    // Loading Signatures based on the selected patient
-                    ViewState["Signature1"] = formHandlerServiceClient.GetPatientSignature(patientId, ConsentType.PICC.ToString(), "signature1");
-                    ViewState["Signature2"] = formHandlerServiceClient.GetPatientSignature(patientId, ConsentType.PICC.ToString(), "signature2");
-                    ViewState["Signature3"] = formHandlerServiceClient.GetPatientSignature(patientId, ConsentType.PICC.ToString(), "signature3");
-                    ViewState["Signature4"] = formHandlerServiceClient.GetPatientSignature(patientId, ConsentType.PICC.ToString(), "signature4");
-                    ViewState["Signature5"] = formHandlerServiceClient.GetPatientSignature(patientId, ConsentType.PICC.ToString(), "signature5");
                 }
             }
             catch (Exception)
@@ -246,8 +224,6 @@ namespace WindowsCEConsentForms.PICC
                 // updating signature4
                 bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage5"]);
                 result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType.PICC.ToString(), "signature5");
-
-                Session["NewSessionPICCConsent"] = false;
 
                 Response.Redirect("/PICC/ConsentDeclaration.aspx");
             }

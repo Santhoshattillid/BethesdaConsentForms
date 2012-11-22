@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using WindowsCEConsentForms.ConsentFormsService;
 
 namespace WindowsCEConsentForms
@@ -60,6 +61,23 @@ namespace WindowsCEConsentForms
         public static void GeneratePdfAndUploadToSharePointSite(FormHandlerServiceClient formHandlerServiceClient, ConsentType consentType, string patientId)
         {
             formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/" + consentType + @"/ConsentPrint.aspx?PatientId=" + patientId, patientId, consentType.ToString());
+        }
+
+        public static string GetAssociatedDoctors(string primaryPhysicianId)
+        {
+            string outPut = string.Empty;
+            var formHandlerServiceClient = new FormHandlerServiceClient();
+            var associatedDoctors = formHandlerServiceClient.GetAssociatedPhysiciansList(primaryPhysicianId);
+            if (associatedDoctors != null)
+            {
+                foreach (DataRow row in associatedDoctors.Rows)
+                {
+                    if (!string.IsNullOrEmpty(outPut))
+                        outPut += " , ";
+                    outPut += row["Lname"].ToString().Trim() + " " + row["Fname"].ToString().Trim();
+                }
+            }
+            return outPut;
         }
     }
 

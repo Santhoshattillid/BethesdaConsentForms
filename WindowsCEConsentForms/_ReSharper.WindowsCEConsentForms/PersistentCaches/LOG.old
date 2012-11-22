@@ -1,5 +1,5 @@
-2012/11/21-19:59:11.854 13a4 Recovering log #74
-2012/11/21-19:59:11.855 13a4 Level-0 table #76: started
-2012/11/21-19:59:11.898 13a4 Level-0 table #76: 2224 bytes OK
-2012/11/21-19:59:11.927 13a4 Delete type=0 #74
-2012/11/21-19:59:11.927 13a4 Delete type=3 #72
+2012/11/22-12:21:39.833 1ddc Recovering log #77
+2012/11/22-12:21:39.833 1ddc Level-0 table #79: started
+2012/11/22-12:21:39.833 1ddc Level-0 table #79: 0 bytes OK
+2012/11/22-12:21:39.870 1ddc Delete type=0 #77
+2012/11/22-12:21:39.870 1ddc Delete type=3 #75

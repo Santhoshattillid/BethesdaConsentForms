@@ -13,24 +13,6 @@ namespace WindowsCEConsentForms {
     public partial class DoctorsAndProcedures {
         
         /// <summary>
-        /// DdlPrimaryDoctors control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        public global::System.Web.UI.WebControls.DropDownList DdlPrimaryDoctors;
-        
-        /// <summary>
-        /// LblAssociatedDoctors control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        public global::System.Web.UI.WebControls.Label LblAssociatedDoctors;
-        
-        /// <summary>
         /// LnlPatientName control.
         /// </summary>
         /// <remarks>
@@ -65,14 +47,5 @@ namespace WindowsCEConsentForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         public global::System.Web.UI.WebControls.TextBox TxtOtherProcedure;
-        
-        /// <summary>
-        /// TxtProcedures control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtProcedures;
     }
 }

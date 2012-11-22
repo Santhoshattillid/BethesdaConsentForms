@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Data;
 using System.Text;
-using System.Web.UI.WebControls;
 using WindowsCEConsentForms.ConsentFormsService;
 
 namespace WindowsCEConsentForms.Surgical
@@ -27,16 +25,6 @@ namespace WindowsCEConsentForms.Surgical
             //    }
             //}
 
-            //bool isItNewSession;
-            //try
-            //{
-            //    isItNewSession = (bool)Session["NewSessionFor" + ConsentType.Surgical.ToString()];
-            //}
-            //catch (Exception)
-            //{
-            //    isItNewSession = true;
-            //}
-
             //string patientId;
             //try
             //{
@@ -58,14 +46,11 @@ namespace WindowsCEConsentForms.Surgical
             //    var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.Surgical.ToString());
             //    if (patientDetail != null)
             //    {
-            //        if (!isItNewSession)
-            //        {
             //            if (!string.IsNullOrEmpty(patientDetail.PrimaryDoctorId))
             //            {
             //                //DdlPrimaryDoctors.Items.FindByValue(patientDetail.PrimaryDoctorId).Selected = true;
             //                //LoadAssociatedDoctors(patientDetail.PrimaryDoctorId);
             //            }
-            //        }
             //    }
             //    //else
             //    //    DdlPrimaryDoctors.SelectedIndex = 0;
@@ -148,17 +133,6 @@ namespace WindowsCEConsentForms.Surgical
                 if (!string.IsNullOrEmpty(lblError.Text))
                     return;
 
-                string procedures;
-                try
-                {
-                    procedures = DoctorsAndProcedures1.GetProcedures();
-                }
-                catch (Exception ex)
-                {
-                    lblError.Text += ex.Message;
-                    return;
-                }
-
                 string patientId = string.Empty;
                 try
                 {
@@ -171,9 +145,9 @@ namespace WindowsCEConsentForms.Surgical
 
                 var formHandlerServiceClient = new FormHandlerServiceClient();
 
-                formHandlerServiceClient.UpdateDoctorAssociation(patientId, DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedValue, DoctorsAndProcedures1.LblAssociatedDoctors.Text, consentType.ToString());
+                // formHandlerServiceClient.UpdateDoctorAssociation(patientId, DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedValue, DoctorsAndProcedures1.LblAssociatedDoctors.Text, consentType.ToString());
 
-                formHandlerServiceClient.UpdatePatientProcedures(patientId, procedures, consentType.ToString());
+                //formHandlerServiceClient.UpdatePatientProcedures(patientId, procedures, consentType.ToString());
 
                 if (Request.Form[SignatureType.DoctorSign1.ToString()] != null)
                 {

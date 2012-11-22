@@ -16,8 +16,8 @@ namespace WindowsCEConsentForms.Endoscopy
         private void BtnReset_Click(object sender, EventArgs e)
         {
             DoctorsAndProcedures1.DdLProcedures.SelectedIndex = 0;
-            DoctorsAndProcedures1.LblAssociatedDoctors.Text = string.Empty;
-            DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedIndex = 0;
+
+            //    DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedIndex = 0;
             DoctorsAndProcedures1.HdnSelectedProcedures.Value = string.Empty;
 
             ConsentSignatures.ResetSignatures();
@@ -107,7 +107,7 @@ namespace WindowsCEConsentForms.Endoscopy
 
                 var formHandlerServiceClient = new FormHandlerServiceClient();
 
-                formHandlerServiceClient.UpdateDoctorAssociation(patientId, DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedValue, DoctorsAndProcedures1.LblAssociatedDoctors.Text, consentType.ToString());
+                //   formHandlerServiceClient.UpdateDoctorAssociation(patientId, DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedValue, DoctorsAndProcedures1.LblAssociatedDoctors.Text, consentType.ToString());
 
                 formHandlerServiceClient.UpdatePatientProcedures(patientId, selectedProcedurenames, consentType.ToString());
 

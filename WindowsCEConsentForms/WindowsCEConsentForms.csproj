@@ -64,6 +64,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AjaxMethods.asmx" />
     <Content Include="BlankPrint.aspx" />
     <Content Include="BloodConsentOrRefusal\ConsentDeclaration.aspx" />
     <Content Include="BloodConsentOrRefusal\ConsentPrint.aspx" />
@@ -199,6 +200,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AjaxMethods.asmx.cs">
+      <DependentUpon>AjaxMethods.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="BlankPrint.aspx.cs">
       <DependentUpon>BlankPrint.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

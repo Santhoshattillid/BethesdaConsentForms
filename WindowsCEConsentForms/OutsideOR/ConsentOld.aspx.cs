@@ -13,15 +13,6 @@ namespace WindowsCEConsentForms.OutsideOR
             try
             {
                 DdLProcedures.Attributes["multiple"] = "multiple";
-                bool isItNewSession;
-                try
-                {
-                    isItNewSession = (bool)Session["NewSessionForOutSideORConsent"];
-                }
-                catch (Exception)
-                {
-                    isItNewSession = true;
-                }
 
                 for (int i = 0; i < 7; i++)
                     ViewState["Signature" + i] = string.Empty;
@@ -72,29 +63,17 @@ namespace WindowsCEConsentForms.OutsideOR
                             LblDate.Text = patientDetail.AdmDate.ToString("MMM dd yyyy");
                             LblPatientMRId.Text = patientDetail.MRHash;
                             LblTime.Text = DateTime.Now.ToShortTimeString();
-                            if (!isItNewSession)
+                            LoadAssociatedDoctors(patientDetail.PrimaryDoctorId);
+                            if (!string.IsNullOrEmpty(patientDetail.PrimaryDoctorId))
+                                DdlPrimaryDoctors.Items.FindByValue(patientDetail.PrimaryDoctorId).Selected = true;
+                            if (!string.IsNullOrEmpty(patientDetail.ProcedureName))
                             {
-                                LoadAssociatedDoctors(patientDetail.PrimaryDoctorId);
-                                if (!string.IsNullOrEmpty(patientDetail.PrimaryDoctorId))
-                                    DdlPrimaryDoctors.Items.FindByValue(patientDetail.PrimaryDoctorId).Selected = true;
-                                if (!string.IsNullOrEmpty(patientDetail.ProcedureName))
-                                {
-                                    HdnSelectedProcedures.Value = patientDetail.ProcedureName;
-                                }
+                                HdnSelectedProcedures.Value = patientDetail.ProcedureName;
                             }
                         }
                         else
                             DdlPrimaryDoctors.SelectedIndex = 0;
                     }
-                }
-                if (!isItNewSession)
-                {
-                    // Loading Signatures based on the selected patient
-                    ViewState["Signature1"] = formHandlerServiceClient.GetPatientSignature(patientId, ConsentType.OutsideOR.ToString(), "signature1");
-                    ViewState["Signature2"] = formHandlerServiceClient.GetPatientSignature(patientId, ConsentType.OutsideOR.ToString(), "signature2");
-                    ViewState["Signature3"] = formHandlerServiceClient.GetPatientSignature(patientId, ConsentType.OutsideOR.ToString(), "signature3");
-                    ViewState["Signature4"] = formHandlerServiceClient.GetPatientSignature(patientId, ConsentType.OutsideOR.ToString(), "signature4");
-                    ViewState["Signature5"] = formHandlerServiceClient.GetPatientSignature(patientId, ConsentType.OutsideOR.ToString(), "signature5");
                 }
             }
             catch (Exception)
@@ -245,8 +224,6 @@ namespace WindowsCEConsentForms.OutsideOR
                 // updating signature4
                 bytes = Encoding.ASCII.GetBytes(Request.Form["HdnImage5"]);
                 result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), "OutsideORConsent", "signature5");
-
-                Session["NewSessionForOutSideORConsent"] = false;
 
                 Response.Redirect("/OutsideOR/ConsentDeclaration.aspx");
             }
