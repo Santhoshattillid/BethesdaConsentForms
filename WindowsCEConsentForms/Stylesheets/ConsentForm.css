@@ -50,18 +50,23 @@
 }
 .Container
 {
-	color: inherit !important;
+	/*color: inherit !important;
 	width: 600px;
 	background: #fff;
 	padding: 5px;
-	border: 1px solid #DDD;
+	border: 1px solid #DDD;*/
+	background:#fff; border-radius:10px; width:100%;  margin:0 auto; border:6px solid #efefef; padding:10px; 
+	
 }
 .Container TABLE, .content
 {
 	width: 100%;
-	border-top: 1px solid #EEE;
+	/*border-top: 1px solid #EEE;*/
 	font: 17px Calibri;
+	
 }
+.Container TABLE, .content label, 
+.content li{padding-left:5px;}
 .Container, .content .header
 {
 	color: #CCC;
@@ -74,14 +79,14 @@
 .Container TABLE TR TD
 {
 	padding: 5px;
-	border-bottom: 1px solid #DDD;
-	border-left: 1px solid #DDD;
+	/*border-bottom: 1px solid #DDD;
+	border-left: 1px solid #DDD;*/
 	width: 25%;
 }
 .Container SELECT
 {
 	width: 200px;
-	padding: 3px;
+	background:#efefef; border-radius:3px; border:0; padding:3px; border:1px solid #ccc;  color:#666; 
 }
 .Container INPUT[type="text"], input[type="submit"]
 {
@@ -133,6 +138,7 @@
 	float: none;
 	width: 0px;
 }
+
 .noBorder TR TD
 {
 	border: none;
@@ -173,14 +179,17 @@
 {
 	width: 100px;
 	border: 1px solid #80A8BB;
-	padding: 4px;
-	background: #E9F6F2;
+	background:#2C4176;
+	border-radius:5px;
+	color:#fff;
+	padding:5px;
 	cursor: pointer;
 	margin-left: 5px;
 }
 .Container .center INPUT:hover
 {
-	background: #F5FBF9;
+	background: #666;
+	cursor:pointer;
 }
 .print
 {
@@ -231,6 +240,7 @@
 .content .noBorder TR TD
 {
 	border: none;
+	text-align:center;
 }
 .content LI .boxLeft
 {
@@ -251,6 +261,8 @@
 	padding-left: 5px;
 	padding-right: 5px;
 }
+.small-content ul{margin:0; padding:0;}
+.small-content div{left:0; padding:10px 0}
 .timeBox
 {
 	float: left;
@@ -277,9 +289,9 @@
 {
 	display: none;
 }
-.leftPush
+.leftPush label
 {
-	margin-left: 200px;
+	/*margin-left: 200px;*/ padding-left:5px;
 }
 .content-heading
 {
@@ -302,3 +314,14 @@
 {
 	text-decoration: underline;
 }
+/*form style*/
+.textbox{background:#efefef; border-radius:3px; border:0; padding:5px; border:1px solid #ccc; color:#666; width:80%}
+.btn, .btn1{ background:#2C4176; border-radius:5px; color:#fff; padding:5px}
+.btn1 {background:#666;}
+.hdr{border-top:1px solid #ccc; border-bottom:1px solid #ccc; float:left; width:97%; padding:10px; background:#f5f5f5; font-family:arial; margin-bottom:10px;}
+.hdr ul{padding:0; margin:0; }
+.hdr li{float:left; width:30%; list-style:none; left:0; padding:0}
+.hdr li:first-child{float:right;}
+.hdr h1{font-size:18px; color:#2c4176; font-weight:lighter; padding:5px 0;  margin:0}
+.textarea{background:#efefef; border-radius:3px; border:0; padding:5px; border:1px solid #ccc; box-shadow:4px 0px 12px #CCC; color:#a7a7a7; width:80%}
+.con{margin-left:270px}

@@ -48,3 +48,8 @@ D:\Bethesda22_11_2012\BethesdaConsentForms\WindowsCEConsentForms\bin\WindowsCECo
 D:\Bethesda22_11_2012\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\ResolveAssemblyReference.cache
 D:\Bethesda22_11_2012\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.dll
 D:\Bethesda22_11_2012\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.pdb
+D:\Bethesda22_11_2012 - Copy\BethesdaConsentForms\WindowsCEConsentForms\bin\WindowsCEConsentForms.dll
+D:\Bethesda22_11_2012 - Copy\BethesdaConsentForms\WindowsCEConsentForms\bin\WindowsCEConsentForms.pdb
+D:\Bethesda22_11_2012 - Copy\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\ResolveAssemblyReference.cache
+D:\Bethesda22_11_2012 - Copy\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.dll
+D:\Bethesda22_11_2012 - Copy\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.pdb

@@ -2,7 +2,7 @@
     Inherits="WindowsCEConsentForms.DoctorsAndProcedures" %>
 <ul class="content">
     <li>I here by authorize Doctor(s)
-        <asp:DropDownList ID="DdlPrimaryDoctors" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DdlPrimaryDoctors_SelectedIndexChanged">
+        <asp:DropDownList ID="DdlPrimaryDoctors" CssClass="textbox" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DdlPrimaryDoctors_SelectedIndexChanged">
         </asp:DropDownList>
         &nbsp;
         <asp:Label ID="LblAssociatedDoctors" runat="server" CssClass="errorInfo"></asp:Label>
