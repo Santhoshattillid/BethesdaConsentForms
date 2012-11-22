@@ -77,7 +77,7 @@
     <Content Include="Endoscopy\ConsentDeclaration.aspx" />
     <Content Include="Endoscopy\ConsentPrint.aspx" />
     <Content Include="GetImage.ashx" />
-    <None Include="Print\BloodConsentOrRefusal\BloodConsentOfRefusal.pdf" />
+    <None Include="Print\BloodConsentOrRefusal\BloodConsentOrRefusal.pdf" />
     <None Include="Print\Cardiovascular\Cardiovascular.pdf" />
     <None Include="Print\Endoscopy\Endoscopy.pdf" />
     <None Include="Print\OutsideOR\OutsideOR.pdf" />
