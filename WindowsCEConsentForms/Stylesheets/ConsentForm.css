@@ -298,3 +298,19 @@
 {
     color: #6c80f3;
 }
+.content table
+{
+    width: 100%;
+}
+.addNewBox
+{
+    text-align: right;
+    margin-top: 0px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+.addNewBox a
+{
+    padding: 5px;
+    background-color: #eee;
+}

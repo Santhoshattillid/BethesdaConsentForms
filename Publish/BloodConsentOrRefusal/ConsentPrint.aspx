@@ -217,7 +217,7 @@
                         Blood Transfusion Consent Form
                     </td>
                     <td>
-                        MR#:
+                        MRIN#:
                     </td>
                     <td>
                         <asp:Label runat="server" ID="LblPatientMrHash"></asp:Label>

@@ -153,7 +153,8 @@
             <div class="sigBox">
             </div>
             <div class="right">
-                <br /><br />
+                <br />
+                <br />
             </div>
             <div class="clear">
             </div>
@@ -178,7 +179,7 @@
                     <td>
                     </td>
                     <td>
-                        MR#:
+                        MRIN#:
                     </td>
                     <td>
                     </td>

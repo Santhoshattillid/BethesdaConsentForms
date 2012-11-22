@@ -115,7 +115,7 @@
         </li>
         <li>
             <label>
-                Translated by (name & empl.#)</label>
+                Interpreted by</label>
         </li>
         <li>
             <div class="sigBox">

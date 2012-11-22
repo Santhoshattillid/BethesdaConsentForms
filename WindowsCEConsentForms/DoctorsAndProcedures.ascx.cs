@@ -9,6 +9,8 @@ namespace WindowsCEConsentForms
     {
         public ConsentType ConsentType;
 
+        public bool IsStaticTextBoxForPrecedures;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             var formHandlerServiceClient = new FormHandlerServiceClient();
@@ -128,6 +130,34 @@ namespace WindowsCEConsentForms
                     LblAssociatedDoctors.Text += row["Lname"].ToString().Trim() + " " + row["Fname"].ToString().Trim();
                 }
             }
+        }
+
+        public string GetProcedures()
+        {
+            if (IsStaticTextBoxForPrecedures)
+                return TxtProcedures.Text.Trim();
+
+            string selectedProcedurenames = string.Empty;
+
+            // validation for other procedure
+            foreach (string procedurename in HdnSelectedProcedures.Value.Split('#'))
+            {
+                if (!string.IsNullOrEmpty(procedurename))
+                {
+                    if (procedurename.Trim().ToLower() == "other")
+                    {
+                        if (string.IsNullOrEmpty(TxtOtherProcedure.Text))
+                        {
+                            throw new Exception("Please input your signatures in all the fields");
+                        }
+                        selectedProcedurenames += TxtOtherProcedure.Text;
+                    }
+                    else
+                        selectedProcedurenames += procedurename + "#";
+                }
+            }
+
+            return selectedProcedurenames;
         }
     }
 }

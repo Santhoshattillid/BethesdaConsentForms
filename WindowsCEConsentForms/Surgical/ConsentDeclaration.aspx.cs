@@ -13,86 +13,86 @@ namespace WindowsCEConsentForms.Surgical
             DeclarationSignatures.BtnCompleted.Click += BtnCompleted_Click;
             DeclarationSignatures.BtnReset.Click += BtnReset_Click;
 
-            var formHandlerServiceClient = new FormHandlerServiceClient();
-            if (!IsPostBack)
-            {
-                DdlPrimaryDoctors.Items.Add("----Select Primary Doctor----");
-                var physicians = formHandlerServiceClient.GetPrimaryPhysiciansList();
-                if (physicians != null)
-                {
-                    foreach (DataRow row in physicians.Rows)
-                    {
-                        DdlPrimaryDoctors.Items.Add(new ListItem(row["Lname"] + ", " + row["Fname"],
-                                                                 row["PhysicianId"].ToString()));
-                    }
-                }
+            //var formHandlerServiceClient = new FormHandlerServiceClient();
+            //if (!IsPostBack)
+            //{
+            //DdlPrimaryDoctors.Items.Add("----Select Primary Doctor----");
+            //var physicians = formHandlerServiceClient.GetPrimaryPhysiciansList();
+            //if (physicians != null)
+            //{
+            //    foreach (DataRow row in physicians.Rows)
+            //    {
+            //        DdlPrimaryDoctors.Items.Add(new ListItem(row["Lname"] + ", " + row["Fname"],
+            //                                                 row["PhysicianId"].ToString()));
+            //    }
+            //}
 
-                bool isItNewSession;
-                try
-                {
-                    isItNewSession = (bool)Session["NewSessionFor" + ConsentType.Surgical.ToString()];
-                }
-                catch (Exception)
-                {
-                    isItNewSession = true;
-                }
+            //bool isItNewSession;
+            //try
+            //{
+            //    isItNewSession = (bool)Session["NewSessionFor" + ConsentType.Surgical.ToString()];
+            //}
+            //catch (Exception)
+            //{
+            //    isItNewSession = true;
+            //}
 
-                string patientId;
-                try
-                {
-                    patientId = Session["PatientID"].ToString();
-                }
-                catch (Exception)
-                {
-                    try
-                    {
-                        patientId = Request.QueryString["PatientId"];
-                    }
-                    catch (Exception)
-                    {
-                        patientId = string.Empty;
-                    }
-                }
-                if (!string.IsNullOrEmpty(patientId))
-                {
-                    var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.Surgical.ToString());
-                    if (patientDetail != null)
-                    {
-                        if (!isItNewSession)
-                        {
-                            if (!string.IsNullOrEmpty(patientDetail.PrimaryDoctorId))
-                            {
-                                DdlPrimaryDoctors.Items.FindByValue(patientDetail.PrimaryDoctorId).Selected = true;
-                                LoadAssociatedDoctors(patientDetail.PrimaryDoctorId);
-                            }
-                        }
-                    }
-                    else
-                        DdlPrimaryDoctors.SelectedIndex = 0;
-                }
-            }
+            //string patientId;
+            //try
+            //{
+            //    patientId = Session["PatientID"].ToString();
+            //}
+            //catch (Exception)
+            //{
+            //    try
+            //    {
+            //        patientId = Request.QueryString["PatientId"];
+            //    }
+            //    catch (Exception)
+            //    {
+            //        patientId = string.Empty;
+            //    }
+            //}
+            //if (!string.IsNullOrEmpty(patientId))
+            //{
+            //    var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.Surgical.ToString());
+            //    if (patientDetail != null)
+            //    {
+            //        if (!isItNewSession)
+            //        {
+            //            if (!string.IsNullOrEmpty(patientDetail.PrimaryDoctorId))
+            //            {
+            //                //DdlPrimaryDoctors.Items.FindByValue(patientDetail.PrimaryDoctorId).Selected = true;
+            //                //LoadAssociatedDoctors(patientDetail.PrimaryDoctorId);
+            //            }
+            //        }
+            //    }
+            //    //else
+            //    //    DdlPrimaryDoctors.SelectedIndex = 0;
+            //}
+            //}
         }
 
-        protected void DdlPrimaryDoctors_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // load all the fields here
-            try
-            {
-                // loading select form type box and patient details
-                if (DdlPrimaryDoctors.SelectedIndex > 0)
-                    LoadAssociatedDoctors(DdlPrimaryDoctors.SelectedValue);
-            }
-            catch (Exception)
-            {
-                return;
-            }
-        }
+        //protected void DdlPrimaryDoctors_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    // load all the fields here
+        //    try
+        //    {
+        //        // loading select form type box and patient details
+        //        if (DdlPrimaryDoctors.SelectedIndex > 0)
+        //            LoadAssociatedDoctors(DdlPrimaryDoctors.SelectedValue);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return;
+        //    }
+        //}
 
         private void BtnReset_Click(object sender, EventArgs e)
         {
-            LblAssociatedDoctors.Text = string.Empty;
-            DdlPrimaryDoctors.SelectedIndex = 0;
-            TxtProcedure.Text = string.Empty;
+            //LblAssociatedDoctors.Text = string.Empty;
+            //DdlPrimaryDoctors.SelectedIndex = 0;
+            //TxtProcedure.Text = string.Empty;
 
             DeclarationSignatures.ResetSignatures();
             DeclarationSignatures.ChkPatientisUnableToSign.Checked = false;
@@ -114,8 +114,8 @@ namespace WindowsCEConsentForms.Surgical
 
                 lblError.Text = string.Empty;
 
-                if (string.IsNullOrEmpty(TxtProcedure.Text))
-                    lblError.Text += " <br /> Please procedure.";
+                //if (string.IsNullOrEmpty(TxtProcedure.Text))
+                //    lblError.Text += " <br /> Please procedure.";
 
                 if (string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign1.ToString()]) ||
                    string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign2.ToString()]) ||
@@ -148,6 +148,17 @@ namespace WindowsCEConsentForms.Surgical
                 if (!string.IsNullOrEmpty(lblError.Text))
                     return;
 
+                string procedures;
+                try
+                {
+                    procedures = DoctorsAndProcedures1.GetProcedures();
+                }
+                catch (Exception ex)
+                {
+                    lblError.Text += ex.Message;
+                    return;
+                }
+
                 string patientId = string.Empty;
                 try
                 {
@@ -160,9 +171,9 @@ namespace WindowsCEConsentForms.Surgical
 
                 var formHandlerServiceClient = new FormHandlerServiceClient();
 
-                formHandlerServiceClient.UpdateDoctorAssociation(patientId, DdlPrimaryDoctors.SelectedValue, LblAssociatedDoctors.Text, consentType.ToString());
+                formHandlerServiceClient.UpdateDoctorAssociation(patientId, DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedValue, DoctorsAndProcedures1.LblAssociatedDoctors.Text, consentType.ToString());
 
-                formHandlerServiceClient.UpdatePatientProcedures(patientId, TxtProcedure.Text, consentType.ToString());
+                formHandlerServiceClient.UpdatePatientProcedures(patientId, procedures, consentType.ToString());
 
                 if (Request.Form[SignatureType.DoctorSign1.ToString()] != null)
                 {
@@ -243,24 +254,24 @@ namespace WindowsCEConsentForms.Surgical
             }
         }
 
-        private void LoadAssociatedDoctors(string primaryDoctorId)
-        {
-            //DdlAssociatedDoctors.Items.Clear();
-            var formHandlerServiceClient = new FormHandlerServiceClient();
-            var associatedDoctors = formHandlerServiceClient.GetAssociatedPhysiciansList(primaryDoctorId);
+        //private void LoadAssociatedDoctors(string primaryDoctorId)
+        //{
+        //    //DdlAssociatedDoctors.Items.Clear();
+        //    var formHandlerServiceClient = new FormHandlerServiceClient();
+        //    var associatedDoctors = formHandlerServiceClient.GetAssociatedPhysiciansList(primaryDoctorId);
 
-            //DdlAssociatedDoctors.Items.Add("----Select Associated Doctor----");
-            LblAssociatedDoctors.Text = string.Empty;
-            if (associatedDoctors != null)
-            {
-                foreach (DataRow row in associatedDoctors.Rows)
-                {
-                    //DdlAssociatedDoctors.Items.Add(new System.Web.UI.WebControls.ListItem(row["Lname"].ToString().Trim() + ", " + row["Fname"].ToString().Trim(), row["Id"].ToString().Trim()));
-                    if (!string.IsNullOrEmpty(LblAssociatedDoctors.Text))
-                        LblAssociatedDoctors.Text += " , ";
-                    LblAssociatedDoctors.Text += row["Lname"].ToString().Trim() + " " + row["Fname"].ToString().Trim();
-                }
-            }
-        }
+        //    //DdlAssociatedDoctors.Items.Add("----Select Associated Doctor----");
+        //    LblAssociatedDoctors.Text = string.Empty;
+        //    if (associatedDoctors != null)
+        //    {
+        //        foreach (DataRow row in associatedDoctors.Rows)
+        //        {
+        //            //DdlAssociatedDoctors.Items.Add(new System.Web.UI.WebControls.ListItem(row["Lname"].ToString().Trim() + ", " + row["Fname"].ToString().Trim(), row["Id"].ToString().Trim()));
+        //            if (!string.IsNullOrEmpty(LblAssociatedDoctors.Text))
+        //                LblAssociatedDoctors.Text += " , ";
+        //            LblAssociatedDoctors.Text += row["Lname"].ToString().Trim() + " " + row["Fname"].ToString().Trim();
+        //        }
+        //    }
+        //}
     }
 }

@@ -80,7 +80,8 @@
     </li>
     <li>
         <div>
-            Translated by (name & empl.#)</div>
+            Interpreted by
+        </div>
         <div>
             <asp:TextBox runat="server" ID="TxtTranslatedBy"></asp:TextBox>
         </div>
