@@ -178,7 +178,6 @@
     <Content Include="Scripts\jSignature.min.js" />
     <Content Include="Scripts\Signature.js" />
     <Content Include="Stylesheets\ConsentForm.css" />
-    <Content Include="Surgical\Consent.aspx" />
     <Content Include="Surgical\ConsentPrintV0.aspx" />
     <Content Include="Surgical\ConsentPrintV2.aspx" />
     <Content Include="Surgical\ConsentPrint.aspx" />
@@ -403,13 +402,6 @@
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Surgical\Consent.aspx.cs">
-      <DependentUpon>Consent.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Surgical\Consent.aspx.designer.cs">
-      <DependentUpon>Consent.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Surgical\ConsentPrintV0.aspx.cs">
       <DependentUpon>ConsentPrintV0.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -1,262 +1,285 @@
 .Container *
 {
-	margin: 0;
-	padding: 0;
-	text-decoration: none;
-	font-size: 13px;
-	outline: none;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-size: 13px;
+    outline: none;
 }
 .Container DFN, I, CITE, VAR, ADDRESS, EM
 {
-	font-style: normal;
+    font-style: normal;
 }
 .Container TH, B, STRONG, H1, H2, H3, H4, H5, H6
 {
-	font-weight: normal;
+    font-weight: normal;
 }
 .Container A, IMG, A IMG, IFRAME, FORM, FIELDSET, ABBR, ACRONYM, OBJECT, TABLE
 {
-	border: none;
+    border: none;
 }
 .Container TABLE
 {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 .Container CAPTION, TH, TD
 {
-	text-align: left;
-	vertical-align: top;
+    text-align: left;
+    vertical-align: top;
 }
 .Container Q
 {
-	quotes: "" "";
+    quotes: "" "";
 }
 .Container UL, OL, MENU
 {
-	list-style: none;
+    list-style: none;
 }
 .Container SUB, SUP
 {
-	vertical-align: baseline;
+    vertical-align: baseline;
 }
 .Container A
 {
-	color: inherit;
+    color: inherit;
 }
 .Container HR
 {
-	display: none;
+    display: none;
 }
 .Container
 {
-	color: inherit !important;
-	width: 600px;
-	background: #fff;
-	padding: 5px;
-	border: 1px solid #DDD;
+    /*color: inherit !important; 	width: 600px; 	background: #fff; 	padding: 5px; 	border: 1px solid #DDD;*/
+    background: #fff;
+    border-radius: 10px;
+    width: 100%;
+    margin: 0 auto;
+    border: 6px solid #efefef;
+    padding: 10px;
 }
 .Container TABLE, .content
 {
-	width: 100%;
-	border-top: 1px solid #EEE;
-	font: 17px Calibri;
+    width: 100%; /*border-top: 1px solid #EEE;*/
+    font: 17px Calibri;
+}
+.Container TABLE, .content label, .content li
+{
+    padding-left: 5px;
 }
 .Container, .content .header
 {
-	color: #CCC;
+    color: #CCC;
 }
 .Container .header TH
 {
-	padding: 5px;
-	border-right: 1px solid #666;
+    padding: 5px;
+    border-right: 1px solid #666;
 }
 .Container TABLE TR TD
 {
-	padding: 5px;
-	border-bottom: 1px solid #DDD;
-	border-left: 1px solid #DDD;
-	width: 25%;
+    padding: 5px; /*border-bottom: 1px solid #DDD; 	border-left: 1px solid #DDD;*/
+    width: 25%;
 }
 .Container SELECT
 {
-	width: 200px;
-	padding: 3px;
+    width: 200px;
+    background: #efefef;
+    border-radius: 3px;
+    border: 0;
+    padding: 3px;
+    border: 1px solid #ccc;
+    color: #666;
 }
 .Container INPUT[type="text"], input[type="submit"]
 {
-	width: 60px;
+    width: 60px;
 }
 .Container .center
 {
-	text-align: center;
-	padding-top: 10px;
+    text-align: center;
+    padding-top: 10px;
 }
 .Container H3
 {
-	font: bold 15px sans-serif;
-	color: #666;
+    font: bold 15px sans-serif;
+    color: #666;
 }
 .Container .checkbox
 {
-	padding: 5px;
+    padding: 5px;
 }
 .Container .errorInfo
 {
-	color: #DC143C;
+    color: #DC143C;
 }
 .Container INPUT[type="text"]
 {
-	width: 450px;
-	border: 1px solid #AAA;
-	padding: 5px;
-	color: #444;
+    width: 450px;
+    border: 1px solid #AAA;
+    padding: 5px;
+    color: #444;
 }
 .signature
 {
-	padding-top: 10px;
-	width: 200px;
-	height: 50px;
-	border: 1px solid #777;
-	float: left;
+    padding-top: 10px;
+    width: 200px;
+    height: 50px;
+    border: 1px solid #777;
+    float: left;
 }
 .right
 {
-	float: left;
-	padding-left: 10px;
-	width: 375px;
-	text-align: justify;
+    float: left;
+    padding-left: 10px;
+    width: 375px;
+    text-align: justify;
 }
 .clear
 {
-	clear: both;
-	float: none;
-	width: 0px;
+    clear: both;
+    float: none;
+    width: 0px;
 }
+
 .noBorder TR TD
 {
-	border: none;
+    border: none;
 }
 .content LI
 {
-	padding: 5px;
+    padding: 5px;
 }
 .small
 {
-	width: 70px;
+    width: 70px;
 }
 .smallest
 {
-	width: 40px;
+    width: 40px;
 }
 .autoWidth
 {
-	width: auto;
+    width: auto;
 }
 .large
 {
-	width: 250px;
+    width: 250px;
 }
 .noBorder
 {
-	border: none;
+    border: none;
 }
 .sigBox
 {
-	padding-top: 10px;
-	width: 200px;
-	height: 50px;
-	border: 1px solid #777;
-	float: left;
+    padding-top: 10px;
+    width: 200px;
+    height: 50px;
+    border: 1px solid #777;
+    float: left;
 }
 .Container .center INPUT[type="button"], INPUT[type="submit"]
 {
-	width: 100px;
-	border: 1px solid #80A8BB;
-	padding: 4px;
-	background: #E9F6F2;
-	cursor: pointer;
-	margin-left: 5px;
+    width: 100px;
+    border: 1px solid #80A8BB;
+    background: #2C4176;
+    border-radius: 5px;
+    color: #fff;
+    padding: 5px;
+    cursor: pointer;
+    margin-left: 5px;
 }
 .Container .center INPUT:hover
 {
-	background: #F5FBF9;
+    background: #666;
+    cursor: pointer;
 }
 .print
 {
-	color: #444;
-	background-color: #FFFFFF;
+    color: #444;
+    background-color: #FFFFFF;
 }
 .Container, .print
 {
-	color: #222;
-	page-break-after: always;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	width: 680px;
+    color: #222;
+    page-break-after: always;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 680px;
 }
 .print .noBorder TR TD
 {
-	border: none;
+    border: none;
 }
 .bigfont TR TD
 {
-	font: bold 14px sans-serif;
+    font: bold 14px sans-serif;
 }
 .print .right
 {
-	width: 450px;
+    width: 450px;
 }
 .print .sigBox
 {
-	float: left;
-	border: none;
-	border-bottom: 2px solid #888;
+    float: left;
+    border: none;
+    border-bottom: 2px solid #888;
 }
 .print .noBorder .edgeColumn
 {
-	font-size: 8pt;
+    font-size: 8pt;
 }
 .print .noBorder .middleColumn
 {
 }
 .print .pageBreak
 {
-	page-break-before: always;
+    page-break-before: always;
 }
 .print .leftBox
 {
-	float: left;
+    float: left;
 }
 .content .noBorder TR TD
 {
-	border: none;
+    border: none;
+    text-align: center;
 }
 .content LI .boxLeft
 {
-	margin-left: -20px;
+    margin-left: -20px;
 }
 #DivOtherProcedure
 {
-	display: none;
+    display: none;
 }
 .small-header
 {
-	font-size: 11px;
-	font-weight: bold;
+    font-size: 11px;
+    font-weight: bold;
 }
 .small-content
 {
-	text-align: justify;
-	padding-left: 5px;
-	padding-right: 5px;
+    text-align: justify;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.small-content ul
+{
+    margin: 0;
+    padding: 0;
+}
+.small-content div
+{
+    left: 0;
+    padding: 10px 0;
 }
 .timeBox
 {
-	float: left;
-	padding-top: 45px;
-	border-bottom: 2px solid #777;
-	width: 200px;
+    float: left;
+    padding-top: 45px;
+    border-bottom: 2px solid #777;
+    width: 200px;
 }
 .PatientReason
 {
@@ -275,28 +298,28 @@
 }
 .Hide
 {
-	display: none;
+    display: none;
 }
-.leftPush
+.leftPush label
 {
-	margin-left: 200px;
+    /*margin-left: 200px;*/
+    padding-left: 5px;
 }
 .content-heading
 {
-	font-weight: bold;
-	font-size: 13px;
+    font-weight: bold;
+    font-size: 13px;
 }
 .PrintsigBox
 {
-	padding-top: 10px;
-	width: 200px;
-	height: 30px;
-	border: 1px solid #777;
-	float: left;
+    padding-top: 10px;
+    width: 200px;
+    height: 30px;
+    border: 1px solid #777;
+    float: left;
 }
 .Container a
 {
-<<<<<<< HEAD
     color: #6c80f3;
 }
 .content table
@@ -314,12 +337,82 @@
 {
     padding: 5px;
     background-color: #eee;
-}
-=======
-	color: #6c80f3;
+    color: #6c80f3;
 }
 .DateTimeUnderline
 {
-	text-decoration: underline;
+    text-decoration: underline;
 }
->>>>>>> cb5a940ec2b33dd7cf5d4a24ecfeb6ce2629bac7
+/*form style*/
+.textbox
+{
+    background: #efefef;
+    border-radius: 3px;
+    border: 0;
+    padding: 5px;
+    border: 1px solid #ccc;
+    color: #666;
+    width: 80%;
+}
+.btn, .btn1
+{
+    background: #2C4176;
+    border-radius: 5px;
+    color: #fff;
+    padding: 5px;
+}
+.btn1
+{
+    background: #666;
+}
+.hdr
+{
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    float: left;
+    width: 97%;
+    padding: 10px;
+    background: #f5f5f5;
+    font-family: arial;
+    margin-bottom: 10px;
+}
+.hdr ul
+{
+    padding: 0;
+    margin: 0;
+}
+.hdr li
+{
+    float: left;
+    width: 30%;
+    list-style: none;
+    left: 0;
+    padding: 0;
+}
+.hdr li:first-child
+{
+    float: right;
+}
+.hdr h1
+{
+    font-size: 18px;
+    color: #2c4176;
+    font-weight: lighter;
+    padding: 5px 0;
+    margin: 0;
+}
+.textarea
+{
+    background: #efefef;
+    border-radius: 3px;
+    border: 0;
+    padding: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 4px 0px 12px #CCC;
+    color: #a7a7a7;
+    width: 80%;
+}
+.con
+{
+    margin-left: 270px;
+}

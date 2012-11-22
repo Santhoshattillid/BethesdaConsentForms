@@ -9,13 +9,13 @@
         </p>
     </li>
     <li>
-        <div>
+        <div class="con">
             <asp:CheckBox runat="server" ID="ChkPatientisUnableToSign" Text="Patient is unable to sign?"
-                AutoPostBack="True" OnCheckedChanged="ChkPatientisUnableToSign_CheckedChanged" />
+                AutoPostBack="True" OnCheckedChanged="ChkPatientisUnableToSign_CheckedChanged"  />
         </div>
     </li>
     <li>
-        <div>
+        <div class="con">
             <asp:CheckBox runat="server" ID="ChkTelephoneConsent" Text="Telephone Consent" />
         </div>
     </li>
@@ -83,7 +83,7 @@
             Interpreted by
         </div>
         <div>
-            <asp:TextBox runat="server" ID="TxtTranslatedBy"></asp:TextBox>
+            <asp:TextBox runat="server" ID="TxtTranslatedBy" CssClass="textbox"></asp:TextBox>
         </div>
         <div class="clear">
         </div>
@@ -92,7 +92,7 @@
         <asp:Label runat="server" ID="LblError" CssClass="errorInfo"></asp:Label>
     </li>
     <li class="center">
-        <asp:Button runat="server" ID="BtnCompleted" Text="Complete" OnClientClick="javascript: return confirm('Are you sure that do you want to complete the form?');" />
-        <asp:Button runat="server" ID="BtnReset" Text="Reset" />
+        <asp:Button runat="server" ID="BtnCompleted" CssClass="btn" Text="Complete" OnClientClick="javascript: return confirm('Are you sure that do you want to complete the form?');" />
+        <asp:Button runat="server" ID="BtnReset" Text="Reset" CssClass="btn1" />
     </li>
 </ul>
