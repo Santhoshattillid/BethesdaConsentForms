@@ -44,8 +44,23 @@ namespace WindowsCEConsentForms.OutsideOR
                     LblPatientName2.Text = patientDetails.name;
                     LblPatientUnableToSignBecause.Text = patientDetails.UnableToSignReason;
                     LblProcedureName.Text = patientDetails.ProcedureName;
-                    LblTranslatedDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
-                    LblAuthorizedSignDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
+                    //LblTranslatedDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
+                    //LblAuthorizedSignDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
+
+
+                    LblPatientSignatureDate.Text = DateTime.Now.ToString("MMM dd yyyy");
+                    LblPatientSignatureTime.Text = DateTime.Now.ToLongTimeString();
+                    LblAuthorizedSignDate.Text = DateTime.Now.ToString("MMM dd yyyy");
+                    LblAuthorizedSignTime.Text = DateTime.Now.ToLongTimeString();
+                    LblWitnessSignature1Date.Text = DateTime.Now.ToString("MMM dd yyyy");
+                    LblWitnessSignature1Time.Text = DateTime.Now.ToLongTimeString();
+                    LblWitnessSignature2Date.Text = DateTime.Now.ToString("MMM dd yyyy");
+                    LblWitnessSignature2Time.Text = DateTime.Now.ToLongTimeString();
+                    LblTranslatedDate.Text = DateTime.Now.ToString("MMM dd yyyy");
+                    LblTranslatedTime.Text = DateTime.Now.ToLongTimeString();
+
+
+
 
                     //LblAssociatedDoctorTimeStamp.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
                     LblDate.Text = DateTime.Now.ToString("MMM dd yyyy");

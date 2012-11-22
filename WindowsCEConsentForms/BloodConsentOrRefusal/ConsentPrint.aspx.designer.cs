@@ -94,6 +94,24 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal {
         protected global::System.Web.UI.WebControls.Label LblPatientSignatureDateTime;
         
         /// <summary>
+        /// LblPatientSignatureDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblPatientSignatureDate;
+        
+        /// <summary>
+        /// LblPatientSignatureTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblPatientSignatureTime;
+        
+        /// <summary>
         /// PnlPatientUnableToSignBecause control.
         /// </summary>
         /// <remarks>
@@ -130,13 +148,22 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal {
         protected global::System.Web.UI.WebControls.Image ImgAuthorizedSignature;
         
         /// <summary>
-        /// LblAuthorizedSignDateTime control.
+        /// LblAuthorizedSignDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblAuthorizedSignDateTime;
+        protected global::System.Web.UI.WebControls.Label LblAuthorizedSignDate;
+        
+        /// <summary>
+        /// LblAuthorizedSignTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblAuthorizedSignTime;
         
         /// <summary>
         /// ImgWitnessSignature1 control.
@@ -157,6 +184,24 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal {
         protected global::System.Web.UI.WebControls.Label LblWitnessSignature1DateTime;
         
         /// <summary>
+        /// LblWitnessSignature1Date control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblWitnessSignature1Date;
+        
+        /// <summary>
+        /// LblWitnessSignature1Time control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblWitnessSignature1Time;
+        
+        /// <summary>
         /// ImgWitnessSignature2 control.
         /// </summary>
         /// <remarks>
@@ -166,13 +211,22 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal {
         protected global::System.Web.UI.WebControls.Image ImgWitnessSignature2;
         
         /// <summary>
-        /// LblWitnessSignature2DateTime control.
+        /// LblWitnessSignature2Date control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblWitnessSignature2DateTime;
+        protected global::System.Web.UI.WebControls.Label LblWitnessSignature2Date;
+        
+        /// <summary>
+        /// LblWitnessSignature2Time control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblWitnessSignature2Time;
         
         /// <summary>
         /// LblTranslatedBy control.
@@ -184,13 +238,22 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal {
         protected global::System.Web.UI.WebControls.Label LblTranslatedBy;
         
         /// <summary>
-        /// LblTranslatedDateTime control.
+        /// LblTranslatedDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblTranslatedDateTime;
+        protected global::System.Web.UI.WebControls.Label LblTranslatedDate;
+        
+        /// <summary>
+        /// LblTranslatedTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblTranslatedTime;
         
         /// <summary>
         /// LblPatientMrHash control.
