@@ -5,6 +5,8 @@
 <%@ Import Namespace="WindowsCEConsentForms" %>
 <ul class="content">
     <%
+        List<string> listOfProcedures = (List<string>)ViewState["ListOfProcedures"];
+
         DoctorsProceduresState doctorsProcedures = (DoctorsProceduresState)ViewState["DoctorsProceduresState"];
         int index = -1;
         foreach (string doctorSelectedIndex in doctorsProcedures.SelectedDoctorsIndex)
@@ -36,25 +38,30 @@
         <label class="errorInfo LblAssociatedDoctors">
             <%= associatedDoctors %></label>
         to perform upon &nbsp;
-        <asp:Label runat="server" ID="LnlPatientName" CssClass="errorInfo"></asp:Label>
+        <asp:Label runat="server" CssClass="errorInfo"></asp:Label>
         the procedure or operation : &nbsp;
         <% if (!IsStaticTextBoxForPrecedures)
            {%>
-        <asp:DropDownList ID="DdLProcedures" runat="server" Width="400px">
-        </asp:DropDownList>
-        <asp:HiddenField runat="server" ID="HdnSelectedProcedures" EnableViewState="True" />
-        <div id="DivOtherProcedure">
+        <select multiple="multiple" class="DdLProcedures" style="width: 400px;">
+            <% foreach (string procedure in listOfProcedures)
+               { %>
+            <option value="<%= procedure %>">
+                <%= procedure %></option>
+            <% } %>
+        </select>
+        <input type="hidden" class="HdnSelectedProcedures" name="HdnSelectedProcedures" value="<%= doctorsProcedures.SelectedProcedures[index] %>" />
+        <div id="DivOtherProcedure" class="DivOtherProcedure">
             <label>
                 Specify procedure</label>
             &nbsp;
-            <asp:TextBox runat="server" ID="TxtOtherProcedure"></asp:TextBox>
+            <input type="text" name="TxtOtherProcedure" />
         </div>
         <% }
            else
            { %>
         <div>
             <input type="text" id="TxtProcedures" name="TxtProcedures" class="TxtProcedures"
-                value="<%= doctorsProcedures.Procedures[index] %>" />
+                value="<%= doctorsProcedures.SelectedProcedures[index] %>" />
         </div>
         <% } %>
     </li>
@@ -65,39 +72,3 @@
         </div>
     </li>
 </ul>
-<script language="javascript" type="text/javascript">
-    $(function () {
-        var emptyCloneDocProc = $('.LiDoctorsAndProcedures').eq(0).clone();
-        $('#AddNewProcedure').click(function () {
-            var liClone = $(this).parents('li');
-            var cloneData = emptyCloneDocProc.clone();
-            cloneData.find('.LblAssociatedDoctors').empty();
-            cloneData.find('.TxtProcedures').empty();
-            cloneData.find('.TxtProcedures').val('');
-            cloneData.find('.DdlPrimaryDoctors').val('0');
-            liClone.eq(0).before(cloneData);
-            return false;
-        });
-        $(".DdlPrimaryDoctors").live('change', function () {
-            var This = $(this);
-            var value = $(this).val();
-            $.ajax({
-                type: 'POST',
-                url: '/AjaxMethods.asmx/GetAssociatedDoctors',
-                data: "{'primaryPhysicianId':'" + value + "'}",
-                contentType: "application/json;charset=utf-8",
-                dataType: "json",
-                before: function () {
-
-                },
-                success: function (data) {
-                    This.parent('li').find(".LblAssociatedDoctors").html(data.d);
-                },
-                error: function (e) {
-
-                }
-            });
-            return false;
-        });
-    });
-</script>

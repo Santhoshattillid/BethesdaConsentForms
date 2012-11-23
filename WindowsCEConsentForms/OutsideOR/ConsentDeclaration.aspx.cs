@@ -14,11 +14,6 @@ namespace WindowsCEConsentForms.OutsideOR
 
         private void BtnReset_Click(object sender, EventArgs e)
         {
-            DoctorsAndProcedures1.DdLProcedures.SelectedIndex = 0;
-
-            //  DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedIndex = 0;
-            DoctorsAndProcedures1.HdnSelectedProcedures.Value = string.Empty;
-
             ConsentSignatures1.ResetSignatures();
 
             DeclarationSignatures1.ResetSignatures();
@@ -74,24 +69,24 @@ namespace WindowsCEConsentForms.OutsideOR
 
                 string selectedProcedurenames = string.Empty;
 
-                // validation for other procedure
-                foreach (string procedurename in DoctorsAndProcedures1.HdnSelectedProcedures.Value.Split('#'))
-                {
-                    if (!string.IsNullOrEmpty(procedurename))
-                    {
-                        if (procedurename.Trim().ToLower() == "other")
-                        {
-                            if (string.IsNullOrEmpty(DoctorsAndProcedures1.TxtOtherProcedure.Text))
-                            {
-                                lblError.Text = "Please input your signatures in all the fields";
-                                return;
-                            }
-                            selectedProcedurenames += DoctorsAndProcedures1.TxtOtherProcedure.Text;
-                        }
-                        else
-                            selectedProcedurenames += procedurename + "#";
-                    }
-                }
+                //// validation for other procedure
+                //foreach (string procedurename in DoctorsAndProcedures1.HdnSelectedProcedures.Value.Split('#'))
+                //{
+                //    if (!string.IsNullOrEmpty(procedurename))
+                //    {
+                //        if (procedurename.Trim().ToLower() == "other")
+                //        {
+                //            if (string.IsNullOrEmpty(DoctorsAndProcedures1.TxtOtherProcedure.Text))
+                //            {
+                //                lblError.Text = "Please input your signatures in all the fields";
+                //                return;
+                //            }
+                //            selectedProcedurenames += DoctorsAndProcedures1.TxtOtherProcedure.Text;
+                //        }
+                //        else
+                //            selectedProcedurenames += procedurename + "#";
+                //    }
+                //}
 
                 var formHandlerServiceClient = new FormHandlerServiceClient();
 

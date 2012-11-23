@@ -16,27 +16,32 @@ namespace WindowsCEConsentForms
             var formHandlerServiceClient = new FormHandlerServiceClient();
             if (!IsPostBack)
             {
+                var procedures = new List<string>();
                 if (!IsStaticTextBoxForPrecedures)
                 {
-                    DdLProcedures.Attributes["multiple"] = "multiple";
-                    DdLProcedures.Items.Clear();
+                    //DdLProcedures.Attributes["multiple"] = "multiple";
+                    //DdLProcedures.Items.Clear();
                     if (ConsentType == ConsentType.Endoscopy)
                     {
                         foreach (string procedureName in formHandlerServiceClient.GetEndoscopyProcedurenameList())
-                            DdLProcedures.Items.Add(procedureName.Trim());
+                            procedures.Add(procedureName);
                     }
                     else if (ConsentType == ConsentType.Cardiovascular)
                     {
                         foreach (string procedureName in formHandlerServiceClient.GetCardiovascularProcedurenameList())
-                            DdLProcedures.Items.Add(procedureName.Trim());
+                            procedures.Add(procedureName);
                     }
                     else
                     {
                         foreach (string procedureName in formHandlerServiceClient.GetProcedurenameList())
-                            DdLProcedures.Items.Add(procedureName.Trim());
+                            procedures.Add(procedureName);
                     }
-                    DdLProcedures.Items.Add("Other");
+                    procedures.Add("Other");
+
+                    //DdLProcedures.Items.Add("Other");
                 }
+
+                ViewState["ListOfProcedures"] = procedures;
 
                 var primaryDoctors = new List<PrimaryDoctor>();
                 primaryDoctors.Add(new PrimaryDoctor() { Id = 0, Name = "----Select Primary Doctor----" });
@@ -67,6 +72,11 @@ namespace WindowsCEConsentForms
                         patientId = string.Empty;
                     }
                 }
+                var doctorsProceduresState = new DoctorsProceduresState
+                {
+                    SelectedDoctorsIndex = new[] { "0" },
+                    SelectedProcedures = new[] { "" }
+                };
                 if (!string.IsNullOrEmpty(patientId))
                 {
                     var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
@@ -74,15 +84,10 @@ namespace WindowsCEConsentForms
                     {
                         if (!string.IsNullOrEmpty(patientDetail.ProcedureName))
                         {
-                            HdnSelectedProcedures.Value = patientDetail.ProcedureName;
+                            //doctorsProceduresState.SelectedProcedures = patientDetail.ProcedureName;
                         }
                     }
                 }
-                var doctorsProceduresState = new DoctorsProceduresState
-                {
-                    SelectedDoctorsIndex = new[] { "0" },
-                    Procedures = new[] { "" }
-                };
                 ViewState["DoctorsProceduresState"] = doctorsProceduresState;
             }
             else
@@ -90,8 +95,11 @@ namespace WindowsCEConsentForms
                 var doctorsProceduresState = new DoctorsProceduresState
                                                  {
                                                      SelectedDoctorsIndex = Request.Form["DdlPrimaryDoctors"].Split(','),
-                                                     Procedures = Request.Form["TxtProcedures"].Split(',')
                                                  };
+                if (IsStaticTextBoxForPrecedures)
+                    doctorsProceduresState.SelectedProcedures = Request.Form["TxtProcedures"].Split(',');
+                else
+                    doctorsProceduresState.SelectedProcedures = Request.Form["HdnSelectedProcedures"].Split(',');
                 ViewState["DoctorsProceduresState"] = doctorsProceduresState;
             }
         }
@@ -125,22 +133,22 @@ namespace WindowsCEConsentForms
             string selectedProcedurenames = string.Empty;
 
             // validation for other procedure
-            foreach (string procedurename in HdnSelectedProcedures.Value.Split('#'))
-            {
-                if (!string.IsNullOrEmpty(procedurename))
-                {
-                    if (procedurename.Trim().ToLower() == "other")
-                    {
-                        if (string.IsNullOrEmpty(TxtOtherProcedure.Text))
-                        {
-                            throw new Exception("Please input your signatures in all the fields");
-                        }
-                        selectedProcedurenames += TxtOtherProcedure.Text;
-                    }
-                    else
-                        selectedProcedurenames += procedurename + "#";
-                }
-            }
+            //foreach (string procedurename in HdnSelectedProcedures.Value.Split('#'))
+            //{
+            //    if (!string.IsNullOrEmpty(procedurename))
+            //    {
+            //        if (procedurename.Trim().ToLower() == "other")
+            //        {
+            //            if (string.IsNullOrEmpty(TxtOtherProcedure.Text))
+            //            {
+            //                throw new Exception("Please input your signatures in all the fields");
+            //            }
+            //            selectedProcedurenames += TxtOtherProcedure.Text;
+            //        }
+            //        else
+            //            selectedProcedurenames += procedurename + "#";
+            //    }
+            //}
 
             return outPut;
         }
@@ -159,7 +167,7 @@ namespace WindowsCEConsentForms
     {
         public string[] SelectedDoctorsIndex;
 
-        public string[] Procedures;
+        public string[] SelectedProcedures;
     }
 
     public class TreamentDoctorsAndProcedures
