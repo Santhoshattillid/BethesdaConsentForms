@@ -32,7 +32,6 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
                     var primaryDoctor = formHandlerServiceClient.GetPrimaryDoctorDetail(patientDetails.PrimaryDoctorId);
                     if (primaryDoctor != null)
                     {
-                        //LblAssociatedDoctor.Text = primaryDoctor.Fname + " " + primaryDoctor.Lname;
                         LblAuthoriseDoctors.Text = primaryDoctor.Fname + " " + primaryDoctor.Lname;
                     }
                     foreach (DataRow row in formHandlerServiceClient.GetAssociatedPhysiciansList(patientDetails.PrimaryDoctorId).Rows)
@@ -49,12 +48,6 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
                     LblPatientName3.Text = patientDetails.name;
                     LblPatientUnableToSignBecause.Text = patientDetails.UnableToSignReason;
                     LblProcedureName.Text = patientDetails.ProcedureName;
-
-                    //LblPatientSignatureDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
-                    //LblAuthorizedSignDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
-                    //LblWitnessSignature1DateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
-                    //LblWitnessSignature2DateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
-                    //LblTranslatedDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
 
                     LblPatientSignatureDate.Text = DateTime.Now.ToString("MMM dd yyyy");
                     LblPatientSignatureTime.Text = DateTime.Now.ToLongTimeString();

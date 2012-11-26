@@ -120,7 +120,105 @@
         </li>
         <li>I UNDERSTAND that no guarantees have been made to me that this operation will improve
             my condition. </li>
-        <li>
+        <li class="noBorder">
+            <table border="0">
+                <tr>
+                    <td>
+                        <asp:Panel runat="server" ID="PnlPatientSignature">
+                            <div class="sigBox">
+                                <asp:Image runat="server" ID="ImgPatientSignature" />
+                            </div>
+                            <div class="right">
+                                <asp:Label runat="server" ID="LblPatientSignatureDateTime"></asp:Label>
+                            </div>
+                            <div class="clear">
+                            </div>
+                            <div>
+                                (PATIENT SIGNATURE)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                __________________ Date:__<asp:Label runat="server" ID="LblPatientSignatureDate"
+                                    CssClass="DateTimeUnderline">___</asp:Label>____ Time:__<asp:Label runat="server"
+                                        ID="LblPatientSignatureTime" CssClass="DateTimeUnderline"></asp:Label>__
+                            </div>
+                        </asp:Panel>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Panel runat="server" ID="PnlPatientUnableToSignBecause">
+                            Patient is unable to sign because:
+                            <div>
+                                <asp:Label runat="server" ID="LblPatientUnableToSignBecause" CssClass="DateTimeUnderline"></asp:Label>
+                            </div>
+                        </asp:Panel>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Panel runat="server" ID="PnlAuthorizedSignature">
+                            <div class="sigBox">
+                                <asp:Image runat="server" ID="ImgAuthorizedSignature" />
+                            </div>
+                            <div class="clear">
+                            </div>
+                            <div>
+                                (If patient unable to sign, person authorized to sign.)&nbsp;&nbsp;&nbsp;__________________
+                                Date:__<asp:Label runat="server" ID="LblAuthorizedSignDate" CssClass="DateTimeUnderline">___</asp:Label>__
+                                Time:__<asp:Label runat="server" ID="LblAuthorizedSignTime" CssClass="DateTimeUnderline"></asp:Label>_
+                            </div>
+                        </asp:Panel>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="sigBox">
+                            <asp:Image runat="server" ID="ImgWitnessSignature1" />
+                        </div>
+                        <div class="right">
+                            <asp:Label runat="server" ID="LblWitnessSignature1DateTime"></asp:Label>
+                        </div>
+                        <div class="clear">
+                        </div>
+                        <div>
+                            (Witness to Signature or Telephone Consent Only)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________
+                            Date:__<asp:Label runat="server" ID="LblWitnessSignature1Date" CssClass="DateTimeUnderline">___</asp:Label>__
+                            Time:__<asp:Label runat="server" ID="LblWitnessSignature1Time" CssClass="DateTimeUnderline"></asp:Label>_
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="sigBox">
+                            <asp:Image runat="server" ID="ImgWitnessSignature2" />
+                        </div>
+                        <div class="clear">
+                        </div>
+                        <div>
+                            (Second Witness to Telephone Consent Only)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________
+                            Date:__<asp:Label runat="server" ID="LblWitnessSignature2Date" CssClass="DateTimeUnderline">___</asp:Label>__
+                            Time:__<asp:Label runat="server" ID="LblWitnessSignature2Time" CssClass="DateTimeUnderline"></asp:Label>_
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <br />
+                            Interpreted By:
+                        </div>
+                        <div>
+                            <asp:Label runat="server" ID="LblTranslatedBy" CssClass="errorInfo"></asp:Label>
+                        </div>
+                        <div class="clear">
+                        </div>
+                        <br /><br />(Interpreted By)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________
+                        Date:__<asp:Label runat="server" ID="LblTranslatedDate" CssClass="DateTimeUnderline">___</asp:Label>__
+                        Time:__<asp:Label runat="server" ID="LblTranslatedTime" CssClass="DateTimeUnderline"></asp:Label>__
+                    </td>
+                </tr>
+            </table>
+        </li>
+        <%--<li>
             <asp:Panel runat="server" ID="PnlPatientSignature">
                 <div class="sigBox">
                     <asp:Image runat="server" ID="ImgPatientSignature" />
@@ -194,7 +292,7 @@
             </div>
             <div class="clear">
             </div>
-        </li>
+        </li>--%>
         <li>
             <table class="bigfont">
                 <tr>

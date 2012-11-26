@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using WindowsCEConsentForms.ConsentFormsService;
 
@@ -57,21 +58,6 @@ namespace WindowsCEConsentForms.Surgical
             //}
             //}
         }
-
-        //protected void DdlPrimaryDoctors_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    // load all the fields here
-        //    try
-        //    {
-        //        // loading select form type box and patient details
-        //        if (DdlPrimaryDoctors.SelectedIndex > 0)
-        //            LoadAssociatedDoctors(DdlPrimaryDoctors.SelectedValue);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return;
-        //    }
-        //}
 
         private void BtnReset_Click(object sender, EventArgs e)
         {
@@ -145,9 +131,7 @@ namespace WindowsCEConsentForms.Surgical
 
                 var formHandlerServiceClient = new FormHandlerServiceClient();
 
-                // formHandlerServiceClient.UpdateDoctorAssociation(patientId, DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedValue, DoctorsAndProcedures1.LblAssociatedDoctors.Text, consentType.ToString());
-
-                //formHandlerServiceClient.UpdatePatientProcedures(patientId, procedures, consentType.ToString());
+                formHandlerServiceClient.SaveDoctorsDetails(patientId, consentType.ToString(), DoctorsAndProcedures1.GetDoctorsAndProcedures().ToArray());
 
                 if (Request.Form[SignatureType.DoctorSign1.ToString()] != null)
                 {

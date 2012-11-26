@@ -1,23 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true"
     CodeBehind="ConsentPrint.aspx.cs" Inherits="WindowsCEConsentForms.Cardiovascular.ConsentPrint" %>
 
+<%@ Register TagPrefix="uc1" TagName="DoctorsAndProceduresPrint" Src="~/DoctorsAndProceduresPrint.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <ul class="content print">
+    <ul class="content">
         <li class="center">
             <h3>
                 CARDIOVASCULAR LABORATORY CONSENT
-            </h3> 
+            </h3>
         </li>
-        <li>I here by authorize Doctor(s)
-            <asp:Label runat="server" ID="LblAuthoriseDoctors" CssClass="errorInfo"></asp:Label>
-            to perform upon
-            <asp:Label runat="server" ID="LblPatientName2" CssClass="errorInfo"></asp:Label>
-            the following procedure or operation:
-            <br />
-            <asp:Label runat="server" ID="LblProcedureName" CssClass="errorInfo"></asp:Label>
-        </li>
+    </ul>
+    <uc1:DoctorsAndProceduresPrint ID="DoctorsAndProceduresPrint1" runat="server" ConsentType="Cardiovascular" />
+    <ul class="content print">
         <li>
             <div class="sigBox">
                 <asp:Image runat="server" ID="ImgSignature1" />
@@ -130,15 +126,13 @@
         </li>
         <li><span class="content-heading">I UNDERSTAND that no guarantees have been made to
             me that this operation will improve my condition. </span></li>
-            <li class="noBorder">
+        <li class="noBorder">
             <table border="0">
                 <tr>
                     <td>
                         <asp:Panel runat="server" ID="PnlPatientSignature">
-                            
-                                <div class="sigBox">
-                                    <asp:Image runat="server" ID="ImgPatientSignature" />
-                     
+                            <div class="sigBox">
+                                <asp:Image runat="server" ID="ImgPatientSignature" />
                             </div>
                             <div class="right">
                                 <asp:Label runat="server" ID="LblPatientSignatureDateTime"></asp:Label>
@@ -214,22 +208,25 @@
                 <tr>
                     <td>
                         <div>
-                           <br /> Interpreted By:
+                            <br />
+                            Interpreted By:
                         </div>
-                        <div >
-                          <asp:Label runat="server" ID="LblTranslatedBy" CssClass="errorInfo"></asp:Label>
+                        <div>
+                            <asp:Label runat="server" ID="LblTranslatedBy" CssClass="errorInfo"></asp:Label>
                         </div>
                         <div class="clear">
                         </div>
-                        <br /><br />(Interpreted By)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <br />
+                        <br />
+                        (Interpreted By)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________
                         Date:__<asp:Label runat="server" ID="LblTranslatedDate" CssClass="DateTimeUnderline">___</asp:Label>__
                         Time:__<asp:Label runat="server" ID="LblTranslatedTime" CssClass="DateTimeUnderline"></asp:Label>__
                     </td>
                 </tr>
             </table>
-            </li>
-       <%-- <li>
+        </li>
+        <%-- <li>
             <asp:Panel runat="server" ID="PnlPatientSignature">
                 <div class="sigBox">
                     <asp:Image runat="server" ID="ImgPatientSignature" />

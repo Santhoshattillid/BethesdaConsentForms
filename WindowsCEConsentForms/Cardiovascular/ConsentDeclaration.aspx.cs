@@ -97,32 +97,9 @@ namespace WindowsCEConsentForms.Cardiovascular
                     Response.Redirect("/PatientConsent.aspx");
                 }
 
-                string selectedProcedurenames = string.Empty;
-
-                //// validation for other procedure
-                //foreach (string procedurename in DoctorsAndProcedures1.HdnSelectedProcedures.Value.Split('#'))
-                //{
-                //    if (!string.IsNullOrEmpty(procedurename))
-                //    {
-                //        if (procedurename.Trim().ToLower() == "other")
-                //        {
-                //            if (string.IsNullOrEmpty(DoctorsAndProcedures1.TxtOtherProcedure.Text))
-                //            {
-                //                lblError.Text = "Please input your signatures in all the fields";
-                //                return;
-                //            }
-                //            selectedProcedurenames += DoctorsAndProcedures1.TxtOtherProcedure.Text;
-                //        }
-                //        else
-                //            selectedProcedurenames += procedurename + "#";
-                //    }
-                //}
-
                 var formHandlerServiceClient = new FormHandlerServiceClient();
 
-                // formHandlerServiceClient.UpdateDoctorAssociation(patientId, DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedValue, DoctorsAndProcedures1.LblAssociatedDoctors.Text, consentType.ToString());
-
-                formHandlerServiceClient.UpdatePatientProcedures(patientId, selectedProcedurenames, consentType.ToString());
+                formHandlerServiceClient.SaveDoctorsDetails(patientId, consentType.ToString(), DoctorsAndProcedures1.GetDoctorsAndProcedures().ToArray());
 
                 if (Request.Form[SignatureType.DoctorSign1.ToString()] != null)
                 {

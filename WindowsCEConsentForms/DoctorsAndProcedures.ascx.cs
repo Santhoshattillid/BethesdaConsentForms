@@ -104,52 +104,49 @@ namespace WindowsCEConsentForms
             }
         }
 
-        public List<TreamentDoctorsAndProcedures> GetDoctorsAndProcedures()
+        public List<DoctorAndProcedure> GetDoctorsAndProcedures()
         {
-            var outPut = new List<TreamentDoctorsAndProcedures>();
+            var outPut = new List<DoctorAndProcedure>();
             if (IsStaticTextBoxForPrecedures)
             {
                 int index = 0;
                 string[] primaryDoctors = Request.Form["DdlPrimaryDoctors"].Split(',');
                 foreach (string procedure in Request.Form["TxtProcedures"].Split(','))
                 {
-                    if (primaryDoctors.GetUpperBound(0) < index)
+                    if (primaryDoctors.GetUpperBound(0) > index - 1)
                     {
                         if (!string.IsNullOrEmpty(primaryDoctors[index]) && !string.IsNullOrEmpty(procedure))
                         {
-                            outPut.Add(new TreamentDoctorsAndProcedures() { PrimaryDoctorId = primaryDoctors[index], TreatmentProcedures = procedure });
-
-                            //if (string.IsNullOrEmpty(procedure))
-                            //    throw new Exception("Please input your signatures in all the fields");
+                            outPut.Add(new DoctorAndProcedure() { _primaryDoctorId = primaryDoctors[index], _precedures = procedure });
                         }
                         index++;
                     }
                     else
                         break;
                 }
-                return outPut;
             }
-
-            string selectedProcedurenames = string.Empty;
-
-            // validation for other procedure
-            //foreach (string procedurename in HdnSelectedProcedures.Value.Split('#'))
-            //{
-            //    if (!string.IsNullOrEmpty(procedurename))
-            //    {
-            //        if (procedurename.Trim().ToLower() == "other")
-            //        {
-            //            if (string.IsNullOrEmpty(TxtOtherProcedure.Text))
-            //            {
-            //                throw new Exception("Please input your signatures in all the fields");
-            //            }
-            //            selectedProcedurenames += TxtOtherProcedure.Text;
-            //        }
-            //        else
-            //            selectedProcedurenames += procedurename + "#";
-            //    }
-            //}
-
+            else
+            {
+                int index = 0;
+                string[] primaryDoctors = Request.Form["DdlPrimaryDoctors"].Split(',');
+                string[] otherProcedures = Request.Form["TxtOtherProcedure"].Split(',');
+                foreach (string procedure in Request.Form["HdnSelectedProcedures"].Split(','))
+                {
+                    if (primaryDoctors.GetUpperBound(0) > index - 1)
+                    {
+                        if (!string.IsNullOrEmpty(primaryDoctors[index]) && !string.IsNullOrEmpty(procedure))
+                        {
+                            if (procedure.IndexOf("Other", StringComparison.Ordinal) > 0 && otherProcedures.GetUpperBound(0) > index - 1)
+                                outPut.Add(new DoctorAndProcedure { _primaryDoctorId = primaryDoctors[index], _precedures = procedure.Replace("#Other", "#" + otherProcedures[index]) });
+                            else
+                                outPut.Add(new DoctorAndProcedure { _primaryDoctorId = primaryDoctors[index], _precedures = procedure });
+                        }
+                        index++;
+                    }
+                    else
+                        break;
+                }
+            }
             return outPut;
         }
     }
@@ -168,11 +165,5 @@ namespace WindowsCEConsentForms
         public string[] SelectedDoctorsIndex;
 
         public string[] SelectedProcedures;
-    }
-
-    public class TreamentDoctorsAndProcedures
-    {
-        public string PrimaryDoctorId;
-        public string TreatmentProcedures;
     }
 }

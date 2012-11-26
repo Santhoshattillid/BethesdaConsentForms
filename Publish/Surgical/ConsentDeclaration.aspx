@@ -4,6 +4,7 @@
 <%@ Register TagPrefix="uc1" TagName="DeclarationSignatures" Src="~/DeclarationSignatures.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="ConsentSignatures" Src="~/ConsentSignatures.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="PatientDetails" Src="~/PatientDetails.ascx" %>
+<%@ Register Src="../DoctorsAndProcedures.ascx" TagName="DoctorsAndProcedures" TagPrefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -18,18 +19,7 @@
         </li>
     </ul>
     <uc1:PatientDetails ID="PatientDetails1" runat="server" ConsentType="Surgical" />
-    <ul class="content">
-        <li>I here by authorize Doctor(s)
-            <asp:DropDownList ID="DdlPrimaryDoctors" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DdlPrimaryDoctors_SelectedIndexChanged">
-            </asp:DropDownList>
-            &nbsp;
-            <asp:Label ID="LblAssociatedDoctors" runat="server" CssClass="errorInfo"></asp:Label>
-            to perform upon &nbsp;
-            <asp:Label runat="server" ID="LnlPatientName" CssClass="errorInfo"></asp:Label>
-            the procedure or operation : &nbsp;
-            <asp:TextBox runat="server" ID="TxtProcedure"></asp:TextBox>
-        </li>
-    </ul>
+    <uc2:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" IsStaticTextBoxForPrecedures="False" />
     <uc1:ConsentSignatures ID="ConsentSignatures" runat="server" />
     <uc1:DeclarationSignatures ID="DeclarationSignatures" runat="server" />
 </asp:Content>

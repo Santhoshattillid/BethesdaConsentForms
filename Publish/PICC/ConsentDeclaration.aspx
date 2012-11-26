@@ -149,7 +149,7 @@
                 Interpreted By
             </div>
             <div>
-                <asp:TextBox runat="server" ID="TxtTranslatedBy"></asp:TextBox>
+                <asp:TextBox runat="server" ID="TxtTranslatedBy" CssClass="textbox"></asp:TextBox>
             </div>
             <div class="clear">
             </div>

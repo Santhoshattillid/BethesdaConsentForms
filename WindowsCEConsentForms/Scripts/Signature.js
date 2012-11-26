@@ -46,6 +46,7 @@
 
     // repeating doctors and procedures here
     var emptyCloneDocProc = $('.LiDoctorsAndProcedures').eq(0).clone();
+
     $('#AddNewProcedure').click(function () {
         var liClone = $(this).parents('li');
         var cloneData = emptyCloneDocProc.clone();
@@ -110,9 +111,11 @@
         // code to check whether the doctor selects other
         if (e.srcElement != undefined && e.srcElement.value == "Other") {
             if ($(e.srcElement).is(':checked')) {
-                $(this).parents('li').eq(0).find('.DivOtherProcedure').show();
+                showOrHideOtherProcedureBox(true);
+                //$(this).parents('li').eq(0).find('.DivOtherProcedure').show();
             } else {
-                $(this).parents('li').eq(0).find('.DivOtherProcedure').hide();
+                showOrHideOtherProcedureBox(false);
+                //$(this).parents('li').eq(0).find('.DivOtherProcedure').hide();
             }
         }
         updateSelectedProcedures();
@@ -131,6 +134,23 @@
                 $(this).parents('li.LiDoctorsAndProcedures').eq(0).find('input.HdnSelectedProcedures').val(values);
             });
         }
+    }
+
+    function showOrHideOtherProcedureBox(state) {
+        $('.DivOtherProcedure:hidden').each(function () {
+            var arrayOfCheckedValues = $(this).parents('li.LiDoctorsAndProcedures').find('.DdLProcedures').multiselect("getChecked").map(function () {
+                return this.value;
+            }).get();
+            for (var i = 0; i < arrayOfCheckedValues.length; i++) {
+                if ($.trim(arrayOfCheckedValues[i]) == "Other") {
+                    if (state == true)
+                        $(this).show();
+                    else
+                        $(this).hide();
+                    break;
+                }
+            }
+        });
     }
 
     // Patient not able to sign check box handling here

@@ -20,18 +20,6 @@
     </ul>
     <uc1:PatientDetails ID="PatientDetails1" runat="server" ConsentType="Surgical" />
     <uc2:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" IsStaticTextBoxForPrecedures="False" />
-    <%--<ul class="content">
-        <li>I here by authorize Doctor(s)
-            <asp:DropDownList ID="DdlPrimaryDoctors" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DdlPrimaryDoctors_SelectedIndexChanged">
-            </asp:DropDownList>
-            &nbsp;
-            <asp:Label ID="LblAssociatedDoctors" runat="server" CssClass="errorInfo"></asp:Label>
-            to perform upon &nbsp;
-            <asp:Label runat="server" ID="LnlPatientName" CssClass="errorInfo"></asp:Label>
-            the procedure or operation : &nbsp;
-            <asp:TextBox runat="server" ID="TxtProcedure"></asp:TextBox>
-        </li>
-    </ul>--%>
     <uc1:ConsentSignatures ID="ConsentSignatures" runat="server" />
     <uc1:DeclarationSignatures ID="DeclarationSignatures" runat="server" />
 </asp:Content>

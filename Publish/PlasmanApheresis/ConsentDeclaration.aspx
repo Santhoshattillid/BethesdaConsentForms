@@ -3,7 +3,6 @@
 
 <%@ Import Namespace="WindowsCEConsentForms" %>
 <%@ Register TagPrefix="uc1" TagName="DeclarationSignatures" Src="~/DeclarationSignatures.ascx" %>
-<%@ Register TagPrefix="uc1" TagName="ConsentSignatures" Src="~/ConsentSignatures.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="PatientDetails" Src="~/PatientDetails.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="DoctorsAndProcedures" Src="~/DoctorsAndProcedures.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -20,7 +19,7 @@
         </li>
     </ul>
     <uc1:PatientDetails ID="PatientDetails1" runat="server" />
-    <uc1:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" ConsentType="Surgical" />
+    <uc1:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" ConsentType="PlasmanApheresis" />
     <ul class="content">
         <li>
             <div class="small-content">

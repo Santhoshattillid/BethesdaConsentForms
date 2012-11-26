@@ -112,6 +112,18 @@
   <wsdl:message name="IFormHandlerService_UpdateConsentFormStatementType_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateConsentFormStatementTypeResponse" />
   </wsdl:message>
+  <wsdl:message name="IFormHandlerService_SaveDoctorsDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDoctorsDetails" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_SaveDoctorsDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDoctorsDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetDoctorsDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoctorsDetails" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetDoctorsDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoctorsDetailsResponse" />
+  </wsdl:message>
   <wsdl:message name="IFormHandlerService_GetProcedurenameList_InputMessage">
     <wsdl:part name="parameters" element="tns:GetProcedurenameList" />
   </wsdl:message>
@@ -246,6 +258,14 @@
     <wsdl:operation name="UpdateConsentFormStatementType">
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/UpdateConsentFormStatementType" message="tns:IFormHandlerService_UpdateConsentFormStatementType_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/UpdateConsentFormStatementTypeResponse" message="tns:IFormHandlerService_UpdateConsentFormStatementType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveDoctorsDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/SaveDoctorsDetails" message="tns:IFormHandlerService_SaveDoctorsDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/SaveDoctorsDetailsResponse" message="tns:IFormHandlerService_SaveDoctorsDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDoctorsDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetDoctorsDetails" message="tns:IFormHandlerService_GetDoctorsDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetDoctorsDetailsResponse" message="tns:IFormHandlerService_GetDoctorsDetails_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetProcedurenameList">
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetProcedurenameList" message="tns:IFormHandlerService_GetProcedurenameList_InputMessage" />
@@ -440,6 +460,24 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateConsentFormStatementType">
       <soap:operation soapAction="http://tempuri.org/IFormHandlerService/UpdateConsentFormStatementType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDoctorsDetails">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/SaveDoctorsDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDoctorsDetails">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/GetDoctorsDetails" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

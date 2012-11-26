@@ -465,6 +465,67 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DoctorAndProcedure", Namespace="http://schemas.datacontract.org/2004/07/Consent.sp.wcf")]
+    [System.SerializableAttribute()]
+    public partial class DoctorAndProcedure : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _preceduresField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _primaryDoctorIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _precedures {
+            get {
+                return this._preceduresField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._preceduresField, value) != true)) {
+                    this._preceduresField = value;
+                    this.RaisePropertyChanged("_precedures");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _primaryDoctorId {
+            get {
+                return this._primaryDoctorIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._primaryDoctorIdField, value) != true)) {
+                    this._primaryDoctorIdField = value;
+                    this.RaisePropertyChanged("_primaryDoctorId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ConsentFormsService.IFormHandlerService")]
     public interface IFormHandlerService {
@@ -519,6 +580,12 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/UpdateConsentFormStatementType", ReplyAction="http://tempuri.org/IFormHandlerService/UpdateConsentFormStatementTypeResponse")]
         void UpdateConsentFormStatementType(string PatientNumber, WindowsCEConsentForms.ConsentFormsService.StatementOfConsent StatementType, string ConsentFormType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/SaveDoctorsDetails", ReplyAction="http://tempuri.org/IFormHandlerService/SaveDoctorsDetailsResponse")]
+        void SaveDoctorsDetails(string PatientID, string ConsentFormType, WindowsCEConsentForms.ConsentFormsService.DoctorAndProcedure[] _doctorAndPrcedures);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetDoctorsDetails", ReplyAction="http://tempuri.org/IFormHandlerService/GetDoctorsDetailsResponse")]
+        WindowsCEConsentForms.ConsentFormsService.DoctorAndProcedure[] GetDoctorsDetails(string PatientID, string ConsentFormType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetProcedurenameList", ReplyAction="http://tempuri.org/IFormHandlerService/GetProcedurenameListResponse")]
         string[] GetProcedurenameList();
@@ -648,6 +715,14 @@ namespace WindowsCEConsentForms.ConsentFormsService {
         
         public void UpdateConsentFormStatementType(string PatientNumber, WindowsCEConsentForms.ConsentFormsService.StatementOfConsent StatementType, string ConsentFormType) {
             base.Channel.UpdateConsentFormStatementType(PatientNumber, StatementType, ConsentFormType);
+        }
+        
+        public void SaveDoctorsDetails(string PatientID, string ConsentFormType, WindowsCEConsentForms.ConsentFormsService.DoctorAndProcedure[] _doctorAndPrcedures) {
+            base.Channel.SaveDoctorsDetails(PatientID, ConsentFormType, _doctorAndPrcedures);
+        }
+        
+        public WindowsCEConsentForms.ConsentFormsService.DoctorAndProcedure[] GetDoctorsDetails(string PatientID, string ConsentFormType) {
+            return base.Channel.GetDoctorsDetails(PatientID, ConsentFormType);
         }
         
         public string[] GetProcedurenameList() {

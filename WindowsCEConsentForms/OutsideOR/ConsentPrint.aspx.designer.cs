@@ -13,31 +13,13 @@ namespace WindowsCEConsentForms.OutsideOR {
     public partial class OutsideORConsentPrintV1 {
         
         /// <summary>
-        /// LblAuthoriseDoctors control.
+        /// DoctorsAndProceduresPrint1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblAuthoriseDoctors;
-        
-        /// <summary>
-        /// LblPatientName2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblPatientName2;
-        
-        /// <summary>
-        /// LblProcedureName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblProcedureName;
+        protected global::WindowsCEConsentForms.DoctorsAndProceduresPrint DoctorsAndProceduresPrint1;
         
         /// <summary>
         /// ImgSignature1 control.

@@ -75,6 +75,7 @@
     <Content Include="DeclarationSignatures.ascx" />
     <Content Include="Default.aspx" />
     <Content Include="DoctorsAndProcedures.ascx" />
+    <Content Include="DoctorsAndProceduresPrint.ascx" />
     <Content Include="Endoscopy\ConsentDeclaration.aspx" />
     <Content Include="Endoscopy\ConsentPrint.aspx" />
     <Content Include="GetImage.ashx" />
@@ -191,6 +192,9 @@
     <None Include="Service References\ConsentFormsService\basic1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ConsentFormsService\WindowsCEConsentForms.ConsentFormsService.DoctorAndProcedure.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ConsentFormsService\WindowsCEConsentForms.ConsentFormsService.DoctorDetails.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -272,6 +276,13 @@
     </Compile>
     <Compile Include="DoctorsAndProcedures.ascx.designer.cs">
       <DependentUpon>DoctorsAndProcedures.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorsAndProceduresPrint.ascx.cs">
+      <DependentUpon>DoctorsAndProceduresPrint.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DoctorsAndProceduresPrint.ascx.designer.cs">
+      <DependentUpon>DoctorsAndProceduresPrint.ascx</DependentUpon>
     </Compile>
     <Compile Include="Endoscopy\ConsentDeclaration.aspx.cs">
       <DependentUpon>ConsentDeclaration.aspx</DependentUpon>

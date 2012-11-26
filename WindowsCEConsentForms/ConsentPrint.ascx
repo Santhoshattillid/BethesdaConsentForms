@@ -1,23 +1,14 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ConsentPrint.ascx.cs"
     Inherits="WindowsCEConsentForms.ConsentPrint" %>
-<ul class="content print">
+<%@ Register Src="DoctorsAndProceduresPrint.ascx" TagName="DoctorsAndProceduresPrint"
+    TagPrefix="uc1" %>
+<ul class="content">
     <li>PATIENT:
         <asp:Label runat="server" ID="LblPatientName3" CssClass="errorInfo"></asp:Label>
     </li>
-    <li>I here by authorize Doctor(s)
-        <asp:Label runat="server" ID="LblAuthoriseDoctors" CssClass="errorInfo"></asp:Label>
-        to perform upon
-        <asp:Label runat="server" ID="LblPatientName2" CssClass="errorInfo"></asp:Label>
-        the following procedure or operation:
-        <br />
-        <asp:Label runat="server" ID="LblProcedureName" CssClass="errorInfo"></asp:Label>
-    </li>
-    <%--<li>
-            <h4>
-                PATIENT - PLEASE INITIAL the lines next to each paragraph of this consent to indicate
-                your agreement with the statements therein.
-            </h4>
-        </li>--%>
+</ul>
+<uc1:DoctorsAndProceduresPrint ID="DoctorsAndProceduresPrint1" runat="server" />
+<ul class="content print">
     <li>
         <div class="sigBox">
             <asp:Image runat="server" ID="ImgSignature1" />
@@ -119,105 +110,106 @@
     </li>
     <li><span class="content-heading">I UNDERSTAND that no guarantees have been made to
         me that this operation will improve my condition. </span></li>
-        <li class="noBorder">
-            <table border="0">
-                <tr>
-                    <td>
-                        <asp:Panel runat="server" ID="PnlPatientSignature">
-                            
-                                <div class="sigBox">
-                                    <asp:Image runat="server" ID="ImgPatientSignature" />
-                     
-                            </div>
-                            <div class="right">
-                                <asp:Label runat="server" ID="LblPatientSignatureDateTime"></asp:Label>
-                            </div>
-                            <div class="clear">
-                            </div>
-                            <div>
-                                (PATIENT SIGNATURE)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                __________________ Date:__<asp:Label runat="server" ID="LblPatientSignatureDate"
-                                    CssClass="DateTimeUnderline">___</asp:Label>____ Time:__<asp:Label runat="server"
-                                        ID="LblPatientSignatureTime" CssClass="DateTimeUnderline"></asp:Label>__
-                            </div>
-                        </asp:Panel>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Panel runat="server" ID="PnlPatientUnableToSignBecause">
-                            Patient is unable to sign because:
-                            <div>
-                                <asp:Label runat="server" ID="LblPatientUnableToSignBecause" CssClass="DateTimeUnderline"></asp:Label>
-                            </div>
-                        </asp:Panel>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Panel runat="server" ID="PnlAuthorizedSignature">
-                            <div class="sigBox">
-                                <asp:Image runat="server" ID="ImgAuthorizedSignature" />
-                            </div>
-                            <div class="clear">
-                            </div>
-                            <div>
-                                (If patient unable to sign, person authorized to sign.)&nbsp;&nbsp;&nbsp;__________________
-                                Date:__<asp:Label runat="server" ID="LblAuthorizedSignDate" CssClass="DateTimeUnderline">___</asp:Label>__
-                                Time:__<asp:Label runat="server" ID="LblAuthorizedSignTime" CssClass="DateTimeUnderline"></asp:Label>_
-                            </div>
-                        </asp:Panel>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
+    <li class="noBorder">
+        <table border="0">
+            <tr>
+                <td>
+                    <asp:Panel runat="server" ID="PnlPatientSignature">
                         <div class="sigBox">
-                            <asp:Image runat="server" ID="ImgWitnessSignature1" />
+                            <asp:Image runat="server" ID="ImgPatientSignature" />
                         </div>
                         <div class="right">
-                            <asp:Label runat="server" ID="LblWitnessSignature1DateTime"></asp:Label>
+                            <asp:Label runat="server" ID="LblPatientSignatureDateTime"></asp:Label>
                         </div>
                         <div class="clear">
                         </div>
                         <div>
-                            (Witness to Signature or Telephone Consent Only)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________
-                            Date:__<asp:Label runat="server" ID="LblWitnessSignature1Date" CssClass="DateTimeUnderline">___</asp:Label>__
-                            Time:__<asp:Label runat="server" ID="LblWitnessSignature1Time" CssClass="DateTimeUnderline"></asp:Label>_
+                            (PATIENT SIGNATURE)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            __________________ Date:__<asp:Label runat="server" ID="LblPatientSignatureDate"
+                                CssClass="DateTimeUnderline">___</asp:Label>____ Time:__<asp:Label runat="server"
+                                    ID="LblPatientSignatureTime" CssClass="DateTimeUnderline"></asp:Label>__
                         </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
+                    </asp:Panel>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Panel runat="server" ID="PnlPatientUnableToSignBecause">
+                        Patient is unable to sign because:
+                        <div>
+                            <asp:Label runat="server" ID="LblPatientUnableToSignBecause" CssClass="DateTimeUnderline"></asp:Label>
+                        </div>
+                    </asp:Panel>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Panel runat="server" ID="PnlAuthorizedSignature">
                         <div class="sigBox">
-                            <asp:Image runat="server" ID="ImgWitnessSignature2" />
+                            <asp:Image runat="server" ID="ImgAuthorizedSignature" />
                         </div>
                         <div class="clear">
                         </div>
                         <div>
-                            (Second Witness to Telephone Consent Only)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________
-                            Date:__<asp:Label runat="server" ID="LblWitnessSignature2Date" CssClass="DateTimeUnderline">___</asp:Label>__
-                            Time:__<asp:Label runat="server" ID="LblWitnessSignature2Time" CssClass="DateTimeUnderline"></asp:Label>_
+                            (If patient unable to sign, person authorized to sign.)&nbsp;&nbsp;&nbsp;__________________
+                            Date:__<asp:Label runat="server" ID="LblAuthorizedSignDate" CssClass="DateTimeUnderline">___</asp:Label>__
+                            Time:__<asp:Label runat="server" ID="LblAuthorizedSignTime" CssClass="DateTimeUnderline"></asp:Label>_
                         </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div>
-                           <br /> Interpreted By:
-                        </div>
-                        <div >
-                          <asp:Label runat="server" ID="LblTranslatedBy" CssClass="errorInfo"></asp:Label>
-                        </div>
-                        <div class="clear">
-                        </div>
-                        <br /><br />(Interpreted By)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________
-                        Date:__<asp:Label runat="server" ID="LblTranslatedDate" CssClass="DateTimeUnderline">___</asp:Label>__
-                        Time:__<asp:Label runat="server" ID="LblTranslatedTime" CssClass="DateTimeUnderline"></asp:Label>__
-                    </td>
-                </tr>
-            </table>
-            </li>
+                    </asp:Panel>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="sigBox">
+                        <asp:Image runat="server" ID="ImgWitnessSignature1" />
+                    </div>
+                    <div class="right">
+                        <asp:Label runat="server" ID="LblWitnessSignature1DateTime"></asp:Label>
+                    </div>
+                    <div class="clear">
+                    </div>
+                    <div>
+                        (Witness to Signature or Telephone Consent Only)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________
+                        Date:__<asp:Label runat="server" ID="LblWitnessSignature1Date" CssClass="DateTimeUnderline">___</asp:Label>__
+                        Time:__<asp:Label runat="server" ID="LblWitnessSignature1Time" CssClass="DateTimeUnderline"></asp:Label>_
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="sigBox">
+                        <asp:Image runat="server" ID="ImgWitnessSignature2" />
+                    </div>
+                    <div class="clear">
+                    </div>
+                    <div>
+                        (Second Witness to Telephone Consent Only)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________
+                        Date:__<asp:Label runat="server" ID="LblWitnessSignature2Date" CssClass="DateTimeUnderline">___</asp:Label>__
+                        Time:__<asp:Label runat="server" ID="LblWitnessSignature2Time" CssClass="DateTimeUnderline"></asp:Label>_
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <br />
+                        Interpreted By:
+                    </div>
+                    <div>
+                        <asp:Label runat="server" ID="LblTranslatedBy" CssClass="errorInfo"></asp:Label>
+                    </div>
+                    <div class="clear">
+                    </div>
+                    <br />
+                    <br />
+                    (Interpreted By)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________
+                    Date:__<asp:Label runat="server" ID="LblTranslatedDate" CssClass="DateTimeUnderline">___</asp:Label>__
+                    Time:__<asp:Label runat="server" ID="LblTranslatedTime" CssClass="DateTimeUnderline"></asp:Label>__
+                </td>
+            </tr>
+        </table>
+    </li>
     <%--<li>
         <asp:Panel runat="server" ID="PnlPatientSignature">
             <div class="sigBox">
@@ -294,7 +286,8 @@
                     FORM:
                 </td>
                 <td>
-                    <%= ConsentType.ToString() %>
+                    <%= ConsentType.ToString()
+                    %>
                     Consent Form
                 </td>
                 <td>

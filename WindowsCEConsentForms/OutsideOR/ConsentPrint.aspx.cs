@@ -24,29 +24,13 @@ namespace WindowsCEConsentForms.OutsideOR
                 var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.OutsideOR.ToString());
                 if (patientDetails != null)
                 {
-                    var primaryDoctor = formHandlerServiceClient.GetPrimaryDoctorDetail(patientDetails.PrimaryDoctorId);
-                    if (primaryDoctor != null)
-                    {
-                        //LblAssociatedDoctor.Text = primaryDoctor.Fname + " " + primaryDoctor.Lname;
-                        LblAuthoriseDoctors.Text = primaryDoctor.Fname + " " + primaryDoctor.Lname;
-                    }
-                    foreach (DataRow row in formHandlerServiceClient.GetAssociatedPhysiciansList(patientDetails.PrimaryDoctorId).Rows)
-                    {
-                        LblAuthoriseDoctors.Text += " , " + row["Lname"].ToString().Trim() + " " +
-                                                    row["Fname"].ToString().Trim();
-                    }
                     LblDOB.Text = DateTime.Now.ToString("MMM dd yyyy");
                     LblPatientAdminDate.Text = patientDetails.AdmDate.ToString("MMM dd yyyy");
                     LblPatientAdminTime.Text = patientDetails.AdmDate.ToLongTimeString();
                     LblPatientId.Text = patientId;
                     LblPatientMrHash.Text = patientDetails.MRHash;
                     LblPatientName.Text = patientDetails.name;
-                    LblPatientName2.Text = patientDetails.name;
                     LblPatientUnableToSignBecause.Text = patientDetails.UnableToSignReason;
-                    LblProcedureName.Text = patientDetails.ProcedureName;
-                    //LblTranslatedDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
-                    //LblAuthorizedSignDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
-
 
                     LblPatientSignatureDate.Text = DateTime.Now.ToString("MMM dd yyyy");
                     LblPatientSignatureTime.Text = DateTime.Now.ToLongTimeString();
@@ -59,10 +43,6 @@ namespace WindowsCEConsentForms.OutsideOR
                     LblTranslatedDate.Text = DateTime.Now.ToString("MMM dd yyyy");
                     LblTranslatedTime.Text = DateTime.Now.ToLongTimeString();
 
-
-
-
-                    //LblAssociatedDoctorTimeStamp.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
                     LblDate.Text = DateTime.Now.ToString("MMM dd yyyy");
                     LblAge.Text = patientDetails.age.ToString(CultureInfo.InvariantCulture);
                     LblGender.Text = patientDetails.gender;

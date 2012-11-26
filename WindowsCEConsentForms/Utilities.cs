@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 using WindowsCEConsentForms.ConsentFormsService;
 
 namespace WindowsCEConsentForms
@@ -78,6 +77,19 @@ namespace WindowsCEConsentForms
                 }
             }
             return outPut;
+        }
+
+        public static string GetPrimaryDoctorName(string primaryPhysicianId)
+        {
+            var formHandlerServiceClient = new FormHandlerServiceClient();
+            var primaryDoctor = formHandlerServiceClient.GetPrimaryDoctorDetail(primaryPhysicianId);
+            return primaryDoctor.Lname + " " + primaryDoctor.Fname;
+        }
+
+        public static PatientDetail GetPatientName(string patientId, string consentType)
+        {
+            var formHandlerServiceClient = new FormHandlerServiceClient();
+            return formHandlerServiceClient.GetPatientDetail(patientId, consentType);
         }
     }
 

@@ -41,4 +41,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="TrackingInfo" nillable="true" type="tns:TrackingInfo" />
+  <xs:complexType name="ArrayOfDoctorAndProcedure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DoctorAndProcedure" nillable="true" type="tns:DoctorAndProcedure" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDoctorAndProcedure" nillable="true" type="tns:ArrayOfDoctorAndProcedure" />
+  <xs:complexType name="DoctorAndProcedure">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_precedures" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_primaryDoctorId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DoctorAndProcedure" nillable="true" type="tns:DoctorAndProcedure" />
 </xs:schema>
