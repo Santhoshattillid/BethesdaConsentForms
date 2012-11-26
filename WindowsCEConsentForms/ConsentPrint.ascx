@@ -84,9 +84,9 @@
     </li>
 </ul>
 <ul class="content print">
-    <li>
+    <%--<li>
         <img src="/Images/logo.png" alt="logo" />
-    </li>
+    </li>--%>
     <li>
         <table class="noBorder">
             <tr>
