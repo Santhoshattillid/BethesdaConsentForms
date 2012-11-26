@@ -109,9 +109,14 @@
 {
     padding: 5px;
 }
-.Container .errorInfo
+.Container .errorInfomodified
 {
     color: #DC143C;
+}
+
+.Container .errorInfo
+{
+    color: Black;
 }
 .Container INPUT[type="text"]
 {
@@ -415,4 +420,13 @@
 .con
 {
     margin-left: 270px;
+}
+.checkboxleft
+{
+    margin-left: 0px;
+}
+
+.patienttabletd
+{
+width:100px;
 }

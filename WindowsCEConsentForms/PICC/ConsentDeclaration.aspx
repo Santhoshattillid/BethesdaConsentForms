@@ -121,7 +121,7 @@
         </li>
         <li>
             <div>
-                Witness To Signature Only</div>
+                Witness to Signature or Telephone Consent Only</div>
             <div class="sig14 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
                 <input type="hidden" class="HdnImage14" name="<%= SignatureType.WitnessSignature1.ToString() %>"
@@ -133,7 +133,7 @@
         <li>
             <asp:Panel runat="server" ID="PnlAdditionalwitness">
                 <div>
-                    Witness To signature
+                   Second Witness to Telephone Consent Only
                 </div>
                 <div class="sig15 sigWrapper">
                     <canvas class="pad" width="198" height="55"></canvas>

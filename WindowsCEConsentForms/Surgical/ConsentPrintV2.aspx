@@ -126,7 +126,7 @@
         </li>
         <li>
             <label>
-                Witness to signature only</label>
+                     only</label>
         </li>
         <li>
             <div class="sigBox">
