@@ -46,15 +46,26 @@
 
     // repeating doctors and procedures here
     var emptyCloneDocProc = $('.LiDoctorsAndProcedures').eq(0).clone();
+
     $('#AddNewProcedure').click(function () {
         var liClone = $(this).parents('li');
         var cloneData = emptyCloneDocProc.clone();
+        cloneData.hide();
         cloneData.find('.LblAssociatedDoctors').empty();
         cloneData.find('.TxtProcedures').empty();
         cloneData.find('.TxtProcedures').val('');
         cloneData.find('.DdlPrimaryDoctors').val('0');
         cloneData.find('.ui-multiselect.ui-widget.ui-state-default.ui-corner-all').remove();
         liClone.eq(0).before(cloneData);
+        cloneData.slideDown(500);
+        cloneData.find('.RemoveDocAndProc').click(function () {
+            var li = $(this).parents('li.LiDoctorsAndProcedures');
+            li.slideUp(500);
+            setTimeout(function () {
+                li.remove();
+            }, 500);
+            return false;
+        });
         initializeProcedures(cloneData.find('select.DdLProcedures'));
         return false;
     });
@@ -151,6 +162,9 @@
             }
         });
     }
+
+    // removing procedure box
+    $('.RemoveDocAndProc').hide();
 
     // Patient not able to sign check box handling here
     //    var checkbox = $('input[id$="ChkPatientisUnableToSign"]');

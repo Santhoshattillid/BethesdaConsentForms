@@ -80,9 +80,6 @@
     </ul>
     <ul class="content print">
         <li>
-            <img src="/Images/logo.png" alt="logo" />
-        </li>
-        <li>
             <table class="noBorder">
                 <tr>
                     <td class="edgeColumn">
@@ -115,7 +112,7 @@
         <li>I UNDERSTAND that no guarantees have been made to me that this operation will improve
             my condition. </li>
         <li class="noBorder">
-            <table border="0">
+            <table class="noBorder">
                 <tr>
                     <td>
                         <asp:Panel runat="server" ID="PnlPatientSignature">
@@ -299,7 +296,7 @@
                         Outside OR Consent Form
                     </td>
                     <td>
-                        MRIN#:
+                        MR#:
                     </td>
                     <td>
                         <asp:Label runat="server" ID="LblPatientMrHash"></asp:Label>

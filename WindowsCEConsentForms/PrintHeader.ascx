@@ -1,9 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PrintHeader.ascx.cs"
     Inherits="WindowsCEConsentForms.PrintHeader" %>
 <li>
-    <img src="Images/logo.png" alt="logo" />
-</li>
-<li>
     <h3>
         BOYNTON BEACH, FLORIDA
         <br />
@@ -14,7 +11,7 @@
 </li>
 <li>
     <label>
-        MRIN #</label>
+        MR #</label>
     <asp:Label ID="LblPatientMRID" runat="server" CssClass="errorInfo"></asp:Label>
 </li>
 <li>

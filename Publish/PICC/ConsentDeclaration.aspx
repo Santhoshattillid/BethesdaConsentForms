@@ -3,6 +3,7 @@
 
 <%@ Import Namespace="WindowsCEConsentForms" %>
 <%@ Register TagPrefix="uc1" TagName="PatientDetails" Src="~/PatientDetails.ascx" %>
+<%@ Register TagPrefix="uc1" TagName="DeclarationSignatures" Src="~/DeclarationSignatures.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -76,6 +77,9 @@
                 needs to be redirected.
             </div>
         </li>
+    </ul>
+    <uc1:DeclarationSignatures ID="DeclarationSignatures" runat="server" ConsentType="PICC" />
+    <%--<ul>
         <li>
             <div>
                 <asp:CheckBox runat="server" ID="ChkPatientisUnableToSign" Text="Patient is unable to sign?"
@@ -121,7 +125,7 @@
         </li>
         <li>
             <div>
-                Witness To Signature Only</div>
+                Witness to Signature or Telephone Consent Only</div>
             <div class="sig14 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
                 <input type="hidden" class="HdnImage14" name="<%= SignatureType.WitnessSignature1.ToString() %>"
@@ -133,7 +137,7 @@
         <li>
             <asp:Panel runat="server" ID="PnlAdditionalwitness">
                 <div>
-                    Witness To signature
+                    Second Witness to Telephone Consent Only
                 </div>
                 <div class="sig15 sigWrapper">
                     <canvas class="pad" width="198" height="55"></canvas>
@@ -174,5 +178,5 @@
                 OnClientClick="javascript: return confirm('Are you sure that do you want to complete the form?');" />
             <asp:Button runat="server" ID="BtnReset" Text="Reset" OnClick="BtnReset_Click" />
         </li>
-    </ul>
+    </ul>--%>
 </asp:Content>

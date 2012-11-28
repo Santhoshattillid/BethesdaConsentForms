@@ -20,7 +20,8 @@
         </li>
     </ul>
     <uc1:PatientDetails ID="PatientDetails1" runat="server" />
-    <uc1:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" ConsentType="OutsideOR" />
+    <uc1:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" ConsentType="OutsideOR"
+        IsStaticTextBoxForPrecedures="True" />
     <uc1:ConsentSignatures ID="ConsentSignatures1" runat="server" />
     <uc1:DeclarationSignatures ID="DeclarationSignatures1" runat="server" />
 </asp:Content>

@@ -5,7 +5,7 @@
         <li>
             <h1>
                 Bethesda Hospital West</h1>
-            9655 Bounton Beach Blvd<br />
+            9655 Boynton Beach Blvd<br />
             Boynton Beach, FL 33472<br />
             (561) 336-7000</li>
         <li>

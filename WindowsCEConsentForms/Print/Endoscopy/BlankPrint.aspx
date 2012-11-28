@@ -176,9 +176,10 @@
                         FORM:
                     </td>
                     <td>
+                        CONSENT FOR ENDOSCOPY
                     </td>
                     <td>
-                        MRIN#:
+                        MR#:
                     </td>
                     <td>
                     </td>

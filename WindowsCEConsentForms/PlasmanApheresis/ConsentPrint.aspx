@@ -7,11 +7,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <ul class="content print">
         <li class="center">
-            <%--<h3>
-                PLASMA APHERESIS FORM
-            </h3>--%>
-        </li>
-        <li class="center">
             <h3>
                 CONSENT FOR THERAPEUTIC APHERESIS
             </h3>
@@ -294,7 +289,7 @@
                         CARDIOVASCULAR Form
                     </td>
                     <td>
-                        MRIN#:
+                        MR#:
                     </td>
                     <td>
                         <asp:Label runat="server" ID="LblPatientMrHash"></asp:Label>

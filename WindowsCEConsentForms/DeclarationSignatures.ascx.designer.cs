@@ -37,7 +37,7 @@ namespace WindowsCEConsentForms {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PnlPatientReason1;
+        public global::System.Web.UI.WebControls.Panel PnlPatientReason1;
         
         /// <summary>
         /// TxtPatientNotSignedBecause control.
@@ -58,6 +58,24 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.WebControls.Panel PnlPatientReason2;
         
         /// <summary>
+        /// PnlPatientReason3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PnlPatientReason3;
+        
+        /// <summary>
+        /// TxtAuthorizedPersonName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtAuthorizedPersonName;
+        
+        /// <summary>
         /// PnlPatientSign control.
         /// </summary>
         /// <remarks>
@@ -65,6 +83,15 @@ namespace WindowsCEConsentForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel PnlPatientSign;
+        
+        /// <summary>
+        /// TxtWitnessSignature1Name control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtWitnessSignature1Name;
         
         /// <summary>
         /// PnlAdditionalwitness control.
@@ -76,6 +103,24 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.WebControls.Panel PnlAdditionalwitness;
         
         /// <summary>
+        /// PnlAdditionalwitness2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PnlAdditionalwitness2;
+        
+        /// <summary>
+        /// TxtSecondWitnessName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtSecondWitnessName;
+        
+        /// <summary>
         /// TxtTranslatedBy control.
         /// </summary>
         /// <remarks>
@@ -83,6 +128,15 @@ namespace WindowsCEConsentForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         public global::System.Web.UI.WebControls.TextBox TxtTranslatedBy;
+        
+        /// <summary>
+        /// TxtPICCNurseName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtPICCNurseName;
         
         /// <summary>
         /// LblError control.

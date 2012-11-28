@@ -56,38 +56,33 @@ namespace WindowsCEConsentForms
 
                 ViewState["PrimaryDoctors"] = primaryDoctors;
 
-                string patientId;
-                try
-                {
-                    patientId = Session["PatientID"].ToString();
-                }
-                catch (Exception)
-                {
-                    try
-                    {
-                        patientId = Request.QueryString["PatientId"];
-                    }
-                    catch (Exception)
-                    {
-                        patientId = string.Empty;
-                    }
-                }
+                //string patientId;
+                //try
+                //{
+                //    patientId = Session["PatientID"].ToString();
+                //}
+                //catch (Exception)
+                //{
+                //    try
+                //    {
+                //        patientId = Request.QueryString["PatientId"];
+                //    }
+                //    catch (Exception)
+                //    {
+                //        patientId = string.Empty;
+                //    }
+                //}
                 var doctorsProceduresState = new DoctorsProceduresState
                 {
                     SelectedDoctorsIndex = new[] { "0" },
                     SelectedProcedures = new[] { "" }
                 };
-                if (!string.IsNullOrEmpty(patientId))
-                {
-                    var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
-                    if (patientDetail != null)
-                    {
-                        if (!string.IsNullOrEmpty(patientDetail.ProcedureName))
-                        {
-                            //doctorsProceduresState.SelectedProcedures = patientDetail.ProcedureName;
-                        }
-                    }
-                }
+
+                //if (!string.IsNullOrEmpty(patientId))
+                //{
+                //var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
+                //LblPatientName.Text = patientDetail.name;
+                //}
                 ViewState["DoctorsProceduresState"] = doctorsProceduresState;
             }
             else
@@ -104,7 +99,7 @@ namespace WindowsCEConsentForms
             }
         }
 
-        public List<DoctorAndProcedure> GetDoctorsAndProcedures()
+        public void SaveDoctorsAndProcedures(FormHandlerServiceClient formHandlerServiceClient, string patientId)
         {
             var outPut = new List<DoctorAndProcedure>();
             if (IsStaticTextBoxForPrecedures)
@@ -147,7 +142,7 @@ namespace WindowsCEConsentForms
                         break;
                 }
             }
-            return outPut;
+            formHandlerServiceClient.SaveDoctorsDetails(patientId, ConsentType.ToString(), outPut.ToArray());
         }
     }
 

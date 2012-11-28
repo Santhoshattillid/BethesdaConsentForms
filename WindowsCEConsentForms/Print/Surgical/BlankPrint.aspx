@@ -178,7 +178,7 @@
                     <td>
                     </td>
                     <td>
-                        MRIN#:
+                        MR#:
                     </td>
                     <td>
                     </td>

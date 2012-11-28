@@ -1,5 +1,5 @@
-2012/11/26-16:49:57.069 acc Recovering log #15
-2012/11/26-16:49:57.070 acc Level-0 table #18: started
-2012/11/26-16:49:57.086 acc Level-0 table #18: 101469 bytes OK
-2012/11/26-16:49:57.112 acc Delete type=0 #15
-2012/11/26-16:49:57.112 acc Delete type=3 #13
+2012/11/28-11:17:17.067 1084 Recovering log #22
+2012/11/28-11:17:17.078 1084 Level-0 table #24: started
+2012/11/28-11:17:17.103 1084 Level-0 table #24: 257817 bytes OK
+2012/11/28-11:17:17.129 1084 Delete type=0 #22
+2012/11/28-11:17:17.129 1084 Delete type=3 #20

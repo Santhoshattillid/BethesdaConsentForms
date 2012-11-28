@@ -110,8 +110,10 @@
     </None>
     <Content Include="Images\dropdown.png" />
     <Content Include="Images\dropdown_hover.png" />
+    <Content Include="Images\index.jpg" />
     <Content Include="Images\Logo.jpg" />
     <Content Include="Images\logo.png" />
+    <Content Include="Images\round_close_sign_4875.png" />
     <Content Include="Images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="Images\ui-bg_diagonals-thick_20_666666_40x40.png" />
     <Content Include="Images\ui-bg_flat_10_000000_40x100.png" />
@@ -126,14 +128,11 @@
     <Content Include="Images\ui-icons_ef8c08_256x240.png" />
     <Content Include="Images\ui-icons_ffd27a_256x240.png" />
     <Content Include="Images\ui-icons_ffffff_256x240.png" />
-    <Content Include="OutsideOR\ConsentOld.aspx" />
-    <Content Include="OutsideOR\ConsentDeclarationOld.aspx" />
     <Content Include="OutsideOR\ConsentPrint.aspx" />
     <Content Include="OutsideOR\ConsentDeclaration.aspx" />
     <Content Include="PageHeader.ascx" />
     <Content Include="PatientDetails.ascx" />
     <Content Include="PICC\ConsentDeclaration.aspx" />
-    <Content Include="PICC\ConsentUnUsed.aspx" />
     <Content Include="PICC\ConsentPrint.aspx" />
     <Content Include="PlasmanApheresis\ConsentDeclaration.aspx" />
     <Content Include="PlasmanApheresis\ConsentPrint.aspx" />
@@ -179,8 +178,6 @@
     <Content Include="Scripts\jSignature.min.js" />
     <Content Include="Scripts\Signature.js" />
     <Content Include="Stylesheets\ConsentForm.css" />
-    <Content Include="Surgical\ConsentPrintV0.aspx" />
-    <Content Include="Surgical\ConsentPrintV2.aspx" />
     <Content Include="Surgical\ConsentPrint.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -301,20 +298,6 @@
     <Compile Include="GetImage.ashx.cs">
       <DependentUpon>GetImage.ashx</DependentUpon>
     </Compile>
-    <Compile Include="OutsideOR\ConsentOld.aspx.cs">
-      <DependentUpon>ConsentOld.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="OutsideOR\ConsentOld.aspx.designer.cs">
-      <DependentUpon>ConsentOld.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="OutsideOR\ConsentDeclarationOld.aspx.cs">
-      <DependentUpon>ConsentDeclarationOld.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="OutsideOR\ConsentDeclarationOld.aspx.designer.cs">
-      <DependentUpon>ConsentDeclarationOld.aspx</DependentUpon>
-    </Compile>
     <Compile Include="OutsideOR\ConsentPrint.aspx.cs">
       <DependentUpon>ConsentPrint.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -342,13 +325,6 @@
     </Compile>
     <Compile Include="PatientDetails.ascx.designer.cs">
       <DependentUpon>PatientDetails.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="PICC\ConsentUnUsed.aspx.cs">
-      <DependentUpon>ConsentUnUsed.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PICC\ConsentUnUsed.aspx.designer.cs">
-      <DependentUpon>ConsentUnUsed.aspx</DependentUpon>
     </Compile>
     <Compile Include="PICC\ConsentDeclaration.aspx.cs">
       <DependentUpon>ConsentDeclaration.aspx</DependentUpon>
@@ -413,20 +389,6 @@
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Surgical\ConsentPrintV0.aspx.cs">
-      <DependentUpon>ConsentPrintV0.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Surgical\ConsentPrintV0.aspx.designer.cs">
-      <DependentUpon>ConsentPrintV0.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Surgical\ConsentPrintV2.aspx.cs">
-      <DependentUpon>ConsentPrintV2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Surgical\ConsentPrintV2.aspx.designer.cs">
-      <DependentUpon>ConsentPrintV2.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Surgical\ConsentPrint.aspx.cs">
       <DependentUpon>ConsentPrint.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

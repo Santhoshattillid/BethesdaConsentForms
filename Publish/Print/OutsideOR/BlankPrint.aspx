@@ -174,12 +174,8 @@
         <li>
             <div>
                 Interpreted By:
-            </div>
-            <div class="PrintsigBox">
-            </div>
-            <div class="right">
-            </div>
-            <div class="clear">
+                <br />
+                <br />
             </div>
         </li>
         <li>
@@ -192,7 +188,7 @@
                         Outside OR Consent Form
                     </td>
                     <td>
-                        MRIN#:
+                        MR#:
                     </td>
                     <td>
                     </td>

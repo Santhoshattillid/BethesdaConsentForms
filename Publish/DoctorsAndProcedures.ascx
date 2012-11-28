@@ -15,60 +15,67 @@
             index += 1;
 
     %>
-    <li class="LiDoctorsAndProcedures">I here by authorize Doctor(s)
-        <select class="DdlPrimaryDoctors" name="DdlPrimaryDoctors">
-            <% List<PrimaryDoctor> collection = (List<PrimaryDoctor>)ViewState["PrimaryDoctors"];
-               foreach (PrimaryDoctor listItem in collection)
-               {
-                   if (listItem.Id.ToString(CultureInfo.InvariantCulture) == doctorSelectedIndex)
+    <li class="LiDoctorsAndProcedures">
+        <div class="leftBox">
+            I authorize Doctor(s)
+            <select class="DdlPrimaryDoctors" name="DdlPrimaryDoctors">
+                <% List<PrimaryDoctor> collection = (List<PrimaryDoctor>)ViewState["PrimaryDoctors"];
+                   foreach (PrimaryDoctor listItem in collection)
                    {
-            %>
-            <option value="<%= listItem.Id %>" selected="selected">
-                <%= listItem.Name %></option>
-            <% }
-                   else
+                       if (listItem.Id.ToString(CultureInfo.InvariantCulture) == doctorSelectedIndex)
+                       {
+                %>
+                <option value="<%= listItem.Id %>" selected="selected">
+                    <%= listItem.Name %></option>
+                <% }
+                       else
+                       { %>
+                <option value="<%= listItem.Id %>">
+                    <%= listItem.Name %></option>
+                <% } %>
+                <%
+                   }
+                %>
+            </select>
+            <label class="errorInfo LblAssociatedDoctors">
+                <%= associatedDoctors  %></label>
+            and such designee or assistant as he may designate to perform:
+            <% if (!IsStaticTextBoxForPrecedures)
+               {%>
+            <select multiple="multiple" class="DdLProcedures" style="width: 400px;">
+                <% foreach (string procedure in listOfProcedures)
                    { %>
-            <option value="<%= listItem.Id %>">
-                <%= listItem.Name %></option>
-            <% } %>
-            <%
-               }
-            %>
-        </select>
-        <label class="errorInfo LblAssociatedDoctors">
-            <%= associatedDoctors %></label>
-        to perform upon &nbsp;
-        <asp:Label runat="server" CssClass="errorInfo"></asp:Label>
-        the procedure or operation : &nbsp;
-        <% if (!IsStaticTextBoxForPrecedures)
-           {%>
-        <select multiple="multiple" class="DdLProcedures" style="width: 400px;">
-            <% foreach (string procedure in listOfProcedures)
+                <option value="<%= procedure %>">
+                    <%= procedure %></option>
+                <% } %>
+            </select>
+            <a href="#" class="RemoveDocAndProc extraMargin">Remove
+                <img src="/Images/index.jpg" alt="" /></a>
+            <input type="hidden" class="HdnSelectedProcedures" name="HdnSelectedProcedures" value="<%= doctorsProcedures.SelectedProcedures[index] %>" />
+            <div id="DivOtherProcedure" class="DivOtherProcedure">
+                <label>
+                    Specify procedure</label>
+                &nbsp;
+                <input type="text" name="TxtOtherProcedure" />
+            </div>
+            <% }
+               else
                { %>
-            <option value="<%= procedure %>">
-                <%= procedure %></option>
+            <div>
+                <input type="text" id="TxtProcedures" name="TxtProcedures" class="TxtProcedures"
+                    value="<%= doctorsProcedures.SelectedProcedures[index] %>" />
+                <a href="#" class="RemoveDocAndProc">Remove
+                    <img src="/Images/index.jpg" alt="" /></a>
+            </div>
             <% } %>
-        </select>
-        <input type="hidden" class="HdnSelectedProcedures" name="HdnSelectedProcedures" value="<%= doctorsProcedures.SelectedProcedures[index] %>" />
-        <div id="DivOtherProcedure" class="DivOtherProcedure">
-            <label>
-                Specify procedure</label>
-            &nbsp;
-            <input type="text" name="TxtOtherProcedure" />
         </div>
-        <% }
-           else
-           { %>
-        <div>
-            <input type="text" id="TxtProcedures" name="TxtProcedures" class="TxtProcedures"
-                value="<%= doctorsProcedures.SelectedProcedures[index] %>" />
+        <div class="clear">
         </div>
-        <% } %>
     </li>
     <%    }%>
     <li>
         <div class="addNewBox">
-            <a href="#" id="AddNewProcedure">Add new procedure</a>
+            <a href="#" id="AddNewProcedure">Add a Physician</a>
         </div>
     </li>
 </ul>

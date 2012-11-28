@@ -73,6 +73,39 @@
                 needs to be redirected.
             </div>
         </li>
+    </ul>
+    <ul class="content">
+        <li></li>
+        <li>
+            <table class="noBorder">
+                <tr>
+                    <td class="edgeColumn">
+                        <h3>
+                            Bethesda Hospital East
+                            <br />
+                            2815 S. Seacrest Blvd
+                            <br />
+                            Boynton Beach,FL 33435
+                            <br />
+                            (561) 737-7733
+                        </h3>
+                    </td>
+                    <td class="middleColumn">
+                    </td>
+                    <td class="edgeColumn">
+                        <h3>
+                            Bethesda Hospital West
+                            <br />
+                            9655 Boynton Beach Blvd,
+                            <br />
+                            Boynton Beach, FL 33472
+                            <br />
+                            (561) 336-7000
+                        </h3>
+                    </td>
+                </tr>
+            </table>
+        </li>
         <li><span class="content-heading">I UNDERSTAND that no guarantees have been made to
             me that this operation will improve my condition. </span></li>
         <li>
@@ -119,8 +152,6 @@
                 (Witness to Signature or Telephone Consent Only)
             </div>
         </li>
-    </ul>
-    <ul class="content">
         <li>
             <div class="PrintsigBox">
             </div>
@@ -136,12 +167,8 @@
         <li>
             <div>
                 Interpreted By:
-            </div>
-            <div class="PrintsigBox">
-            </div>
-            <div class="right">
-            </div>
-            <div class="clear">
+                <br />
+                <br />
             </div>
         </li>
         <li>
@@ -168,7 +195,7 @@
                         Blood Transfusion Consent Form
                     </td>
                     <td>
-                        MRIN#:
+                        MR#:
                     </td>
                     <td>
                     </td>

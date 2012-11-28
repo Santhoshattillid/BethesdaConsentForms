@@ -9,14 +9,15 @@
         </p>
     </li>
     <li>
-        <div class="con">
+        <div class="checkboxleft">
             <asp:CheckBox runat="server" ID="ChkPatientisUnableToSign" Text="Patient is unable to sign?"
-                AutoPostBack="True" OnCheckedChanged="ChkPatientisUnableToSign_CheckedChanged"  />
+                AutoPostBack="True" OnCheckedChanged="ChkPatientisUnableToSign_CheckedChanged" />
         </div>
     </li>
     <li>
-        <div class="con">
-            <asp:CheckBox runat="server" ID="ChkTelephoneConsent" Text="Telephone Consent" />
+        <div class="checkboxleft">
+            <asp:CheckBox runat="server" ID="ChkTelephoneConsent" Text="Telephone Consent" AutoPostBack=""
+                OnCheckedChanged="ChkTelephoneConsent_CheckedChanged" />
         </div>
     </li>
     <li class="PatientReason">
@@ -40,6 +41,16 @@
             </div>
         </asp:Panel>
     </li>
+    <li>
+        <asp:Panel runat="server" ID="PnlPatientReason3">
+            <div class="small-content">
+                Authorised person name
+            </div>
+            <div>
+                <asp:TextBox runat="server" ID="TxtAuthorizedPersonName"></asp:TextBox>
+            </div>
+        </asp:Panel>
+    </li>
     <li class="PatientSign">
         <asp:Panel runat="server" ID="PnlPatientSign">
             <div>
@@ -55,7 +66,7 @@
     </li>
     <li>
         <div>
-            Witness To Signature Only</div>
+            Witness to Signature or Telephone Consent Only</div>
         <div class="sig14 sigWrapper">
             <canvas class="pad" width="198" height="55"></canvas>
             <input type="hidden" class="HdnImage14" name="<%= SignatureType.WitnessSignature1.ToString() %>"
@@ -65,9 +76,17 @@
         </div>
     </li>
     <li>
+        <div class="small-content">
+            Witness name
+        </div>
+        <div>
+            <asp:TextBox runat="server" ID="TxtWitnessSignature1Name"></asp:TextBox>
+        </div>
+    </li>
+    <li>
         <asp:Panel runat="server" ID="PnlAdditionalwitness">
             <div>
-                Witness To signature
+                Second Witness to Telephone Consent Only
             </div>
             <div class="sig15 sigWrapper">
                 <canvas class="pad" width="198" height="55"></canvas>
@@ -75,6 +94,16 @@
                     value='<%= ViewState[SignatureType.WitnessSignature2.ToString()].ToString() %>' />
             </div>
             <div class="clear">
+            </div>
+        </asp:Panel>
+    </li>
+    <li>
+        <asp:Panel runat="server" ID="PnlAdditionalwitness2">
+            <div class="small-content">
+                Second witness name
+            </div>
+            <div>
+                <asp:TextBox runat="server" ID="TxtSecondWitnessName"></asp:TextBox>
             </div>
         </asp:Panel>
     </li>
@@ -88,6 +117,29 @@
         <div class="clear">
         </div>
     </li>
+    <% if (ConsentType == ConsentType.PICC)
+       { %>
+    <li>
+        <div>
+            PICC Nurse
+        </div>
+        <div class="sig16 sigWrapper">
+            <canvas class="pad" width="198" height="55"></canvas>
+            <input type="hidden" class="HdnImage16" name="<%= SignatureType.PICCSignature.ToString() %>"
+                value='<%= ViewState[SignatureType.PICCSignature.ToString()].ToString() %>' />
+        </div>
+        <div class="clear">
+        </div>
+    </li>
+    <li>
+        <div class="small-content">
+            PICC Nurse Name
+        </div>
+        <div>
+            <asp:TextBox runat="server" ID="TxtPICCNurseName"></asp:TextBox>
+        </div>
+    </li>
+    <% } %>
     <li>
         <asp:Label runat="server" ID="LblError" CssClass="errorInfo"></asp:Label>
     </li>

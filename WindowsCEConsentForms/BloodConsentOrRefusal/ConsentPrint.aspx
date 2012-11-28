@@ -140,7 +140,7 @@
                             <div class="sigBox">
                                 <asp:Image runat="server" ID="ImgPatientSignature" />
                             </div>
-                           <%-- <div class="right">
+                            <%-- <div class="right">
                                 <asp:Label runat="server" ID="LblPatientSignatureDateTime"></asp:Label>
                             </div>--%>
                             <div class="clear">
@@ -231,81 +231,7 @@
                     </td>
                 </tr>
             </table>
-            <%--<li>
-            <asp:Panel runat="server" ID="PnlPatientSignature">
-                <div class="sigBox">
-                    <asp:Image runat="server" ID="ImgPatientSignature" />
-                </div>
-                <div class="right">
-                    <asp:Label runat="server" ID="LblPatientSignatureDateTime"></asp:Label>
-                </div>
-                <div class="clear">
-                </div>
-                <div>
-                    (PATIENT SIGNATURE)
-                </div>
-            </asp:Panel>
         </li>
-        <li>
-            <asp:Panel runat="server" ID="PnlPatientUnableToSignBecause">
-                Patient is unable to sign because:
-                <asp:Label runat="server" ID="LblPatientUnableToSignBecause" CssClass="errorInfo"></asp:Label>
-            </asp:Panel>
-        </li>
-        <li>
-            <<asp:Panel runat="server" ID="PnlAuthorizedSignature">
-                <div class="sigBox">
-                    <asp:Image runat="server" ID="ImgAuthorizedSignature" />
-                </div>
-                <div class="right">
-                    <asp:Label runat="server" ID="LblAuthorizedSignDateTime"></asp:Label>
-                </div>
-                <div class="clear">
-                </div>
-                <div>
-                    (If patient unable to sign, person authorized to sign.)
-                </div>
-            </asp:Panel>
-        </li>
-        <li>
-            <<div class="sigBox">
-                <asp:Image runat="server" ID="ImgWitnessSignature1" />
-            </div>
-            <div class="right">
-                <asp:Label runat="server" ID="LblWitnessSignature1DateTime"></asp:Label>
-            </div>
-            <div class="clear">
-            </div>
-            <div>
-                (Witness to Signature or Telephone Consent Only)
-            </div>
-        </li>
-       <li>
-            <div class="sigBox">
-                <asp:Image runat="server" ID="ImgWitnessSignature2" />
-            </div>
-            <div class="right">
-                <asp:Label runat="server" ID="LblWitnessSignature2DateTime"></asp:Label>
-            </div>
-            <div class="clear">
-            </div>
-            <div>
-                (Second Witness to Telephone Consent Only)
-            </div>
-        </li>
-        <li>
-            <%--<div>
-                Interpreted By:
-            </div>
-            <div class="leftBox">
-                <asp:Label runat="server" ID="LblTranslatedBy" CssClass="errorInfo"></asp:Label>
-            </div>
-            <div class="right">
-                <asp:Label runat="server" ID="LblTranslatedDateTime"></asp:Label>
-            </div>
-            <div class="clear">
-            </div>
-        </li>--%></li>
         <li></li>
         <li>
             <table class="bigfont">
@@ -317,7 +243,7 @@
                         Blood Transfusion Consent Form
                     </td>
                     <td>
-                        MRIN#:
+                        MR#:
                     </td>
                     <td>
                         <asp:Label runat="server" ID="LblPatientMrHash"></asp:Label>

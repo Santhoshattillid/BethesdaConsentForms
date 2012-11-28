@@ -78,7 +78,7 @@
     <ul class="content print">
         <li>
             <ul class="content">
-                <li>
+                <li class="center">
                     <h3>
                         STATEMENT OF CONSENT</h3>
                 </li>
@@ -87,18 +87,17 @@
                         I have read or had read to me, the above. I do not have any questions, which have
                         not been answered to my full satisfaction. I hereby consent to such transfusion,
                         as my physician may deem necessary or advisable in the course of my treatment.<br />
-                        <table class="noBorder">
-                            <tr>
-                                <td>
-                                    <asp:CheckBox runat="server" ID="Chk1" Text="I have Directed Units" CssClass="leftPush" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:CheckBox runat="server" ID="CheckBox1" Text="I have Autologous Units" CssClass="leftPush" />
-                                </td>
-                            </tr>
-                        </table>
+                    </div>
+                </li>
+                <li>
+                    <div class="leftPushMargin">
+                        <asp:CheckBox runat="server" ID="ChkDirectedUnits" Text="I have Directed Units" />
+                    </div>
+                </li>
+                <li>
+                    <div class="leftPushMargin">
+                        <asp:CheckBox runat="server" ID="ChkAutologousUnits" Text="I have Autologous Units"
+                            CssClass="leftPush" />
                     </div>
                 </li>
             </ul>
@@ -180,12 +179,8 @@
         <li>
             <div>
                 Interpreted By:
-            </div>
-            <div class="PrintsigBox">
-            </div>
-            <div class="right">
-            </div>
-            <div class="clear">
+                <br />
+                <br />
             </div>
         </li>
         <li></li>
@@ -199,7 +194,7 @@
                         Blood Transfusion Consent Form
                     </td>
                     <td>
-                        MRIN#:
+                        MR#:
                     </td>
                     <td>
                     </td>

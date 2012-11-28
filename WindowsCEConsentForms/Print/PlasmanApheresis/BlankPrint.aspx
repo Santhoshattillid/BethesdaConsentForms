@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <ul class="content">
+    <ul class="content print">
         <li class="center">
             <%--<h3>
                 PLASMA APHERESIS FORM
@@ -102,9 +102,38 @@
             </div>
         </li>
     </ul>
-    <br />
-    <br />
     <ul class="content">
+        <li></li>
+        <li>
+            <table class="noBorder">
+                <tr>
+                    <td class="edgeColumn">
+                        <h3>
+                            Bethesda Hospital East
+                            <br />
+                            2815 S. Seacrest Blvd
+                            <br />
+                            Boynton Beach,FL 33435
+                            <br />
+                            (561) 737-7733
+                        </h3>
+                    </td>
+                    <td class="middleColumn">
+                    </td>
+                    <td class="edgeColumn">
+                        <h3>
+                            Bethesda Hospital West
+                            <br />
+                            9655 Boynton Beach Blvd,
+                            <br />
+                            Boynton Beach, FL 33472
+                            <br />
+                            (561) 336-7000
+                        </h3>
+                    </td>
+                </tr>
+            </table>
+        </li>
         <li>
             <div class="PrintsigBox">
             </div>
@@ -193,7 +222,7 @@
                         CARDIOVASCULAR Form
                     </td>
                     <td>
-                        MRIN#:
+                        MR#:
                     </td>
                     <td>
                     </td>

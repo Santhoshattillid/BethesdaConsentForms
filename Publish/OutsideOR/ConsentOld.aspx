@@ -12,7 +12,7 @@
         <li class="center">CONSENT FOR DIAGNOSTIC PROCEDURE OR OPERATION</li>
         <li>
             <div class="right smallest">
-                MRIN# :</div>
+                MR# :</div>
             <div class="right small">
                 <asp:Label ID="LblPatientMRId" runat="server" CssClass="errorInfo"></asp:Label></div>
             <div class="right smallest">

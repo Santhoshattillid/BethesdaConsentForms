@@ -50,12 +50,11 @@
 }
 .Container
 {
-    /*color: inherit !important; 	width: 600px; 	background: #fff; 	padding: 5px; 	border: 1px solid #DDD;*/
-    background: #fff;
-    border-radius: 10px;
+    /*color: inherit !important;     width: 600px;     background: #fff;     padding: 5px;     border: 1px solid #DDD;*/
+    background: #FFF; /*border-radius: 10px*/
     width: 100%;
     margin: 0 auto;
-    border: 6px solid #efefef;
+    border: 6px solid #EFEFEF;
     padding: 10px;
 }
 .Container TABLE, .content
@@ -63,7 +62,7 @@
     width: 100%; /*border-top: 1px solid #EEE;*/
     font: 17px Calibri;
 }
-.Container TABLE, .content label, .content li
+.Container TABLE, .content LABEL, .content LI
 {
     padding-left: 5px;
 }
@@ -78,20 +77,19 @@
 }
 .Container TABLE TR TD
 {
-    padding: 5px; /*border-bottom: 1px solid #DDD; 	border-left: 1px solid #DDD;*/
+    padding: 5px; /*border-bottom: 1px solid #DDD;     border-left: 1px solid #DDD;*/
     width: 25%;
 }
 .Container SELECT
 {
     width: 200px;
-    background: #efefef;
-    border-radius: 3px;
+    background: #EFEFEF; /*border-radius: 3px*/
     border: 0;
     padding: 3px;
-    border: 1px solid #ccc;
+    border: 1px solid #CCC;
     color: #666;
 }
-.Container INPUT[type="text"], input[type="submit"]
+.Container INPUT[type="text"], INPUT[type="submit"]
 {
     width: 60px;
 }
@@ -109,9 +107,13 @@
 {
     padding: 5px;
 }
-.Container .errorInfo
+.Container .errorInfomodified
 {
     color: #DC143C;
+}
+.Container .errorInfo
+{
+    color: #000000;
 }
 .Container INPUT[type="text"]
 {
@@ -141,7 +143,6 @@
     float: none;
     width: 0px;
 }
-
 .noBorder TR TD
 {
     border: none;
@@ -182,9 +183,8 @@
 {
     width: 100px;
     border: 1px solid #80A8BB;
-    background: #2C4176;
-    border-radius: 5px;
-    color: #fff;
+    background: #2C4176; /*border-radius: 5px*/
+    color: #FFF;
     padding: 5px;
     cursor: pointer;
     margin-left: 5px;
@@ -236,7 +236,7 @@
 {
     page-break-before: always;
 }
-.print .leftBox
+.leftBox
 {
     float: left;
 }
@@ -264,12 +264,12 @@
     padding-left: 5px;
     padding-right: 5px;
 }
-.small-content ul
+.small-content UL
 {
     margin: 0;
     padding: 0;
 }
-.small-content div
+.small-content DIV
 {
     left: 0;
     padding: 10px 0;
@@ -300,7 +300,7 @@
 {
     display: none;
 }
-.leftPush label
+.leftPush LABEL
 {
     /*margin-left: 200px;*/
     padding-left: 5px;
@@ -318,11 +318,11 @@
     border: 1px solid #777;
     float: left;
 }
-.Container a
+.Container A
 {
-    color: #6c80f3;
+    color: #6C80F3;
 }
-.content table
+.content TABLE
 {
     width: 100%;
 }
@@ -333,11 +333,11 @@
     margin-right: 5px;
     margin-bottom: 5px;
 }
-.addNewBox a
+.addNewBox A
 {
     padding: 5px;
-    background-color: #eee;
-    color: #6c80f3;
+    background-color: #EEE;
+    color: #6C80F3;
 }
 .DateTimeUnderline
 {
@@ -346,19 +346,17 @@
 /*form style*/
 .textbox
 {
-    background: #efefef;
-    border-radius: 3px;
+    background: #EFEFEF; /*border-radius: 3px*/
     border: 0;
     padding: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #CCC;
     color: #666;
     width: 80%;
 }
 .btn, .btn1
 {
-    background: #2C4176;
-    border-radius: 5px;
-    color: #fff;
+    background: #2C4176; /*border-radius: 5px*/
+    color: #FFF;
     padding: 5px;
 }
 .btn1
@@ -367,21 +365,21 @@
 }
 .hdr
 {
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
     float: left;
     width: 97%;
     padding: 10px;
-    background: #f5f5f5;
+    background: #F5F5F5;
     font-family: arial;
     margin-bottom: 10px;
 }
-.hdr ul
+.hdr UL
 {
     padding: 0;
     margin: 0;
 }
-.hdr li
+.hdr LI
 {
     float: left;
     width: 30%;
@@ -389,30 +387,55 @@
     left: 0;
     padding: 0;
 }
-.hdr li:first-child
+.hdr LI:first-child
 {
     float: right;
 }
-.hdr h1
+.hdr H1
 {
     font-size: 18px;
-    color: #2c4176;
+    color: #2C4176;
     font-weight: lighter;
     padding: 5px 0;
     margin: 0;
 }
 .textarea
 {
-    background: #efefef;
-    border-radius: 3px;
+    background: #EFEFEF; /*border-radius: 3px*/
     border: 0;
     padding: 5px;
-    border: 1px solid #ccc;
-    box-shadow: 4px 0px 12px #CCC;
-    color: #a7a7a7;
+    border: 1px solid #CCC; /*box-shadow: 4px 0px 12px #CCC*/
+    color: #A7A7A7;
     width: 80%;
 }
 .con
 {
     margin-left: 270px;
+}
+.checkboxleft
+{
+    margin-left: 0px;
+}
+.patienttabletd
+{
+    width: 100px;
+}
+.leftPushMargin
+{
+    margin-left: 40%;
+}
+.RemoveDocAndProc
+{
+    padding: 5px;
+    background-color: #EEE;
+    color: #6C80F3;
+    margin-left: 125px;
+}
+.RemoveDocAndProc IMG
+{
+    margin-bottom: -4px;
+}
+.extraMargin
+{
+    margin-left: 185px;
 }

@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <ul class="content">
+    <ul class="content print">
         <li class="center">
             <h3>
                 CARDIOVASCULAR LABORATORY CONSENT
@@ -76,21 +76,6 @@
             <div class="clear">
             </div>
         </li>
-        <li>
-            <div class="PrintsigBox">
-            </div>
-            <div class="right">
-                Although this procedure and its complications have been explained to me, I acknowledge
-                that I have been given no guarantee against complications or assurance of success
-                by the physician who has explained them. I know I have been given free choice to
-                accept or reject any an/or all of the procedures to be performed on myself. In the
-                event any complications should arise. I permit the above physicians to seek consultation
-                with other specialists and permit the performance of any surgical or other procedures
-                that may be required on an emergency basis to correct such complications.
-            </div>
-            <div class="clear">
-            </div>
-        </li>
     </ul>
     <ul class="content print">
         <li></li>
@@ -123,6 +108,21 @@
                     </td>
                 </tr>
             </table>
+        </li>
+        <li>
+            <div class="PrintsigBox">
+            </div>
+            <div class="right">
+                Although this procedure and its complications have been explained to me, I acknowledge
+                that I have been given no guarantee against complications or assurance of success
+                by the physician who has explained them. I know I have been given free choice to
+                accept or reject any an/or all of the procedures to be performed on myself. In the
+                event any complications should arise. I permit the above physicians to seek consultation
+                with other specialists and permit the performance of any surgical or other procedures
+                that may be required on an emergency basis to correct such complications.
+            </div>
+            <div class="clear">
+            </div>
         </li>
         <li><span class="content-heading">I UNDERSTAND that no guarantees have been made to
             me that this operation will improve my condition. </span></li>
@@ -184,12 +184,8 @@
         <li>
             <div>
                 Interpreted By:
-            </div>
-            <div class="PrintsigBox">
-            </div>
-            <div class="right">
-            </div>
-            <div class="clear">
+                <br />
+                <br />
             </div>
         </li>
         <li></li>
@@ -203,7 +199,7 @@
                         CARDIOVASCULAR Form
                     </td>
                     <td>
-                        MRIN#:
+                        MR#:
                     </td>
                     <td>
                     </td>

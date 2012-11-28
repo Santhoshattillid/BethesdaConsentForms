@@ -32,10 +32,11 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
                 var lblError = DeclarationSignatures.LblError;
                 var chkPatientisUnableToSign = DeclarationSignatures.ChkPatientisUnableToSign;
                 var txtPatientNotSignedBecause = DeclarationSignatures.TxtPatientNotSignedBecause;
+                var chkTelephoneConsent = DeclarationSignatures.ChkTelephoneConsent;
 
                 lblError.Text = string.Empty;
 
-                if (chkPatientisUnableToSign.Checked)
+                if (chkPatientisUnableToSign.Checked || chkTelephoneConsent.Checked)
                 {
                     if (string.IsNullOrEmpty(txtPatientNotSignedBecause.Text.Trim()))
                         lblError.Text += " <br /> Please input reason for why patient not able sign.";
@@ -52,7 +53,7 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
                 if (string.IsNullOrEmpty(Request.Form[SignatureType.WitnessSignature1.ToString()]))
                     lblError.Text += " <br /> Please input witness signature.";
 
-                if (DeclarationSignatures.ChkTelephoneConsent.Checked && string.IsNullOrEmpty(Request.Form[SignatureType.WitnessSignature1.ToString()]))
+                if (DeclarationSignatures.ChkTelephoneConsent.Checked && string.IsNullOrEmpty(Request.Form[SignatureType.WitnessSignature2.ToString()]))
                     lblError.Text += " <br /> Please input witness 2 signature.";
 
                 if (!string.IsNullOrEmpty(lblError.Text))
@@ -72,7 +73,7 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
 
                 var formHandlerServiceClient = new FormHandlerServiceClient();
 
-                formHandlerServiceClient.SaveDoctorsDetails(patientId, consentType.ToString(), DoctorsAndProcedures1.GetDoctorsAndProcedures().ToArray());
+                //formHandlerServiceClient.SaveDoctorsDetails(patientId, consentType.ToString(), DoctorsAndProcedures1.GetDoctorsAndProcedures().ToArray());
 
                 if (Request.Form[SignatureType.PatientSign.ToString()] != null)
                 {

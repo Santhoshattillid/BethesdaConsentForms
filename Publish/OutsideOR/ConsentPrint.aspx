@@ -1,18 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true"
     CodeBehind="ConsentPrint.aspx.cs" Inherits="WindowsCEConsentForms.OutsideOR.OutsideORConsentPrintV1" %>
 
+<%@ Register TagPrefix="uc1" TagName="doctorsandproceduresprint" Src="~/DoctorsAndProceduresPrint.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <uc1:doctorsandproceduresprint ID="DoctorsAndProceduresPrint1" runat="server" consenttype="OutsideOR" />
     <ul class="content print">
-        <li>I here by authorize Doctor(s)
-            <asp:Label runat="server" ID="LblAuthoriseDoctors" CssClass="errorInfo"></asp:Label>
-            to perform upon
-            <asp:Label runat="server" ID="LblPatientName2" CssClass="errorInfo"></asp:Label>
-            (state name of patient or "myself") the following procedure or operation
-            <br />
-            <asp:Label runat="server" ID="LblProcedureName" CssClass="errorInfo"></asp:Label>
-        </li>
         <li>
             <h4>
                 PATIENT - PLEASE INITIAL the lines next to each paragraph of this consent to indicate
@@ -85,9 +79,6 @@
         </li>
     </ul>
     <ul class="content print">
-        <li>
-            <img src="/Images/logo.png" alt="logo" />
-        </li>
         <li>
             <table class="noBorder">
                 <tr>
@@ -210,7 +201,9 @@
                         </div>
                         <div class="clear">
                         </div>
-                        <br /><br />(Interpreted By)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <br />
+                        <br />
+                        (Interpreted By)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________
                         Date:__<asp:Label runat="server" ID="LblTranslatedDate" CssClass="DateTimeUnderline">___</asp:Label>__
                         Time:__<asp:Label runat="server" ID="LblTranslatedTime" CssClass="DateTimeUnderline"></asp:Label>__
@@ -303,7 +296,7 @@
                         Outside OR Consent Form
                     </td>
                     <td>
-                        MRIN#:
+                        MR#:
                     </td>
                     <td>
                         <asp:Label runat="server" ID="LblPatientMrHash"></asp:Label>

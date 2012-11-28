@@ -19,7 +19,6 @@
         </li>
     </ul>
     <uc1:PatientDetails ID="PatientDetails1" runat="server" />
-    <uc1:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" ConsentType="PlasmanApheresis" />
     <ul class="content">
         <li>
             <div class="small-content">

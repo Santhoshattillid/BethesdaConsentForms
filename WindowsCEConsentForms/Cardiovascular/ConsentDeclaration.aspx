@@ -9,11 +9,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <ul class="content">
-        <li class="center">
-            <%--<h3>
-                CARDIOVASCULAR</h3>--%>
-        </li> 
-        <li class="center">Cardiovascular Laboratiry Consent Form</li>
+        <li class="center">Cardiovascular Laboratory Consent Form</li>
     </ul>
     <uc1:PatientDetails ID="PatientDetails1" runat="server" />
     <uc1:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" ConsentType="Cardiovascular" />

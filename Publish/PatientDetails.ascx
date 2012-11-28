@@ -3,21 +3,23 @@
 <ul class="content">
     <li>
         <div class="right smallest">
-            MRIN# </div>
+            MR#
+        </div>
         <div class="right small">
             <asp:Label ID="LblPatientMRId" runat="server"></asp:Label></div>
         <div class="right smallest">
-            Name 
+            Name
         </div>
         <div class="right small">
             <asp:Label runat="server" ID="LblPatientName"></asp:Label></div>
         <div class="right smallest">
-            Date 
+            Date
         </div>
         <div class="right small">
             <asp:Label runat="server" ID="LblDate"></asp:Label></div>
         <div class="right smallest">
-            Time </div>
+            Time
+        </div>
         <div class="right small">
             <asp:Label runat="server" ID="LblTime"></asp:Label></div>
         <div class="clear">

@@ -1,17 +1,14 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ConsentPrint.ascx.cs"
     Inherits="WindowsCEConsentForms.ConsentPrint" %>
-<ul class="content print">
+<%@ Register Src="DoctorsAndProceduresPrint.ascx" TagName="DoctorsAndProceduresPrint"
+    TagPrefix="uc1" %>
+<ul class="content">
     <li>PATIENT:
         <asp:Label runat="server" ID="LblPatientName3" CssClass="errorInfo"></asp:Label>
     </li>
-    <li>I here by authorize Doctor(s)
-        <asp:Label runat="server" ID="LblAuthoriseDoctors" CssClass="errorInfo"></asp:Label>
-        to perform upon
-        <asp:Label runat="server" ID="LblPatientName2" CssClass="errorInfo"></asp:Label>
-        the following procedure or operation:
-        <br />
-        <asp:Label runat="server" ID="LblProcedureName" CssClass="errorInfo"></asp:Label>
-    </li>
+</ul>
+<uc1:DoctorsAndProceduresPrint ID="DoctorsAndProceduresPrint1" runat="server" />
+<ul class="content print">
     <li>
         <div class="sigBox">
             <asp:Image runat="server" ID="ImgSignature1" />
@@ -78,9 +75,6 @@
     </li>
 </ul>
 <ul class="content print">
-    <li>
-        <img src="/Images/logo.png" alt="logo" />
-    </li>
     <li>
         <table class="noBorder">
             <tr>
@@ -289,11 +283,12 @@
                     FORM:
                 </td>
                 <td>
-                    <%= ConsentType.ToString() %>
+                    <%= ConsentType.ToString()
+                    %>
                     Consent Form
                 </td>
                 <td>
-                    MRIN#:
+                    MR#:
                 </td>
                 <td>
                     <asp:Label runat="server" ID="LblPatientMrHash"></asp:Label>
