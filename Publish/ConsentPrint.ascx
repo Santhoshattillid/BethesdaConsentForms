@@ -2,6 +2,8 @@
     Inherits="WindowsCEConsentForms.ConsentPrint" %>
 <%@ Register Src="DoctorsAndProceduresPrint.ascx" TagName="DoctorsAndProceduresPrint"
     TagPrefix="uc1" %>
+<%@ Register Src="PageHeader.ascx" TagName="PageHeader" TagPrefix="uc2" %>
+<%@ Register Src="PrintFooter.ascx" TagName="PrintFooter" TagPrefix="uc3" %>
 <ul class="content">
     <li>PATIENT:
         <asp:Label runat="server" ID="LblPatientName3" CssClass="errorInfo"></asp:Label>
@@ -74,41 +76,14 @@
         </div>
     </li>
 </ul>
-<ul class="content print">
+<ul class="content">
     <li>
-        <table class="noBorder">
-            <tr>
-                <td class="edgeColumn">
-                    <h3>
-                        Bethesda Hospital East
-                        <br />
-                        2815 S. Seacrest Blvd
-                        <br />
-                        Boynton Beach,FL 33435
-                        <br />
-                        (561) 737-7733
-                    </h3>
-                </td>
-                <td class="middleColumn">
-                </td>
-                <td class="edgeColumn">
-                    <h3>
-                        Bethesda Hospital West
-                        <br />
-                        9655 Boynton Beach Blvd,
-                        <br />
-                        Boynton Beach, FL 33472
-                        <br />
-                        (561) 336-7000
-                    </h3>
-                </td>
-            </tr>
-        </table>
+        <uc2:PageHeader ID="PageHeader1" runat="server" />
     </li>
     <li><span class="content-heading">I UNDERSTAND that no guarantees have been made to
         me that this operation will improve my condition. </span></li>
     <li class="noBorder">
-        <table border="0">
+        <table class="noBorder">
             <tr>
                 <td>
                     <asp:Panel runat="server" ID="PnlPatientSignature">
@@ -207,149 +182,5 @@
             </tr>
         </table>
     </li>
-    <%--<li>
-        <asp:Panel runat="server" ID="PnlPatientSignature">
-            <div class="sigBox">
-                <asp:Image runat="server" ID="ImgPatientSignature" />
-            </div>
-            <div class="right">
-                <asp:Label runat="server" ID="LblPatientSignatureDateTime"></asp:Label>
-            </div>
-            <div class="clear">
-            </div>
-            <div>
-                (PATIENT SIGNATURE)
-            </div>
-        </asp:Panel>
-    </li>
-    <li>
-        <asp:Panel runat="server" ID="PnlPatientUnableToSignBecause">
-            Patient is unable to sign because:
-            <asp:Label runat="server" ID="LblPatientUnableToSignBecause" CssClass="errorInfo"></asp:Label>
-        </asp:Panel>
-    </li>
-    <li>
-        <asp:Panel runat="server" ID="PnlAuthorizedSignature">
-            <div class="sigBox">
-                <asp:Image runat="server" ID="ImgAuthorizedSignature" />
-            </div>
-            <div class="right">
-                <asp:Label runat="server" ID="LblAuthorizedSignDateTime"></asp:Label>
-            </div>
-            <div class="clear">
-            </div>
-            <div>
-                (If patient unable to sign, person authorized to sign.)
-            </div>
-        </asp:Panel>
-    </li>
-    <li>
-        <div class="sigBox">
-            <asp:Image runat="server" ID="ImgWitnessSignature1" />
-        </div>
-        <div class="right">
-            <asp:Label runat="server" ID="LblWitnessSignature1DateTime"></asp:Label>
-        </div>
-        <div class="clear">
-        </div>
-        <div>
-            (Witness to Signature or Telephone Consent Only)
-        </div>
-    </li>
-    <li>
-        <div class="sigBox">
-            <asp:Image runat="server" ID="ImgWitnessSignature2" />
-        </div>
-        <div class="right">
-            <asp:Label runat="server" ID="LblWitnessSignature2DateTime"></asp:Label>
-        </div>
-        <div class="clear">
-        </div>
-        <div>
-            (Second Witness to Telephone Consent Only)
-        </div>
-    </li>
-    <li>
-        <div>
-            Interpreted By:
-            <asp:Label runat="server" ID="LblTranslatedBy" CssClass="errorInfo"></asp:Label>
-        </div>
-    </li>--%>
-    <li></li>
-    <li>
-        <table class="bigfont">
-            <tr>
-                <td>
-                    FORM:
-                </td>
-                <td>
-                    <%= ConsentType.ToString()
-                    %>
-                    Consent Form
-                </td>
-                <td>
-                    MR#:
-                </td>
-                <td>
-                    <asp:Label runat="server" ID="LblPatientMrHash"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    PATIENT:
-                </td>
-                <td>
-                    <asp:Label runat="server" ID="LblPatientName"></asp:Label>
-                </td>
-                <td>
-                    DOB:
-                </td>
-                <td>
-                    <asp:Label runat="server" ID="LblDOB"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    PATIENT#:
-                </td>
-                <td>
-                    <asp:Label runat="server" ID="LblPatientId"></asp:Label>
-                </td>
-                <td>
-                    AGE:
-                </td>
-                <td>
-                    <asp:Label runat="server" ID="LblAge"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    GENDER:
-                </td>
-                <td>
-                    <asp:Label runat="server" ID="LblGender"></asp:Label>
-                </td>
-                <td>
-                    DATE:
-                </td>
-                <td>
-                    <asp:Label runat="server" ID="LblDate"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    ADMIT DATE:
-                </td>
-                <td>
-                    <asp:Label runat="server" ID="LblPatientAdminDate"></asp:Label>
-                </td>
-                <td>
-                    TIME:
-                </td>
-                <td>
-                    <asp:Label runat="server" ID="LblPatientAdminTime"></asp:Label>
-                </td>
-            </tr>
-        </table>
-    </li>
 </ul>
+<uc3:PrintFooter ID="PrintFooter1" runat="server" />

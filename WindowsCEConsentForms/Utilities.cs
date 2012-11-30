@@ -91,6 +91,29 @@ namespace WindowsCEConsentForms
             var formHandlerServiceClient = new FormHandlerServiceClient();
             return formHandlerServiceClient.GetPatientDetail(patientId, consentType);
         }
+
+        public static string GetConsentHeader(ConsentType consentType)
+        {
+            switch (consentType)
+            {
+                case ConsentType.Surgical:
+                    return "CONSENT TO DIAGNOSTIC PROCEDURE OR OPERATION";
+                case ConsentType.Cardiovascular:
+                    return "CARDIOVASCULAR LABORATORY CONSENT";
+                case ConsentType.OutsideOR:
+                    return "CONSENT FOR PROCEDURES OUTSIDE OF THE OPERATING ROOM";
+                case ConsentType.Endoscopy:
+                    return "CONSENT FOR ENDOSCOPY";
+                case ConsentType.BloodConsentOrRefusal:
+                    return "CONSENT FOR TRANSFUSION OF BLOOD OR BLOOD PRODUCTS";
+                case ConsentType.PlasmanApheresis:
+                    return "CONSENT FOR THERAPEUTIC APHERESIS";
+                case ConsentType.PICC:
+                    return "AUTHORIZATION FOR PERIPHERALLY INSERTED CENTRAL CATHETER (PICC)";
+                default:
+                    return string.Empty;
+            }
+        }
     }
 
     public enum ConsentType

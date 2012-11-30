@@ -76,6 +76,15 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.WebControls.Image ImgSignature5;
         
         /// <summary>
+        /// PageHeader1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WindowsCEConsentForms.PageHeader PageHeader1;
+        
+        /// <summary>
         /// PnlPatientSignature control.
         /// </summary>
         /// <remarks>
@@ -265,84 +274,12 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.WebControls.Label LblTranslatedTime;
         
         /// <summary>
-        /// LblPatientMrHash control.
+        /// PrintFooter1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblPatientMrHash;
-        
-        /// <summary>
-        /// LblPatientName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblPatientName;
-        
-        /// <summary>
-        /// LblDOB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblDOB;
-        
-        /// <summary>
-        /// LblPatientId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblPatientId;
-        
-        /// <summary>
-        /// LblAge control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblAge;
-        
-        /// <summary>
-        /// LblGender control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblGender;
-        
-        /// <summary>
-        /// LblDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblDate;
-        
-        /// <summary>
-        /// LblPatientAdminDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblPatientAdminDate;
-        
-        /// <summary>
-        /// LblPatientAdminTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblPatientAdminTime;
+        protected global::WindowsCEConsentForms.PrintFooter PrintFooter1;
     }
 }

@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" %>
+<%@ Register TagPrefix="uc2" TagName="PageHeader" Src="~/PageHeader.ascx" %>
+<%@ Register TagPrefix="uc3" TagName="printfooter" Src="~/PrintFooter.ascx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -75,36 +77,8 @@
         </li>
     </ul>
     <ul class="content">
-        <li></li>
         <li>
-            <table class="noBorder">
-                <tr>
-                    <td class="edgeColumn">
-                        <h3>
-                            Bethesda Hospital East
-                            <br />
-                            2815 S. Seacrest Blvd
-                            <br />
-                            Boynton Beach,FL 33435
-                            <br />
-                            (561) 737-7733
-                        </h3>
-                    </td>
-                    <td class="middleColumn">
-                    </td>
-                    <td class="edgeColumn">
-                        <h3>
-                            Bethesda Hospital West
-                            <br />
-                            9655 Boynton Beach Blvd,
-                            <br />
-                            Boynton Beach, FL 33472
-                            <br />
-                            (561) 336-7000
-                        </h3>
-                    </td>
-                </tr>
-            </table>
+             <uc2:PageHeader ID="PageHeader1" runat="server" />
         </li>
         <li><span class="content-heading">I UNDERSTAND that no guarantees have been made to
             me that this operation will improve my condition. </span></li>
@@ -182,73 +156,6 @@
             <div class="clear">
             </div>
         </li>
-        <li>
-            <br />
-            <br />
-            <br />
-            <table class="bigfont">
-                <tr>
-                    <td>
-                        FORM:
-                    </td>
-                    <td>
-                        Blood Transfusion Consent Form
-                    </td>
-                    <td>
-                        MR#:
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        PATIENT:
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        DOB:
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        PATIENT#:
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        AGE:
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        GENDER:
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        DATE:
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        ADMIT DATE:
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        TIME:
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-            </table>
-        </li>
     </ul>
+    <uc3:printfooter ID="PrintFooter1" runat="server" ConsentType="PICC" />
 </asp:Content>

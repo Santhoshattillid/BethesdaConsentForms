@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using WindowsCEConsentForms.ConsentFormsService;
 
 namespace WindowsCEConsentForms
@@ -27,12 +26,6 @@ namespace WindowsCEConsentForms
                 var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
                 if (patientDetails != null)
                 {
-                    LblDOB.Text = DateTime.Now.ToString("MMM dd yyyy");
-                    LblPatientAdminDate.Text = patientDetails.AdmDate.ToString("MMM dd yyyy");
-                    LblPatientAdminTime.Text = patientDetails.AdmDate.ToLongTimeString();
-                    LblPatientId.Text = patientId;
-                    LblPatientMrHash.Text = patientDetails.MRHash;
-                    LblPatientName.Text = patientDetails.name;
                     LblPatientName3.Text = patientDetails.name;
                     LblPatientUnableToSignBecause.Text = patientDetails.UnableToSignReason;
 
@@ -46,10 +39,6 @@ namespace WindowsCEConsentForms
                     LblWitnessSignature2Time.Text = DateTime.Now.ToLongTimeString();
                     LblTranslatedDate.Text = DateTime.Now.ToString("MMM dd yyyy");
                     LblTranslatedTime.Text = DateTime.Now.ToLongTimeString();
-
-                    LblDate.Text = DateTime.Now.ToString("MMM dd yyyy");
-                    LblAge.Text = patientDetails.age.ToString(CultureInfo.InvariantCulture);
-                    LblGender.Text = patientDetails.gender;
 
                     ImgSignature1.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.DoctorSign1.ToString() + @"&ConsentType=" + ConsentType.ToString();
                     ImgSignature2.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.DoctorSign2.ToString() + @"&ConsentType=" + ConsentType.ToString();
@@ -66,7 +55,6 @@ namespace WindowsCEConsentForms
                     else
                     {
                         PnlPatientSignature.Visible = true;
-
                         PnlPatientUnableToSignBecause.Visible = false;
                         PnlAuthorizedSignature.Visible = false;
                     }

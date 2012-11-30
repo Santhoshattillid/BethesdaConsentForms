@@ -10,10 +10,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <ul class="content">
         <li class="center">
-            <%-- <h3>
-                SURGICAL CONSENT FORM</h3>--%>
-        </li>
-        <li class="center">
             <p>
                 CONSENT FOR DIAGNOSTIC PROCEDURES OR OPERATION</p>
         </li>

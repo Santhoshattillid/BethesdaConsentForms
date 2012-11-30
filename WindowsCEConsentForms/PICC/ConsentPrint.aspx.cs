@@ -28,21 +28,8 @@ namespace WindowsCEConsentForms.PICC
                 var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
                 if (patientDetails != null)
                 {
-                    LblDOB.Text = DateTime.Now.ToString("MMM dd yyyy");
-                    LblPatientAdminDate.Text = patientDetails.AdmDate.ToString("MMM dd yyyy");
-                    LblPatientAdminTime.Text = patientDetails.AdmDate.ToLongTimeString();
-                    LblPatientId.Text = patientId;
-                    LblPatientMrHash.Text = patientDetails.MRHash;
                     LblPatientName3.Text = patientDetails.name;
                     LblPatientUnableToSignBecause.Text = patientDetails.UnableToSignReason;
-
-                    //LblPatientSignatureDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
-                    //LblAuthorizedSignDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
-                    //LblWitnessSignature1DateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
-                    //LblWitnessSignature2DateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
-                    //LblTranslatedDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
-                    //LblPICCNurseDateTime.Text = DateTime.Now.ToString("MMM dd yyyy") + " <br /> " + DateTime.Now.ToLongTimeString();
-
                     LblPatientSignatureDate.Text = DateTime.Now.ToString("MMM dd yyyy");
                     LblPatientSignatureTime.Text = DateTime.Now.ToLongTimeString();
                     LblAuthorizedSignDate.Text = DateTime.Now.ToString("MMM dd yyyy");
@@ -55,10 +42,6 @@ namespace WindowsCEConsentForms.PICC
                     LblTranslatedTime.Text = DateTime.Now.ToLongTimeString();
                     LblPICCNurseDate.Text = DateTime.Now.ToString("MMM dd yyyy");
                     LblPICCNurseTime.Text = DateTime.Now.ToLongTimeString();
-
-                    LblDate.Text = DateTime.Now.ToString("MMM dd yyyy");
-                    LblAge.Text = patientDetails.age.ToString(CultureInfo.InvariantCulture);
-                    LblGender.Text = patientDetails.gender;
 
                     if (!string.IsNullOrEmpty(LblPatientUnableToSignBecause.Text.Trim()))
                     {

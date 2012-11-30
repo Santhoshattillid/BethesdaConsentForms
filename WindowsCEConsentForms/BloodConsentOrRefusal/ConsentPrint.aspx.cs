@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Globalization;
 using WindowsCEConsentForms.ConsentFormsService;
 
 namespace WindowsCEConsentForms.BloodConsentOrRefusal
@@ -39,11 +38,6 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
                         LblAuthoriseDoctors.Text += " , " + row["Lname"].ToString().Trim() + " " + row["Fname"].ToString().Trim();
                     }
 
-                    LblDOB.Text = DateTime.Now.ToString("MMM dd yyyy");
-                    LblPatientAdminDate.Text = patientDetails.AdmDate.ToString("MMM dd yyyy");
-                    LblPatientAdminTime.Text = patientDetails.AdmDate.ToLongTimeString();
-                    LblPatientId.Text = patientId;
-                    LblPatientMrHash.Text = patientDetails.MRHash;
                     LblPatientName2.Text = patientDetails.name;
                     LblPatientName3.Text = patientDetails.name;
                     LblPatientUnableToSignBecause.Text = patientDetails.UnableToSignReason;
@@ -59,10 +53,6 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
                     LblWitnessSignature2Time.Text = DateTime.Now.ToLongTimeString();
                     LblTranslatedDate.Text = DateTime.Now.ToString("MMM dd yyyy");
                     LblTranslatedTime.Text = DateTime.Now.ToLongTimeString();
-
-                    LblDate.Text = DateTime.Now.ToString("MMM dd yyyy");
-                    LblAge.Text = patientDetails.age.ToString(CultureInfo.InvariantCulture);
-                    LblGender.Text = patientDetails.gender;
 
                     if (!string.IsNullOrEmpty(LblPatientUnableToSignBecause.Text.Trim()))
                     {

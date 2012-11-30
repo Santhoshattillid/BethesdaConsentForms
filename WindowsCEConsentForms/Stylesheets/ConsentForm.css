@@ -113,7 +113,8 @@
 }
 .Container .errorInfo
 {
-    color: #000000;
+    color: #000;
+    font-weight: bold;
 }
 .Container INPUT[type="text"]
 {
@@ -154,6 +155,8 @@
 .small
 {
     width: 70px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .smallest
 {
@@ -438,4 +441,36 @@
 .extraMargin
 {
     margin-left: 185px;
+}
+.printFooter
+{
+    border: 1px solid #DDD;
+}
+.printFooter TR TD
+{
+    border: 1px solid #DDD;
+}
+.printFooter TR TD:first-child
+{
+    width: 4%;
+}
+.printFooter TR TD:last-child
+{
+    width: 15%;
+}
+.printFooter TR TD:nth-child(3)
+{
+    width: 1%;
+}
+.printFooter TR TD:nth-child(4)
+{
+    width: 4%;
+}
+.adminHeading
+{
+    width: 100px;
+}
+.content .adminErroInfo
+{
+    padding-left: 99px;
 }

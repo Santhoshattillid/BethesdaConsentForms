@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true"
     CodeBehind="ConsentDeclaration.aspx.cs" Inherits="WindowsCEConsentForms.Endoscopy.ConsentDeclaration1" %>
-
 <%@ Register TagPrefix="uc1" TagName="DeclarationSignatures" Src="~/DeclarationSignatures.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="ConsentSignatures" Src="~/ConsentSignatures.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="PatientDetails" Src="~/PatientDetails.ascx" %>
@@ -9,10 +8,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <ul class="content">
-        <li class="center">
-            <%-- <h3>
-                ENDOSCOPY PROCEDURE CONSENT FORM</h3>--%>
-        </li>
         <li class="center">
             <p>
                 CONSENT FOR ENDOSCOPY</p>

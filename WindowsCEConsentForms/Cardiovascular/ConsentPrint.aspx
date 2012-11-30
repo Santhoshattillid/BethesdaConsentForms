@@ -2,6 +2,8 @@
     CodeBehind="ConsentPrint.aspx.cs" Inherits="WindowsCEConsentForms.Cardiovascular.ConsentPrint" %>
 
 <%@ Register TagPrefix="uc1" TagName="DoctorsAndProceduresPrint" Src="~/DoctorsAndProceduresPrint.ascx" %>
+<%@ Register TagPrefix="uc2" TagName="PageHeader" Src="~/PageHeader.ascx" %>
+<%@ Register TagPrefix="uc3" TagName="printfooter" Src="~/PrintFooter.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -90,36 +92,9 @@
             </div>
         </li>
     </ul>
-    <ul class="content print">
+    <ul class="content">
         <li>
-            <table class="noBorder">
-                <tr>
-                    <td class="edgeColumn">
-                        <h3>
-                            Bethesda Hospital East
-                            <br />
-                            2815 S. Seacrest Blvd
-                            <br />
-                            Boynton Beach,FL 33435
-                            <br />
-                            (561) 737-7733
-                        </h3>
-                    </td>
-                    <td class="middleColumn">
-                    </td>
-                    <td class="edgeColumn">
-                        <h3>
-                            Bethesda Hospital West
-                            <br />
-                            9655 Boynton Beach Blvd,
-                            <br />
-                            Boynton Beach, FL 33472
-                            <br />
-                            (561) 336-7000
-                        </h3>
-                    </td>
-                </tr>
-            </table>
+            <uc2:PageHeader ID="PageHeader1" runat="server" />
         </li>
         <li><span class="content-heading">I UNDERSTAND that no guarantees have been made to
             me that this operation will improve my condition. </span></li>
@@ -223,80 +198,6 @@
                 </tr>
             </table>
         </li>
-        <li></li>
-        <li>
-            <table class="bigfont">
-                <tr>
-                    <td>
-                        FORM:
-                    </td>
-                    <td>
-                        CARDIOVASCULAR Form
-                    </td>
-                    <td>
-                        MR#:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblPatientMrHash"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        PATIENT:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblPatientName"></asp:Label>
-                    </td>
-                    <td>
-                        DOB:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblDOB"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        PATIENT#:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblPatientId"></asp:Label>
-                    </td>
-                    <td>
-                        AGE:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblAge"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        GENDER:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblGender"></asp:Label>
-                    </td>
-                    <td>
-                        DATE:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblDate"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        ADMIT DATE:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblPatientAdminDate"></asp:Label>
-                    </td>
-                    <td>
-                        TIME:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblPatientAdminTime"></asp:Label>
-                    </td>
-                </tr>
-            </table>
-        </li>
     </ul>
+    <uc3:printfooter ID="PrintFooter1" runat="server" ConsentType="Cardiovascular" />
 </asp:Content>

@@ -2,17 +2,12 @@
     CodeBehind="ConsentDeclaration.aspx.cs" Inherits="WindowsCEConsentForms.BloodConsentOrRefusal.Consent" %>
 
 <%@ Register TagPrefix="uc1" TagName="PatientDetails" Src="~/PatientDetails.ascx" %>
-<%@ Register TagPrefix="uc1" TagName="DoctorsAndProcedures" Src="~/DoctorsAndProcedures.ascx" %>
 <%@ Register Src="../DeclarationSignatures.ascx" TagName="DeclarationSignatures"
     TagPrefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <ul class="content">
-        <li class="center">
-            <%--<h3>
-                Blood Transfusion Consent</h3>--%>
-        </li>
         <li class="center">
             <h3>
                 CONSENT FOR BLOOD TRANSFUSION</h3>

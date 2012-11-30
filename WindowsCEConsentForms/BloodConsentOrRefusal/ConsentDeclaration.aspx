@@ -2,7 +2,6 @@
     CodeBehind="ConsentDeclaration.aspx.cs" Inherits="WindowsCEConsentForms.BloodConsentOrRefusal.Consent" %>
 
 <%@ Register TagPrefix="uc1" TagName="PatientDetails" Src="~/PatientDetails.ascx" %>
-<%@ Register TagPrefix="uc1" TagName="DoctorsAndProcedures" Src="~/DoctorsAndProcedures.ascx" %>
 <%@ Register Src="../DeclarationSignatures.ascx" TagName="DeclarationSignatures"
     TagPrefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">

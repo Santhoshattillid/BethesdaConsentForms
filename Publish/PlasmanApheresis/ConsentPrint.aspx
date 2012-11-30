@@ -2,15 +2,12 @@
     CodeBehind="ConsentPrint.aspx.cs" Inherits="WindowsCEConsentForms.PlasmanApheresis.ConsentPrint" %>
 
 <%@ Register TagPrefix="uc1" TagName="DoctorsAndProceduresPrint" Src="~/DoctorsAndProceduresPrint.ascx" %>
+<%@ Register TagPrefix="uc2" TagName="PageHeader" Src="~/PageHeader.ascx" %>
+<%@ Register TagPrefix="uc3" TagName="printfooter" Src="~/PrintFooter.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <ul class="content print">
-        <li class="center">
-            <%--<h3>
-                PLASMA APHERESIS FORM
-            </h3>--%>
-        </li>
+    <ul class="content">
         <li class="center">
             <h3>
                 CONSENT FOR THERAPEUTIC APHERESIS
@@ -18,7 +15,7 @@
         </li>
     </ul>
     <uc1:DoctorsAndProceduresPrint ID="DoctorsAndProceduresPrint1" runat="server" ConsentType="PlasmanApheresis" />
-    <ul>
+    <ul class="content print">
         <li>
             <div class="small-content">
                 The nature and purpose of the procedure necessary to treat my condition, possible
@@ -43,25 +40,53 @@
             </div>
         </li>
         <li>
-            <div class="small-content">
-                • The possibility of contamination of the blood with various bacteria or germs,
-                which can result in bloodstream infection.<br />
-                • The possibility of excess bleeding occurring within the body as a result of clotting
-                problems of the blood, or externally due to disconnection of the bloodline.<br />
-                • The possibility of contracting infections of the puncture site of catheter which
-                allows access to the bloodstream.<br />
-                • The potential hazard of air embolism forming in which air enters the machine and
-                thereby gets into the patient’s bloodstream, leading to severe complications, which
-                may include death or paralysis.<br />
-                • The possibility of irregular heartbeats, tingling or numbness of the fingers,
-                chest, mouth or face, nausea, bruising at the site of needle insertion, or decrease
-                in blood pressure resulting from certain chemical shifts within the patient’s system.<br />
-                • The possibility of a reaction to medications and/or replacement fluids given during
-                the treatment which may result in adverse effects ranging from mild to (rarely)
-                fatal shock or cardiac arrest.<br />
-                • The possibility of excess fluid in the bloodstream, causing shortness of breath
-                and/or changes in the heart rate and blood pressure.
-            </div>
+            <ul class="content">
+                <li>
+                    <div class="small-content">
+                        • The possibility of contamination of the blood with various bacteria or germs,
+                        which can result in bloodstream infection.
+                    </div>
+                </li>
+                <li>
+                    <div class="small-content">
+                        • The possibility of excess bleeding occurring within the body as a result of clotting
+                        problems of the blood, or externally due to disconnection of the bloodline.
+                    </div>
+                </li>
+                <li>
+                    <div class="small-content">
+                        • The possibility of contracting infections of the puncture site of catheter which
+                        allows access to the bloodstream.
+                    </div>
+                </li>
+                <li>
+                    <div class="small-content">
+                        • The potential hazard of air embolism forming in which air enters the machine and
+                        thereby gets into the patient’s bloodstream, leading to severe complications, which
+                        may include death or paralysis.
+                    </div>
+                </li>
+                <li>
+                    <div class="small-content">
+                        • The possibility of irregular heartbeats, tingling or numbness of the fingers,
+                        chest, mouth or face, nausea, bruising at the site of needle insertion, or decrease
+                        in blood pressure resulting from certain chemical shifts within the patient’s system.
+                    </div>
+                </li>
+                <li>
+                    <div class="small-content">
+                        • The possibility of a reaction to medications and/or replacement fluids given during
+                        the treatment which may result in adverse effects ranging from mild to (rarely)
+                        fatal shock or cardiac arrest.
+                    </div>
+                </li>
+                <li>
+                    <div class="small-content">
+                        • The possibility of excess fluid in the bloodstream, causing shortness of breath
+                        and/or changes in the heart rate and blood pressure.
+                    </div>
+                </li>
+            </ul>
         </li>
         <li>
             <div class="sigBox">
@@ -108,107 +133,12 @@
             <div class="clear">
             </div>
         </li>
-        <li class="noBorder">
-            <table border="0">
-                <tr>
-                    <td>
-                        <asp:Panel runat="server" ID="PnlPatientSignature">
-                            <div class="sigBox">
-                                <asp:Image runat="server" ID="ImgPatientSignature" />
-                            </div>
-                            <div class="right">
-                                <asp:Label runat="server" ID="LblPatientSignatureDateTime"></asp:Label>
-                            </div>
-                            <div class="clear">
-                            </div>
-                            <div>
-                                (PATIENT SIGNATURE)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                __________________ Date:__<asp:Label runat="server" ID="LblPatientSignatureDate"
-                                    CssClass="DateTimeUnderline">___</asp:Label>____ Time:__<asp:Label runat="server"
-                                        ID="LblPatientSignatureTime" CssClass="DateTimeUnderline"></asp:Label>__
-                            </div>
-                        </asp:Panel>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Panel runat="server" ID="PnlPatientUnableToSignBecause">
-                            Patient is unable to sign because:
-                            <div>
-                                <asp:Label runat="server" ID="LblPatientUnableToSignBecause" CssClass="DateTimeUnderline"></asp:Label>
-                            </div>
-                        </asp:Panel>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Panel runat="server" ID="PnlAuthorizedSignature">
-                            <div class="sigBox">
-                                <asp:Image runat="server" ID="ImgAuthorizedSignature" />
-                            </div>
-                            <div class="clear">
-                            </div>
-                            <div>
-                                (If patient unable to sign, person authorized to sign.)&nbsp;&nbsp;&nbsp;__________________
-                                Date:__<asp:Label runat="server" ID="LblAuthorizedSignDate" CssClass="DateTimeUnderline">___</asp:Label>__
-                                Time:__<asp:Label runat="server" ID="LblAuthorizedSignTime" CssClass="DateTimeUnderline"></asp:Label>_
-                            </div>
-                        </asp:Panel>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="sigBox">
-                            <asp:Image runat="server" ID="ImgWitnessSignature1" />
-                        </div>
-                        <div class="right">
-                            <asp:Label runat="server" ID="LblWitnessSignature1DateTime"></asp:Label>
-                        </div>
-                        <div class="clear">
-                        </div>
-                        <div>
-                            (Witness to Signature or Telephone Consent Only)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________
-                            Date:__<asp:Label runat="server" ID="LblWitnessSignature1Date" CssClass="DateTimeUnderline">___</asp:Label>__
-                            Time:__<asp:Label runat="server" ID="LblWitnessSignature1Time" CssClass="DateTimeUnderline"></asp:Label>_
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="sigBox">
-                            <asp:Image runat="server" ID="ImgWitnessSignature2" />
-                        </div>
-                        <div class="clear">
-                        </div>
-                        <div>
-                            (Second Witness to Telephone Consent Only)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________
-                            Date:__<asp:Label runat="server" ID="LblWitnessSignature2Date" CssClass="DateTimeUnderline">___</asp:Label>__
-                            Time:__<asp:Label runat="server" ID="LblWitnessSignature2Time" CssClass="DateTimeUnderline"></asp:Label>_
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div>
-                            <br />
-                            Interpreted By:
-                        </div>
-                        <div>
-                            <asp:Label runat="server" ID="LblTranslatedBy" CssClass="errorInfo"></asp:Label>
-                        </div>
-                        <div class="clear">
-                        </div>
-                        <br />
-                        <br />
-                        (Interpreted By)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________
-                        Date:__<asp:Label runat="server" ID="LblTranslatedDate" CssClass="DateTimeUnderline">___</asp:Label>__
-                        Time:__<asp:Label runat="server" ID="LblTranslatedTime" CssClass="DateTimeUnderline"></asp:Label>__
-                    </td>
-                </tr>
-            </table>
+    </ul>
+    <ul class="content">
+        <li>
+            <uc2:PageHeader ID="PageHeader1" runat="server" />
         </li>
-        <%--<li>
+        <li class="noBorder">
             <asp:Panel runat="server" ID="PnlPatientSignature">
                 <div class="sigBox">
                     <asp:Image runat="server" ID="ImgPatientSignature" />
@@ -219,14 +149,19 @@
                 <div class="clear">
                 </div>
                 <div>
-                    (PATIENT SIGNATURE)
+                    (PATIENT SIGNATURE)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    __________________ Date:__<asp:Label runat="server" ID="LblPatientSignatureDate"
+                        CssClass="DateTimeUnderline">___</asp:Label>____ Time:__<asp:Label runat="server"
+                            ID="LblPatientSignatureTime" CssClass="DateTimeUnderline"></asp:Label>__
                 </div>
             </asp:Panel>
         </li>
         <li>
             <asp:Panel runat="server" ID="PnlPatientUnableToSignBecause">
                 Patient is unable to sign because:
-                <asp:Label runat="server" ID="LblPatientUnableToSignBecause" CssClass="errorInfo"></asp:Label>
+                <div>
+                    <asp:Label runat="server" ID="LblPatientUnableToSignBecause" CssClass="DateTimeUnderline"></asp:Label>
+                </div>
             </asp:Panel>
         </li>
         <li>
@@ -234,13 +169,12 @@
                 <div class="sigBox">
                     <asp:Image runat="server" ID="ImgAuthorizedSignature" />
                 </div>
-                <div class="right">
-                    <asp:Label runat="server" ID="LblAuthorizedSignDateTime"></asp:Label>
-                </div>
                 <div class="clear">
                 </div>
                 <div>
-                    (If patient unable to sign, person authorized to sign.)
+                    (If patient unable to sign, person authorized to sign.)&nbsp;&nbsp;&nbsp;__________________
+                    Date:__<asp:Label runat="server" ID="LblAuthorizedSignDate" CssClass="DateTimeUnderline">___</asp:Label>__
+                    Time:__<asp:Label runat="server" ID="LblAuthorizedSignTime" CssClass="DateTimeUnderline"></asp:Label>_
                 </div>
             </asp:Panel>
         </li>
@@ -254,109 +188,40 @@
             <div class="clear">
             </div>
             <div>
-                (Witness to Signature or Telephone Consent Only)
+                (Witness to Signature or Telephone Consent Only)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________
+                Date:__<asp:Label runat="server" ID="LblWitnessSignature1Date" CssClass="DateTimeUnderline">___</asp:Label>__
+                Time:__<asp:Label runat="server" ID="LblWitnessSignature1Time" CssClass="DateTimeUnderline"></asp:Label>_
             </div>
         </li>
         <li>
             <div class="sigBox">
                 <asp:Image runat="server" ID="ImgWitnessSignature2" />
             </div>
-            <div class="right">
-                <asp:Label runat="server" ID="LblWitnessSignature2DateTime"></asp:Label>
-            </div>
             <div class="clear">
             </div>
             <div>
-                (Second Witness to Telephone Consent Only)
+                (Second Witness to Telephone Consent Only)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________
+                Date:__<asp:Label runat="server" ID="LblWitnessSignature2Date" CssClass="DateTimeUnderline">___</asp:Label>__
+                Time:__<asp:Label runat="server" ID="LblWitnessSignature2Time" CssClass="DateTimeUnderline"></asp:Label>_
             </div>
         </li>
         <li>
             <div>
+                <br />
                 Interpreted By:
             </div>
-            <div class="sigBox">
-                <asp:Image runat="server" ID="ImgTranslatedBy" />
-            </div>
-            <div class="right">
-                <asp:Label runat="server" ID="LblTranslatedDateTime"></asp:Label>
+            <div>
+                <asp:Label runat="server" ID="LblTranslatedBy" CssClass="errorInfo"></asp:Label>
             </div>
             <div class="clear">
             </div>
-        </li>--%>
-        <li></li>
-        <li>
-            <table class="bigfont">
-                <tr>
-                    <td>
-                        FORM:
-                    </td>
-                    <td>
-                        CARDIOVASCULAR Form
-                    </td>
-                    <td>
-                        MR#:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblPatientMrHash"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        PATIENT:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblPatientName"></asp:Label>
-                    </td>
-                    <td>
-                        DOB:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblDOB"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        PATIENT#:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblPatientId"></asp:Label>
-                    </td>
-                    <td>
-                        AGE:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblAge"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        GENDER:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblGender"></asp:Label>
-                    </td>
-                    <td>
-                        DATE:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblDate"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        ADMIT DATE:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblPatientAdminDate"></asp:Label>
-                    </td>
-                    <td>
-                        TIME:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblPatientAdminTime"></asp:Label>
-                    </td>
-                </tr>
-            </table>
+            <br />
+            <br />
+            (Interpreted By)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________
+            Date:__<asp:Label runat="server" ID="LblTranslatedDate" CssClass="DateTimeUnderline">___</asp:Label>__
+            Time:__<asp:Label runat="server" ID="LblTranslatedTime" CssClass="DateTimeUnderline"></asp:Label>__
         </li>
     </ul>
+    <uc3:printfooter ID="PrintFooter1" runat="server" ConsentType="PlasmanApheresis" />
 </asp:Content>

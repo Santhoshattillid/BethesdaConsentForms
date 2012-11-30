@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" %>
 
+<%@ Register TagPrefix="uc3" TagName="printfooter" Src="~/PrintFooter.ascx" %>
+<%@ Register TagPrefix="uc2" TagName="PageHeader" Src="~/PageHeader.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -46,36 +48,54 @@
             </div>
         </li>
         <li>
-            <div class="small-content">
-                • A transfusion is a common procedure of low risk.<br />
-                • Minor and temporary reactions are not uncommon, including bruising, or local reaction
-                in the area where the needle pierces your skin or a non serious reaction to the
-                transfused material itself, including headache, fever or mild reaction such as skin
-                rash.<br />
-                • A serious reaction is possible, but unlikely since all blood is carefully matched
-                prior to transfusion, except in life-threatening emergencies.<br />
-                • Infectious diseases, which are known to be transmittable by blood, include Transfusion
-                Associated Viral Hepatitis (TAVH), a viral infection of the liver and Acquired Immunodeficiency
-                Syndrome (AIDS). The risk of acquiring an Infectious Disease from transfused blood
-                is relatively low and blood units are tested to avoid TAVH and HIV as required by
-                state and feral standards. However, these laboratory tests are not foolproof.<br />
-            </div>
+            <ul class="content">
+                <li>
+                    <div class="small-content">
+                        • A transfusion is a common procedure of low risk.
+                    </div>
+                </li>
+                <li>
+                    <div class="small-content">
+                        • Minor and temporary reactions are not uncommon, including bruising, or local reaction
+                        in the area where the needle pierces your skin or a non serious reaction to the
+                        transfused material itself, including headache, fever or mild reaction such as skin
+                        rash.
+                    </div>
+                </li>
+                <li>
+                    <div class="small-content">
+                        • A serious reaction is possible, but unlikely since all blood is carefully matched
+                        prior to transfusion, except in life-threatening emergencies.
+                    </div>
+                </li>
+                <li>
+                    <div class="small-content">
+                        • Infectious diseases, which are known to be transmittable by blood, include Transfusion
+                        Associated Viral Hepatitis (TAVH), a viral infection of the liver and Acquired Immunodeficiency
+                        Syndrome (AIDS). The risk of acquiring an Infectious Disease from transfused blood
+                        is relatively low and blood units are tested to avoid TAVH and HIV as required by
+                        state and feral standards. However, these laboratory tests are not foolproof.
+                    </div>
+                </li>
+            </ul>
         </li>
         <li>
             <div class="small-content">
-                <span class="content-header">BENEFITS/ALTERNATIVES</span>
+                <span class="small-header">BENEFITS/ALTERNATIVES</span>
             </div>
         </li>
         <li>
-            <div class="small-content">
-                • The loss of blood can pose serious threats during the course of treatment for
-                which there is no effective alternative to blood transfusion. If you have any further
-                questions on this matter, your physician or his/her colleagues will explain the
-                alternatives to you if this has not already been done.
-            </div>
+            <ul class="content">
+                <li>
+                    <div class="small-content">
+                        • The loss of blood can pose serious threats during the course of treatment for
+                        which there is no effective alternative to blood transfusion. If you have any further
+                        questions on this matter, your physician or his/her colleagues will explain the
+                        alternatives to you if this has not already been done.
+                    </div>
+                </li>
+            </ul>
         </li>
-    </ul>
-    <ul class="content print">
         <li>
             <ul class="content">
                 <li class="center">
@@ -101,6 +121,13 @@
                     </div>
                 </li>
             </ul>
+        </li>
+    </ul>
+    <ul class="content">
+        <li>
+            <uc2:PageHeader ID="PageHeader1" runat="server" />
+        </li>
+        <li>
             <ul class="content">
                 <li>
                     <h3 class="center">
@@ -183,71 +210,6 @@
                 <br />
             </div>
         </li>
-        <li></li>
-        <li>
-            <table class="bigfont">
-                <tr>
-                    <td>
-                        FORM:
-                    </td>
-                    <td>
-                        Blood Transfusion Consent Form
-                    </td>
-                    <td>
-                        MR#:
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        PATIENT:
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        DOB:
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        PATIENT#:
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        AGE:
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        GENDER:
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        DATE:
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        ADMIT DATE:
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        TIME:
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-            </table>
-        </li>
     </ul>
+    <uc3:printfooter ID="PrintFooter1" runat="server" ConsentType="BloodConsentOrRefusal" />
 </asp:Content>

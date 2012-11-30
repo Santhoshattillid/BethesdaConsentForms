@@ -4,15 +4,10 @@
 <%@ Import Namespace="WindowsCEConsentForms" %>
 <%@ Register TagPrefix="uc1" TagName="DeclarationSignatures" Src="~/DeclarationSignatures.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="PatientDetails" Src="~/PatientDetails.ascx" %>
-<%@ Register TagPrefix="uc1" TagName="DoctorsAndProcedures" Src="~/DoctorsAndProcedures.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <ul class="content">
-        <li class="center">
-            <%-- <h3>
-                PLASMA APHERESIS FORM</h3>--%>
-        </li>
         <li class="center">
             <p>
                 CONSENT FOR THERAPEUTIC APHERESIS</p>

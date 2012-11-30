@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 
 namespace WindowsCEConsentForms
 {
@@ -6,7 +7,11 @@ namespace WindowsCEConsentForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Server.Transfer("/PatientConsent.aspx");
+            string checkIfExist = ConfigurationManager.AppSettings["DBSetupStatus"];
+            if (checkIfExist == "0")
+                Server.Transfer("/PatientConsent.aspx");
+            else
+                Server.Transfer("/Administration/Setup.aspx");
         }
     }
 }

@@ -43,9 +43,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="itextsharp, Version=5.3.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\itextsharp.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.Management.Sdk.Sfc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.Smo.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -64,8 +72,9 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administration\ConsentDB.sql" />
+    <Content Include="Administration\Setup.aspx" />
     <Content Include="AjaxMethods.asmx" />
-    <Content Include="BlankPrint.aspx" />
     <Content Include="BloodConsentOrRefusal\ConsentDeclaration.aspx" />
     <Content Include="BloodConsentOrRefusal\ConsentPrint.aspx" />
     <Content Include="Cardiovascular\ConsentDeclaration.aspx" />
@@ -136,7 +145,7 @@
     <Content Include="PICC\ConsentPrint.aspx" />
     <Content Include="PlasmanApheresis\ConsentDeclaration.aspx" />
     <Content Include="PlasmanApheresis\ConsentPrint.aspx" />
-    <Content Include="PrintHeader.ascx" />
+    <Content Include="PrintFooter.ascx" />
     <Content Include="Print\BloodConsentOrRefusal\BlankPrint.aspx" />
     <Content Include="Print\Cardiovascular\BlankPrint.aspx" />
     <Content Include="Print\Endoscopy\BlankPrint.aspx" />
@@ -200,16 +209,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\Setup.aspx.cs">
+      <DependentUpon>Setup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Setup.aspx.designer.cs">
+      <DependentUpon>Setup.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AjaxMethods.asmx.cs">
       <DependentUpon>AjaxMethods.asmx</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="BlankPrint.aspx.cs">
-      <DependentUpon>BlankPrint.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BlankPrint.aspx.designer.cs">
-      <DependentUpon>BlankPrint.aspx</DependentUpon>
     </Compile>
     <Compile Include="BloodConsentOrRefusal\ConsentDeclaration.aspx.cs">
       <DependentUpon>ConsentDeclaration.aspx</DependentUpon>
@@ -354,12 +363,12 @@
     <Compile Include="PlasmanApheresis\ConsentPrint.aspx.designer.cs">
       <DependentUpon>ConsentPrint.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PrintHeader.ascx.cs">
-      <DependentUpon>PrintHeader.ascx</DependentUpon>
+    <Compile Include="PrintFooter.ascx.cs">
+      <DependentUpon>PrintFooter.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PrintHeader.ascx.designer.cs">
-      <DependentUpon>PrintHeader.ascx</DependentUpon>
+    <Compile Include="PrintFooter.ascx.designer.cs">
+      <DependentUpon>PrintFooter.ascx</DependentUpon>
     </Compile>
     <Compile Include="Service References\ConsentFormsService\Reference.cs">
       <AutoGen>True</AutoGen>

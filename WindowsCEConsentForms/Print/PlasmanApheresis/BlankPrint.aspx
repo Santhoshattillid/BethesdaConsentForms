@@ -1,14 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" %>
 
+<%@ Register TagPrefix="uc2" TagName="PageHeader" Src="~/PageHeader.ascx" %>
+<%@ Register TagPrefix="uc3" TagName="printfooter" Src="~/PrintFooter.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <ul class="content print">
-        <li class="center">
-            <%--<h3>
-                PLASMA APHERESIS FORM
-            </h3>--%>
-        </li>
         <li class="center">
             <h3>
                 CONSENT FOR THERAPEUTIC APHERESIS
@@ -50,25 +47,53 @@
             </div>
         </li>
         <li>
-            <div class="small-content">
-                • The possibility of contamination of the blood with various bacteria or germs,
-                which can result in bloodstream infection.<br />
-                • The possibility of excess bleeding occurring within the body as a result of clotting
-                problems of the blood, or externally due to disconnection of the bloodline.<br />
-                • The possibility of contracting infections of the puncture site of catheter which
-                allows access to the bloodstream.<br />
-                • The potential hazard of air embolism forming in which air enters the machine and
-                thereby gets into the patient’s bloodstream, leading to severe complications, which
-                may include death or paralysis.<br />
-                • The possibility of irregular heartbeats, tingling or numbness of the fingers,
-                chest, mouth or face, nausea, bruising at the site of needle insertion, or decrease
-                in blood pressure resulting from certain chemical shifts within the patient’s system.<br />
-                • The possibility of a reaction to medications and/or replacement fluids given during
-                the treatment which may result in adverse effects ranging from mild to (rarely)
-                fatal shock or cardiac arrest.<br />
-                • The possibility of excess fluid in the bloodstream, causing shortness of breath
-                and/or changes in the heart rate and blood pressure.
-            </div>
+            <ul class="content">
+                <li>
+                    <div class="small-content">
+                        • The possibility of contamination of the blood with various bacteria or germs,
+                        which can result in bloodstream infection.
+                    </div>
+                </li>
+                <li>
+                    <div class="small-content">
+                        • The possibility of excess bleeding occurring within the body as a result of clotting
+                        problems of the blood, or externally due to disconnection of the bloodline.
+                    </div>
+                </li>
+                <li>
+                    <div class="small-content">
+                        • The possibility of contracting infections of the puncture site of catheter which
+                        allows access to the bloodstream.
+                    </div>
+                </li>
+                <li>
+                    <div class="small-content">
+                        • The potential hazard of air embolism forming in which air enters the machine and
+                        thereby gets into the patient’s bloodstream, leading to severe complications, which
+                        may include death or paralysis.
+                    </div>
+                </li>
+                <li>
+                    <div class="small-content">
+                        • The possibility of irregular heartbeats, tingling or numbness of the fingers,
+                        chest, mouth or face, nausea, bruising at the site of needle insertion, or decrease
+                        in blood pressure resulting from certain chemical shifts within the patient’s system.
+                    </div>
+                </li>
+                <li>
+                    <div class="small-content">
+                        • The possibility of a reaction to medications and/or replacement fluids given during
+                        the treatment which may result in adverse effects ranging from mild to (rarely)
+                        fatal shock or cardiac arrest.
+                    </div>
+                </li>
+                <li>
+                    <div class="small-content">
+                        • The possibility of excess fluid in the bloodstream, causing shortness of breath
+                        and/or changes in the heart rate and blood pressure.
+                    </div>
+                </li>
+            </ul>
         </li>
         <li>
             <div class="PrintsigBox">
@@ -103,36 +128,8 @@
         </li>
     </ul>
     <ul class="content">
-        <li></li>
         <li>
-            <table class="noBorder">
-                <tr>
-                    <td class="edgeColumn">
-                        <h3>
-                            Bethesda Hospital East
-                            <br />
-                            2815 S. Seacrest Blvd
-                            <br />
-                            Boynton Beach,FL 33435
-                            <br />
-                            (561) 737-7733
-                        </h3>
-                    </td>
-                    <td class="middleColumn">
-                    </td>
-                    <td class="edgeColumn">
-                        <h3>
-                            Bethesda Hospital West
-                            <br />
-                            9655 Boynton Beach Blvd,
-                            <br />
-                            Boynton Beach, FL 33472
-                            <br />
-                            (561) 336-7000
-                        </h3>
-                    </td>
-                </tr>
-            </table>
+            <uc2:PageHeader ID="PageHeader1" runat="server" />
         </li>
         <li>
             <div class="PrintsigBox">
@@ -211,71 +208,6 @@
             <div class="clear">
             </div>
         </li>
-        <li></li>
-        <li>
-            <table class="bigfont">
-                <tr>
-                    <td>
-                        FORM:
-                    </td>
-                    <td>
-                        CARDIOVASCULAR Form
-                    </td>
-                    <td>
-                        MR#:
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        PATIENT:
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        DOB:
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        PATIENT#:
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        AGE:
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        GENDER:
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        DATE:
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        ADMIT DATE:
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        TIME:
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-            </table>
-        </li>
     </ul>
+    <uc3:printfooter ID="PrintFooter1" runat="server" ConsentType="PlasmanApheresis" />
 </asp:Content>
