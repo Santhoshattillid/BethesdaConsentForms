@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing.Imaging;
 using System.Web;
-using WindowsCEConsentForms.ConsentFormsService;
+using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms
 {

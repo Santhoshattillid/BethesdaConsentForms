@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Text;
-using WindowsCEConsentForms.ConsentFormsService;
+using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms.BloodConsentOrRefusal
 {

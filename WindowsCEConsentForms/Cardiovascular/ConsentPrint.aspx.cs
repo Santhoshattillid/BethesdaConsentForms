@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Data;
-using System.Globalization;
-using WindowsCEConsentForms.ConsentFormsService;
+using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms.Cardiovascular
 {

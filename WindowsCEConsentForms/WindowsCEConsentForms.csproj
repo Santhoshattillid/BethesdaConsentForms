@@ -98,25 +98,6 @@
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\DataSources\System.Xml.Linq.XElement.datasource" />
-    <None Include="Service References\ConsentFormsService\basic.disco" />
-    <None Include="Service References\ConsentFormsService\basic2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ConsentFormsService\basic3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ConsentFormsService\basic4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ConsentFormsService\basic5.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ConsentFormsService\configuration91.svcinfo" />
-    <None Include="Service References\ConsentFormsService\configuration.svcinfo" />
-    <None Include="Service References\ConsentFormsService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="Images\dropdown.png" />
     <Content Include="Images\dropdown_hover.png" />
     <Content Include="Images\index.jpg" />
@@ -158,6 +139,12 @@
     <Content Include="Scripts\jquery.multiselect.min.js" />
     <Content Include="Scripts\ui.core.js" />
     <Content Include="Scripts\ui.dropdownchecklist.js" />
+    <None Include="Service References\FormHandlerService\configuration91.svcinfo" />
+    <None Include="Service References\FormHandlerService\configuration.svcinfo" />
+    <None Include="Service References\FormHandlerService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Stylesheets\dropdownchecklist.css" />
     <Content Include="Stylesheets\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Stylesheets\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -188,6 +175,7 @@
     <Content Include="Scripts\Signature.js" />
     <Content Include="Stylesheets\ConsentForm.css" />
     <Content Include="Surgical\ConsentPrint.aspx" />
+    <Content Include="Temp.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -195,16 +183,32 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <None Include="Service References\ConsentFormsService\basic1.xsd">
+    <None Include="Service References\FormHandlerService\basic.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ConsentFormsService\WindowsCEConsentForms.ConsentFormsService.DoctorAndProcedure.datasource">
+    <None Include="Service References\FormHandlerService\basic1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormHandlerService\basic2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormHandlerService\basic3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormHandlerService\basic4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormHandlerService\basic5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormHandlerService\FormHandlerService.wsdl" />
+    <None Include="Service References\FormHandlerService\WindowsCEConsentForms.FormHandlerService.DoctorAndProcedure.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ConsentFormsService\WindowsCEConsentForms.ConsentFormsService.DoctorDetails.datasource">
+    <None Include="Service References\FormHandlerService\WindowsCEConsentForms.FormHandlerService.DoctorDetails.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ConsentFormsService\WindowsCEConsentForms.ConsentFormsService.PatientDetail.datasource">
+    <None Include="Service References\FormHandlerService\WindowsCEConsentForms.FormHandlerService.PatientDetail.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
@@ -370,7 +374,7 @@
     <Compile Include="PrintFooter.ascx.designer.cs">
       <DependentUpon>PrintFooter.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Service References\ConsentFormsService\Reference.cs">
+    <Compile Include="Service References\FormHandlerService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -417,13 +421,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ConsentFormsService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ConsentFormsService\basic.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ConsentFormsService\FormHandlerService.wsdl" />
+    <WCFMetadataStorage Include="Service References\FormHandlerService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

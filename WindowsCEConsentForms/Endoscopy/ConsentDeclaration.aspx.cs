@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Web.UI;
-using WindowsCEConsentForms.ConsentFormsService;
+using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms.Endoscopy
 {

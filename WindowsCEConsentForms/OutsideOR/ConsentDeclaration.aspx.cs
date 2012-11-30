@@ -1,5 +1,5 @@
 ﻿using System;
-using WindowsCEConsentForms.ConsentFormsService;
+using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms.OutsideOR
 {

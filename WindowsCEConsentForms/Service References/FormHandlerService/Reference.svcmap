@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="949b3075-bfa9-4f3b-8605-dbaa28b762bd" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="basic.xsd" MetadataType="Schema" ID="aacaa015-528a-454c-94c5-c6ddc45f0f50" SourceId="1" SourceUrl="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd1" />
+    <MetadataFile FileName="basic1.xsd" MetadataType="Schema" ID="27c8f8df-789a-482a-b878-a17d1ab1ddcc" SourceId="1" SourceUrl="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd5" />
+    <MetadataFile FileName="basic2.xsd" MetadataType="Schema" ID="f1e93ace-6f78-46c0-90e0-63286d4e6b93" SourceId="1" SourceUrl="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd4" />
+    <MetadataFile FileName="basic3.xsd" MetadataType="Schema" ID="736a42fc-3c8d-4137-837b-39a6c6317c1d" SourceId="1" SourceUrl="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd0" />
+    <MetadataFile FileName="basic4.xsd" MetadataType="Schema" ID="9e1deefe-7011-4934-a41e-a9753cca5058" SourceId="1" SourceUrl="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd2" />
+    <MetadataFile FileName="basic5.xsd" MetadataType="Schema" ID="a2b93522-8fbb-4aad-8f5a-8f65a59ee07c" SourceId="1" SourceUrl="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd3" />
+    <MetadataFile FileName="FormHandlerService.wsdl" MetadataType="Wsdl" ID="749acfa2-4361-4faa-b340-e45c4bb91c1e" SourceId="1" SourceUrl="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

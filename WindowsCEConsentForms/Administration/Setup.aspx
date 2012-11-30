@@ -44,7 +44,7 @@
                 Password
             </div>
             <div class="leftBox">
-                <asp:TextBox runat="server" ID="TxtPassword"></asp:TextBox>
+                <asp:TextBox runat="server" ID="TxtPassword" TextMode="Password"></asp:TextBox>
             </div>
             <div class="clear">
             </div>

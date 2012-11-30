@@ -15,13 +15,18 @@ namespace WindowsCEConsentForms.Administration
         protected void Page_Load(object sender, EventArgs e)
         {
             string checkIfExist = ConfigurationManager.AppSettings["DBSetupStatus"];
-            if (checkIfExist != "0")
+            if (checkIfExist == "1")
             {
                 Response.Redirect("/patientConsent.aspx");
             }
         }
 
         protected void BtnReset_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
+
+        private void Reset()
         {
             TxtDatabasename.Text = string.Empty;
             TxtServerName.Text = string.Empty;
@@ -32,41 +37,52 @@ namespace WindowsCEConsentForms.Administration
 
         protected void BtnCompleted_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(TxtServerName.Text.Trim()) && !string.IsNullOrEmpty(TxtDatabasename.Text.Trim()) && !string.IsNullOrEmpty(TxtUsername.Text.Trim()) && !string.IsNullOrEmpty(TxtPassword.Text.Trim()))
+            try
             {
-                string checkIfExist = ConfigurationManager.AppSettings["DBSetupStatus"];
-                if (checkIfExist == "0")
+                if (!string.IsNullOrEmpty(TxtServerName.Text.Trim()) &&
+                    !string.IsNullOrEmpty(TxtDatabasename.Text.Trim()) && !string.IsNullOrEmpty(TxtUsername.Text.Trim()) &&
+                    !string.IsNullOrEmpty(TxtPassword.Text.Trim()))
                 {
-                    string connectionString = @"server=" + TxtServerName.Text.Trim() + ";database=master;uid=" + TxtUsername.Text.Trim() + ";pwd=" + TxtPassword.Text.Trim();
-                    Configuration config = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
-                    config.AppSettings.Settings.Remove("ConnectionString");
-                    config.AppSettings.Settings.Add("ConnectionString", connectionString);
-                    config.Save(ConfigurationSaveMode.Modified);
-                    ConfigurationManager.RefreshSection("appSettings");
-
-                    if (CreateDatabase(TxtDatabasename.Text.Trim(), connectionString))
+                    string checkIfExist = ConfigurationManager.AppSettings["DBSetupStatus"];
+                    if (checkIfExist == "0")
                     {
-                        config.AppSettings.Settings.Remove("DBSetupStatus");
-                        config.AppSettings.Settings.Add("DBSetupStatus", "1");
-                        connectionString = connectionString.Replace(connectionString.Split('=')[2], TxtDatabasename.Text + ";uid");
+                        string connectionString = @"server=" + TxtServerName.Text.Trim() + ";database=master;uid=" +
+                                                  TxtUsername.Text.Trim() + ";pwd=" + TxtPassword.Text.Trim();
+                        Configuration config =
+                            WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
                         config.AppSettings.Settings.Remove("ConnectionString");
                         config.AppSettings.Settings.Add("ConnectionString", connectionString);
                         config.Save(ConfigurationSaveMode.Modified);
                         ConfigurationManager.RefreshSection("appSettings");
-                        LblError.Text = "Database Created Succefully";
+
+                        if (CreateDatabase(TxtDatabasename.Text.Trim(), connectionString))
+                        {
+                            config.AppSettings.Settings.Remove("DBSetupStatus");
+                            config.AppSettings.Settings.Add("DBSetupStatus", "1");
+                            connectionString = connectionString.Replace(connectionString.Split('=')[2],
+                                                                        TxtDatabasename.Text + ";uid");
+                            config.AppSettings.Settings.Remove("ConnectionString");
+                            config.AppSettings.Settings.Add("ConnectionString", connectionString);
+                            config.Save(ConfigurationSaveMode.Modified);
+                            ConfigurationManager.RefreshSection("appSettings");
+                            LblError.Text = "Database Created Succefully";
+                        }
                     }
                 }
+                else
+                    LblError.Text = "Please input required fields and submit.";
             }
-            else
-                LblError.Text = "Please input required fields and submit.";
+            catch (Exception ex)
+            {
+                LblError.Text = "Unable to create database due to [" + ex.Message + "]";
+            }
         }
 
         public bool CreateDatabase(string databaseName, string connectionString)
         {
             try
             {
-                string strConnData = ConfigurationManager.AppSettings["ConnectionString"];
-                using (var connData = new SqlConnection(strConnData))
+                using (var connData = new SqlConnection(connectionString))
                 {
                     var file = new FileInfo(Server.MapPath("/Administration/ConsentDB.sql"));
                     string script = file.OpenText().ReadToEnd();
