@@ -32,9 +32,10 @@ namespace WindowsCEConsentForms
                     LblPatientId.Text = patientId;
                     LblPatientMrHash.Text = patientDetails.MRHash;
                     LblPatientName.Text = patientDetails.name;
-                    LblDate.Text = DateTime.Now.ToString("MMM dd yyyy");
+                    //LblDate.Text = DateTime.Now.ToString("MMM dd yyyy");
                     LblAge.Text = patientDetails.age.ToString(CultureInfo.InvariantCulture);
                     LblGender.Text = patientDetails.gender;
+                    LblAttendingPhysician.Text = patientDetails.AttnDr;
                 }
             }
         }

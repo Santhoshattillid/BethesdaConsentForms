@@ -161,9 +161,6 @@
                             <div class="sigBox">
                                 <asp:Image runat="server" ID="ImgPatientSignature" />
                             </div>
-                            <%-- <div class="right">
-                                <asp:Label runat="server" ID="LblPatientSignatureDateTime"></asp:Label>
-                            </div>--%>
                             <div class="clear">
                             </div>
                             <div>

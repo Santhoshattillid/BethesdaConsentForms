@@ -13,15 +13,6 @@ namespace WindowsCEConsentForms {
     public partial class PrintFooter {
         
         /// <summary>
-        /// LblPatientMrHash control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblPatientMrHash;
-        
-        /// <summary>
         /// LblPatientName control.
         /// </summary>
         /// <remarks>
@@ -29,15 +20,6 @@ namespace WindowsCEConsentForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblPatientName;
-        
-        /// <summary>
-        /// LblDOB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblDOB;
         
         /// <summary>
         /// LblPatientId control.
@@ -49,31 +31,22 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.WebControls.Label LblPatientId;
         
         /// <summary>
-        /// LblAge control.
+        /// LblPatientMrHash control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblAge;
+        protected global::System.Web.UI.WebControls.Label LblPatientMrHash;
         
         /// <summary>
-        /// LblGender control.
+        /// LblAttendingPhysician control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblGender;
-        
-        /// <summary>
-        /// LblDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblDate;
+        protected global::System.Web.UI.WebControls.Label LblAttendingPhysician;
         
         /// <summary>
         /// LblPatientAdminDate control.
@@ -92,5 +65,32 @@ namespace WindowsCEConsentForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblPatientAdminTime;
+        
+        /// <summary>
+        /// LblDOB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblDOB;
+        
+        /// <summary>
+        /// LblGender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblGender;
+        
+        /// <summary>
+        /// LblAge control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblAge;
     }
 }

@@ -144,7 +144,12 @@
         <asp:Label runat="server" ID="LblError" CssClass="errorInfo"></asp:Label>
     </li>
     <li class="center">
-        <asp:Button runat="server" ID="BtnCompleted" CssClass="btn" Text="Complete" OnClientClick="javascript: return confirm('Are you sure that do you want to complete the form?');" />
+        <asp:Button runat="server" ID="BtnCompleted" CssClass="btn" Text="Complete" 
+            OnClientClick="javascript: return confirm('Are you sure that do you want to complete the form?');"/>
         <asp:Button runat="server" ID="BtnReset" Text="Reset" CssClass="btn1" />
+        <asp:Button runat="server" ID="btnSkip" Text="Skip" CssClass="btn1" 
+            onclick="btnSkip_Click" />
+        <asp:Button runat="server" ID="btnHmme" Text="Home" CssClass="btn1" 
+            onclick="btnHmme_Click" />
     </li>
 </ul>

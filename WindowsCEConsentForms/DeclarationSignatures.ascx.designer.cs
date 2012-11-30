@@ -164,5 +164,23 @@ namespace WindowsCEConsentForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         public global::System.Web.UI.WebControls.Button BtnReset;
+        
+        /// <summary>
+        /// btnSkip control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSkip;
+        
+        /// <summary>
+        /// btnHmme control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnHmme;
     }
 }
