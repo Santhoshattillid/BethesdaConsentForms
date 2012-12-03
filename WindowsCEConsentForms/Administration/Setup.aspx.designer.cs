@@ -13,6 +13,15 @@ namespace WindowsCEConsentForms.Administration {
     public partial class Setup {
         
         /// <summary>
+        /// PnlDBConfiguration control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PnlDBConfiguration;
+        
+        /// <summary>
         /// TxtServerName control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,78 @@ namespace WindowsCEConsentForms.Administration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtPassword;
+        
+        /// <summary>
+        /// PnlFolderConfiguration control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PnlFolderConfiguration;
+        
+        /// <summary>
+        /// TxtSurgicalExportPath control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtSurgicalExportPath;
+        
+        /// <summary>
+        /// TxtCardiovascularExportPath control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtCardiovascularExportPath;
+        
+        /// <summary>
+        /// TxtOutsideORExportPath control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtOutsideORExportPath;
+        
+        /// <summary>
+        /// TxtEndoscopyExportPath control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtEndoscopyExportPath;
+        
+        /// <summary>
+        /// TxtBloodConsentOrRefusalExportPath control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtBloodConsentOrRefusalExportPath;
+        
+        /// <summary>
+        /// TxtPlasmanApheresisExportPath control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtPlasmanApheresisExportPath;
+        
+        /// <summary>
+        /// TxtPICCExportPath control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtPICCExportPath;
         
         /// <summary>
         /// LblError control.

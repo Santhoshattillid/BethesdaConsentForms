@@ -183,4 +183,4 @@
         </table>
     </li>
 </ul>
-<uc3:PrintFooter ID="PrintFooter1" runat="server" />
+<uc3:PrintFooter ID="PrintFooter1" runat="server" ConsentType='<%= ConsentType %>' />

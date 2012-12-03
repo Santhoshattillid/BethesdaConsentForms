@@ -1,6 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="DeclarationSignatures.ascx.cs"
     Inherits="WindowsCEConsentForms.DeclarationSignatures" %>
 <%@ Import Namespace="WindowsCEConsentForms" %>
+<%@ Import Namespace="WindowsCEConsentForms.FormHandlerService" %>
 <ul class="content">
     <li>
         <p>
@@ -146,5 +147,7 @@
     <li class="center">
         <asp:Button runat="server" ID="BtnCompleted" CssClass="btn" Text="Complete" OnClientClick="javascript: return confirm('Are you sure that do you want to complete the form?');" />
         <asp:Button runat="server" ID="BtnReset" Text="Reset" CssClass="btn1" />
+        <asp:Button runat="server" ID="btnSkip" Text="Skip" CssClass="btn1" OnClick="btnSkip_Click" />
+        <asp:Button runat="server" ID="btnHmme" Text="Home" CssClass="btn1" OnClick="btnHmme_Click" />
     </li>
 </ul>

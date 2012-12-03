@@ -465,6 +465,35 @@ namespace WindowsCEConsentForms.FormHandlerService {
         }
     }
     
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ConsentType", Namespace="http://schemas.datacontract.org/2004/07/Consent.sp.wcf")]
+    public enum ConsentType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Surgical = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Cardiovascular = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        OutsideOR = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Endoscopy = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BloodConsentOrRefusal = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PlasmanApheresis = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PICC = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        None = 7,
+    }
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DoctorAndProcedure", Namespace="http://schemas.datacontract.org/2004/07/Consent.sp.wcf")]
@@ -576,13 +605,19 @@ namespace WindowsCEConsentForms.FormHandlerService {
         void UpdateTrackingInfo(string PatientId, WindowsCEConsentForms.FormHandlerService.TrackingInfo trackingInfo, string ConsentFormType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GenerateAndUploadPDFtoSharePoint", ReplyAction="http://tempuri.org/IFormHandlerService/GenerateAndUploadPDFtoSharePointResponse")]
-        void GenerateAndUploadPDFtoSharePoint(string RelativeUrl, string PatientId, string ConsentFormType);
+        void GenerateAndUploadPDFtoSharePoint(string RelativeUrl, string PatientId, WindowsCEConsentForms.FormHandlerService.ConsentType ConsentFormType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/UpdateConsentFormStatementType", ReplyAction="http://tempuri.org/IFormHandlerService/UpdateConsentFormStatementTypeResponse")]
         void UpdateConsentFormStatementType(string PatientNumber, WindowsCEConsentForms.FormHandlerService.StatementOfConsent StatementType, string ConsentFormType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/SaveDoctorsDetails", ReplyAction="http://tempuri.org/IFormHandlerService/SaveDoctorsDetailsResponse")]
         void SaveDoctorsDetails(string PatientID, string ConsentFormType, WindowsCEConsentForms.FormHandlerService.DoctorAndProcedure[] _doctorAndPrcedures);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/savePdfFoderPath", ReplyAction="http://tempuri.org/IFormHandlerService/savePdfFoderPathResponse")]
+        void savePdfFoderPath(string ConsentFormType, string FolderPath);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPdfFolderPath", ReplyAction="http://tempuri.org/IFormHandlerService/GetPdfFolderPathResponse")]
+        string GetPdfFolderPath(WindowsCEConsentForms.FormHandlerService.ConsentType consentType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetDoctorsDetails", ReplyAction="http://tempuri.org/IFormHandlerService/GetDoctorsDetailsResponse")]
         WindowsCEConsentForms.FormHandlerService.DoctorAndProcedure[] GetDoctorsDetails(string PatientID, string ConsentFormType);
@@ -709,7 +744,7 @@ namespace WindowsCEConsentForms.FormHandlerService {
             base.Channel.UpdateTrackingInfo(PatientId, trackingInfo, ConsentFormType);
         }
         
-        public void GenerateAndUploadPDFtoSharePoint(string RelativeUrl, string PatientId, string ConsentFormType) {
+        public void GenerateAndUploadPDFtoSharePoint(string RelativeUrl, string PatientId, WindowsCEConsentForms.FormHandlerService.ConsentType ConsentFormType) {
             base.Channel.GenerateAndUploadPDFtoSharePoint(RelativeUrl, PatientId, ConsentFormType);
         }
         
@@ -719,6 +754,14 @@ namespace WindowsCEConsentForms.FormHandlerService {
         
         public void SaveDoctorsDetails(string PatientID, string ConsentFormType, WindowsCEConsentForms.FormHandlerService.DoctorAndProcedure[] _doctorAndPrcedures) {
             base.Channel.SaveDoctorsDetails(PatientID, ConsentFormType, _doctorAndPrcedures);
+        }
+        
+        public void savePdfFoderPath(string ConsentFormType, string FolderPath) {
+            base.Channel.savePdfFoderPath(ConsentFormType, FolderPath);
+        }
+        
+        public string GetPdfFolderPath(WindowsCEConsentForms.FormHandlerService.ConsentType consentType) {
+            return base.Channel.GetPdfFolderPath(consentType);
         }
         
         public WindowsCEConsentForms.FormHandlerService.DoctorAndProcedure[] GetDoctorsDetails(string PatientID, string ConsentFormType) {

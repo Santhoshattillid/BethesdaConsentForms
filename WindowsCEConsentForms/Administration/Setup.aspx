@@ -1,54 +1,128 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true"
     CodeBehind="Setup.aspx.cs" Inherits="WindowsCEConsentForms.Administration.Setup" %>
 
+<%@ Import Namespace="WindowsCEConsentForms" %>
+<%@ Import Namespace="WindowsCEConsentForms.FormHandlerService" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:Panel runat="server" ID="PnlDBConfiguration">
+        <ul class="content">
+            <li class="center">
+                <h3>
+                    Consent Administration</h3>
+            </li>
+            <li>
+                <h3>
+                    Database Information</h3>
+            </li>
+            <li>
+                <div class="adminHeading leftBox content-heading">
+                    SQL Server
+                </div>
+                <div class="leftBox">
+                    <asp:TextBox runat="server" ID="TxtServerName"></asp:TextBox>
+                </div>
+                <div class="clear">
+                </div>
+            </li>
+            <li>
+                <div class="adminHeading leftBox content-heading">
+                    Database name
+                </div>
+                <div class="leftBox">
+                    <asp:TextBox runat="server" ID="TxtDatabasename"></asp:TextBox>
+                </div>
+                <div class="clear">
+                </div>
+            </li>
+            <li>
+                <div class="adminHeading leftBox content-heading">
+                    Username
+                </div>
+                <div class="leftBox">
+                    <asp:TextBox runat="server" ID="TxtUsername"></asp:TextBox>
+                </div>
+                <div class="clear">
+                </div>
+            </li>
+            <li>
+                <div class="adminHeading leftBox content-heading">
+                    Password
+                </div>
+                <div class="leftBox">
+                    <asp:TextBox runat="server" ID="TxtPassword" TextMode="Password"></asp:TextBox>
+                </div>
+                <div class="clear">
+                </div>
+            </li>
+        </ul>
+    </asp:Panel>
+    <asp:Panel runat="server" ID="PnlFolderConfiguration">
+        <ul class="content">
+            <li>
+                <h3>
+                    Exports Path</h3>
+            </li>
+            <li>
+                <div class="content-heading">
+                    <%= Utilities.GetConsentHeader(ConsentType.Surgical) %>
+                </div>
+                <div>
+                    <asp:TextBox runat="server" ID="TxtSurgicalExportPath"></asp:TextBox>
+                </div>
+            </li>
+            <li>
+                <div class="content-heading">
+                    <%= Utilities.GetConsentHeader(ConsentType.Cardiovascular) %>
+                </div>
+                <div>
+                    <asp:TextBox runat="server" ID="TxtCardiovascularExportPath"></asp:TextBox>
+                </div>
+            </li>
+            <li>
+                <div class="content-heading">
+                    <%= Utilities.GetConsentHeader(ConsentType.OutsideOR) %>
+                </div>
+                <div>
+                    <asp:TextBox runat="server" ID="TxtOutsideORExportPath"></asp:TextBox>
+                </div>
+            </li>
+            <li>
+                <div class="content-heading">
+                    <%= Utilities.GetConsentHeader(ConsentType.Endoscopy) %>
+                </div>
+                <div>
+                    <asp:TextBox runat="server" ID="TxtEndoscopyExportPath"></asp:TextBox>
+                </div>
+            </li>
+            <li>
+                <div class="content-heading">
+                    <%= Utilities.GetConsentHeader(ConsentType.BloodConsentOrRefusal) %>
+                </div>
+                <div>
+                    <asp:TextBox runat="server" ID="TxtBloodConsentOrRefusalExportPath"></asp:TextBox>
+                </div>
+            </li>
+            <li>
+                <div class="content-heading">
+                    <%= Utilities.GetConsentHeader(ConsentType.PlasmanApheresis) %>
+                </div>
+                <div>
+                    <asp:TextBox runat="server" ID="TxtPlasmanApheresisExportPath"></asp:TextBox>
+                </div>
+            </li>
+            <li>
+                <div class="content-heading">
+                    <%= Utilities.GetConsentHeader(ConsentType.PICC) %>
+                </div>
+                <div>
+                    <asp:TextBox runat="server" ID="TxtPICCExportPath"></asp:TextBox>
+                </div>
+            </li>
+        </ul>
+    </asp:Panel>
     <ul class="content">
-        <li class="center">
-            <h3>
-                Consent Administration</h3>
-        </li>
-        <li>
-            <div class="adminHeading leftBox content-heading">
-                SQL Server
-            </div>
-            <div class="leftBox">
-                <asp:TextBox runat="server" ID="TxtServerName"></asp:TextBox>
-            </div>
-            <div class="clear">
-            </div>
-        </li>
-        <li>
-            <div class="adminHeading leftBox content-heading">
-                Database name
-            </div>
-            <div class="leftBox">
-                <asp:TextBox runat="server" ID="TxtDatabasename"></asp:TextBox>
-            </div>
-            <div class="clear">
-            </div>
-        </li>
-        <li>
-            <div class="adminHeading leftBox content-heading">
-                Username
-            </div>
-            <div class="leftBox">
-                <asp:TextBox runat="server" ID="TxtUsername"></asp:TextBox>
-            </div>
-            <div class="clear">
-            </div>
-        </li>
-        <li>
-            <div class="adminHeading leftBox content-heading">
-                Password
-            </div>
-            <div class="leftBox">
-                <asp:TextBox runat="server" ID="TxtPassword" TextMode="Password"></asp:TextBox>
-            </div>
-            <div class="clear">
-            </div>
-        </li>
         <li>
             <asp:Label runat="server" ID="LblError" CssClass="errorInfomodified adminErroInfo"></asp:Label>
         </li>
@@ -66,22 +140,22 @@
             var usernameElement = $("#" + "<%= TxtUsername.ClientID%>");
             var passwordElement = $("#" + "<%= TxtPassword.ClientID%>");
             var errorInfoElement = $("#" + "<%= LblError.ClientID%>");
-            if ($.trim(dataSourceElement.val()) == "") {
+            if (dataSourceElement.size() > 0 && $.trim(dataSourceElement.val()) == "") {
                 errorInfoElement.html("Datasource Field can not be blank");
                 dataSourceElement.focus();
                 return false;
             }
-            if ($.trim(databaseNameElement.val()) == "") {
+            if (databaseNameElement.size() > 0 && $.trim(databaseNameElement.val()) == "") {
                 errorInfoElement.html("Database Field can not be blank");
                 databaseNameElement.focus();
                 return false;
             }
-            if ($.trim(usernameElement.val()) == "") {
+            if (usernameElement.size() >0 && $.trim(usernameElement.val()) == "") {
                 errorInfoElement.html("User Name can not be blank");
                 usernameElement.focus();
                 return false;
             }
-            if ($.trim(passwordElement.val()) == "") {
+            if (passwordElement.size() >0 && $.trim(passwordElement.val()) == "") {
                 errorInfoElement.html("Password can not be blank");
                 passwordElement.focus();
                 return false;

@@ -216,7 +216,7 @@
 }
 .bigfont TR TD
 {
-    font: bold 14px sans-serif;
+    font:  6pt sans-serif;
 }
 .print .right
 {
@@ -444,25 +444,33 @@
 }
 .printFooter
 {
-    border: 1px solid #ddd;
+    border: 1px solid #DDD;
 }
-.printFooter tr td
+.printFooter TR TD
 {
-    border: 1px solid #ddd;
+    border: 1px solid #DDD;
 }
-.printFooter tr td:first-child
+.printFooter TR TD:first-child
 {
     width: 4%;
 }
-.printFooter tr td:last-child
+.printFooter TR TD:last-child
 {
     width: 15%;
 }
-.printFooter tr td:nth-child(3)
+.printFooter TR TD:nth-child(3)
 {
     width: 1%;
 }
-.printFooter tr td:nth-child(4)
+.printFooter TR TD:nth-child(4)
 {
     width: 4%;
+}
+.adminHeading
+{
+    width: 100px;
+}
+.content .adminErroInfo
+{
+    padding-left: 99px;
 }

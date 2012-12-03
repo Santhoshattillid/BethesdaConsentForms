@@ -278,7 +278,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="RelativeUrl" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="PatientId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="ConsentFormType" nillable="true" type="xs:string" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Consent.sp.wcf" minOccurs="0" name="ConsentFormType" type="q6:ConsentType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -291,7 +291,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="PatientNumber" nillable="true" type="xs:string" />
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Consent.sp.wcf" minOccurs="0" name="StatementType" nillable="true" type="q6:StatementOfConsent" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Consent.sp.wcf" minOccurs="0" name="StatementType" nillable="true" type="q7:StatementOfConsent" />
         <xs:element minOccurs="0" name="ConsentFormType" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -306,13 +306,40 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="PatientID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="ConsentFormType" nillable="true" type="xs:string" />
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Consent.sp.wcf" minOccurs="0" name="_doctorAndPrcedures" nillable="true" type="q7:ArrayOfDoctorAndProcedure" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Consent.sp.wcf" minOccurs="0" name="_doctorAndPrcedures" nillable="true" type="q8:ArrayOfDoctorAndProcedure" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SaveDoctorsDetailsResponse">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="savePdfFoderPath">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConsentFormType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FolderPath" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="savePdfFoderPathResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPdfFolderPath">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Consent.sp.wcf" minOccurs="0" name="consentType" type="q9:ConsentType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPdfFolderPathResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPdfFolderPathResult" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetDoctorsDetails">
@@ -326,7 +353,7 @@
   <xs:element name="GetDoctorsDetailsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Consent.sp.wcf" minOccurs="0" name="GetDoctorsDetailsResult" nillable="true" type="q8:ArrayOfDoctorAndProcedure" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Consent.sp.wcf" minOccurs="0" name="GetDoctorsDetailsResult" nillable="true" type="q10:ArrayOfDoctorAndProcedure" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -338,7 +365,7 @@
   <xs:element name="GetProcedurenameListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetProcedurenameListResult" nillable="true" type="q9:ArrayOfstring" />
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetProcedurenameListResult" nillable="true" type="q11:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -350,7 +377,7 @@
   <xs:element name="GetEndoscopyProcedurenameListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetEndoscopyProcedurenameListResult" nillable="true" type="q10:ArrayOfstring" />
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetEndoscopyProcedurenameListResult" nillable="true" type="q12:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -362,7 +389,7 @@
   <xs:element name="GetCardiovascularProcedurenameListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetCardiovascularProcedurenameListResult" nillable="true" type="q11:ArrayOfstring" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetCardiovascularProcedurenameListResult" nillable="true" type="q13:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -17,5 +17,5 @@
     <uc1:PatientDetails ID="PatientDetails1" runat="server" ConsentType="Surgical" />
     <uc2:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" IsStaticTextBoxForPrecedures="True" />
     <uc1:ConsentSignatures ID="ConsentSignatures" runat="server" />
-    <uc1:DeclarationSignatures ID="DeclarationSignatures" runat="server" />
+    <uc1:DeclarationSignatures ID="DeclarationSignatures" runat="server" ConsentType="Surgical" />
 </asp:Content>

@@ -1,10 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true"
     CodeBehind="ConsentDeclaration.aspx.cs" Inherits="WindowsCEConsentForms.Cardiovascular.ConsentDeclaration1" %>
-
 <%@ Import Namespace="WindowsCEConsentForms" %>
 <%@ Register TagPrefix="uc1" TagName="PatientDetails" Src="~/PatientDetails.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="DoctorsAndProcedures" Src="~/DoctorsAndProcedures.ascx" %>
-<%@ Register TagPrefix="uc1" TagName="DeclarationSignatures" Src="~/DeclarationSignatures.ascx" %>
+<%@ Register tagprefix="uc2" src="../DeclarationSignatures.ascx" tagname="DeclarationSignatures" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -95,10 +95,11 @@
                 should arise. I permit the above physicians to seek consultation with other specialists
                 and permit the performance of any surgical or other procedures that may be required
                 on an emergency basis correct such complications.
+                
             </div>
             <div class="clear">
             </div>
         </li>
     </ul>
-    <uc1:DeclarationSignatures ID="DeclarationSignatures" runat="server" ConsentType="Cardiovascular" />
+    <uc2:DeclarationSignatures ID="DeclarationSignatures" runat="server" ConsentType="Cardiovascular" />
 </asp:Content>

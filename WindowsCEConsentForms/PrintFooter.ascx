@@ -1,77 +1,72 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PrintFooter.ascx.cs"
     Inherits="WindowsCEConsentForms.PrintFooter" %>
-<%@ Import Namespace="WindowsCEConsentForms" %>
 <ul class="content">
     <li>
-        <table class="bigfont printFooter">
+        <table>
             <tr>
                 <td>
-                    FORM:
                 </td>
                 <td>
-                    <%= Utilities.GetConsentHeader(ConsentType)%>
-                </td>
-                <td>
-                    MR#:
-                </td>
-                <td>
-                    <asp:Label runat="server" ID="LblPatientMrHash"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    PATIENT:
-                </td>
-                <td>
-                    <asp:Label runat="server" ID="LblPatientName"></asp:Label>
-                </td>
-                <td>
-                    DOB:
-                </td>
-                <td>
-                    <asp:Label runat="server" ID="LblDOB"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    PATIENT#:
-                </td>
-                <td>
-                    <asp:Label runat="server" ID="LblPatientId"></asp:Label>
-                </td>
-                <td>
-                    AGE:
-                </td>
-                <td>
-                    <asp:Label runat="server" ID="LblAge"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    GENDER:
-                </td>
-                <td>
-                    <asp:Label runat="server" ID="LblGender"></asp:Label>
-                </td>
-                <td>
-                    DATE:
-                </td>
-                <td>
-                    <asp:Label runat="server" ID="LblDate"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    ADMIT DATE:
-                </td>
-                <td>
-                    <asp:Label runat="server" ID="LblPatientAdminDate"></asp:Label>
-                </td>
-                <td>
-                    TIME:
-                </td>
-                <td>
-                    <asp:Label runat="server" ID="LblPatientAdminTime"></asp:Label>
+                    <table class="printFooter">
+                        <tr>
+                            <td>
+                                Patient Name:
+                            </td>
+                            <td>
+                                <asp:Label runat="server" ID="LblPatientName"></asp:Label>
+                            </td>
+                            <td>
+                                Patient#:
+                            </td>
+                            <td>
+                                <asp:Label runat="server" ID="LblPatientId"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                MR#:
+                            </td>
+                            <td>
+                                <asp:Label runat="server" ID="LblPatientMrHash"></asp:Label>
+                            </td>
+                            <td>
+                                Attending Physician:
+                            </td>
+                            <td>
+                                <asp:Label runat="server" ID="LblAttendingPhysician"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Admission Date:
+                            </td>
+                            <td>
+                                <asp:Label runat="server" ID="LblPatientAdminDate"></asp:Label>
+                                :
+                                <asp:Label runat="server" ID="LblPatientAdminTime"></asp:Label>
+                            </td>
+                            <td>
+                                DOB:
+                            </td>
+                            <td>
+                                <asp:Label runat="server" ID="LblDOB"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Gender:
+                            </td>
+                            <td>
+                                <asp:Label runat="server" ID="LblGender"></asp:Label>
+                            </td>
+                            <td>
+                                Age:
+                            </td>
+                            <td>
+                                <asp:Label runat="server" ID="LblAge"></asp:Label>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         </table>

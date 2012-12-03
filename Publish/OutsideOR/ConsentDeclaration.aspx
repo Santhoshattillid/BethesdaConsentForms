@@ -19,5 +19,5 @@
     <uc1:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" ConsentType="OutsideOR"
         IsStaticTextBoxForPrecedures="True" />
     <uc1:ConsentSignatures ID="ConsentSignatures1" runat="server" />
-    <uc1:DeclarationSignatures ID="DeclarationSignatures1" runat="server" />
+    <uc1:DeclarationSignatures ID="DeclarationSignatures1" runat="server" ConsentType="OutsideOR" />
 </asp:Content>

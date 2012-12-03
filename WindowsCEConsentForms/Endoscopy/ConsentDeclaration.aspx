@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true"
     CodeBehind="ConsentDeclaration.aspx.cs" Inherits="WindowsCEConsentForms.Endoscopy.ConsentDeclaration1" %>
+
 <%@ Register TagPrefix="uc1" TagName="DeclarationSignatures" Src="~/DeclarationSignatures.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="ConsentSignatures" Src="~/ConsentSignatures.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="PatientDetails" Src="~/PatientDetails.ascx" %>
@@ -17,5 +18,5 @@
     <uc1:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" ConsentType="Endoscopy"
         IsStaticTextBoxForPrecedures="True" />
     <uc1:ConsentSignatures ID="ConsentSignatures" runat="server" />
-    <uc1:DeclarationSignatures ID="DeclarationSignatures" runat="server" />
+    <uc1:DeclarationSignatures ID="DeclarationSignatures" runat="server" ConsentType="Endoscopy" />
 </asp:Content>

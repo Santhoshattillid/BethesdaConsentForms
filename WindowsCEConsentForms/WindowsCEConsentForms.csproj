@@ -72,6 +72,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administration\ConsentDB_Old.sql" />
     <Content Include="Administration\ConsentDB.sql" />
     <Content Include="Administration\Setup.aspx" />
     <Content Include="AjaxMethods.asmx" />
@@ -127,6 +128,7 @@
     <Content Include="PlasmanApheresis\ConsentDeclaration.aspx" />
     <Content Include="PlasmanApheresis\ConsentPrint.aspx" />
     <Content Include="PrintFooter.ascx" />
+    <Content Include="PrintSignatures.ascx" />
     <Content Include="Print\BloodConsentOrRefusal\BlankPrint.aspx" />
     <Content Include="Print\Cardiovascular\BlankPrint.aspx" />
     <Content Include="Print\Endoscopy\BlankPrint.aspx" />
@@ -373,6 +375,13 @@
     </Compile>
     <Compile Include="PrintFooter.ascx.designer.cs">
       <DependentUpon>PrintFooter.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PrintSignatures.ascx.cs">
+      <DependentUpon>PrintSignatures.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrintSignatures.ascx.designer.cs">
+      <DependentUpon>PrintSignatures.ascx</DependentUpon>
     </Compile>
     <Compile Include="Service References\FormHandlerService\Reference.cs">
       <AutoGen>True</AutoGen>

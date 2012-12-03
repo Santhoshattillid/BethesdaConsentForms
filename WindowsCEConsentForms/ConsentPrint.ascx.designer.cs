@@ -103,15 +103,6 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.WebControls.Image ImgPatientSignature;
         
         /// <summary>
-        /// LblPatientSignatureDateTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblPatientSignatureDateTime;
-        
-        /// <summary>
         /// LblPatientSignatureDate control.
         /// </summary>
         /// <remarks>
@@ -191,15 +182,6 @@ namespace WindowsCEConsentForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image ImgWitnessSignature1;
-        
-        /// <summary>
-        /// LblWitnessSignature1DateTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblWitnessSignature1DateTime;
         
         /// <summary>
         /// LblWitnessSignature1Date control.

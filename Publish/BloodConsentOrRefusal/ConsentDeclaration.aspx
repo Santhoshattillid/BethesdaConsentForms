@@ -162,5 +162,5 @@
             </ul>
         </li>
     </ul>
-    <uc2:DeclarationSignatures ID="DeclarationSignatures" runat="server" />
+    <uc2:DeclarationSignatures ID="DeclarationSignatures" runat="server" ConsentType="BloodConsentOrRefusal" />
 </asp:Content>

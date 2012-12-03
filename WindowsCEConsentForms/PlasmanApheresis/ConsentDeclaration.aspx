@@ -135,5 +135,5 @@
             </div>
         </li>
     </ul>
-    <uc1:DeclarationSignatures ID="DeclarationSignatures" runat="server" />
+    <uc1:DeclarationSignatures ID="DeclarationSignatures" runat="server" ConsentType="PlasmanApheresis" />
 </asp:Content>

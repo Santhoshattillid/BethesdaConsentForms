@@ -124,5 +124,19 @@ namespace WindowsCEConsentForms
 
             formHandlerServiceClient.UpdateTranslatedby(patientId, ConsentType.ToString(), TxtTranslatedBy.Text);
         }
+
+        protected void btnHmme_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/PatientConsent.aspx");
+        }
+
+        protected void btnSkip_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(Utilities.GetNextFormUrl(ConsentType, Session));
+        }
+
+       
+
+        
     }
 }

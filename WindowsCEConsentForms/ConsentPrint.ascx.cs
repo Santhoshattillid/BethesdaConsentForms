@@ -9,6 +9,7 @@ namespace WindowsCEConsentForms
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            PrintFooter1.ConsentType = ConsentType;
             DoctorsAndProceduresPrint1.ConsentType = ConsentType;
 
             string patientId;

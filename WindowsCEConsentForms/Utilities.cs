@@ -59,7 +59,7 @@ namespace WindowsCEConsentForms
 
         public static void GeneratePdfAndUploadToSharePointSite(FormHandlerServiceClient formHandlerServiceClient, ConsentType consentType, string patientId)
         {
-            formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/" + consentType + @"/ConsentPrint.aspx?PatientId=" + patientId, patientId, consentType.ToString());
+            formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/" + consentType + @"/ConsentPrint.aspx?PatientId=" + patientId, patientId, consentType);
         }
 
         public static string GetAssociatedDoctors(string primaryPhysicianId)
@@ -114,18 +114,6 @@ namespace WindowsCEConsentForms
                     return string.Empty;
             }
         }
-    }
-
-    public enum ConsentType
-    {
-        Surgical,
-        Cardiovascular,
-        OutsideOR,
-        Endoscopy,
-        BloodConsentOrRefusal,
-        PlasmanApheresis,
-        PICC,
-        None
     }
 
     public enum SignatureType

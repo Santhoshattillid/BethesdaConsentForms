@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Configuration;
 using Microsoft.SqlServer.Management.Common;
 using Microsoft.SqlServer.Management.Smo;
+using WindowsCEConsentForms.FormHandlerService;
 using Configuration = System.Configuration.Configuration;
 
 namespace WindowsCEConsentForms.Administration
@@ -17,8 +18,10 @@ namespace WindowsCEConsentForms.Administration
             string checkIfExist = ConfigurationManager.AppSettings["DBSetupStatus"];
             if (checkIfExist == "1")
             {
-                Response.Redirect("/patientConsent.aspx");
+                PnlDBConfiguration.Visible = false;
             }
+            if (!IsPostBack)
+                Reset();
         }
 
         protected void BtnReset_Click(object sender, EventArgs e)
@@ -32,82 +35,128 @@ namespace WindowsCEConsentForms.Administration
             TxtServerName.Text = string.Empty;
             TxtUsername.Text = string.Empty;
             TxtPassword.Text = string.Empty;
+            TxtBloodConsentOrRefusalExportPath.Text = string.Empty;
+            TxtCardiovascularExportPath.Text = string.Empty;
+            TxtEndoscopyExportPath.Text = string.Empty;
+            TxtOutsideORExportPath.Text = string.Empty;
+            TxtPICCExportPath.Text = string.Empty;
+            TxtPlasmanApheresisExportPath.Text = string.Empty;
+            TxtSurgicalExportPath.Text = string.Empty;
             TxtServerName.Focus();
+
+            // Getting export paths and display in boxes
+
+            var formHandlerServices = new FormHandlerServiceClient();
+            TxtBloodConsentOrRefusalExportPath.Text = formHandlerServices.GetPdfFolderPath(ConsentType.BloodConsentOrRefusal);
+            TxtCardiovascularExportPath.Text = formHandlerServices.GetPdfFolderPath(ConsentType.Cardiovascular);
+            TxtEndoscopyExportPath.Text = formHandlerServices.GetPdfFolderPath(ConsentType.Endoscopy);
+            TxtOutsideORExportPath.Text = formHandlerServices.GetPdfFolderPath(ConsentType.OutsideOR);
+            TxtPICCExportPath.Text = formHandlerServices.GetPdfFolderPath(ConsentType.PICC);
+            TxtPlasmanApheresisExportPath.Text = formHandlerServices.GetPdfFolderPath(ConsentType.PlasmanApheresis);
+            TxtSurgicalExportPath.Text = formHandlerServices.GetPdfFolderPath(ConsentType.Surgical);
         }
 
         protected void BtnCompleted_Click(object sender, EventArgs e)
         {
-            try
+            if (PnlDBConfiguration.Visible)
             {
-                if (!string.IsNullOrEmpty(TxtServerName.Text.Trim()) &&
-                    !string.IsNullOrEmpty(TxtDatabasename.Text.Trim()) && !string.IsNullOrEmpty(TxtUsername.Text.Trim()) &&
-                    !string.IsNullOrEmpty(TxtPassword.Text.Trim()))
+                try
                 {
-                    string checkIfExist = ConfigurationManager.AppSettings["DBSetupStatus"];
-                    if (checkIfExist == "0")
+                    if (!string.IsNullOrEmpty(TxtServerName.Text.Trim()) &&
+                        !string.IsNullOrEmpty(TxtDatabasename.Text.Trim()) &&
+                        !string.IsNullOrEmpty(TxtUsername.Text.Trim()) &&
+                        !string.IsNullOrEmpty(TxtPassword.Text.Trim()))
                     {
-                        string connectionString = @"server=" + TxtServerName.Text.Trim() + ";database=master;uid=" +
-                                                  TxtUsername.Text.Trim() + ";pwd=" + TxtPassword.Text.Trim();
-                        Configuration config =
-                            WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
-                        config.AppSettings.Settings.Remove("ConnectionString");
-                        config.AppSettings.Settings.Add("ConnectionString", connectionString);
-                        config.Save(ConfigurationSaveMode.Modified);
-                        ConfigurationManager.RefreshSection("appSettings");
-
-                        if (CreateDatabase(TxtDatabasename.Text.Trim(), connectionString))
+                        string checkIfExist = ConfigurationManager.AppSettings["DBSetupStatus"];
+                        if (checkIfExist == "0")
                         {
-                            config.AppSettings.Settings.Remove("DBSetupStatus");
-                            config.AppSettings.Settings.Add("DBSetupStatus", "1");
-                            connectionString = connectionString.Replace(connectionString.Split('=')[2],
-                                                                        TxtDatabasename.Text + ";uid");
+                            string connectionString = @"server=" + TxtServerName.Text.Trim() + ";database=master;uid=" +
+                                                      TxtUsername.Text.Trim() + ";pwd=" + TxtPassword.Text.Trim();
+                            Configuration config =
+                                WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
                             config.AppSettings.Settings.Remove("ConnectionString");
                             config.AppSettings.Settings.Add("ConnectionString", connectionString);
                             config.Save(ConfigurationSaveMode.Modified);
                             ConfigurationManager.RefreshSection("appSettings");
-                            LblError.Text = "Database Created Succefully";
+
+                            if (CreateDatabase(TxtDatabasename.Text.Trim(), connectionString))
+                            {
+                                config.AppSettings.Settings.Remove("DBSetupStatus");
+                                config.AppSettings.Settings.Add("DBSetupStatus", "1");
+                                connectionString = connectionString.Replace(connectionString.Split('=')[2],
+                                                                            TxtDatabasename.Text + ";uid");
+                                config.AppSettings.Settings.Remove("ConnectionString");
+                                config.AppSettings.Settings.Add("ConnectionString", connectionString);
+                                config.Save(ConfigurationSaveMode.Modified);
+                                ConfigurationManager.RefreshSection("appSettings");
+                                LblError.Text = "Database Created Succefully";
+                            }
                         }
+                        else
+                            LblError.Text = "DB Information Already configured.";
                     }
+                    else
+                        LblError.Text = "Please input required fields and submit.";
+                }
+                catch (Exception ex)
+                {
+                    LblError.Text = "Unable to create database due to [" + ex.Message + "]";
+                }
+            }
+
+            //setting exports path
+            try
+            {
+                if (!string.IsNullOrEmpty(TxtSurgicalExportPath.Text.Trim())
+                    && !string.IsNullOrEmpty(TxtBloodConsentOrRefusalExportPath.Text.Trim())
+                    && !string.IsNullOrEmpty(TxtCardiovascularExportPath.Text.Trim())
+                    && !string.IsNullOrEmpty(TxtEndoscopyExportPath.Text.Trim())
+                    && !string.IsNullOrEmpty(TxtOutsideORExportPath.Text.Trim())
+                    && !string.IsNullOrEmpty(TxtPICCExportPath.Text.Trim())
+                    && !string.IsNullOrEmpty(TxtPlasmanApheresisExportPath.Text.Trim()))
+                {
+                    var formHanlderServices = new FormHandlerServiceClient();
+                    formHanlderServices.savePdfFoderPath(ConsentType.Surgical.ToString(), TxtSurgicalExportPath.Text);
+                    formHanlderServices.savePdfFoderPath(ConsentType.BloodConsentOrRefusal.ToString(), TxtBloodConsentOrRefusalExportPath.Text);
+                    formHanlderServices.savePdfFoderPath(ConsentType.Cardiovascular.ToString(), TxtCardiovascularExportPath.Text);
+                    formHanlderServices.savePdfFoderPath(ConsentType.Endoscopy.ToString(), TxtEndoscopyExportPath.Text);
+                    formHanlderServices.savePdfFoderPath(ConsentType.OutsideOR.ToString(), TxtOutsideORExportPath.Text);
+                    formHanlderServices.savePdfFoderPath(ConsentType.PICC.ToString(), TxtPICCExportPath.Text);
+                    formHanlderServices.savePdfFoderPath(ConsentType.PlasmanApheresis.ToString(), TxtPlasmanApheresisExportPath.Text);
+                    LblError.Text = "Export paths saved successfully.";
                 }
                 else
-                    LblError.Text = "Please input required fields and submit.";
+                    LblError.Text = "Please input all exports path and then complete.";
             }
             catch (Exception ex)
             {
-                LblError.Text = "Unable to create database due to [" + ex.Message + "]";
+                LblError.Text = "Unable to config export paths due to [" + ex.Message + "]";
             }
         }
 
         public bool CreateDatabase(string databaseName, string connectionString)
         {
-            try
+            using (var connData = new SqlConnection(connectionString))
             {
-                using (var connData = new SqlConnection(connectionString))
+                var file = new FileInfo(Server.MapPath("/Administration/ConsentDB.sql"));
+                string script = file.OpenText().ReadToEnd();
+                var streamReader = new StreamReader(Server.MapPath("/Administration/ConsentDB.sql"));
+                while (!streamReader.EndOfStream)
                 {
-                    var file = new FileInfo(Server.MapPath("/Administration/ConsentDB.sql"));
-                    string script = file.OpenText().ReadToEnd();
-                    var streamReader = new StreamReader(Server.MapPath("/Administration/ConsentDB.sql"));
-                    while (!streamReader.EndOfStream)
+                    var line = streamReader.ReadLine();
+                    if (line != null && line.Split(' ')[0].ToLower() == "use")
                     {
-                        var line = streamReader.ReadLine();
-                        if (line != null && line.Split(' ')[0].ToLower() == "use")
-                        {
-                            script = script.Replace(line.Split('[')[1], databaseName + "]");
-                            break;
-                        }
+                        script = script.Replace(line.Split('[')[1], databaseName + "]");
+                        break;
                     }
-                    streamReader.Dispose();
-                    var server = new Server(new ServerConnection(connData));
-                    server.ConnectionContext.ExecuteNonQuery("create database [" + databaseName + "]");
-                    server.ConnectionContext.ExecuteNonQuery(script);
-                    file.OpenText().Close();
-                    connData.Close();
-                    return true;
                 }
-            }
-            catch (Exception)
-            {
-                return false;
+                streamReader.Dispose();
+                var server = new Server(new ServerConnection(connData));
+                server.ConnectionContext.ExecuteNonQuery("create database [" + databaseName + "]");
+                server.ConnectionContext.ExecuteNonQuery(script);
+                file.OpenText().Close();
+                connData.Close();
+                return true;
             }
         }
     }

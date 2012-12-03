@@ -216,7 +216,7 @@
 }
 .bigfont TR TD
 {
-    font: bold 14px sans-serif;
+    font: 6pt sans-serif;
 }
 .print .right
 {
@@ -342,9 +342,10 @@
     background-color: #EEE;
     color: #6C80F3;
 }
-.DateTimeUnderline
+.content .DateTime
 {
-    text-decoration: underline;
+    padding-left: 10px;
+    padding-right: 20px;
 }
 /*form style*/
 .textbox
@@ -442,9 +443,13 @@
 {
     margin-left: 185px;
 }
-.printFooter
+.content .printFooter
 {
     border: 1px solid #DDD;
+}
+.content .printFooter *
+{
+    font-size: 8pt;
 }
 .printFooter TR TD
 {
@@ -473,4 +478,16 @@
 .content .adminErroInfo
 {
     padding-left: 99px;
+}
+.content .printBox
+{
+    float: right;
+    border-bottom: 1px solid #000;
+    width: 260px;
+    padding-top: 45px;
+    padding-left: 10px;
+}
+.content .patientReasonBox
+{
+    padding-bottom: 50px;
 }

@@ -118,6 +118,18 @@
   <wsdl:message name="IFormHandlerService_SaveDoctorsDetails_OutputMessage">
     <wsdl:part name="parameters" element="tns:SaveDoctorsDetailsResponse" />
   </wsdl:message>
+  <wsdl:message name="IFormHandlerService_savePdfFoderPath_InputMessage">
+    <wsdl:part name="parameters" element="tns:savePdfFoderPath" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_savePdfFoderPath_OutputMessage">
+    <wsdl:part name="parameters" element="tns:savePdfFoderPathResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetPdfFolderPath_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPdfFolderPath" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_GetPdfFolderPath_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPdfFolderPathResponse" />
+  </wsdl:message>
   <wsdl:message name="IFormHandlerService_GetDoctorsDetails_InputMessage">
     <wsdl:part name="parameters" element="tns:GetDoctorsDetails" />
   </wsdl:message>
@@ -262,6 +274,14 @@
     <wsdl:operation name="SaveDoctorsDetails">
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/SaveDoctorsDetails" message="tns:IFormHandlerService_SaveDoctorsDetails_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/SaveDoctorsDetailsResponse" message="tns:IFormHandlerService_SaveDoctorsDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="savePdfFoderPath">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/savePdfFoderPath" message="tns:IFormHandlerService_savePdfFoderPath_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/savePdfFoderPathResponse" message="tns:IFormHandlerService_savePdfFoderPath_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPdfFolderPath">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetPdfFolderPath" message="tns:IFormHandlerService_GetPdfFolderPath_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetPdfFolderPathResponse" message="tns:IFormHandlerService_GetPdfFolderPath_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDoctorsDetails">
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetDoctorsDetails" message="tns:IFormHandlerService_GetDoctorsDetails_InputMessage" />
@@ -469,6 +489,24 @@
     </wsdl:operation>
     <wsdl:operation name="SaveDoctorsDetails">
       <soap:operation soapAction="http://tempuri.org/IFormHandlerService/SaveDoctorsDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="savePdfFoderPath">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/savePdfFoderPath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPdfFolderPath">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/GetPdfFolderPath" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
