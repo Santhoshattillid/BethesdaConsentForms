@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true"
     CodeBehind="ConsentDeclaration.aspx.cs" Inherits="WindowsCEConsentForms.PlasmanApheresis.ConsentDeclaration" %>
 
-<%@ Import Namespace="WindowsCEConsentForms" %>
+<%@ Import Namespace="WindowsCEConsentForms.FormHandlerService" %>
 <%@ Register TagPrefix="uc1" TagName="DeclarationSignatures" Src="~/DeclarationSignatures.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="PatientDetails" Src="~/PatientDetails.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">

@@ -21,7 +21,10 @@ namespace WindowsCEConsentForms.Administration
                 PnlDBConfiguration.Visible = false;
             }
             if (!IsPostBack)
+            {
+                RdoSqlServerAuthentication.Checked = true;
                 Reset();
+            }
         }
 
         protected void BtnReset_Click(object sender, EventArgs e)
@@ -54,6 +57,8 @@ namespace WindowsCEConsentForms.Administration
             TxtPICCExportPath.Text = formHandlerServices.GetPdfFolderPath(ConsentType.PICC);
             TxtPlasmanApheresisExportPath.Text = formHandlerServices.GetPdfFolderPath(ConsentType.PlasmanApheresis);
             TxtSurgicalExportPath.Text = formHandlerServices.GetPdfFolderPath(ConsentType.Surgical);
+
+            SetCredentialPanel();
         }
 
         protected void BtnCompleted_Click(object sender, EventArgs e)
@@ -63,15 +68,19 @@ namespace WindowsCEConsentForms.Administration
                 try
                 {
                     if (!string.IsNullOrEmpty(TxtServerName.Text.Trim()) &&
-                        !string.IsNullOrEmpty(TxtDatabasename.Text.Trim()) &&
-                        !string.IsNullOrEmpty(TxtUsername.Text.Trim()) &&
-                        !string.IsNullOrEmpty(TxtPassword.Text.Trim()))
+                        !string.IsNullOrEmpty(TxtDatabasename.Text.Trim()) ||
+
+                        (RdoSqlServerAuthentication.Checked && !string.IsNullOrEmpty(TxtUsername.Text.Trim()) && !string.IsNullOrEmpty(TxtPassword.Text.Trim())))
                     {
                         string checkIfExist = ConfigurationManager.AppSettings["DBSetupStatus"];
                         if (checkIfExist == "0")
                         {
-                            string connectionString = @"server=" + TxtServerName.Text.Trim() + ";database=master;uid=" +
-                                                      TxtUsername.Text.Trim() + ";pwd=" + TxtPassword.Text.Trim();
+                            string connectionString;
+                            if (RdoSqlServerAuthentication.Checked)
+                                connectionString = @"server=" + TxtServerName.Text.Trim() + ";database=master;uid=" +
+                                   TxtUsername.Text.Trim() + ";pwd=" + TxtPassword.Text.Trim();
+                            else
+                                connectionString = "Server=" + TxtServerName.Text.Trim() + ";Database=" + TxtDatabasename.Text.Trim() + ";Trusted_Connection=True;";
                             Configuration config =
                                 WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
                             config.AppSettings.Settings.Remove("ConnectionString");
@@ -158,6 +167,22 @@ namespace WindowsCEConsentForms.Administration
                 connData.Close();
                 return true;
             }
+        }
+
+        protected void RdoSqlServerAuthentication_CheckedChanged(object sender, EventArgs e)
+        {
+            SetCredentialPanel();
+        }
+
+        protected void RdoWindowsAuthentication_CheckedChanged(object sender, EventArgs e)
+        {
+            SetCredentialPanel();
+        }
+
+        private void SetCredentialPanel()
+        {
+            PnlCredentials1.Visible = RdoSqlServerAuthentication.Checked;
+            PnlCredentials2.Visible = RdoSqlServerAuthentication.Checked;
         }
     }
 }

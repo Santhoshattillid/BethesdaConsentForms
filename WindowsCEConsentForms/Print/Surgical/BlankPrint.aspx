@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" %>
 
 <%@ Register TagPrefix="uc3" TagName="printfooter" Src="~/PrintFooter.ascx" %>
-<%@ Register TagPrefix="uc2" TagName="PageHeader" Src="~/PageHeader.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -79,9 +78,6 @@
         </li>
     </ul>
     <ul class="content">
-        <li>
-            <uc2:PageHeader ID="PageHeader1" runat="server" />
-        </li>
         <li><span class="content-heading">I UNDERSTAND that no guarantees have been made to
             me that this operation will improve my condition. </span></li>
         <li>

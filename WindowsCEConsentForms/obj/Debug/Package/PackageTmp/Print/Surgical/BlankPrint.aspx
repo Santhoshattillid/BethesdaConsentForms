@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" %>
 
+<%@ Register TagPrefix="uc3" TagName="printfooter" Src="~/PrintFooter.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -76,38 +77,7 @@
             </div>
         </li>
     </ul>
-    <ul class="content print">
-        <li></li>
-        <li>
-            <table class="noBorder">
-                <tr>
-                    <td class="edgeColumn">
-                        <h3>
-                            Bethesda Hospital East
-                            <br />
-                            2815 S. Seacrest Blvd
-                            <br />
-                            Boynton Beach,FL 33435
-                            <br />
-                            (561) 737-7733
-                        </h3>
-                    </td>
-                    <td class="middleColumn">
-                    </td>
-                    <td class="edgeColumn">
-                        <h3>
-                            Bethesda Hospital West
-                            <br />
-                            9655 Boynton Beach Blvd,
-                            <br />
-                            Boynton Beach, FL 33472
-                            <br />
-                            (561) 336-7000
-                        </h3>
-                    </td>
-                </tr>
-            </table>
-        </li>
+    <ul class="content">
         <li><span class="content-heading">I UNDERSTAND that no guarantees have been made to
             me that this operation will improve my condition. </span></li>
         <li>
@@ -168,76 +138,6 @@
                 <br />
             </div>
         </li>
-        <li></li>
-        <li>
-            <table class="bigfont">
-                <tr>
-                    <td>
-                        FORM:
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        MR#:
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        PATIENT:
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        DOB:
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        PATIENT#:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblPatientId"></asp:Label>
-                    </td>
-                    <td>
-                        AGE:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblAge"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        GENDER:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblGender"></asp:Label>
-                    </td>
-                    <td>
-                        DATE:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblDate"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        ADMIT DATE:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblPatientAdminDate"></asp:Label>
-                    </td>
-                    <td>
-                        TIME:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblPatientAdminTime"></asp:Label>
-                    </td>
-                </tr>
-            </table>
-        </li>
     </ul>
+    <uc3:printfooter ID="PrintFooter1" runat="server" ConsentType="Surgical" />
 </asp:Content>

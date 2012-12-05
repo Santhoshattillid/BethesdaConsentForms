@@ -1,18 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true"
     CodeBehind="ConsentPrint.aspx.cs" Inherits="WindowsCEConsentForms.OutsideOR.OutsideORConsentPrintV1" %>
 
+<%@ Register TagPrefix="uc1" TagName="doctorsandproceduresprint" Src="~/DoctorsAndProceduresPrint.ascx" %>
+<%@ Register TagPrefix="uc3" TagName="printfooter" Src="~/PrintFooter.ascx" %>
+<%@ Register TagPrefix="uc4" TagName="PrintSignatures" Src="~/PrintSignatures.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <uc1:doctorsandproceduresprint ID="DoctorsAndProceduresPrint1" runat="server" consenttype="OutsideOR" />
     <ul class="content print">
-        <li>I here by authorize Doctor(s)
-            <asp:Label runat="server" ID="LblAuthoriseDoctors" CssClass="errorInfo"></asp:Label>
-            to perform upon
-            <asp:Label runat="server" ID="LblPatientName2" CssClass="errorInfo"></asp:Label>
-            (state name of patient or "myself") the following procedure or operation
-            <br />
-            <asp:Label runat="server" ID="LblProcedureName" CssClass="errorInfo"></asp:Label>
-        </li>
         <li>
             <h4>
                 PATIENT - PLEASE INITIAL the lines next to each paragraph of this consent to indicate
@@ -84,190 +80,6 @@
             </div>
         </li>
     </ul>
-    <ul class="content print">
-        <li>
-            <img src="/Images/logo.png" alt="logo" />
-        </li>
-        <li>
-            <table class="noBorder">
-                <tr>
-                    <td class="edgeColumn">
-                        <h3>
-                            Bethesda Hospital East
-                            <br />
-                            2815 S. Seacrest Blvd
-                            <br />
-                            Boynton Beach,FL 33435
-                            <br />
-                            (561) 737-7733
-                        </h3>
-                    </td>
-                    <td class="middleColumn">
-                    </td>
-                    <td class="edgeColumn">
-                        <h3>
-                            Bethesda Hospital West
-                            <br />
-                            9655 Boynton Beach Blvd,
-                            <br />
-                            Boynton Beach, FL 33472
-                            <br />
-                            (561) 336-7000
-                        </h3>
-                    </td>
-                </tr>
-            </table>
-        </li>
-        <li>I UNDERSTAND that no guarantees have been made to me that this operation will improve
-            my condition. </li>
-        <li>
-            <asp:Panel runat="server" ID="PnlPatientSignature">
-                <div class="sigBox">
-                    <asp:Image runat="server" ID="ImgPatientSignature" />
-                </div>
-                <div class="right">
-                    <asp:Label runat="server" ID="LblPatientSignatureDateTime"></asp:Label>
-                </div>
-                <div class="clear">
-                </div>
-                <div>
-                    (PATIENT SIGNATURE)
-                </div>
-            </asp:Panel>
-        </li>
-        <li>
-            <asp:Panel runat="server" ID="PnlPatientUnableToSignBecause">
-                Patient is unable to sign because:
-                <asp:Label runat="server" ID="LblPatientUnableToSignBecause" CssClass="errorInfo"></asp:Label>
-            </asp:Panel>
-        </li>
-        <li>
-            <asp:Panel runat="server" ID="PnlAuthorizedSignature">
-                <div class="sigBox">
-                    <asp:Image runat="server" ID="ImgAuthorizedSignature" />
-                </div>
-                <div class="right">
-                    <asp:Label runat="server" ID="LblAuthorizedSignDateTime"></asp:Label>
-                </div>
-                <div class="clear">
-                </div>
-                <div>
-                    (If patient unable to sign, person authorized to sign.)
-                </div>
-            </asp:Panel>
-        </li>
-        <li>
-            <div class="sigBox">
-                <asp:Image runat="server" ID="ImgWitnessSignature1" />
-            </div>
-            <div class="right">
-                <asp:Label runat="server" ID="LblWitnessSignature1DateTime"></asp:Label>
-            </div>
-            <div class="clear">
-            </div>
-            <div>
-                (Witness to Signature or Telephone Consent Only)
-            </div>
-        </li>
-        <li>
-            <div class="sigBox">
-                <asp:Image runat="server" ID="ImgWitnessSignature2" />
-            </div>
-            <div class="right">
-                <asp:Label runat="server" ID="LblWitnessSignature2DateTime"></asp:Label>
-            </div>
-            <div class="clear">
-            </div>
-            <div>
-                (Second Witness to Telephone Consent Only)
-            </div>
-        </li>
-        <li>
-            <div>
-                Interpreted By:
-            </div>
-            <div class="sigBox">
-                <asp:Image runat="server" ID="ImgTranslatedBy" />
-            </div>
-            <div class="right">
-                <asp:Label runat="server" ID="LblTranslatedDateTime"></asp:Label>
-            </div>
-            <div class="clear">
-            </div>
-        </li>
-        <li>
-            <table class="bigfont">
-                <tr>
-                    <td>
-                        FORM:
-                    </td>
-                    <td>
-                        Outside OR Consent Form
-                    </td>
-                    <td>
-                        MR#:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblPatientMrHash"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        PATIENT:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblPatientName"></asp:Label>
-                    </td>
-                    <td>
-                        DOB:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblDOB"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        PATIENT#:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblPatientId"></asp:Label>
-                    </td>
-                    <td>
-                        AGE:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblAge"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        GENDER:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblGender"></asp:Label>
-                    </td>
-                    <td>
-                        DATE:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblDate"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        ADMIT DATE:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblPatientAdminDate"></asp:Label>
-                    </td>
-                    <td>
-                        TIME:
-                    </td>
-                    <td>
-                        <asp:Label runat="server" ID="LblPatientAdminTime"></asp:Label>
-                    </td>
-                </tr>
-            </table>
-        </li>
-    </ul>
+    <uc4:PrintSignatures ID="PrintSignatures1" runat="server" ConsentType="OutsideOR" />
+    <uc3:printfooter ID="PrintFooter1" runat="server" ConsentType="OutsideOR" />
 </asp:Content>

@@ -46,7 +46,7 @@ namespace WindowsCEConsentForms
                     if (string.IsNullOrEmpty(consentType))
                         return;
                     var formHandlerServiceClient = new FormHandlerServiceClient();
-                    var content = formHandlerServiceClient.GetPatientSignature(patientId, consentType, signatureId);
+                    var content = formHandlerServiceClient.GetPatientSignature(patientId, (ConsentType)Enum.Parse(typeof(ConsentType), consentType), (SignatureType)Enum.Parse(typeof(SignatureType), signatureId));
                     var signatureToImage = new SignatureToImage();
                     var bitmap = signatureToImage.SigJsonToImage(content);
                     bitmap.Save(context.Response.OutputStream, ImageFormat.Jpeg);

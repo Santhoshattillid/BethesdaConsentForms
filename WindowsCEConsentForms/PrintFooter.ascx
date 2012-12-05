@@ -42,7 +42,7 @@
                             </td>
                             <td>
                                 <asp:Label runat="server" ID="LblPatientAdminDate"></asp:Label>
-                                :
+                                <br />
                                 <asp:Label runat="server" ID="LblPatientAdminTime"></asp:Label>
                             </td>
                             <td>

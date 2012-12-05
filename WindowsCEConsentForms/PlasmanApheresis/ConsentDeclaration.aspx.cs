@@ -30,15 +30,7 @@ namespace WindowsCEConsentForms.PlasmanApheresis
                 var formHandlerServiceClient = new FormHandlerServiceClient();
                 var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.PlasmanApheresis.ToString());
                 if (patientDetail != null)
-                {
                     LblPatientName.Text = patientDetail.name;
-
-                    //if (DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedItem != null)
-                    //{
-                    //    LblPhysicianName.Text = DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedItem.Text;
-                    //    LblPhyisicianList.Text = DoctorsAndProcedures1.DdlPrimaryDoctors.SelectedItem.Text;
-                    //}
-                }
             }
 
             DeclarationSignatures.BtnCompleted.Click += BtnCompleted_Click;
@@ -82,44 +74,22 @@ namespace WindowsCEConsentForms.PlasmanApheresis
 
                 //validation
                 var lblError = DeclarationSignatures.LblError;
-                var chkPatientisUnableToSign = DeclarationSignatures.ChkPatientisUnableToSign;
-                var txtPatientNotSignedBecause = DeclarationSignatures.TxtPatientNotSignedBecause;
-                var chkTelephoneConsent = DeclarationSignatures.ChkPatientisUnableToSign;
 
                 lblError.Text = string.Empty;
+
+                DeclarationSignatures.ValidateForm();
 
                 if (string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign1.ToString()]) ||
                    string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign2.ToString()]) ||
                    string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign3.ToString()]) ||
-                   string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign4.ToString()]))
+                   string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign4.ToString()]) ||
+                   string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign5.ToString()]))
                 {
                     lblError.Text = "Please input signatures.";
                 }
 
-                if (chkPatientisUnableToSign.Checked || chkTelephoneConsent.Checked)
-                {
-                    if (string.IsNullOrEmpty(txtPatientNotSignedBecause.Text.Trim()))
-                        lblError.Text += " <br /> Please input reason for why patient not able sign.";
-
-                    if (string.IsNullOrEmpty(Request.Form[SignatureType.PatientAuthorizeSign.ToString()]))
-                        lblError.Text += " <br /> Please input patient authorized person signature.";
-                }
-                else
-                {
-                    if (string.IsNullOrEmpty(Request.Form[SignatureType.PatientSign.ToString()]))
-                        lblError.Text += " <br /> Please input patient  signature.";
-                }
-
-                if (string.IsNullOrEmpty(Request.Form[SignatureType.WitnessSignature1.ToString()]))
-                    lblError.Text += " <br /> Please input witness signature.";
-
-                if (DeclarationSignatures.ChkTelephoneConsent.Checked && string.IsNullOrEmpty(Request.Form[SignatureType.WitnessSignature2.ToString()]))
-                    lblError.Text += " <br /> Please input witness 2 signature.";
-
                 if (!string.IsNullOrEmpty(lblError.Text))
-                {
                     return;
-                }
 
                 string patientId = string.Empty;
                 try
@@ -133,63 +103,37 @@ namespace WindowsCEConsentForms.PlasmanApheresis
 
                 var formHandlerServiceClient = new FormHandlerServiceClient();
 
-                //formHandlerServiceClient.SaveDoctorsDetails(patientId, consentType.ToString(), DoctorsAndProcedures1.GetDoctorsAndProcedures().ToArray());
-
                 if (Request.Form[SignatureType.DoctorSign1.ToString()] != null)
                 {
                     var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign1.ToString()]);
-                    bool result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.DoctorSign1.ToString());
+                    bool result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType, SignatureType.DoctorSign1, string.Empty);
                 }
 
                 if (Request.Form[SignatureType.DoctorSign2.ToString()] != null)
                 {
                     var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign2.ToString()]);
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.DoctorSign2.ToString());
+                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType, SignatureType.DoctorSign2, string.Empty);
                 }
 
                 if (Request.Form[SignatureType.DoctorSign3.ToString()] != null)
                 {
                     var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign3.ToString()]);
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.DoctorSign3.ToString());
+                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType, SignatureType.DoctorSign3, string.Empty);
                 }
 
                 if (Request.Form[SignatureType.DoctorSign4.ToString()] != null)
                 {
                     var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign4.ToString()]);
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.DoctorSign4.ToString());
+                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType, SignatureType.DoctorSign4, string.Empty);
                 }
 
                 if (Request.Form[SignatureType.DoctorSign5.ToString()] != null)
                 {
                     var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign5.ToString()]);
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.DoctorSign5.ToString());
+                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType, SignatureType.DoctorSign5, string.Empty);
                 }
 
-                if (Request.Form[SignatureType.PatientSign.ToString()] != null)
-                {
-                    var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.PatientSign.ToString()]);
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.PatientSign.ToString());
-                }
-
-                if (Request.Form[SignatureType.PatientAuthorizeSign.ToString()] != null)
-                {
-                    var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.PatientAuthorizeSign.ToString()]); // Patient Signature
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.PatientAuthorizeSign.ToString());
-                }
-
-                // updating signature5
-                if (Request.Form[SignatureType.WitnessSignature1.ToString()] != null)
-                {
-                    var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.WitnessSignature1.ToString()]);
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.WitnessSignature1.ToString());
-                }
-
-                // updating signature6
-                if (Request.Form[SignatureType.WitnessSignature2.ToString()] != null)
-                {
-                    var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.WitnessSignature2.ToString()]);
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.WitnessSignature2.ToString());
-                }
+                DeclarationSignatures.SaveForm(formHandlerServiceClient, patientId);
 
                 string ip = Request.ServerVariables["REMOTE_ADDR"];
                 string device;
@@ -199,10 +143,6 @@ namespace WindowsCEConsentForms.PlasmanApheresis
                     device = Request.Browser.Browser + " " + Request.Browser.Version;
 
                 formHandlerServiceClient.UpdateTrackingInfo(patientId, new TrackingInfo { IP = ip, Device = device }, consentType.ToString());
-
-                formHandlerServiceClient.UpdatePatientUnableSignReason(patientId, chkPatientisUnableToSign.Checked ? txtPatientNotSignedBecause.Text : string.Empty, consentType.ToString());
-
-                formHandlerServiceClient.UpdateTranslatedby(patientId, consentType.ToString(), DeclarationSignatures.TxtTranslatedBy.Text);
 
                 Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId);
 

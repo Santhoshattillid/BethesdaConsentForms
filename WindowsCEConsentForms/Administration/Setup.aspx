@@ -38,23 +38,42 @@
             </li>
             <li>
                 <div class="adminHeading leftBox content-heading">
-                    Username
+                    Authentication Mode
                 </div>
                 <div class="leftBox">
-                    <asp:TextBox runat="server" ID="TxtUsername"></asp:TextBox>
+                    <asp:RadioButton runat="server" ID="RdoSqlServerAuthentication" Text="Sql Server Authentication"
+                        GroupName="authentication" OnCheckedChanged="RdoSqlServerAuthentication_CheckedChanged"
+                        AutoPostBack="True" />
+                    <asp:RadioButton runat="server" ID="RdoWindowsAuthentication" Text="Windows Authentication"
+                        GroupName="authentication" OnCheckedChanged="RdoWindowsAuthentication_CheckedChanged"
+                        AutoPostBack="True" />
                 </div>
                 <div class="clear">
                 </div>
             </li>
             <li>
-                <div class="adminHeading leftBox content-heading">
-                    Password
-                </div>
-                <div class="leftBox">
-                    <asp:TextBox runat="server" ID="TxtPassword" TextMode="Password"></asp:TextBox>
-                </div>
-                <div class="clear">
-                </div>
+                <asp:Panel runat="server" ID="PnlCredentials1">
+                    <div class="adminHeading leftBox content-heading">
+                        Username
+                    </div>
+                    <div class="leftBox">
+                        <asp:TextBox runat="server" ID="TxtUsername"></asp:TextBox>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </asp:Panel>
+            </li>
+            <li>
+                <asp:Panel runat="server" ID="PnlCredentials2">
+                    <div class="adminHeading leftBox content-heading">
+                        Password
+                    </div>
+                    <div class="leftBox">
+                        <asp:TextBox runat="server" ID="TxtPassword" TextMode="Password"></asp:TextBox>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </asp:Panel>
             </li>
         </ul>
     </asp:Panel>
@@ -140,22 +159,22 @@
             var usernameElement = $("#" + "<%= TxtUsername.ClientID%>");
             var passwordElement = $("#" + "<%= TxtPassword.ClientID%>");
             var errorInfoElement = $("#" + "<%= LblError.ClientID%>");
-            if (dataSourceElement.size() > 0 && $.trim(dataSourceElement.val()) == "") {
+            if (dataSourceElement.size()> 0 && $.trim(dataSourceElement.val()) == "") {
                 errorInfoElement.html("Datasource Field can not be blank");
                 dataSourceElement.focus();
                 return false;
             }
-            if (databaseNameElement.size() > 0 && $.trim(databaseNameElement.val()) == "") {
+            if (databaseNameElement.size()> 0 && $.trim(databaseNameElement.val()) == "") {
                 errorInfoElement.html("Database Field can not be blank");
                 databaseNameElement.focus();
                 return false;
             }
-            if (usernameElement.size() >0 && $.trim(usernameElement.val()) == "") {
+            if (usernameElement.size()> 0 && $.trim(usernameElement.val()) == "") {
                 errorInfoElement.html("User Name can not be blank");
                 usernameElement.focus();
                 return false;
             }
-            if (passwordElement.size() >0 && $.trim(passwordElement.val()) == "") {
+            if (passwordElement.size()> 0 && $.trim(passwordElement.val()) == "") {
                 errorInfoElement.html("Password can not be blank");
                 passwordElement.focus();
                 return false;

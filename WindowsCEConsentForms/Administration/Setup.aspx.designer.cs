@@ -40,6 +40,33 @@ namespace WindowsCEConsentForms.Administration {
         protected global::System.Web.UI.WebControls.TextBox TxtDatabasename;
         
         /// <summary>
+        /// RdoSqlServerAuthentication control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton RdoSqlServerAuthentication;
+        
+        /// <summary>
+        /// RdoWindowsAuthentication control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton RdoWindowsAuthentication;
+        
+        /// <summary>
+        /// PnlCredentials1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PnlCredentials1;
+        
+        /// <summary>
         /// TxtUsername control.
         /// </summary>
         /// <remarks>
@@ -47,6 +74,15 @@ namespace WindowsCEConsentForms.Administration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtUsername;
+        
+        /// <summary>
+        /// PnlCredentials2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PnlCredentials2;
         
         /// <summary>
         /// TxtPassword control.

@@ -24,6 +24,8 @@ namespace WindowsCEConsentForms
                 var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
                 if (patientDetails != null)
                 {
+                    LblPatientName.Text = patientDetails.name;
+
                     LblPatientUnableToSignBecause.Text = patientDetails.UnableToSignReason;
 
                     LblPatientSignatureDate.Text = DateTime.Now.ToString("MMM dd yyyy");
@@ -56,6 +58,10 @@ namespace WindowsCEConsentForms
                     ImgWitnessSignature2.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.WitnessSignature2 + "&ConsentType=" + ConsentType.ToString();
 
                     LblTranslatedBy.Text = patientDetails.Translatedby;
+
+                    LblAuthorizePersonName.Text = formHandlerServiceClient.GetSignedPersonName(patientId, ConsentType, SignatureType.PatientAuthorizeSign);
+                    LblWitnessName1.Text = formHandlerServiceClient.GetSignedPersonName(patientId, ConsentType, SignatureType.WitnessSignature1);
+                    LblWitnessName2.Text = formHandlerServiceClient.GetSignedPersonName(patientId, ConsentType, SignatureType.WitnessSignature2);
                 }
             }
         }

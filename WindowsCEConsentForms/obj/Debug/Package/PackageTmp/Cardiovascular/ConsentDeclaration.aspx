@@ -1,19 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true"
     CodeBehind="ConsentDeclaration.aspx.cs" Inherits="WindowsCEConsentForms.Cardiovascular.ConsentDeclaration1" %>
 
-<%@ Import Namespace="WindowsCEConsentForms" %>
+<%@ Import Namespace="WindowsCEConsentForms.FormHandlerService" %>
 <%@ Register TagPrefix="uc1" TagName="PatientDetails" Src="~/PatientDetails.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="DoctorsAndProcedures" Src="~/DoctorsAndProcedures.ascx" %>
-<%@ Register TagPrefix="uc1" TagName="DeclarationSignatures" Src="~/DeclarationSignatures.ascx" %>
+<%@ Register TagPrefix="uc2" Src="../DeclarationSignatures.ascx" TagName="DeclarationSignatures" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <ul class="content">
-        <li class="center">
-            <%--<h3>
-                CARDIOVASCULAR</h3>--%>
-        </li>
-        <li class="center">Cardiovascular Laboratiry Consent Form</li>
+        <li class="center">Cardiovascular Laboratory Consent Form</li>
     </ul>
     <uc1:PatientDetails ID="PatientDetails1" runat="server" />
     <uc1:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" ConsentType="Cardiovascular" />
@@ -104,5 +100,5 @@
             </div>
         </li>
     </ul>
-    <uc1:DeclarationSignatures ID="DeclarationSignatures" runat="server" />
+    <uc2:DeclarationSignatures ID="DeclarationSignatures" runat="server" ConsentType="Cardiovascular" />
 </asp:Content>

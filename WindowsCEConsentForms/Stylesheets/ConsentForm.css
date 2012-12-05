@@ -89,9 +89,8 @@
     border: 1px solid #CCC;
     color: #666;
 }
-.Container INPUT[type="text"], INPUT[type="submit"]
+.Container INPUT[type="text"], INPUT[type="submit"], INPUT[type="pass"]
 {
-    width: 60px;
 }
 .Container .center
 {
@@ -116,7 +115,7 @@
     color: #000;
     font-weight: bold;
 }
-.Container INPUT[type="text"]
+.Container INPUT[type="text"], INPUT[type="password"]
 {
     width: 450px;
     border: 1px solid #AAA;
@@ -344,8 +343,7 @@
 }
 .content .DateTime
 {
-    padding-left: 10px;
-    padding-right: 20px;
+    margin-left: 4px;
 }
 /*form style*/
 .textbox
@@ -457,7 +455,7 @@
 }
 .printFooter TR TD:first-child
 {
-    width: 4%;
+    width: 20%;
 }
 .printFooter TR TD:last-child
 {
@@ -469,11 +467,11 @@
 }
 .printFooter TR TD:nth-child(4)
 {
-    width: 4%;
+    width: 20%;
 }
 .adminHeading
 {
-    width: 100px;
+    width: 130px;
 }
 .content .adminErroInfo
 {
@@ -482,12 +480,24 @@
 .content .printBox
 {
     float: right;
-    border-bottom: 1px solid #000;
-    width: 260px;
-    padding-top: 45px;
+    border-bottom: 1px solid #777;
+    width: 458px;
+    padding-top: 46px;
     padding-left: 10px;
 }
 .content .patientReasonBox
 {
     padding-bottom: 50px;
+}
+.floatLeft
+{
+    float: left;
+}
+.small
+{
+    width: 100px;
+}
+.large
+{
+    width: 218px;
 }

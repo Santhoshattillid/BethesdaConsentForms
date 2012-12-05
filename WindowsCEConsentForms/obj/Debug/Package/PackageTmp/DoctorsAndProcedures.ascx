@@ -1,22 +1,81 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="DoctorsAndProcedures.ascx.cs"
     Inherits="WindowsCEConsentForms.DoctorsAndProcedures" %>
+<%@ Import Namespace="System.Collections.Generic" %>
+<%@ Import Namespace="System.Globalization" %>
+<%@ Import Namespace="WindowsCEConsentForms" %>
 <ul class="content">
-    <li>I here by authorize Doctor(s)
-        <asp:DropDownList ID="DdlPrimaryDoctors" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DdlPrimaryDoctors_SelectedIndexChanged">
-        </asp:DropDownList>
-        &nbsp;
-        <asp:Label ID="LblAssociatedDoctors" runat="server" CssClass="errorInfo"></asp:Label>
-        to perform upon &nbsp;
-        <asp:Label runat="server" ID="LnlPatientName" CssClass="errorInfo"></asp:Label>
-        the procedure or operation : &nbsp;
-        <asp:DropDownList ID="DdLProcedures" runat="server" Width="400px">
-        </asp:DropDownList>
-        <asp:HiddenField runat="server" ID="HdnSelectedProcedures" EnableViewState="True" />
-        <div id="DivOtherProcedure">
-            <label>
-                Specify procedure</label>
-            &nbsp;
-            <asp:TextBox runat="server" ID="TxtOtherProcedure"></asp:TextBox>
+    <%
+        List<string> listOfProcedures = (List<string>)ViewState["ListOfProcedures"];
+
+        DoctorsProceduresState doctorsProcedures = (DoctorsProceduresState)ViewState["DoctorsProceduresState"];
+        int index = -1;
+        foreach (string doctorSelectedIndex in doctorsProcedures.SelectedDoctorsIndex)
+        {
+            var associatedDoctors = Utilities.GetAssociatedDoctors(doctorSelectedIndex);
+            index += 1;
+
+    %>
+    <li class="LiDoctorsAndProcedures">
+        <div class="leftBox">
+            I authorize Doctor(s)
+            <select class="DdlPrimaryDoctors" name="DdlPrimaryDoctors">
+                <% List<PrimaryDoctor> collection = (List<PrimaryDoctor>)ViewState["PrimaryDoctors"];
+                   foreach (PrimaryDoctor listItem in collection)
+                   {
+                       if (listItem.Id.ToString(CultureInfo.InvariantCulture) == doctorSelectedIndex)
+                       {
+                %>
+                <option value="<%= listItem.Id %>" selected="selected">
+                    <%= listItem.Name %></option>
+                <% }
+                       else
+                       { %>
+                <option value="<%= listItem.Id %>">
+                    <%= listItem.Name %></option>
+                <% } %>
+                <%
+                   }
+                %>
+            </select>
+            <label class="errorInfo LblAssociatedDoctors">
+                <%= associatedDoctors  %></label>
+            and such designee or assistant as he may designate to perform:
+            <% if (!IsStaticTextBoxForPrecedures)
+               {%>
+            <select multiple="multiple" class="DdLProcedures" style="width: 400px;">
+                <% foreach (string procedure in listOfProcedures)
+                   { %>
+                <option value="<%= procedure %>">
+                    <%= procedure %></option>
+                <% } %>
+            </select>
+            <a href="#" class="RemoveDocAndProc extraMargin">Remove
+                <img src="/Images/index.jpg" alt="" /></a>
+            <input type="hidden" class="HdnSelectedProcedures" name="HdnSelectedProcedures" value="<%= doctorsProcedures.SelectedProcedures[index] %>" />
+            <div id="DivOtherProcedure" class="DivOtherProcedure">
+                <label>
+                    Specify procedure</label>
+                &nbsp;
+                <input type="text" name="TxtOtherProcedure" />
+            </div>
+            <% }
+               else
+               { %>
+            <div>
+                <input type="text" id="TxtProcedures" name="TxtProcedures" class="TxtProcedures"
+                    value="<%= doctorsProcedures.SelectedProcedures[index] %>" />
+                <a href="#" class="RemoveDocAndProc">Remove
+                    <img src="/Images/index.jpg" alt="" /></a>
+            </div>
+            <% } %>
+        </div>
+        <div class="clear">
+        </div>
+    </li>
+    <%    }%>
+    <li>
+        <div class="addNewBox">
+            <a href="#" id="AddNewProcedure">Add a Physician</a>
         </div>
     </li>
 </ul>

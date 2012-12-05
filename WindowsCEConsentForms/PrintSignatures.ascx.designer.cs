@@ -31,6 +31,15 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.WebControls.Image ImgPatientSignature;
         
         /// <summary>
+        /// LblPatientName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblPatientName;
+        
+        /// <summary>
         /// LblPatientSignatureDate control.
         /// </summary>
         /// <remarks>
@@ -85,6 +94,15 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.WebControls.Image ImgAuthorizedSignature;
         
         /// <summary>
+        /// LblAuthorizePersonName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblAuthorizePersonName;
+        
+        /// <summary>
         /// LblAuthorizedSignDate control.
         /// </summary>
         /// <remarks>
@@ -112,6 +130,15 @@ namespace WindowsCEConsentForms {
         protected global::System.Web.UI.WebControls.Image ImgWitnessSignature1;
         
         /// <summary>
+        /// LblWitnessName1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblWitnessName1;
+        
+        /// <summary>
         /// LblWitnessSignature1Date control.
         /// </summary>
         /// <remarks>
@@ -137,6 +164,15 @@ namespace WindowsCEConsentForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image ImgWitnessSignature2;
+        
+        /// <summary>
+        /// LblWitnessName2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblWitnessName2;
         
         /// <summary>
         /// LblWitnessSignature2Date control.

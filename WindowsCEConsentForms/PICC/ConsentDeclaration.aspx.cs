@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms.PICC
@@ -21,25 +20,7 @@ namespace WindowsCEConsentForms.PICC
 
                 DeclarationSignatures.LblError.Text = string.Empty;
 
-                if (DeclarationSignatures.ChkPatientisUnableToSign.Checked || DeclarationSignatures.ChkTelephoneConsent.Checked)
-                {
-                    if (string.IsNullOrEmpty(DeclarationSignatures.TxtPatientNotSignedBecause.Text.Trim()))
-                        DeclarationSignatures.LblError.Text += " <br /> Please input reason for why patient not able sign.";
-
-                    if (string.IsNullOrEmpty(Request.Form[SignatureType.PatientAuthorizeSign.ToString()]))
-                        DeclarationSignatures.LblError.Text += " <br /> Please input patient authorized person signature.";
-                }
-                else
-                {
-                    if (string.IsNullOrEmpty(Request.Form[SignatureType.PatientSign.ToString()]))
-                        DeclarationSignatures.LblError.Text += " <br /> Please input patient  signature.";
-                }
-
-                if (string.IsNullOrEmpty(Request.Form[SignatureType.WitnessSignature1.ToString()]))
-                    DeclarationSignatures.LblError.Text += " <br /> Please input witness signature.";
-
-                if (DeclarationSignatures.ChkTelephoneConsent.Checked && string.IsNullOrEmpty(Request.Form[SignatureType.WitnessSignature2.ToString()]))
-                    DeclarationSignatures.LblError.Text += " <br /> Please input witness 2 signature.";
+                DeclarationSignatures.ValidateForm();
 
                 if (!string.IsNullOrEmpty(DeclarationSignatures.LblError.Text))
                     return;
@@ -59,37 +40,7 @@ namespace WindowsCEConsentForms.PICC
 
                 var formHandlerServiceClient = new FormHandlerServiceClient();
 
-                if (Request.Form[SignatureType.PatientSign.ToString()] != null)
-                {
-                    var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.PatientSign.ToString()]);
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.PatientSign.ToString());
-                }
-
-                if (Request.Form[SignatureType.PatientAuthorizeSign.ToString()] != null)
-                {
-                    var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.PatientAuthorizeSign.ToString()]); // Patient Signature
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.PatientAuthorizeSign.ToString());
-                }
-
-                // updating signature5
-                if (Request.Form[SignatureType.WitnessSignature1.ToString()] != null)
-                {
-                    var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.WitnessSignature1.ToString()]);
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.WitnessSignature1.ToString());
-                }
-
-                // updating signature6
-                if (Request.Form[SignatureType.WitnessSignature2.ToString()] != null)
-                {
-                    var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.WitnessSignature2.ToString()]);
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.WitnessSignature2.ToString());
-                }
-
-                if (Request.Form[SignatureType.PICCSignature.ToString()] != null)
-                {
-                    var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.PICCSignature.ToString()]);
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.PICCSignature.ToString());
-                }
+                DeclarationSignatures.SaveForm(formHandlerServiceClient, patientId);
 
                 string ip = Request.ServerVariables["REMOTE_ADDR"];
                 string device;
@@ -99,10 +50,6 @@ namespace WindowsCEConsentForms.PICC
                     device = Request.Browser.Browser + " " + Request.Browser.Version;
 
                 formHandlerServiceClient.UpdateTrackingInfo(patientId, new TrackingInfo { IP = ip, Device = device }, consentType.ToString());
-                formHandlerServiceClient.UpdatePatientUnableSignReason(patientId, DeclarationSignatures.ChkPatientisUnableToSign.Checked ? DeclarationSignatures.TxtPatientNotSignedBecause.Text : string.Empty, consentType.ToString());
-
-                formHandlerServiceClient.UpdateTranslatedby(patientId, consentType.ToString(), DeclarationSignatures.TxtTranslatedBy.Text);
-
                 Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId);
 
                 Response.Redirect("/PatientConsent.aspx");

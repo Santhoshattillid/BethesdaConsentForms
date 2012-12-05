@@ -97,27 +97,33 @@ namespace WindowsCEConsentForms
             if (Request.Form[SignatureType.PatientSign.ToString()] != null)
             {
                 var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.PatientSign.ToString()]);
-                var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType.ToString(), SignatureType.PatientSign.ToString());
+                var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType, SignatureType.PatientSign, string.Empty);
             }
 
             if (Request.Form[SignatureType.PatientAuthorizeSign.ToString()] != null)
             {
                 var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.PatientAuthorizeSign.ToString()]); // Patient Signature
-                var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType.ToString(), SignatureType.PatientAuthorizeSign.ToString());
+                var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType, SignatureType.PatientAuthorizeSign, TxtAuthorizedPersonName.Text.Trim());
             }
 
             // updating signature5
             if (Request.Form[SignatureType.WitnessSignature1.ToString()] != null)
             {
                 var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.WitnessSignature1.ToString()]);
-                var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType.ToString(), SignatureType.WitnessSignature1.ToString());
+                var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType, SignatureType.WitnessSignature1, TxtWitnessSignature1Name.Text.Trim());
             }
 
             // updating signature6
             if (Request.Form[SignatureType.WitnessSignature2.ToString()] != null)
             {
                 var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.WitnessSignature2.ToString()]);
-                var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType.ToString(), SignatureType.WitnessSignature2.ToString());
+                var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType, SignatureType.WitnessSignature2, TxtSecondWitnessName.Text.Trim());
+            }
+
+            if (Request.Form[SignatureType.PICCSignature.ToString()] != null)
+            {
+                var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.PICCSignature.ToString()]);
+                var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType, SignatureType.PICCSignature, TxtPICCNurseName.Text.Trim());
             }
 
             formHandlerServiceClient.UpdatePatientUnableSignReason(patientId, ChkPatientisUnableToSign.Checked ? TxtPatientNotSignedBecause.Text : string.Empty, ConsentType.ToString());
@@ -134,9 +140,5 @@ namespace WindowsCEConsentForms
         {
             Response.Redirect(Utilities.GetNextFormUrl(ConsentType, Session));
         }
-
-       
-
-        
     }
 }

@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" %>
 
 <%@ Register TagPrefix="uc3" TagName="printfooter" Src="~/PrintFooter.ascx" %>
-<%@ Register TagPrefix="uc2" TagName="PageHeader" Src="~/PageHeader.ascx" %>
 <%@ Register Src="../../PrintSignatures.ascx" TagName="PrintSignatures" TagPrefix="uc4" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -125,9 +124,6 @@
         </li>
     </ul>
     <ul class="content">
-        <li>
-            <uc2:PageHeader ID="PageHeader1" runat="server" />
-        </li>
         <li>
             <ul class="content">
                 <li>

@@ -33,6 +33,15 @@ namespace WindowsCEConsentForms.OutsideOR
 
                 DeclarationSignatures1.ValidateForm();
 
+                if (string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign1.ToString()]) ||
+                  string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign2.ToString()]) ||
+                  string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign3.ToString()]) ||
+                  string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign4.ToString()]) ||
+                  string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign5.ToString()]))
+                {
+                    lblError.Text += "Please input signatures.";
+                }
+
                 if (!string.IsNullOrEmpty(lblError.Text))
                     return;
 
@@ -51,6 +60,8 @@ namespace WindowsCEConsentForms.OutsideOR
                 DoctorsAndProcedures1.SaveDoctorsAndProcedures(formHandlerServiceClient, patientId);
 
                 DeclarationSignatures1.SaveForm(formHandlerServiceClient, patientId);
+
+                ConsentSignatures1.SaveForm(formHandlerServiceClient, patientId, consentType);
 
                 string ip = Request.ServerVariables["REMOTE_ADDR"];
                 string device;

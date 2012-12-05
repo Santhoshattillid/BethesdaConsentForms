@@ -67,15 +67,6 @@ namespace WindowsCEConsentForms.OutsideOR {
         protected global::System.Web.UI.WebControls.Image ImgSignature5;
         
         /// <summary>
-        /// PageHeader1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::WindowsCEConsentForms.PageHeader PageHeader1;
-        
-        /// <summary>
         /// PrintSignatures1 control.
         /// </summary>
         /// <remarks>

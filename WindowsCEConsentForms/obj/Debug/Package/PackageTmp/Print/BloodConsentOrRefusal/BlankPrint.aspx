@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" %>
 
+<%@ Register TagPrefix="uc3" TagName="printfooter" Src="~/PrintFooter.ascx" %>
+<%@ Register Src="../../PrintSignatures.ascx" TagName="PrintSignatures" TagPrefix="uc4" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -46,39 +48,57 @@
             </div>
         </li>
         <li>
-            <div class="small-content">
-                • A transfusion is a common procedure of low risk.<br />
-                • Minor and temporary reactions are not uncommon, including bruising, or local reaction
-                in the area where the needle pierces your skin or a non serious reaction to the
-                transfused material itself, including headache, fever or mild reaction such as skin
-                rash.<br />
-                • A serious reaction is possible, but unlikely since all blood is carefully matched
-                prior to transfusion, except in life-threatening emergencies.<br />
-                • Infectious diseases, which are known to be transmittable by blood, include Transfusion
-                Associated Viral Hepatitis (TAVH), a viral infection of the liver and Acquired Immunodeficiency
-                Syndrome (AIDS). The risk of acquiring an Infectious Disease from transfused blood
-                is relatively low and blood units are tested to avoid TAVH and HIV as required by
-                state and feral standards. However, these laboratory tests are not foolproof.<br />
-            </div>
+            <ul class="content">
+                <li>
+                    <div class="small-content">
+                        • A transfusion is a common procedure of low risk.
+                    </div>
+                </li>
+                <li>
+                    <div class="small-content">
+                        • Minor and temporary reactions are not uncommon, including bruising, or local reaction
+                        in the area where the needle pierces your skin or a non serious reaction to the
+                        transfused material itself, including headache, fever or mild reaction such as skin
+                        rash.
+                    </div>
+                </li>
+                <li>
+                    <div class="small-content">
+                        • A serious reaction is possible, but unlikely since all blood is carefully matched
+                        prior to transfusion, except in life-threatening emergencies.
+                    </div>
+                </li>
+                <li>
+                    <div class="small-content">
+                        • Infectious diseases, which are known to be transmittable by blood, include Transfusion
+                        Associated Viral Hepatitis (TAVH), a viral infection of the liver and Acquired Immunodeficiency
+                        Syndrome (AIDS). The risk of acquiring an Infectious Disease from transfused blood
+                        is relatively low and blood units are tested to avoid TAVH and HIV as required by
+                        state and feral standards. However, these laboratory tests are not foolproof.
+                    </div>
+                </li>
+            </ul>
         </li>
         <li>
             <div class="small-content">
-                <span class="content-header">BENEFITS/ALTERNATIVES</span>
+                <span class="small-header">BENEFITS/ALTERNATIVES</span>
             </div>
         </li>
-        <li>
-            <div class="small-content">
-                • The loss of blood can pose serious threats during the course of treatment for
-                which there is no effective alternative to blood transfusion. If you have any further
-                questions on this matter, your physician or his/her colleagues will explain the
-                alternatives to you if this has not already been done.
-            </div>
-        </li>
-    </ul>
-    <ul class="content print">
         <li>
             <ul class="content">
                 <li>
+                    <div class="small-content">
+                        • The loss of blood can pose serious threats during the course of treatment for
+                        which there is no effective alternative to blood transfusion. If you have any further
+                        questions on this matter, your physician or his/her colleagues will explain the
+                        alternatives to you if this has not already been done.
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <ul class="content">
+                <li class="center">
                     <h3>
                         STATEMENT OF CONSENT</h3>
                 </li>
@@ -87,21 +107,24 @@
                         I have read or had read to me, the above. I do not have any questions, which have
                         not been answered to my full satisfaction. I hereby consent to such transfusion,
                         as my physician may deem necessary or advisable in the course of my treatment.<br />
-                        <table class="noBorder">
-                            <tr>
-                                <td>
-                                    <asp:CheckBox runat="server" ID="Chk1" Text="I have Directed Units" CssClass="leftPush" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:CheckBox runat="server" ID="CheckBox1" Text="I have Autologous Units" CssClass="leftPush" />
-                                </td>
-                            </tr>
-                        </table>
+                    </div>
+                </li>
+                <li>
+                    <div class="leftPushMargin">
+                        <asp:CheckBox runat="server" ID="ChkDirectedUnits" Text="I have Directed Units" />
+                    </div>
+                </li>
+                <li>
+                    <div class="leftPushMargin">
+                        <asp:CheckBox runat="server" ID="ChkAutologousUnits" Text="I have Autologous Units"
+                            CssClass="leftPush" />
                     </div>
                 </li>
             </ul>
+        </li>
+    </ul>
+    <ul class="content">
+        <li>
             <ul class="content">
                 <li>
                     <h3 class="center">
@@ -120,139 +143,7 @@
                 </li>
             </ul>
         </li>
-        <li><span class="content-heading">I UNDERSTAND that no guarantees have been made to
-            me that this operation will improve my condition. </span></li>
-        <li>
-            <asp:Panel runat="server" ID="PnlPatientSignature">
-                <div class="PrintsigBox">
-                </div>
-                <div class="right">
-                </div>
-                <div class="clear">
-                </div>
-                <div>
-                    (PATIENT SIGNATURE)
-                </div>
-            </asp:Panel>
-        </li>
-        <li>
-            <asp:Panel runat="server" ID="PnlPatientUnableToSignBecause">
-                Patient is unable to sign because:<br />
-                <br />
-                <br />
-            </asp:Panel>
-        </li>
-        <li>
-            <asp:Panel runat="server" ID="PnlAuthorizedSignature">
-                <div class="PrintsigBox">
-                </div>
-                <div class="right">
-                </div>
-                <div class="clear">
-                </div>
-                <div>
-                    (If patient unable to sign, person authorized to sign.)
-                </div>
-            </asp:Panel>
-        </li>
-        <li>
-            <div class="PrintsigBox">
-            </div>
-            <div class="right">
-            </div>
-            <div class="clear">
-            </div>
-            <div>
-                (Witness to Signature or Telephone Consent Only)
-            </div>
-        </li>
-        <li>
-            <div class="PrintsigBox">
-            </div>
-            <div class="right">
-            </div>
-            <div class="clear">
-            </div>
-            <div>
-                (Second Witness to Telephone Consent Only)
-            </div>
-        </li>
-        <li>
-            <div>
-                Interpreted By:
-            </div>
-            <div class="PrintsigBox">
-            </div>
-            <div class="right">
-            </div>
-            <div class="clear">
-            </div>
-        </li>
-        <li></li>
-        <li>
-            <table class="bigfont">
-                <tr>
-                    <td>
-                        FORM:
-                    </td>
-                    <td>
-                        Blood Transfusion Consent Form
-                    </td>
-                    <td>
-                        MR#:
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        PATIENT:
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        DOB:
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        PATIENT#:
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        AGE:
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        GENDER:
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        DATE:
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        ADMIT DATE:
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        TIME:
-                    </td>
-                    <td>
-                    </td>
-                </tr>
-            </table>
-        </li>
     </ul>
+    <uc4:PrintSignatures ID="PrintSignatures1" runat="server" ConsentType="None" />
+    <uc3:printfooter ID="PrintFooter1" runat="server" ConsentType="BloodConsentOrRefusal" />
 </asp:Content>

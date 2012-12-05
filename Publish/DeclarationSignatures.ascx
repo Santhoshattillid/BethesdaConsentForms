@@ -1,6 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="DeclarationSignatures.ascx.cs"
     Inherits="WindowsCEConsentForms.DeclarationSignatures" %>
-<%@ Import Namespace="WindowsCEConsentForms" %>
 <%@ Import Namespace="WindowsCEConsentForms.FormHandlerService" %>
 <ul class="content">
     <li>

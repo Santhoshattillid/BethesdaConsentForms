@@ -2,7 +2,6 @@
     CodeBehind="ConsentPrint.aspx.cs" Inherits="WindowsCEConsentForms.OutsideOR.OutsideORConsentPrintV1" %>
 
 <%@ Register TagPrefix="uc1" TagName="doctorsandproceduresprint" Src="~/DoctorsAndProceduresPrint.ascx" %>
-<%@ Register TagPrefix="uc2" TagName="PageHeader" Src="~/PageHeader.ascx" %>
 <%@ Register TagPrefix="uc3" TagName="printfooter" Src="~/PrintFooter.ascx" %>
 <%@ Register TagPrefix="uc4" TagName="PrintSignatures" Src="~/PrintSignatures.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -79,11 +78,6 @@
             </div>
             <div class="clear">
             </div>
-        </li>
-    </ul>
-    <ul class="content">
-        <li>
-            <uc2:PageHeader ID="PageHeader1" runat="server" />
         </li>
     </ul>
     <uc4:PrintSignatures ID="PrintSignatures1" runat="server" ConsentType="OutsideOR" />

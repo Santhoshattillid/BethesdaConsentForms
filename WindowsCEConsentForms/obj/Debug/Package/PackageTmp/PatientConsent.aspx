@@ -68,7 +68,7 @@
                     </tr>
                     <tr>
                         <td>
-                            MRIN#
+                            MR#
                         </td>
                         <td colspan="4">
                             <asp:Label runat="server" ID="LblSalutation" Enabled="false"></asp:Label>
@@ -118,7 +118,7 @@
                                             Enabled="false" />
                                     </li>
                                     <li>
-                                        <asp:CheckBox runat="server" ID="ChkEC" Text="ENDOSCOPY CONSENT" Enabled="false" />
+                                        <asp:CheckBox runat="server" ID="ChkEC" Text="CONSENT FOR ENDOSCOPY" Enabled="false" />
                                     </li>
                                     <li>
                                         <asp:CheckBox runat="server" ID="ChkBCOrR" Text="CONSENT FOR TRANSFUSION OF BLOOD OR BLOOD PRODUCTS"
@@ -136,18 +136,16 @@
                             </asp:Panel>
                             <asp:Panel runat="server" ID="PnlPrintLinks" Visible="False">
                                 <ul>
-                                    <li><a href="Print/Surgical/Surgical.pdf">PDF for CONSENT TO DIAGNOSTIC PROCEDURE OR
-                                        OPERATION</a></li>
-                                    <li><a href="Print/Cardiovascular/Cardiovascular.pdf">PDF for CARDIOVASCULAR LABORATORY
-                                        CONSENT</a></li>
-                                    <li><a href="Print/OutsideOR/OutsideOR.pdf">PDF for CONSENT FOR PROCEDURES OUTSIDE OF
-                                        THE OPERATING ROOM</a></li>
-                                    <li><a href="Print/Endoscopy/Endoscopy.pdf">PDF for ENDOSCOPY CONSENT</a></li>
-                                    <li><a href="Print/BloodConsentOrRefusal/BloodConsentOfRefusal.pdf">PDF for CONSENT
-                                        FOR TRANSFUSION OF BLOOD OR BLOOD PRODUCTS</a></li>
-                                    <li><a href="Print/PlasmanApheresis/PlasmanApheresis.pdf">PDF forCONSENT FOR THERAPEUTIC APHERESIS</a></li>
-                                    <li><a href="Print/PICC/PICC.pdf">PDF for AUTHORIZATION FOR PERIPHERALLY INSERTED CENTRAL
-                                        CATHETER (PICC)</a></li>
+                                    <li><a href="Print/Surgical/Surgical.pdf">CONSENT TO DIAGNOSTIC PROCEDURE OR OPERATION</a></li>
+                                    <li><a href="Print/Cardiovascular/Cardiovascular.pdf">CARDIOVASCULAR LABORATORY CONSENT</a></li>
+                                    <li><a href="Print/OutsideOR/OutsideOR.pdf">CONSENT FOR PROCEDURES OUTSIDE OF THE OPERATING
+                                        ROOM</a></li>
+                                    <li><a href="Print/Endoscopy/Endoscopy.pdf">ENDOSCOPY CONSENT</a></li>
+                                    <li><a href="Print/BloodConsentOrRefusal/BloodConsentOrRefusal.pdf">CONSENT FOR TRANSFUSION
+                                        OF BLOOD OR BLOOD PRODUCTS</a></li>
+                                    <%-- <li><a href="Print/PlasmanApheresis/PlasmanApheresis.pdf">CONSENT FOR THERAPEUTIC APHERESIS</a></li>
+                                    <li><a href="Print/PICC/PICC.pdf">AUTHORIZATION FOR PERIPHERALLY INSERTED CENTRAL
+                                        CATHETER (PICC)</a></li>--%>
                                 </ul>
                             </asp:Panel>
                         </td>

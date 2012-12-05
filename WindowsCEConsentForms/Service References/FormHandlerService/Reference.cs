@@ -311,6 +311,76 @@ namespace WindowsCEConsentForms.FormHandlerService {
         }
     }
     
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ConsentType", Namespace="http://schemas.datacontract.org/2004/07/Consent.sp.wcf")]
+    public enum ConsentType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Surgical = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Cardiovascular = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        OutsideOR = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Endoscopy = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BloodConsentOrRefusal = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PlasmanApheresis = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PICC = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        None = 7,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SignatureType", Namespace="http://schemas.datacontract.org/2004/07/Consent.sp.wcf")]
+    public enum SignatureType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DoctorSign1 = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DoctorSign2 = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DoctorSign3 = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DoctorSign4 = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DoctorSign5 = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DoctorSign6 = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DoctorSign7 = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PatientSign = 7,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PatientAuthorizeSign = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        WitnessSignature1 = 9,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        WitnessSignature2 = 10,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PICCSignature = 11,
+    }
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DoctorDetails", Namespace="http://schemas.datacontract.org/2004/07/Consent.sp.wcf")]
@@ -465,35 +535,6 @@ namespace WindowsCEConsentForms.FormHandlerService {
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ConsentType", Namespace="http://schemas.datacontract.org/2004/07/Consent.sp.wcf")]
-    public enum ConsentType : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Surgical = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Cardiovascular = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        OutsideOR = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Endoscopy = 3,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        BloodConsentOrRefusal = 4,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        PlasmanApheresis = 5,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        PICC = 6,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        None = 7,
-    }
-    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DoctorAndProcedure", Namespace="http://schemas.datacontract.org/2004/07/Consent.sp.wcf")]
@@ -575,13 +616,16 @@ namespace WindowsCEConsentForms.FormHandlerService {
         WindowsCEConsentForms.FormHandlerService.PatientDetail GetPatientDetail(string patientNumber, string ConsentFormType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/SavePatientSignature", ReplyAction="http://tempuri.org/IFormHandlerService/SavePatientSignatureResponse")]
-        bool SavePatientSignature(string PatientNumber, string SignaturesContent, string FormType, string type);
+        bool SavePatientSignature(string PatientNumber, string SignaturesContent, WindowsCEConsentForms.FormHandlerService.ConsentType ConsentType, WindowsCEConsentForms.FormHandlerService.SignatureType signatureType, string signedPersonName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/UpdateTranslatedby", ReplyAction="http://tempuri.org/IFormHandlerService/UpdateTranslatedbyResponse")]
         bool UpdateTranslatedby(string PatientNumber, string ConsentFormType, string Translatedby);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientSignature", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientSignatureResponse")]
-        string GetPatientSignature(string PatientNumber, string FormType, string type);
+        string GetPatientSignature(string PatientNumber, WindowsCEConsentForms.FormHandlerService.ConsentType ConsentType, WindowsCEConsentForms.FormHandlerService.SignatureType signatureType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetSignedPersonName", ReplyAction="http://tempuri.org/IFormHandlerService/GetSignedPersonNameResponse")]
+        string GetSignedPersonName(string PatientNumber, WindowsCEConsentForms.FormHandlerService.ConsentType ConsentType, WindowsCEConsentForms.FormHandlerService.SignatureType signatureType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientList", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientListResponse")]
         System.Data.DataTable GetPatientList();
@@ -704,16 +748,20 @@ namespace WindowsCEConsentForms.FormHandlerService {
             return base.Channel.GetPatientDetail(patientNumber, ConsentFormType);
         }
         
-        public bool SavePatientSignature(string PatientNumber, string SignaturesContent, string FormType, string type) {
-            return base.Channel.SavePatientSignature(PatientNumber, SignaturesContent, FormType, type);
+        public bool SavePatientSignature(string PatientNumber, string SignaturesContent, WindowsCEConsentForms.FormHandlerService.ConsentType ConsentType, WindowsCEConsentForms.FormHandlerService.SignatureType signatureType, string signedPersonName) {
+            return base.Channel.SavePatientSignature(PatientNumber, SignaturesContent, ConsentType, signatureType, signedPersonName);
         }
         
         public bool UpdateTranslatedby(string PatientNumber, string ConsentFormType, string Translatedby) {
             return base.Channel.UpdateTranslatedby(PatientNumber, ConsentFormType, Translatedby);
         }
         
-        public string GetPatientSignature(string PatientNumber, string FormType, string type) {
-            return base.Channel.GetPatientSignature(PatientNumber, FormType, type);
+        public string GetPatientSignature(string PatientNumber, WindowsCEConsentForms.FormHandlerService.ConsentType ConsentType, WindowsCEConsentForms.FormHandlerService.SignatureType signatureType) {
+            return base.Channel.GetPatientSignature(PatientNumber, ConsentType, signatureType);
+        }
+        
+        public string GetSignedPersonName(string PatientNumber, WindowsCEConsentForms.FormHandlerService.ConsentType ConsentType, WindowsCEConsentForms.FormHandlerService.SignatureType signatureType) {
+            return base.Channel.GetSignedPersonName(PatientNumber, ConsentType, signatureType);
         }
         
         public System.Data.DataTable GetPatientList() {

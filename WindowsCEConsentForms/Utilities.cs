@@ -116,22 +116,6 @@ namespace WindowsCEConsentForms
         }
     }
 
-    public enum SignatureType
-    {
-        DoctorSign1,
-        DoctorSign2,
-        DoctorSign3,
-        DoctorSign4,
-        DoctorSign5,
-        DoctorSign6,
-        DoctorSign7,
-        PatientSign,
-        PatientAuthorizeSign,
-        WitnessSignature1,
-        WitnessSignature2,
-        PICCSignature
-    }
-
     public enum StatementType
     {
         Accepted,

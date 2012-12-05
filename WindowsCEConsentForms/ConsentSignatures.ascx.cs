@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Text;
+using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms
 {
@@ -36,6 +38,39 @@ namespace WindowsCEConsentForms
             ViewState[SignatureType.DoctorSign5.ToString()] = string.Empty;
             ViewState[SignatureType.DoctorSign6.ToString()] = string.Empty;
             ViewState[SignatureType.DoctorSign7.ToString()] = string.Empty;
+        }
+
+        public void SaveForm(FormHandlerServiceClient formHandlerServiceClient, string patientId, ConsentType consentType)
+        {
+            if (Request.Form[SignatureType.DoctorSign1.ToString()] != null)
+            {
+                var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign1.ToString()]);
+                bool result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType, SignatureType.DoctorSign1, string.Empty);
+            }
+
+            if (Request.Form[SignatureType.DoctorSign2.ToString()] != null)
+            {
+                var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign2.ToString()]);
+                var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType, SignatureType.DoctorSign2, string.Empty);
+            }
+
+            if (Request.Form[SignatureType.DoctorSign3.ToString()] != null)
+            {
+                var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign3.ToString()]);
+                var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType, SignatureType.DoctorSign3, string.Empty);
+            }
+
+            if (Request.Form[SignatureType.DoctorSign4.ToString()] != null)
+            {
+                var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign4.ToString()]);
+                var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType, SignatureType.DoctorSign4, string.Empty);
+            }
+
+            if (Request.Form[SignatureType.DoctorSign5.ToString()] != null)
+            {
+                var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign5.ToString()]);
+                var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType, SignatureType.DoctorSign5, string.Empty);
+            }
         }
     }
 }

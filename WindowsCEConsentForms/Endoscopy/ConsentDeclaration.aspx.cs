@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 using System.Web.UI;
 using WindowsCEConsentForms.FormHandlerService;
 
@@ -40,7 +39,7 @@ namespace WindowsCEConsentForms.Endoscopy
                    string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign4.ToString()]) ||
                    string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign5.ToString()]))
                 {
-                    lblError.Text = "Please input signatures.";
+                    lblError.Text += "Please input signatures.";
                 }
 
                 if (!string.IsNullOrEmpty(lblError.Text))
@@ -59,37 +58,10 @@ namespace WindowsCEConsentForms.Endoscopy
                 var formHandlerServiceClient = new FormHandlerServiceClient();
 
                 DoctorsAndProcedures1.SaveDoctorsAndProcedures(formHandlerServiceClient, patientId);
+
                 DeclarationSignatures.SaveForm(formHandlerServiceClient, patientId);
 
-                if (Request.Form[SignatureType.DoctorSign1.ToString()] != null)
-                {
-                    var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign1.ToString()]);
-                    bool result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.DoctorSign1.ToString());
-                }
-
-                if (Request.Form[SignatureType.DoctorSign2.ToString()] != null)
-                {
-                    var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign2.ToString()]);
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.DoctorSign2.ToString());
-                }
-
-                if (Request.Form[SignatureType.DoctorSign3.ToString()] != null)
-                {
-                    var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign3.ToString()]);
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.DoctorSign3.ToString());
-                }
-
-                if (Request.Form[SignatureType.DoctorSign4.ToString()] != null)
-                {
-                    var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign4.ToString()]);
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.DoctorSign4.ToString());
-                }
-
-                if (Request.Form[SignatureType.DoctorSign5.ToString()] != null)
-                {
-                    var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign5.ToString()]);
-                    var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType.ToString(), SignatureType.DoctorSign5.ToString());
-                }
+                ConsentSignatures.SaveForm(formHandlerServiceClient, patientId, consentType);
 
                 string ip = Request.ServerVariables["REMOTE_ADDR"];
                 string device;

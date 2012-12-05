@@ -9,13 +9,6 @@
         <li>
             <li>
                 <div class="center">
-                    <%-- <h3>
-                        ENDOSCOPY CONSENT FORM
-                    </h3>--%>
-                </div>
-            </li>
-            <li>
-                <div class="center">
                     <h3>
                         CONSENT FOR PROCEDURES OUTSIDE OF THE OPERATING ROOM
                     </h3>

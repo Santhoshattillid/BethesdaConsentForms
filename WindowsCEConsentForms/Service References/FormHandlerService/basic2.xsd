@@ -25,6 +25,36 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="StatementOfConsent" nillable="true" type="tns:StatementOfConsent" />
+  <xs:simpleType name="ConsentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Surgical" />
+      <xs:enumeration value="Cardiovascular" />
+      <xs:enumeration value="OutsideOR" />
+      <xs:enumeration value="Endoscopy" />
+      <xs:enumeration value="BloodConsentOrRefusal" />
+      <xs:enumeration value="PlasmanApheresis" />
+      <xs:enumeration value="PICC" />
+      <xs:enumeration value="None" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ConsentType" nillable="true" type="tns:ConsentType" />
+  <xs:simpleType name="SignatureType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DoctorSign1" />
+      <xs:enumeration value="DoctorSign2" />
+      <xs:enumeration value="DoctorSign3" />
+      <xs:enumeration value="DoctorSign4" />
+      <xs:enumeration value="DoctorSign5" />
+      <xs:enumeration value="DoctorSign6" />
+      <xs:enumeration value="DoctorSign7" />
+      <xs:enumeration value="PatientSign" />
+      <xs:enumeration value="PatientAuthorizeSign" />
+      <xs:enumeration value="WitnessSignature1" />
+      <xs:enumeration value="WitnessSignature2" />
+      <xs:enumeration value="PICCSignature" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SignatureType" nillable="true" type="tns:SignatureType" />
   <xs:complexType name="DoctorDetails">
     <xs:sequence>
       <xs:element minOccurs="0" name="Fname" nillable="true" type="xs:string" />
@@ -41,19 +71,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="TrackingInfo" nillable="true" type="tns:TrackingInfo" />
-  <xs:simpleType name="ConsentType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Surgical" />
-      <xs:enumeration value="Cardiovascular" />
-      <xs:enumeration value="OutsideOR" />
-      <xs:enumeration value="Endoscopy" />
-      <xs:enumeration value="BloodConsentOrRefusal" />
-      <xs:enumeration value="PlasmanApheresis" />
-      <xs:enumeration value="PICC" />
-      <xs:enumeration value="None" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="ConsentType" nillable="true" type="tns:ConsentType" />
   <xs:complexType name="ArrayOfDoctorAndProcedure">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="DoctorAndProcedure" nillable="true" type="tns:DoctorAndProcedure" />
