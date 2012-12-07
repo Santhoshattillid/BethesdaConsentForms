@@ -13,6 +13,24 @@ namespace WindowsCEConsentForms {
     public partial class ConsentForm {
         
         /// <summary>
+        /// TxtEmployeeID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtEmployeeID;
+        
+        /// <summary>
+        /// BtnLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnLogin;
+        
+        /// <summary>
         /// RdoBHE control.
         /// </summary>
         /// <remarks>

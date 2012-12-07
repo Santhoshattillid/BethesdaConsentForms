@@ -15,11 +15,11 @@ namespace WindowsCEConsentForms.Administration
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string checkIfExist = ConfigurationManager.AppSettings["DBSetupStatus"];
-            if (checkIfExist == "1")
-            {
-                PnlDBConfiguration.Visible = false;
-            }
+            //string checkIfExist = ConfigurationManager.AppSettings["DBSetupStatus"];
+            //if (checkIfExist == "1")
+            //{
+            //    PnlDBConfiguration.Visible = false;
+            //}
             if (!IsPostBack)
             {
                 RdoSqlServerAuthentication.Checked = true;

@@ -49,6 +49,15 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal {
         protected global::System.Web.UI.WebControls.Label LblProcedureName;
         
         /// <summary>
+        /// PrintFooter2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WindowsCEConsentForms.PrintFooter PrintFooter2;
+        
+        /// <summary>
         /// ChkDirectedUnits control.
         /// </summary>
         /// <remarks>

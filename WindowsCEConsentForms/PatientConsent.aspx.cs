@@ -8,6 +8,12 @@ namespace WindowsCEConsentForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            LblError.Text = string.Empty;
+            if (!IsPostBack)
+            {
+                RdoBHE.Enabled = false;
+                RdoBMH.Enabled = false;
+            }
         }
 
         protected void DdlPatientIds_SelectedIndexChanged(object sender, EventArgs e)
@@ -153,6 +159,13 @@ namespace WindowsCEConsentForms
             try
             {
                 LblError.Text = string.Empty;
+
+                if (string.IsNullOrEmpty(TxtEmployeeID.Text.Trim()))
+                {
+                    Reset();
+                    LblError.Text = "Employee ID field should not be empty.";
+                }
+
                 if (DdlPatientIds.SelectedIndex == 0)
                 {
                     LblError.Text = "Please Select Patient Id";
@@ -254,6 +267,29 @@ namespace WindowsCEConsentForms
             DdlFormList.Items.Add("Blank Consent Form");
             DdlFormList.SelectedIndex = 0;
             DdlPatientIds.SelectedIndex = 0;
+        }
+
+        protected void BtnLogin_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(TxtEmployeeID.Text.Trim()))
+            {
+                Reset();
+                LblError.Text = "Employee ID field should not be empty.";
+            }
+            else
+            {
+                var formHanlderServiceClient = new FormHandlerServiceClient();
+                if (formHanlderServiceClient.VerifyEmployeeID(TxtEmployeeID.Text.Trim()))
+                {
+                    RdoBHE.Enabled = true;
+                    RdoBMH.Enabled = true;
+                }
+                else
+                {
+                    Reset();
+                    LblError.Text = "Please input valid employee ID.";
+                }
+            }
         }
     }
 }

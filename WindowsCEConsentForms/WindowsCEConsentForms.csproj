@@ -135,6 +135,7 @@
     <Content Include="Print\OutsideOR\BlankPrint.aspx" />
     <Content Include="Print\PICC\BlankPrint.aspx" />
     <Content Include="Print\PlasmanApheresis\BlankPrint.aspx" />
+    <Content Include="Print\PrintAll.aspx" />
     <Content Include="Print\Surgical\BlankPrint.aspx" />
     <Content Include="Scripts\jquery-1.6.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.13.custom.min.js" />
@@ -382,6 +383,13 @@
     </Compile>
     <Compile Include="PrintSignatures.ascx.designer.cs">
       <DependentUpon>PrintSignatures.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Print\PrintAll.aspx.cs">
+      <DependentUpon>PrintAll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Print\PrintAll.aspx.designer.cs">
+      <DependentUpon>PrintAll.aspx</DependentUpon>
     </Compile>
     <Compile Include="Service References\FormHandlerService\Reference.cs">
       <AutoGen>True</AutoGen>

@@ -15,7 +15,7 @@
         </li>
     </ul>
     <uc1:DoctorsAndProceduresPrint ID="DoctorsAndProceduresPrint1" runat="server" ConsentType="PlasmanApheresis" />
-    <ul class="content print">
+    <ul class="content">
         <li>
             <div class="small-content">
                 The nature and purpose of the procedure necessary to treat my condition, possible
@@ -122,6 +122,11 @@
             <div class="clear">
             </div>
         </li>
+    </ul>
+    <uc3:printfooter ID="PrintFooter2" runat="server" ConsentType="PlasmanApheresis" />
+    <ul class="pageHeader">
+    </ul>
+    <ul class="content">
         <li>
             <div class="sigBox">
                 <asp:Image runat="server" ID="ImgSignature4" />

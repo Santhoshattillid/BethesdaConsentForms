@@ -49,6 +49,15 @@ namespace WindowsCEConsentForms.PlasmanApheresis {
         protected global::System.Web.UI.WebControls.Image ImgSignature3;
         
         /// <summary>
+        /// PrintFooter2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::WindowsCEConsentForms.PrintFooter PrintFooter2;
+        
+        /// <summary>
         /// ImgSignature4 control.
         /// </summary>
         /// <remarks>

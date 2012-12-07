@@ -1,10 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" %>
 
 <%@ Register TagPrefix="uc3" TagName="printfooter" Src="~/PrintFooter.ascx" %>
+<%@ Register TagPrefix="uc4" TagName="PrintSignatures" Src="~/PrintSignatures.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <ul class="content print">
+    <ul class="content">
         <li>PATIENT:</li>
         <li>I here by authorize Doctor(s)
             <br />
@@ -77,67 +78,8 @@
             </div>
         </li>
     </ul>
-    <ul class="content">
-        <li><span class="content-heading">I UNDERSTAND that no guarantees have been made to
-            me that this operation will improve my condition. </span></li>
-        <li>
-            <div class="PrintsigBox">
-            </div>
-            <div class="right">
-            </div>
-            <div class="clear">
-            </div>
-            <div>
-                (PATIENT SIGNATURE)
-            </div>
-        </li>
-        <li>Patient is unable to sign because:
-            <br />
-            <br />
-            <br />
-        </li>
-        <li>
-            <div class="PrintsigBox">
-            </div>
-            <div class="right">
-            </div>
-            <div class="clear">
-            </div>
-            <div>
-                (If patient unable to sign, person authorized to sign.)
-            </div>
-        </li>
-        <li>
-            <div class="PrintsigBox">
-            </div>
-            <div class="right">
-            </div>
-            <div class="clear">
-            </div>
-            <div>
-                (Witness to Signature or Telephone Consent Only)
-            </div>
-        </li>
-        <li>
-            <div class="PrintsigBox">
-            </div>
-            <div class="right">
-                <br />
-                <br />
-            </div>
-            <div class="clear">
-            </div>
-            <div>
-                (Second Witness to Telephone Consent Only)
-            </div>
-        </li>
-        <li>
-            <div>
-                Interpreted By:
-                <br />
-                <br />
-            </div>
-        </li>
-    </ul>
+    <uc3:printfooter ID="PrintFooter2" runat="server" ConsentType="Surgical" />
+    <ul class="pageHeader"></ul>
+    <uc4:PrintSignatures ID="PrintSignatures1" runat="server" ConsentType="Surgical" />
     <uc3:printfooter ID="PrintFooter1" runat="server" ConsentType="Surgical" />
 </asp:Content>

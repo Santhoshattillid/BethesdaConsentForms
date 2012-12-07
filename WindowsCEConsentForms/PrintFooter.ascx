@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PrintFooter.ascx.cs"
     Inherits="WindowsCEConsentForms.PrintFooter" %>
-<ul class="content">
+<ul class="content print">
     <li>
         <table>
             <tr>

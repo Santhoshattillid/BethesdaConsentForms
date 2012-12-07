@@ -5,7 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <ul class="content print">
+    <ul class="content">
         <li>PATIENT:</li>
         <li>I here by authorize Doctor(s)
             <br />
@@ -77,6 +77,9 @@
             <div class="clear">
             </div>
         </li>
+    </ul>
+    <uc3:printfooter ID="PrintFooter2" runat="server" ConsentType="Endoscopy" />
+    <ul class="pageHeader">
     </ul>
     <uc4:PrintSignatures ID="PrintSignatures1" runat="server" ConsentType="None" />
     <uc3:printfooter ID="PrintFooter1" runat="server" ConsentType="Endoscopy" />

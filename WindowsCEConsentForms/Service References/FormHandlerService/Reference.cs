@@ -627,6 +627,9 @@ namespace WindowsCEConsentForms.FormHandlerService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetSignedPersonName", ReplyAction="http://tempuri.org/IFormHandlerService/GetSignedPersonNameResponse")]
         string GetSignedPersonName(string PatientNumber, WindowsCEConsentForms.FormHandlerService.ConsentType ConsentType, WindowsCEConsentForms.FormHandlerService.SignatureType signatureType);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/VerifyEmployeeID", ReplyAction="http://tempuri.org/IFormHandlerService/VerifyEmployeeIDResponse")]
+        bool VerifyEmployeeID(string empID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientList", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientListResponse")]
         System.Data.DataTable GetPatientList();
         
@@ -762,6 +765,10 @@ namespace WindowsCEConsentForms.FormHandlerService {
         
         public string GetSignedPersonName(string PatientNumber, WindowsCEConsentForms.FormHandlerService.ConsentType ConsentType, WindowsCEConsentForms.FormHandlerService.SignatureType signatureType) {
             return base.Channel.GetSignedPersonName(PatientNumber, ConsentType, signatureType);
+        }
+        
+        public bool VerifyEmployeeID(string empID) {
+            return base.Channel.VerifyEmployeeID(empID);
         }
         
         public System.Data.DataTable GetPatientList() {

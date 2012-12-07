@@ -5,7 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <ul class="content print">
+    <ul class="content">
         <li class="center">
             <h3>
                 CONSENT FOR THERAPEUTIC APHERESIS
@@ -115,6 +115,9 @@
             <div class="clear">
             </div>
         </li>
+    </ul>
+    <uc3:printfooter ID="PrintFooter2" runat="server" ConsentType="PlasmanApheresis" />
+    <ul class=" content pageHeader">
         <li>
             <div class="PrintsigBox">
             </div>
@@ -127,6 +130,6 @@
             </div>
         </li>
     </ul>
-    <uc4:PrintSignatures ID="PrintSignatures1" runat="server" ConsentType="None" />
+    <uc4:PrintSignatures ID="PrintSignatures1" runat="server" ConsentType="PlasmanApheresis" />
     <uc3:printfooter ID="PrintFooter1" runat="server" ConsentType="PlasmanApheresis" />
 </asp:Content>

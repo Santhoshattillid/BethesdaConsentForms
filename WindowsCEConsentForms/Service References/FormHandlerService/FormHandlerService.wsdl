@@ -64,6 +64,12 @@
   <wsdl:message name="IFormHandlerService_GetSignedPersonName_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetSignedPersonNameResponse" />
   </wsdl:message>
+  <wsdl:message name="IFormHandlerService_VerifyEmployeeID_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="IFormHandlerService_VerifyEmployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyEmployeeIDResponse" />
+  </wsdl:message>
   <wsdl:message name="IFormHandlerService_GetPatientList_InputMessage">
     <wsdl:part name="parameters" element="tns:GetPatientList" />
   </wsdl:message>
@@ -245,6 +251,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetSignedPersonName" message="tns:IFormHandlerService_GetSignedPersonName_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetSignedPersonNameResponse" message="tns:IFormHandlerService_GetSignedPersonName_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="VerifyEmployeeID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/VerifyEmployeeID" message="tns:IFormHandlerService_VerifyEmployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/VerifyEmployeeIDResponse" message="tns:IFormHandlerService_VerifyEmployeeID_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetPatientList">
       <wsdl:input wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientList" message="tns:IFormHandlerService_GetPatientList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFormHandlerService/GetPatientListResponse" message="tns:IFormHandlerService_GetPatientList_OutputMessage" />
@@ -418,6 +428,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetSignedPersonName">
       <soap:operation soapAction="http://tempuri.org/IFormHandlerService/GetSignedPersonName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyEmployeeID">
+      <soap:operation soapAction="http://tempuri.org/IFormHandlerService/VerifyEmployeeID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

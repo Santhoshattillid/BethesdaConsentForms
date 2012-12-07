@@ -77,13 +77,13 @@
 }
 .Container TABLE TR TD
 {
-    padding: 5px; /*border-bottom: 1px solid #DDD;     border-left: 1px solid #DDD;*/
+    padding: 5px;
     width: 25%;
 }
 .Container SELECT
 {
     width: 200px;
-    background: #EFEFEF; /*border-radius: 3px*/
+    background: #EFEFEF;
     border: 0;
     padding: 3px;
     border: 1px solid #CCC;
@@ -106,7 +106,7 @@
 {
     padding: 5px;
 }
-.Container .errorInfomodified
+.content .errorInfomodified
 {
     color: #DC143C;
 }
@@ -134,7 +134,7 @@
 {
     float: left;
     padding-left: 10px;
-    width: 375px;
+    width: 455px;
     text-align: justify;
 }
 .clear
@@ -196,12 +196,7 @@
     background: #666;
     cursor: pointer;
 }
-.print
-{
-    color: #444;
-    background-color: #FFFFFF;
-}
-.Container, .print
+.Container
 {
     color: #222;
     page-break-after: always;
@@ -209,13 +204,19 @@
     margin-bottom: 0px;
     width: 680px;
 }
-.print .noBorder TR TD
+.content .noBorder TR TD
 {
     border: none;
 }
 .bigfont TR TD
 {
     font: 6pt sans-serif;
+}
+.print
+{
+    color: #444;
+    background-color: #FFFFFF;
+    page-break-after: always;
 }
 .print .right
 {
@@ -233,10 +234,6 @@
 }
 .print .noBorder .middleColumn
 {
-}
-.print .pageBreak
-{
-    page-break-before: always;
 }
 .leftBox
 {
@@ -481,7 +478,7 @@
 {
     float: right;
     border-bottom: 1px solid #777;
-    width: 458px;
+    width: 457px;
     padding-top: 46px;
     padding-left: 10px;
 }
@@ -495,9 +492,39 @@
 }
 .small
 {
-    width: 100px;
+    width: 102px;
 }
 .large
 {
-    width: 218px;
+    width: 190px;
+}
+.pageHeader
+{
+    margin-top: 20px;
+}
+.consentTable TR TD
+{
+    border: 1px solid #FBFBFB;
+}
+.consentTable TR TD:first-child
+{
+    width: 20%;
+}
+.consentTable TR TD:last-child
+{
+    width: 15%;
+}
+.consentTable TR TD:nth-child(3)
+{
+    width: 1%;
+}
+.consentTable TR TD:nth-child(4)
+{
+    width: 20%;
+}
+.consentTable INPUT[type="text"]
+{
+    width: 192px;
+    padding: 3px;
+    color: #777;
 }

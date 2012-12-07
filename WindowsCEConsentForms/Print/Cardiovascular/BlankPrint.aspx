@@ -5,7 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <ul class="content print">
+    <ul class="content">
         <li class="center">
             <h3>
                 CARDIOVASCULAR LABORATORY CONSENT
@@ -78,6 +78,10 @@
             <div class="clear">
             </div>
         </li>
+    </ul>
+    <uc3:printfooter ID="PrintFooter2" runat="server" ConsentType="Cardiovascular" />
+    <ul class="pageHeader"></ul>
+    <ul class="content">
         <li>
             <div class="PrintsigBox">
             </div>
