@@ -8,7 +8,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <uc1:doctorsandproceduresprint ID="DoctorsAndProceduresPrint1" runat="server" consenttype="OutsideOR" />
-    <ul class="content print">
+    <ul class="content">
         <li>
             <h4>
                 PATIENT - PLEASE INITIAL the lines next to each paragraph of this consent to indicate
@@ -80,6 +80,7 @@
             </div>
         </li>
     </ul>
+    <uc3:printfooter ID="PrintFooter2" runat="server" ConsentType="OutsideOR" />
     <uc4:PrintSignatures ID="PrintSignatures1" runat="server" ConsentType="OutsideOR" />
     <uc3:printfooter ID="PrintFooter1" runat="server" ConsentType="OutsideOR" />
 </asp:Content>

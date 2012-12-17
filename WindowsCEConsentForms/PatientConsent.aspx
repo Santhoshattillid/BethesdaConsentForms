@@ -28,6 +28,13 @@
                     </tr>
                     <tr>
                         <td>
+                        </td>
+                        <td colspan="4">
+                            <asp:Label runat="server" ID="LblError2" CssClass="errorInfomodified"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                             <h4>
                                 Select Location</h4>
                         </td>
@@ -165,7 +172,8 @@
                     <% if (!string.IsNullOrEmpty(LblError.Text))
                        {%>
                     <tr>
-                        <td></td>
+                        <td>
+                        </td>
                         <td colspan="4">
                             <asp:Label runat="server" ID="LblError" CssClass="errorInfomodified"></asp:Label>
                         </td>

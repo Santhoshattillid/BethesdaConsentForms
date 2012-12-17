@@ -6,12 +6,31 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <ul class="content">
         <li>
-            <table>
+            <table class="consentTable">
                 <tbody>
                     <tr>
                         <td colspan="5">
                             <h3>
                                 Patient Consent Form</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4>
+                                Employee ID</h4>
+                        </td>
+                        <td>
+                            <asp:TextBox runat="server" ID="TxtEmployeeID"></asp:TextBox>
+                        </td>
+                        <td colspan="3">
+                            <asp:Button runat="server" ID="BtnLogin" Text="Login" OnClick="BtnLogin_Click" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td colspan="4">
+                            <asp:Label runat="server" ID="LblError2" CssClass="errorInfomodified"></asp:Label>
                         </td>
                     </tr>
                     <tr>
@@ -153,8 +172,10 @@
                     <% if (!string.IsNullOrEmpty(LblError.Text))
                        {%>
                     <tr>
-                        <td colspan="5" class="center">
-                            <asp:Label runat="server" ID="LblError" CssClass="errorInfo"></asp:Label>
+                        <td>
+                        </td>
+                        <td colspan="4">
+                            <asp:Label runat="server" ID="LblError" CssClass="errorInfomodified"></asp:Label>
                         </td>
                     </tr>
                     <%

@@ -28,7 +28,7 @@ namespace WindowsCEConsentForms
                     var patientDetail = formHandlerServiceClient.GetPatientDetail(DdlPatientIds.SelectedValue, ConsentType.None.ToString());
                     if (patientDetail != null)
                     {
-                        LblId.Text = patientDetail.MRHash; // DdlPatientIds.SelectedValue;
+                        LblId.Text = patientDetail.PatientHash; // DdlPatientIds.SelectedValue;
                         LblName.Text = patientDetail.name;
                         LblAdmDate.Text = patientDetail.AdmDate.ToString("MMM dd yyyy");
                         LblAge.Text = patientDetail.age.ToString();
@@ -283,11 +283,12 @@ namespace WindowsCEConsentForms
                 {
                     RdoBHE.Enabled = true;
                     RdoBMH.Enabled = true;
+                    LblError2.Text = string.Empty;
                 }
                 else
                 {
                     Reset();
-                    LblError.Text = "Please input valid employee ID.";
+                    LblError2.Text = "Please input valid employee ID.";
                 }
             }
         }

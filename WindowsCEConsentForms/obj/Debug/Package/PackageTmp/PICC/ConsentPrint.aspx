@@ -6,7 +6,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <ul class="content print">
+    <ul class="content">
         <li>
             <div class="center">
                 <h3>
@@ -68,6 +68,7 @@
             </div>
         </li>
     </ul>
+    <uc3:printfooter ID="PrintFooter2" runat="server" consenttype="PICC" />
     <uc4:PrintSignatures ID="PrintSignatures1" runat="server" ConsentType="PICC" />
     <ul class="content">
         <li>

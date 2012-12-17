@@ -12,7 +12,7 @@
             </h3>
         </li>
     </ul>
-    <ul class="content print">
+    <ul class="content">
         <li>PATIENT:</li>
         <li>I here by authorize Doctor(s)
             <br />
@@ -96,6 +96,9 @@
                 </li>
             </ul>
         </li>
+    </ul>
+    <uc3:printfooter ID="PrintFooter2" runat="server" ConsentType="BloodConsentOrRefusal" />
+    <ul class="content">
         <li>
             <ul class="content">
                 <li class="center">
@@ -122,8 +125,6 @@
                 </li>
             </ul>
         </li>
-    </ul>
-    <ul class="content">
         <li>
             <ul class="content">
                 <li>

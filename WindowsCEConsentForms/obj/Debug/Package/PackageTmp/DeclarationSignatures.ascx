@@ -16,7 +16,7 @@
     </li>
     <li>
         <div class="checkboxleft">
-            <asp:CheckBox runat="server" ID="ChkTelephoneConsent" Text="Telephone Consent" AutoPostBack=""
+            <asp:CheckBox runat="server" ID="ChkTelephoneConsent" Text="Telephone Consent" AutoPostBack="True"
                 OnCheckedChanged="ChkTelephoneConsent_CheckedChanged" />
         </div>
     </li>

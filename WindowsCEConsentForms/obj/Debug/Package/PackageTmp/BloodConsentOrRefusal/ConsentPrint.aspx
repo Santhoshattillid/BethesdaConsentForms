@@ -13,7 +13,7 @@
             </h3>
         </li>
     </ul>
-    <ul class="content print">
+    <ul class="content">
         <li>PATIENT:
             <asp:Label runat="server" ID="LblPatientName3" CssClass="errorInfo"></asp:Label>
         </li>
@@ -97,6 +97,7 @@
             </ul>
         </li>
     </ul>
+    <uc3:printfooter ID="PrintFooter2" runat="server" ConsentType="BloodConsentOrRefusal" />
     <ul class="content">
         <li>
             <% if (IsStatementOfConsent)

@@ -7,6 +7,7 @@
       <xs:element minOccurs="0" name="AttnDr" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DOB" type="xs:dateTime" />
       <xs:element minOccurs="0" name="MRHash" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientHash" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PrimaryDoctorId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ProcedureName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="StatementOfConsent" nillable="true" type="tns:StatementOfConsent" />

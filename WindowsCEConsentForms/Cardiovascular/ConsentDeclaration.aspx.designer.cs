@@ -31,15 +31,6 @@ namespace WindowsCEConsentForms.Cardiovascular {
         protected global::WindowsCEConsentForms.DoctorsAndProcedures DoctorsAndProcedures1;
         
         /// <summary>
-        /// LblPhysiciannames control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblPhysiciannames;
-        
-        /// <summary>
         /// DeclarationSignatures control.
         /// </summary>
         /// <remarks>

@@ -10,7 +10,7 @@
     </li>
 </ul>
 <uc1:DoctorsAndProceduresPrint ID="DoctorsAndProceduresPrint1" runat="server" />
-<ul class="content print">
+<ul class="content">
     <li>
         <div class="sigBox">
             <asp:Image runat="server" ID="ImgSignature1" />
@@ -76,5 +76,6 @@
         </div>
     </li>
 </ul>
+<uc3:PrintFooter ID="PrintFooter2" runat="server" />
 <uc2:PrintSignatures ID="PrintSignatures1" runat="server" />
 <uc3:PrintFooter ID="PrintFooter1" runat="server" />
