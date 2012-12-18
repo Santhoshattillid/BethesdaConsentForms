@@ -1,284 +1,287 @@
 .Container *
 {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    font-size: 13px;
-    outline: none;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	font-size: 13px;
+	outline: none;
 }
 .Container DFN, I, CITE, VAR, ADDRESS, EM
 {
-    font-style: normal;
+	font-style: normal;
 }
 .Container TH, B, STRONG, H1, H2, H3, H4, H5, H6
 {
-    font-weight: normal;
+	font-weight: normal;
 }
 .Container A, IMG, A IMG, IFRAME, FORM, FIELDSET, ABBR, ACRONYM, OBJECT, TABLE
 {
-    border: none;
+	border: none;
 }
 .Container TABLE
 {
-    border-collapse: collapse;
-    border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 .Container CAPTION, TH, TD
 {
-    text-align: left;
-    vertical-align: top;
+	text-align: left;
+	vertical-align: top;
 }
 .Container Q
 {
-    quotes: "" "";
+	quotes: "" "";
 }
 .Container UL, OL, MENU
 {
-    list-style: none;
+	list-style: none;
 }
 .Container SUB, SUP
 {
-    vertical-align: baseline;
+	vertical-align: baseline;
 }
 .Container A
 {
-    color: inherit;
+	color: inherit;
 }
 .Container HR
 {
-    display: none;
+	display: none;
 }
 .Container
 {
-    /*color: inherit !important;     width: 600px;     background: #fff;     padding: 5px;     border: 1px solid #DDD;*/
-    background: #FFF; /*border-radius: 10px*/
-    width: 100%;
-    margin: 0 auto;
-    border: 6px solid #EFEFEF;
-    padding: 10px;
+/*color: inherit !important;     width: 600px;     background: #fff;     padding: 5px;     border: 1px solid #DDD;*/
+	background: #FFF;
+/*border-radius: 10px*/
+	width: 100%;
+	margin: 0 auto;
+	border: 6px solid #EFEFEF;
+	padding: 10px;
 }
 .Container TABLE, .content
 {
-    width: 100%; /*border-top: 1px solid #EEE;*/
-    font: 17px Calibri;
+	width: 100%;
+/*border-top: 1px solid #EEE;*/
+	font: 17px Calibri;
 }
 .Container TABLE, .content LABEL, .content LI
 {
-    padding-left: 5px;
+	padding-left: 5px;
 }
 .Container, .content .header
 {
-    color: #CCC;
+	color: #CCC;
 }
 .Container .header TH
 {
-    padding: 5px;
-    border-right: 1px solid #666;
+	padding: 5px;
+	border-right: 1px solid #666;
 }
 .Container TABLE TR TD
 {
-    padding: 5px;
-    width: 25%;
+	padding: 5px;
+	width: 25%;
 }
 .Container SELECT
 {
-    width: 200px;
-    background: #EFEFEF;
-    border: 0;
-    padding: 3px;
-    border: 1px solid #CCC;
-    color: #666;
+	width: 200px;
+	background: #EFEFEF;
+	border: 0;
+	padding: 3px;
+	border: 1px solid #CCC;
+	color: #666;
 }
 .Container INPUT[type="text"], INPUT[type="submit"], INPUT[type="pass"]
 {
 }
 .Container .center
 {
-    text-align: center;
-    padding-top: 10px;
+	text-align: center;
+	padding-top: 10px;
 }
 .Container H3
 {
-    font: bold 15px sans-serif;
-    color: #666;
+	font: bold 15px sans-serif;
+	color: #666;
 }
 .Container .checkbox
 {
-    padding: 5px;
+	padding: 5px;
 }
 .content .errorInfomodified
 {
-    color: #DC143C;
+	color: #DC143C;
 }
 .Container .errorInfo
 {
-    color: #000;
-    font-weight: bold;
+	color: #000;
+	font-weight: bold;
 }
 .Container INPUT[type="text"], INPUT[type="password"]
 {
-    width: 450px;
-    border: 1px solid #AAA;
-    padding: 5px;
-    color: #444;
+	width: 450px;
+	border: 1px solid #AAA;
+	padding: 5px;
+	color: #444;
 }
 .signature
 {
-    padding-top: 10px;
-    width: 200px;
-    height: 50px;
-    border: 1px solid #777;
-    float: left;
+	padding-top: 10px;
+	width: 200px;
+	height: 50px;
+	border: 1px solid #777;
+	float: left;
 }
 .right
 {
-    float: left;
-    padding-left: 10px;
-    width: 455px;
-    text-align: justify;
+	float: left;
+	padding-left: 10px;
+	width: 455px;
+	text-align: justify;
 }
 .clear
 {
-    clear: both;
-    float: none;
-    width: 0px;
+	clear: both;
+	float: none;
+	width: 0px;
 }
 .noBorder TR TD
 {
-    border: none;
+	border: none;
 }
 .content LI
 {
-    padding: 5px;
+	padding: 5px;
 }
 .small
 {
-    width: 70px;
-    margin-left: 10px;
-    margin-right: 10px;
+	width: 70px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 .smallest
 {
-    width: 40px;
+	width: 20px;
 }
 .autoWidth
 {
-    width: auto;
+	width: auto;
 }
 .large
 {
-    width: 250px;
+	width: 250px;
 }
 .noBorder
 {
-    border: none;
+	border: none;
 }
 .sigBox
 {
-    padding-top: 10px;
-    width: 200px;
-    height: 50px;
-    border: 1px solid #777;
-    float: left;
+	padding-top: 10px;
+	width: 200px;
+	height: 50px;
+	border: 1px solid #777;
+	float: left;
 }
 .Container .center INPUT[type="button"], INPUT[type="submit"]
 {
-    width: 100px;
-    border: 1px solid #80A8BB;
-    background: #2C4176; /*border-radius: 5px*/
-    color: #FFF;
-    padding: 5px;
-    cursor: pointer;
-    margin-left: 5px;
+	width: 100px;
+	border: 1px solid #80A8BB;
+	background: #2C4176;
+/*border-radius: 5px*/
+	color: #FFF;
+	padding: 5px;
+	cursor: pointer;
+	margin-left: 5px;
 }
 .Container .center INPUT:hover
 {
-    background: #666;
-    cursor: pointer;
+	background: #666;
+	cursor: pointer;
 }
 .Container
 {
-    color: #222;
-    page-break-after: always;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    width: 680px;
+	color: #222;
+	page-break-after: always;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	width: 680px;
 }
 .content .noBorder TR TD
 {
-    border: none;
+	border: none;
 }
 .bigfont TR TD
 {
-    font: 6pt sans-serif;
+	font: 6pt sans-serif;
 }
 .print
 {
-    color: #444;
-    background-color: #FFFFFF;
-    page-break-after: always;
+	color: #444;
+	background-color: #FFFFFF;
+	page-break-after: always;
 }
 .print .right
 {
-    width: 450px;
+	width: 450px;
 }
 .print .sigBox
 {
-    float: left;
-    border: none;
-    border-bottom: 2px solid #888;
+	float: left;
+	border: none;
+	border-bottom: 2px solid #888;
 }
 .print .noBorder .edgeColumn
 {
-    font-size: 8pt;
+	font-size: 8pt;
 }
 .print .noBorder .middleColumn
 {
 }
 .leftBox
 {
-    float: left;
+	float: left;
 }
 .content .noBorder TR TD
 {
-    border: none;
-    text-align: center;
+	border: none;
+	text-align: center;
 }
 .content LI .boxLeft
 {
-    margin-left: -20px;
+	margin-left: -20px;
 }
 #DivOtherProcedure
 {
-    display: none;
+	display: none;
 }
 .small-header
 {
-    font-size: 11px;
-    font-weight: bold;
+	font-size: 11px;
+	font-weight: bold;
 }
 .small-content
 {
-    text-align: justify;
-    padding-left: 5px;
-    padding-right: 5px;
+	text-align: justify;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 .small-content UL
 {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 .small-content DIV
 {
-    left: 0;
-    padding: 10px 0;
+	left: 0;
+	padding: 10px 0;
 }
 .timeBox
 {
-    float: left;
-    padding-top: 45px;
-    border-bottom: 2px solid #777;
-    width: 200px;
+	float: left;
+	padding-top: 45px;
+	border-bottom: 2px solid #777;
+	width: 200px;
 }
 .PatientReason
 {
@@ -297,234 +300,238 @@
 }
 .Hide
 {
-    display: none;
+	display: none;
 }
 .leftPush LABEL
 {
-    /*margin-left: 200px;*/
-    padding-left: 5px;
+/*margin-left: 200px;*/
+	padding-left: 5px;
 }
 .content-heading
 {
-    font-weight: bold;
-    font-size: 13px;
+	font-weight: bold;
+	font-size: 13px;
 }
 .PrintsigBox
 {
-    padding-top: 10px;
-    width: 200px;
-    height: 30px;
-    border: 1px solid #777;
-    float: left;
+	padding-top: 10px;
+	width: 200px;
+	height: 30px;
+	border: 1px solid #777;
+	float: left;
 }
 .Container A
 {
-    color: #6C80F3;
+	color: #6C80F3;
 }
 .content TABLE
 {
-    width: 100%;
+	width: 100%;
 }
 .addNewBox
 {
-    text-align: right;
-    margin-top: 0px;
-    margin-right: 5px;
-    margin-bottom: 5px;
+	text-align: right;
+	margin-top: 0px;
+	margin-right: 5px;
+	margin-bottom: 5px;
 }
 .addNewBox A
 {
-    padding: 5px;
-    background-color: #EEE;
-    color: #6C80F3;
+	padding: 5px;
+	background-color: #EEE;
+	color: #6C80F3;
 }
 .content .DateTime
 {
-    margin-left: 4px;
+	margin-left: 4px;
 }
 /*form style*/
 .textbox
 {
-    background: #EFEFEF; /*border-radius: 3px*/
-    border: 0;
-    padding: 5px;
-    border: 1px solid #CCC;
-    color: #666;
-    width: 80%;
+	background: #EFEFEF;
+/*border-radius: 3px*/
+	border: 0;
+	padding: 5px;
+	border: 1px solid #CCC;
+	color: #666;
+	width: 80%;
 }
 .btn, .btn1
 {
-    background: #2C4176; /*border-radius: 5px*/
-    color: #FFF;
-    padding: 5px;
+	background: #2C4176;
+/*border-radius: 5px*/
+	color: #FFF;
+	padding: 5px;
 }
 .btn1
 {
-    background: #666;
+	background: #666;
 }
 .hdr
 {
-    border-top: 1px solid #CCC;
-    border-bottom: 1px solid #CCC;
-    float: left;
-    width: 97%;
-    padding: 10px;
-    background: #F5F5F5;
-    font-family: arial;
-    margin-bottom: 10px;
+	border-top: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+	float: left;
+	width: 97%;
+	padding: 10px;
+	background: #F5F5F5;
+	font-family: arial;
+	margin-bottom: 10px;
 }
 .hdr UL
 {
-    padding: 0;
-    margin: 0;
+	padding: 0;
+	margin: 0;
 }
 .hdr LI
 {
-    float: left;
-    width: 30%;
-    list-style: none;
-    left: 0;
-    padding: 0;
+	float: left;
+	width: 30%;
+	list-style: none;
+	left: 0;
+	padding: 0;
 }
 .hdr LI:first-child
 {
-    float: right;
+	float: right;
 }
 .hdr H1
 {
-    font-size: 18px;
-    color: #2C4176;
-    font-weight: lighter;
-    padding: 5px 0;
-    margin: 0;
+	font-size: 18px;
+	color: #2C4176;
+	font-weight: lighter;
+	padding: 5px 0;
+	margin: 0;
 }
 .textarea
 {
-    background: #EFEFEF; /*border-radius: 3px*/
-    border: 0;
-    padding: 5px;
-    border: 1px solid #CCC; /*box-shadow: 4px 0px 12px #CCC*/
-    color: #A7A7A7;
-    width: 80%;
+	background: #EFEFEF;
+/*border-radius: 3px*/
+	border: 0;
+	padding: 5px;
+	border: 1px solid #CCC;
+/*box-shadow: 4px 0px 12px #CCC*/
+	color: #A7A7A7;
+	width: 80%;
 }
 .con
 {
-    margin-left: 270px;
+	margin-left: 270px;
 }
 .checkboxleft
 {
-    margin-left: 0px;
+	margin-left: 0px;
 }
 .patienttabletd
 {
-    width: 100px;
+	width: 100px;
 }
 .leftPushMargin
 {
-    margin-left: 40%;
+	margin-left: 40%;
 }
 .RemoveDocAndProc
 {
-    padding: 5px;
-    background-color: #EEE;
-    color: #6C80F3;
-    margin-left: 125px;
+	padding: 5px;
+	background-color: #EEE;
+	color: #6C80F3;
+	margin-left: 125px;
 }
 .RemoveDocAndProc IMG
 {
-    margin-bottom: -4px;
+	margin-bottom: -4px;
 }
 .extraMargin
 {
-    margin-left: 185px;
+	margin-left: 185px;
 }
 .content .printFooter
 {
-    border: 1px solid #DDD;
+	border: 1px solid #DDD;
 }
 .content .printFooter *
 {
-    font-size: 8pt;
+	font-size: 8pt;
 }
 .printFooter TR TD
 {
-    border: 1px solid #DDD;
+	border: 1px solid #DDD;
 }
 .printFooter TR TD:first-child
 {
-    width: 20%;
+	width: 20%;
 }
 .printFooter TR TD:last-child
 {
-    width: 15%;
+	width: 15%;
 }
 .printFooter TR TD:nth-child(3)
 {
-    width: 1%;
+	width: 1%;
 }
 .printFooter TR TD:nth-child(4)
 {
-    width: 20%;
+	width: 20%;
 }
 .adminHeading
 {
-    width: 130px;
+	width: 130px;
 }
 .content .adminErroInfo
 {
-    padding-left: 99px;
+	padding-left: 99px;
 }
 .content .printBox
 {
-    float: right;
-    border-bottom: 1px solid #777;
-    width: 457px;
-    padding-top: 46px;
-    padding-left: 10px;
+	float: right;
+	border-bottom: 1px solid #777;
+	width: 457px;
+	padding-top: 46px;
+	padding-left: 10px;
 }
 .content .patientReasonBox
 {
-    padding-bottom: 50px;
+	padding-bottom: 50px;
 }
 .floatLeft
 {
-    float: left;
+	float: left;
 }
 .small
 {
-    width: 102px;
+	width: 275px;
 }
 .large
 {
-    width: 190px;
+	width: 190px;
 }
 .pageHeader
 {
-    margin-top: 20px;
+	margin-top: 20px;
 }
 .consentTable TR TD
 {
-    border: 1px solid #FBFBFB;
+	border: 1px solid #FBFBFB;
 }
 .consentTable TR TD:first-child
 {
-    width: 20%;
+	width: 20%;
 }
 .consentTable TR TD:last-child
 {
-    width: 15%;
+	width: 15%;
 }
 .consentTable TR TD:nth-child(3)
 {
-    width: 1%;
+	width: 1%;
 }
 .consentTable TR TD:nth-child(4)
 {
-    width: 20%;
+	width: 20%;
 }
 .consentTable INPUT[type="text"]
 {
-    width: 192px;
-    padding: 3px;
-    color: #777;
+	width: 192px;
+	padding: 3px;
+	color: #777;
 }

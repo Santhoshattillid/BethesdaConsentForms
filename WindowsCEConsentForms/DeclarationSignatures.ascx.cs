@@ -29,7 +29,7 @@ namespace WindowsCEConsentForms
                     ViewState[SignatureType.PICCSignature.ToString()] =
                         Request.Form[SignatureType.PICCSignature.ToString()];
             }
-            SetPanels(false);
+            SetPanels(ChkPatientisUnableToSign.Checked);
         }
 
         protected void ChkPatientisUnableToSign_CheckedChanged(object sender, EventArgs e)
