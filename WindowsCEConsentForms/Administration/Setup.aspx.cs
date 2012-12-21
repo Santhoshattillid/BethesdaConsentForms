@@ -49,14 +49,14 @@ namespace WindowsCEConsentForms.Administration
 
             // Getting export paths and display in boxes
 
-            var formHandlerServices = new FormHandlerServiceClient();
-            TxtBloodConsentOrRefusalExportPath.Text = formHandlerServices.GetPdfFolderPath(ConsentType.BloodConsentOrRefusal);
-            TxtCardiovascularExportPath.Text = formHandlerServices.GetPdfFolderPath(ConsentType.Cardiovascular);
-            TxtEndoscopyExportPath.Text = formHandlerServices.GetPdfFolderPath(ConsentType.Endoscopy);
-            TxtOutsideORExportPath.Text = formHandlerServices.GetPdfFolderPath(ConsentType.OutsideOR);
-            TxtPICCExportPath.Text = formHandlerServices.GetPdfFolderPath(ConsentType.PICC);
-            TxtPlasmanApheresisExportPath.Text = formHandlerServices.GetPdfFolderPath(ConsentType.PlasmanApheresis);
-            TxtSurgicalExportPath.Text = formHandlerServices.GetPdfFolderPath(ConsentType.Surgical);
+            var formHandlerServices = new ConsentFormSvcClient();
+            TxtBloodConsentOrRefusalExportPath.Text = formHandlerServices.GetPdFFolderPath(ConsentType.BloodConsentOrRefusal);
+            TxtCardiovascularExportPath.Text = formHandlerServices.GetPdFFolderPath(ConsentType.Cardiovascular);
+            TxtEndoscopyExportPath.Text = formHandlerServices.GetPdFFolderPath(ConsentType.Endoscopy);
+            TxtOutsideORExportPath.Text = formHandlerServices.GetPdFFolderPath(ConsentType.OutsideOR);
+            TxtPICCExportPath.Text = formHandlerServices.GetPdFFolderPath(ConsentType.PICC);
+            TxtPlasmanApheresisExportPath.Text = formHandlerServices.GetPdFFolderPath(ConsentType.PlasmanApheresis);
+            TxtSurgicalExportPath.Text = formHandlerServices.GetPdFFolderPath(ConsentType.Surgical);
 
             SetCredentialPanel();
         }
@@ -124,14 +124,14 @@ namespace WindowsCEConsentForms.Administration
                     && !string.IsNullOrEmpty(TxtPICCExportPath.Text.Trim())
                     && !string.IsNullOrEmpty(TxtPlasmanApheresisExportPath.Text.Trim()))
                 {
-                    var formHanlderServices = new FormHandlerServiceClient();
-                    formHanlderServices.savePdfFoderPath(ConsentType.Surgical.ToString(), TxtSurgicalExportPath.Text);
-                    formHanlderServices.savePdfFoderPath(ConsentType.BloodConsentOrRefusal.ToString(), TxtBloodConsentOrRefusalExportPath.Text);
-                    formHanlderServices.savePdfFoderPath(ConsentType.Cardiovascular.ToString(), TxtCardiovascularExportPath.Text);
-                    formHanlderServices.savePdfFoderPath(ConsentType.Endoscopy.ToString(), TxtEndoscopyExportPath.Text);
-                    formHanlderServices.savePdfFoderPath(ConsentType.OutsideOR.ToString(), TxtOutsideORExportPath.Text);
-                    formHanlderServices.savePdfFoderPath(ConsentType.PICC.ToString(), TxtPICCExportPath.Text);
-                    formHanlderServices.savePdfFoderPath(ConsentType.PlasmanApheresis.ToString(), TxtPlasmanApheresisExportPath.Text);
+                    var formHanlderServices = new ConsentFormSvcClient();
+                    formHanlderServices.SavePdFFolderPath(ConsentType.Surgical, TxtSurgicalExportPath.Text);
+                    formHanlderServices.SavePdFFolderPath(ConsentType.BloodConsentOrRefusal, TxtBloodConsentOrRefusalExportPath.Text);
+                    formHanlderServices.SavePdFFolderPath(ConsentType.Cardiovascular, TxtCardiovascularExportPath.Text);
+                    formHanlderServices.SavePdFFolderPath(ConsentType.Endoscopy, TxtEndoscopyExportPath.Text);
+                    formHanlderServices.SavePdFFolderPath(ConsentType.OutsideOR, TxtOutsideORExportPath.Text);
+                    formHanlderServices.SavePdFFolderPath(ConsentType.PICC, TxtPICCExportPath.Text);
+                    formHanlderServices.SavePdFFolderPath(ConsentType.PlasmanApheresis, TxtPlasmanApheresisExportPath.Text);
                     LblError.Text = "Export paths saved successfully.";
                 }
                 else

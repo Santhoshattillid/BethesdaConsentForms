@@ -39,10 +39,11 @@
                 <span class="small-header">RISKS:</span>
                 <div class="small-content">
                     • A transfusion is a common procedure of low risk.<br />
-                    • Minor and temporary reactions are not uncommon, including bruising, or local reaction
-                    in the area where the needle pierces your skin or a non serious reaction to the
-                    transfused material itself, including headache, fever or mild reaction such as skin
-                    rash.<br />
+                    • Minor and temporary reactions are not uncommon, including bruising, swelling or
+                    local reaction in the area where the needle pierces your skin or a non serious reaction
+                    to the transfused material itself, including headache, fever or mild reaction such
+                    as a rash.
+                    <br />
                     • A serious reaction is possible, but unlikely since all blood is carefully matched
                     prior to transfusion, except in life-threatening emergencies.<br />
                     • Infectious diseases, which are known to be transmittable by blood, include Transfusion
@@ -58,20 +59,10 @@
                 <span class="small-header">BENEFITS/ALTERNATIVES</span>
                 <div class="small-content">
                     • The loss of blood can pose serious threats during the course of treatment for
-                    which there is no effective alternative to blood transfusion. If you have any further
-                    questions on this matter, your physician or his/her colleagues will explain the
-                    alternatives to you if this has not already been done.
+                    which there is no effective alternative to blood or blood component transfusion.
+                    If you have any further questions on this matter, your physician or his/her colleagues
+                    will explain the alternatives to you if this has not already been done.
                 </div>
-            </div>
-        </li>
-        <li>
-            <div class="small-content">
-                <span class="small-header">BENEFITS/ALTERNATIVES</span>
-                <div class="small-content">
-                    • The loss of blood can pose serious threats during the course of treatment for
-                    which there is no effective alternative to blood transfusion. If you have any further
-                    questions on this matter, your physician or his/her colleagues will explain the
-                    alternatives to you if this has not already been done.</div>
             </div>
         </li>
         <li>
@@ -162,5 +153,5 @@
             </ul>
         </li>
     </ul>
-    <uc2:DeclarationSignatures ID="DeclarationSignatures" runat="server" ConsentType="BloodConsentOrRefusal" />
+    <uc2:DeclarationSignatures ID="DeclarationSignatures1" runat="server" ConsentType="BloodConsentOrRefusal" />
 </asp:Content>

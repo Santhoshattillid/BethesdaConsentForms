@@ -1,9 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true"
     CodeBehind="ConsentDeclaration.aspx.cs" Inherits="WindowsCEConsentForms.PlasmanApheresis.ConsentDeclaration" %>
 
+<%@ Import Namespace="System.Collections.Generic" %>
+<%@ Import Namespace="System.Globalization" %>
+<%@ Import Namespace="WindowsCEConsentForms" %>
 <%@ Import Namespace="WindowsCEConsentForms.FormHandlerService" %>
 <%@ Register TagPrefix="uc1" TagName="DeclarationSignatures" Src="~/DeclarationSignatures.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="PatientDetails" Src="~/PatientDetails.ascx" %>
+<%@ Register Src="../DoctorsAndProcedures.ascx" TagName="DoctorsAndProcedures" TagPrefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -17,20 +21,36 @@
     <ul class="content">
         <li>
             <div class="small-content">
+                I authorize the performance of therapeutic apheresis on
                 <asp:Label ID="LblPatientName" runat="server" CssClass="errorInfo" />
                 of therapeutic apheresis to be performed by or under the direction of
-                <asp:Label ID="LblPhyisicianList" runat="server" CssClass="errorInfo"></asp:Label>
+                <select class="DdlPrimaryDoctors" name="DdlPrimaryDoctors">
+                    <% List<PrimaryDoctor> collection = (List<PrimaryDoctor>)ViewState["PrimaryDoctors"];
+                       int doctorSelectedIndex = Convert.ToInt32(ViewState["doctorSelectedIndex"]);
+                       var associatedDoctors = Utilities.GetAssociatedDoctors(Convert.ToInt32(doctorSelectedIndex));
+                       foreach (PrimaryDoctor listItem in collection)
+                       {
+                           if (listItem.Id == doctorSelectedIndex)
+                           {
+                    %>
+                    <option value="<%= listItem.Id %>" selected="selected">
+                        <%= listItem.Name %></option>
+                    <% }
+                           else
+                           { %>
+                    <option value="<%= listItem.Id %>">
+                        <%= listItem.Name %></option>
+                    <% } %>
+                    <%
+                       }
+                    %>
+                </select>
+                <label class="errorInfo LblAssociatedDoctors">
+                    <%= associatedDoctors  %></label>
             </div>
         </li>
-        <li>
-            <div class="small-content">
-                The nature and purpose of the procedure necessary to treat my condition, possible
-                alternative methods of treatment, the risks involved, the possible consequences,
-                and the possibility of complications have been explained to me by
-                <asp:Label ID="LblPhysicianName" runat="server" CssClass="errorInfo"></asp:Label>
-                and I understand the nature of the procedure to be as follows.
-            </div>
-        </li>
+    </ul>
+    <ul class="content">
         <li>
             <div class="small-content">
                 Therapeutic Apheresis involves the separation, removal and replacement of specific
@@ -41,8 +61,15 @@
         </li>
         <li>
             <div class="small-content">
-                I have been made aware of certain risks and consequences that may be associated
-                with the procedure heren described. Among others there are:
+                This involves the passage of my blood from my circulatory system into a machine,
+                where it is circulated through a device which acts to remove the specific blood
+                cells or plasma components from the blood.
+            </div>
+        </li>
+        <li>
+            <div class="small-content">
+                I have been made aware of certain risks, benefits or alternatives that may be associated
+                with the procedure herein described. Possible risks are, but not limited to:
             </div>
         </li>
         <li>
@@ -61,22 +88,35 @@
                 </li>
                 <li>
                     <div class="small-content">
-                        The possibility of contracting infection of the puncture site of catherer which
+                        The possibility of contracting infections of the puncture site of catherer which
                         allows access to the bloodsteam.
                     </div>
                 </li>
                 <li>
                     <div class="small-content">
-                        The potential hazard of air heartbeats, tingling or numbness of the fingers chest,
-                        mouth of face, nausea, bruising at the site of neede insertion, or decrease blood
-                        pressure resulting from certain chemical shifts within the patient's system.
+                        The potential hazard of air embolism forming in which air enters the machine and
+                        thereby gets into the patient's bloodstream, leading to severe complications, which
+                        may include death or paralysis.
                     </div>
                 </li>
                 <li>
                     <div class="small-content">
-                        The possibility of a re-action to medication and/or replacement fluids given during
-                        the treatment which may result in adverse effects ranging from mid to (rarely) fatal
-                        shock ot cardiac arrest.
+                        The possibility of irregular heartbeats, tingling or numbness of the fingers, chest,
+                        mouth of or face, nausea, bruising at the site of needle insertion, or decrease
+                        blood pressure resulting from certain chemical shifts within the patient's system.
+                    </div>
+                </li>
+                <li>
+                    <div class="small-content">
+                        The possibility of a reaction to medications and/or replacement fluids given during
+                        the treatment which may result in adverse effects ranging from mild to (rarely)
+                        fatal shock or cardiac arrest.
+                    </div>
+                </li>
+                <li>
+                    <div class="small-content">
+                        The possibility of excess fluid in the bloodstream, causing shortness of breath
+                        and/or changes in the heart rate and blood pressure.
                     </div>
                 </li>
             </ul>
@@ -88,7 +128,7 @@
                     value='<%= ViewState[SignatureType.DoctorSign1.ToString()].ToString() %>' />
             </div>
             <div class="right">
-                I acknowledge the no guarantee or assurance has been given to me by anyone as to
+                I acknowledge that no guarantee or assurance has been given to me by anyone as to
                 the results that may be obtained.
             </div>
             <div class="clear">
@@ -102,7 +142,7 @@
             </div>
             <div class="right">
                 I acknowledge that all blank spaces on this document have been either completed
-                or crassed off prior to my signing.
+                or crossed off prior to my signing.
             </div>
             <div class="clear">
             </div>

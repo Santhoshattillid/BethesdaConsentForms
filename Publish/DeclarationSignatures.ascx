@@ -2,12 +2,15 @@
     Inherits="WindowsCEConsentForms.DeclarationSignatures" %>
 <%@ Import Namespace="WindowsCEConsentForms.FormHandlerService" %>
 <ul class="content">
+    <% if (ConsentType != ConsentType.PICC && ConsentType != ConsentType.BloodConsentOrRefusal)
+       { %>
     <li>
         <p>
-            I Understand and that no guarantee have been made to me that this operation will
-            improve my condition.
+            I understand that no guarantees have been made to me that this operation will improve
+            my condition.
         </p>
     </li>
+    <% } %>
     <li>
         <div class="checkboxleft">
             <asp:CheckBox runat="server" ID="ChkPatientisUnableToSign" Text="Patient is unable to sign?"

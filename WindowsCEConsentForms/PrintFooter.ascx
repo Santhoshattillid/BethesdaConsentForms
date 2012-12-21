@@ -30,7 +30,7 @@
                                 <asp:Label runat="server" ID="LblPatientMrHash"></asp:Label>
                             </td>
                             <td>
-                                Attending Physician:
+                                Attending physician:
                             </td>
                             <td>
                                 <asp:Label runat="server" ID="LblAttendingPhysician"></asp:Label>

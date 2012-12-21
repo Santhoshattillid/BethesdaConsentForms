@@ -22,7 +22,7 @@ namespace WindowsCEConsentForms.PICC
             {
                 ConsentType = ConsentType.PICC;
 
-                var formHandlerServiceClient = new FormHandlerServiceClient();
+                var formHandlerServiceClient = new ConsentFormSvcClient();
                 var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
                 if (patientDetails != null)
                 {

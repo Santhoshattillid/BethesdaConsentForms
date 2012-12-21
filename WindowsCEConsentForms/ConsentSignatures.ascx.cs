@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using WindowsCEConsentForms.FormHandlerService;
 
@@ -40,37 +41,65 @@ namespace WindowsCEConsentForms
             ViewState[SignatureType.DoctorSign7.ToString()] = string.Empty;
         }
 
-        public void SaveForm(FormHandlerServiceClient formHandlerServiceClient, string patientId, ConsentType consentType)
+        public List<Signatures> GetSignatures()
         {
+            var outPut = new List<Signatures>();
             if (Request.Form[SignatureType.DoctorSign1.ToString()] != null)
             {
                 var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign1.ToString()]);
-                bool result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType, SignatureType.DoctorSign1, string.Empty);
+                outPut.Add(new Signatures
+                               {
+                                   _name = string.Empty,
+                                   _signatureContent = Encoding.ASCII.GetString(bytes),
+                                   _signatureType = SignatureType.DoctorSign1
+                               });
             }
 
             if (Request.Form[SignatureType.DoctorSign2.ToString()] != null)
             {
                 var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign2.ToString()]);
-                var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType, SignatureType.DoctorSign2, string.Empty);
+                outPut.Add(new Signatures
+                {
+                    _name = string.Empty,
+                    _signatureContent = Encoding.ASCII.GetString(bytes),
+                    _signatureType = SignatureType.DoctorSign2
+                });
             }
 
             if (Request.Form[SignatureType.DoctorSign3.ToString()] != null)
             {
                 var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign3.ToString()]);
-                var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType, SignatureType.DoctorSign3, string.Empty);
+                outPut.Add(new Signatures
+                {
+                    _name = string.Empty,
+                    _signatureContent = Encoding.ASCII.GetString(bytes),
+                    _signatureType = SignatureType.DoctorSign3
+                });
             }
 
             if (Request.Form[SignatureType.DoctorSign4.ToString()] != null)
             {
                 var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign4.ToString()]);
-                var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType, SignatureType.DoctorSign4, string.Empty);
+                outPut.Add(new Signatures
+                {
+                    _name = string.Empty,
+                    _signatureContent = Encoding.ASCII.GetString(bytes),
+                    _signatureType = SignatureType.DoctorSign4
+                });
             }
 
             if (Request.Form[SignatureType.DoctorSign5.ToString()] != null)
             {
                 var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign5.ToString()]);
-                var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType, SignatureType.DoctorSign5, string.Empty);
+                outPut.Add(new Signatures
+                {
+                    _name = string.Empty,
+                    _signatureContent = Encoding.ASCII.GetString(bytes),
+                    _signatureType = SignatureType.DoctorSign5
+                });
             }
+
+            return outPut;
         }
     }
 }

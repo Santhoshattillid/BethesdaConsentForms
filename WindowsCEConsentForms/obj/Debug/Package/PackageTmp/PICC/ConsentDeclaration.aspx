@@ -26,7 +26,7 @@
                 <span class="small-header">A PICC</span> is long, small flexible plastic tube that
                 is put in your arm and threaded so that the tip rests in a big vein in the chest.
                 The catheter can be used for all types of fluids and medications that need to be
-                given into your vein. A nurse has been specially trained and qualified to insert
+                given into your vein. A nurse who has been specially trained and qualified to insert
                 this catheter will be putting it in. This catheter can stay in your arm for one
                 year or more as long as there are no complications needing it to be removed. After
                 insertion of the catheter, a chest x-ray will be taken to make sure it is in the

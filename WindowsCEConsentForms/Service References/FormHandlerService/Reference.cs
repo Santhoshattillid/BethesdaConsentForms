@@ -15,7 +15,654 @@ namespace WindowsCEConsentForms.FormHandlerService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PatientDetail", Namespace="http://schemas.datacontract.org/2004/07/Consent.sp.wcf")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Treatment", Namespace="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc")]
+    [System.SerializableAttribute()]
+    public partial class Treatment : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool _IsAutologousUnitsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool _IsDirectedUnitsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool _IsStatementOfConsentAcceptedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int _consentIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WindowsCEConsentForms.FormHandlerService.ConsentType _consentTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WindowsCEConsentForms.FormHandlerService.DoctorAndProcedure[] _doctorAndPrceduresField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool _isPatientUnableSignField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _patientIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WindowsCEConsentForms.FormHandlerService.Physican _physicanField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _proceduresField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WindowsCEConsentForms.FormHandlerService.Signatures[] _signaturesesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WindowsCEConsentForms.FormHandlerService.TrackingInformation _trackingInformationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _translatedByField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _unableToSignReasonField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool _IsAutologousUnits {
+            get {
+                return this._IsAutologousUnitsField;
+            }
+            set {
+                if ((this._IsAutologousUnitsField.Equals(value) != true)) {
+                    this._IsAutologousUnitsField = value;
+                    this.RaisePropertyChanged("_IsAutologousUnits");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool _IsDirectedUnits {
+            get {
+                return this._IsDirectedUnitsField;
+            }
+            set {
+                if ((this._IsDirectedUnitsField.Equals(value) != true)) {
+                    this._IsDirectedUnitsField = value;
+                    this.RaisePropertyChanged("_IsDirectedUnits");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool _IsStatementOfConsentAccepted {
+            get {
+                return this._IsStatementOfConsentAcceptedField;
+            }
+            set {
+                if ((this._IsStatementOfConsentAcceptedField.Equals(value) != true)) {
+                    this._IsStatementOfConsentAcceptedField = value;
+                    this.RaisePropertyChanged("_IsStatementOfConsentAccepted");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int _consentID {
+            get {
+                return this._consentIDField;
+            }
+            set {
+                if ((this._consentIDField.Equals(value) != true)) {
+                    this._consentIDField = value;
+                    this.RaisePropertyChanged("_consentID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WindowsCEConsentForms.FormHandlerService.ConsentType _consentType {
+            get {
+                return this._consentTypeField;
+            }
+            set {
+                if ((this._consentTypeField.Equals(value) != true)) {
+                    this._consentTypeField = value;
+                    this.RaisePropertyChanged("_consentType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WindowsCEConsentForms.FormHandlerService.DoctorAndProcedure[] _doctorAndPrcedures {
+            get {
+                return this._doctorAndPrceduresField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._doctorAndPrceduresField, value) != true)) {
+                    this._doctorAndPrceduresField = value;
+                    this.RaisePropertyChanged("_doctorAndPrcedures");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool _isPatientUnableSign {
+            get {
+                return this._isPatientUnableSignField;
+            }
+            set {
+                if ((this._isPatientUnableSignField.Equals(value) != true)) {
+                    this._isPatientUnableSignField = value;
+                    this.RaisePropertyChanged("_isPatientUnableSign");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _patientId {
+            get {
+                return this._patientIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._patientIdField, value) != true)) {
+                    this._patientIdField = value;
+                    this.RaisePropertyChanged("_patientId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WindowsCEConsentForms.FormHandlerService.Physican _physican {
+            get {
+                return this._physicanField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._physicanField, value) != true)) {
+                    this._physicanField = value;
+                    this.RaisePropertyChanged("_physican");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _procedures {
+            get {
+                return this._proceduresField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._proceduresField, value) != true)) {
+                    this._proceduresField = value;
+                    this.RaisePropertyChanged("_procedures");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WindowsCEConsentForms.FormHandlerService.Signatures[] _signatureses {
+            get {
+                return this._signaturesesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._signaturesesField, value) != true)) {
+                    this._signaturesesField = value;
+                    this.RaisePropertyChanged("_signatureses");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WindowsCEConsentForms.FormHandlerService.TrackingInformation _trackingInformation {
+            get {
+                return this._trackingInformationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._trackingInformationField, value) != true)) {
+                    this._trackingInformationField = value;
+                    this.RaisePropertyChanged("_trackingInformation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _translatedBy {
+            get {
+                return this._translatedByField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._translatedByField, value) != true)) {
+                    this._translatedByField = value;
+                    this.RaisePropertyChanged("_translatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _unableToSignReason {
+            get {
+                return this._unableToSignReasonField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._unableToSignReasonField, value) != true)) {
+                    this._unableToSignReasonField = value;
+                    this.RaisePropertyChanged("_unableToSignReason");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Physican", Namespace="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc")]
+    [System.SerializableAttribute()]
+    public partial class Physican : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool AssociatedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ConsentTypeIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PCIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool PrimaryDoctorField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Associated {
+            get {
+                return this.AssociatedField;
+            }
+            set {
+                if ((this.AssociatedField.Equals(value) != true)) {
+                    this.AssociatedField = value;
+                    this.RaisePropertyChanged("Associated");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ConsentTypeID {
+            get {
+                return this.ConsentTypeIDField;
+            }
+            set {
+                if ((this.ConsentTypeIDField.Equals(value) != true)) {
+                    this.ConsentTypeIDField = value;
+                    this.RaisePropertyChanged("ConsentTypeID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FName {
+            get {
+                return this.FNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FNameField, value) != true)) {
+                    this.FNameField = value;
+                    this.RaisePropertyChanged("FName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LName {
+            get {
+                return this.LNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LNameField, value) != true)) {
+                    this.LNameField = value;
+                    this.RaisePropertyChanged("LName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int PCID {
+            get {
+                return this.PCIDField;
+            }
+            set {
+                if ((this.PCIDField.Equals(value) != true)) {
+                    this.PCIDField = value;
+                    this.RaisePropertyChanged("PCID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool PrimaryDoctor {
+            get {
+                return this.PrimaryDoctorField;
+            }
+            set {
+                if ((this.PrimaryDoctorField.Equals(value) != true)) {
+                    this.PrimaryDoctorField = value;
+                    this.RaisePropertyChanged("PrimaryDoctor");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TrackingInformation", Namespace="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc")]
+    [System.SerializableAttribute()]
+    public partial class TrackingInformation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _deviceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _iPField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _device {
+            get {
+                return this._deviceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._deviceField, value) != true)) {
+                    this._deviceField = value;
+                    this.RaisePropertyChanged("_device");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _iP {
+            get {
+                return this._iPField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._iPField, value) != true)) {
+                    this._iPField = value;
+                    this.RaisePropertyChanged("_iP");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ConsentType", Namespace="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc")]
+    public enum ConsentType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Surgical = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Cardiovascular = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        OutsideOR = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Endoscopy = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BloodConsentOrRefusal = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PlasmanApheresis = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PICC = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        None = 7,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DoctorAndProcedure", Namespace="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc")]
+    [System.SerializableAttribute()]
+    public partial class DoctorAndProcedure : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _preceduresField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _primaryDoctorIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _precedures {
+            get {
+                return this._preceduresField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._preceduresField, value) != true)) {
+                    this._preceduresField = value;
+                    this.RaisePropertyChanged("_precedures");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _primaryDoctorId {
+            get {
+                return this._primaryDoctorIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._primaryDoctorIdField, value) != true)) {
+                    this._primaryDoctorIdField = value;
+                    this.RaisePropertyChanged("_primaryDoctorId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Signatures", Namespace="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc")]
+    [System.SerializableAttribute()]
+    public partial class Signatures : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _nameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _signatureContentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WindowsCEConsentForms.FormHandlerService.SignatureType _signatureTypeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _name {
+            get {
+                return this._nameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._nameField, value) != true)) {
+                    this._nameField = value;
+                    this.RaisePropertyChanged("_name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _signatureContent {
+            get {
+                return this._signatureContentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._signatureContentField, value) != true)) {
+                    this._signatureContentField = value;
+                    this.RaisePropertyChanged("_signatureContent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WindowsCEConsentForms.FormHandlerService.SignatureType _signatureType {
+            get {
+                return this._signatureTypeField;
+            }
+            set {
+                if ((this._signatureTypeField.Equals(value) != true)) {
+                    this._signatureTypeField = value;
+                    this.RaisePropertyChanged("_signatureType");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SignatureType", Namespace="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc")]
+    public enum SignatureType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DoctorSign1 = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DoctorSign2 = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DoctorSign3 = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DoctorSign4 = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DoctorSign5 = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DoctorSign6 = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DoctorSign7 = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PatientSign = 7,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PatientAuthorizeSign = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        WitnessSignature1 = 9,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        WitnessSignature2 = 10,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PICCSignature = 11,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PatientDetail", Namespace="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc")]
     [System.SerializableAttribute()]
     public partial class PatientDetail : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -268,7 +915,7 @@ namespace WindowsCEConsentForms.FormHandlerService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="StatementOfConsent", Namespace="http://schemas.datacontract.org/2004/07/Consent.sp.wcf")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StatementOfConsent", Namespace="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc")]
     [System.SerializableAttribute()]
     public partial class StatementOfConsent : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -327,79 +974,9 @@ namespace WindowsCEConsentForms.FormHandlerService {
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ConsentType", Namespace="http://schemas.datacontract.org/2004/07/Consent.sp.wcf")]
-    public enum ConsentType : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Surgical = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Cardiovascular = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        OutsideOR = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Endoscopy = 3,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        BloodConsentOrRefusal = 4,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        PlasmanApheresis = 5,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        PICC = 6,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        None = 7,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SignatureType", Namespace="http://schemas.datacontract.org/2004/07/Consent.sp.wcf")]
-    public enum SignatureType : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DoctorSign1 = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DoctorSign2 = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DoctorSign3 = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DoctorSign4 = 3,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DoctorSign5 = 4,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DoctorSign6 = 5,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DoctorSign7 = 6,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        PatientSign = 7,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        PatientAuthorizeSign = 8,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        WitnessSignature1 = 9,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        WitnessSignature2 = 10,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        PICCSignature = 11,
-    }
-    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DoctorDetails", Namespace="http://schemas.datacontract.org/2004/07/Consent.sp.wcf")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DoctorDetails", Namespace="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc")]
     [System.SerializableAttribute()]
     public partial class DoctorDetails : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -410,10 +987,7 @@ namespace WindowsCEConsentForms.FormHandlerService {
         private string FnameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool IsPrimaryDoctorField;
+        private int IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LnameField;
@@ -442,27 +1016,14 @@ namespace WindowsCEConsentForms.FormHandlerService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id {
+        public int ID {
             get {
-                return this.IdField;
+                return this.IDField;
             }
             set {
-                if ((object.ReferenceEquals(this.IdField, value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsPrimaryDoctor {
-            get {
-                return this.IsPrimaryDoctorField;
-            }
-            set {
-                if ((this.IsPrimaryDoctorField.Equals(value) != true)) {
-                    this.IsPrimaryDoctorField = value;
-                    this.RaisePropertyChanged("IsPrimaryDoctor");
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
                 }
             }
         }
@@ -492,18 +1053,18 @@ namespace WindowsCEConsentForms.FormHandlerService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="TrackingInfo", Namespace="http://schemas.datacontract.org/2004/07/Consent.sp.wcf")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AssociatedDoctorDetails", Namespace="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc")]
     [System.SerializableAttribute()]
-    public partial class TrackingInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class AssociatedDoctorDetails : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DeviceField;
+        private string FnameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IPField;
+        private string LnameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -516,88 +1077,27 @@ namespace WindowsCEConsentForms.FormHandlerService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Device {
+        public string Fname {
             get {
-                return this.DeviceField;
+                return this.FnameField;
             }
             set {
-                if ((object.ReferenceEquals(this.DeviceField, value) != true)) {
-                    this.DeviceField = value;
-                    this.RaisePropertyChanged("Device");
+                if ((object.ReferenceEquals(this.FnameField, value) != true)) {
+                    this.FnameField = value;
+                    this.RaisePropertyChanged("Fname");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string IP {
+        public string Lname {
             get {
-                return this.IPField;
+                return this.LnameField;
             }
             set {
-                if ((object.ReferenceEquals(this.IPField, value) != true)) {
-                    this.IPField = value;
-                    this.RaisePropertyChanged("IP");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DoctorAndProcedure", Namespace="http://schemas.datacontract.org/2004/07/Consent.sp.wcf")]
-    [System.SerializableAttribute()]
-    public partial class DoctorAndProcedure : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string _preceduresField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string _primaryDoctorIdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string _precedures {
-            get {
-                return this._preceduresField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._preceduresField, value) != true)) {
-                    this._preceduresField = value;
-                    this.RaisePropertyChanged("_precedures");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string _primaryDoctorId {
-            get {
-                return this._primaryDoctorIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this._primaryDoctorIdField, value) != true)) {
-                    this._primaryDoctorIdField = value;
-                    this.RaisePropertyChanged("_primaryDoctorId");
+                if ((object.ReferenceEquals(this.LnameField, value) != true)) {
+                    this.LnameField = value;
+                    this.RaisePropertyChanged("Lname");
                 }
             }
         }
@@ -613,274 +1113,168 @@ namespace WindowsCEConsentForms.FormHandlerService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="FormHandlerService.IFormHandlerService")]
-    public interface IFormHandlerService {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="FormHandlerService.ConsentFormSvc")]
+    public interface ConsentFormSvc {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientDetails", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientDetailsResponse")]
-        System.Xml.Linq.XElement GetPatientDetails(string patientNumber);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/AddTreatment", ReplyAction="http://tempuri.org/ConsentFormSvc/AddTreatmentResponse")]
+        void AddTreatment(WindowsCEConsentForms.FormHandlerService.Treatment treatment);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientfromLocation", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientfromLocationResponse")]
-        System.Data.DataTable GetPatientfromLocation(string Location);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/GetTreatment", ReplyAction="http://tempuri.org/ConsentFormSvc/GetTreatmentResponse")]
+        WindowsCEConsentForms.FormHandlerService.Treatment GetTreatment(string patientId, WindowsCEConsentForms.FormHandlerService.ConsentType consentType);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientNumbers", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientNumbersResponse")]
-        System.Xml.Linq.XElement GetPatientNumbers();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/GetPatientSignature", ReplyAction="http://tempuri.org/ConsentFormSvc/GetPatientSignatureResponse")]
+        string GetPatientSignature(string patientId, WindowsCEConsentForms.FormHandlerService.ConsentType consentType, WindowsCEConsentForms.FormHandlerService.SignatureType signatureType);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientIdsList", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientIdsListResponse")]
-        string[] GetPatientIdsList();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/DeleteTables", ReplyAction="http://tempuri.org/ConsentFormSvc/DeleteTablesResponse")]
+        void DeleteTables();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientDetail", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientDetailResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/GetPatientDetail", ReplyAction="http://tempuri.org/ConsentFormSvc/GetPatientDetailResponse")]
         WindowsCEConsentForms.FormHandlerService.PatientDetail GetPatientDetail(string patientNumber, string ConsentFormType);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/SavePatientSignature", ReplyAction="http://tempuri.org/IFormHandlerService/SavePatientSignatureResponse")]
-        bool SavePatientSignature(string PatientNumber, string SignaturesContent, WindowsCEConsentForms.FormHandlerService.ConsentType ConsentType, WindowsCEConsentForms.FormHandlerService.SignatureType signatureType, string signedPersonName);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/GetPatientfromLocation", ReplyAction="http://tempuri.org/ConsentFormSvc/GetPatientfromLocationResponse")]
+        System.Data.DataTable GetPatientfromLocation(string location);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/UpdateTranslatedby", ReplyAction="http://tempuri.org/IFormHandlerService/UpdateTranslatedbyResponse")]
-        bool UpdateTranslatedby(string PatientNumber, string ConsentFormType, string Translatedby);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientSignature", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientSignatureResponse")]
-        string GetPatientSignature(string PatientNumber, WindowsCEConsentForms.FormHandlerService.ConsentType ConsentType, WindowsCEConsentForms.FormHandlerService.SignatureType signatureType);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetSignedPersonName", ReplyAction="http://tempuri.org/IFormHandlerService/GetSignedPersonNameResponse")]
-        string GetSignedPersonName(string PatientNumber, WindowsCEConsentForms.FormHandlerService.ConsentType ConsentType, WindowsCEConsentForms.FormHandlerService.SignatureType signatureType);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/VerifyEmployeeID", ReplyAction="http://tempuri.org/IFormHandlerService/VerifyEmployeeIDResponse")]
-        bool VerifyEmployeeID(string empID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientList", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientListResponse")]
-        System.Data.DataTable GetPatientList();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPrimaryPhysiciansList", ReplyAction="http://tempuri.org/IFormHandlerService/GetPrimaryPhysiciansListResponse")]
-        System.Data.DataTable GetPrimaryPhysiciansList();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetAssociatedPhysiciansList", ReplyAction="http://tempuri.org/IFormHandlerService/GetAssociatedPhysiciansListResponse")]
-        System.Data.DataTable GetAssociatedPhysiciansList(string primaryPhysicianId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/UpdateDoctorAssociation", ReplyAction="http://tempuri.org/IFormHandlerService/UpdateDoctorAssociationResponse")]
-        void UpdateDoctorAssociation(string patientId, string primaryDoctorId, string associatedDoctorId, string ConsentFormType);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPrimaryDoctorDetail", ReplyAction="http://tempuri.org/IFormHandlerService/GetPrimaryDoctorDetailResponse")]
-        WindowsCEConsentForms.FormHandlerService.DoctorDetails GetPrimaryDoctorDetail(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetAssociateDoctorDetail", ReplyAction="http://tempuri.org/IFormHandlerService/GetAssociateDoctorDetailResponse")]
-        WindowsCEConsentForms.FormHandlerService.DoctorDetails GetAssociateDoctorDetail(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/UpdateTrackingInfo", ReplyAction="http://tempuri.org/IFormHandlerService/UpdateTrackingInfoResponse")]
-        void UpdateTrackingInfo(string PatientId, WindowsCEConsentForms.FormHandlerService.TrackingInfo trackingInfo, string ConsentFormType);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GenerateAndUploadPDFtoSharePoint", ReplyAction="http://tempuri.org/IFormHandlerService/GenerateAndUploadPDFtoSharePointResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/GenerateAndUploadPDFtoSharePoint", ReplyAction="http://tempuri.org/ConsentFormSvc/GenerateAndUploadPDFtoSharePointResponse")]
         void GenerateAndUploadPDFtoSharePoint(string RelativeUrl, string PatientId, WindowsCEConsentForms.FormHandlerService.ConsentType ConsentFormType);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/UpdateConsentFormStatementType", ReplyAction="http://tempuri.org/IFormHandlerService/UpdateConsentFormStatementTypeResponse")]
-        void UpdateConsentFormStatementType(string PatientNumber, WindowsCEConsentForms.FormHandlerService.StatementOfConsent StatementType, string ConsentFormType);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/GetProcedures", ReplyAction="http://tempuri.org/ConsentFormSvc/GetProceduresResponse")]
+        System.Data.DataTable GetProcedures(WindowsCEConsentForms.FormHandlerService.ConsentType consentType);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/SaveDoctorsDetails", ReplyAction="http://tempuri.org/IFormHandlerService/SaveDoctorsDetailsResponse")]
-        void SaveDoctorsDetails(string PatientID, string ConsentFormType, WindowsCEConsentForms.FormHandlerService.DoctorAndProcedure[] _doctorAndPrcedures);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/GetConsentType", ReplyAction="http://tempuri.org/ConsentFormSvc/GetConsentTypeResponse")]
+        System.Data.DataTable GetConsentType();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/savePdfFoderPath", ReplyAction="http://tempuri.org/IFormHandlerService/savePdfFoderPathResponse")]
-        void savePdfFoderPath(string ConsentFormType, string FolderPath);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/AddProcedures", ReplyAction="http://tempuri.org/ConsentFormSvc/AddProceduresResponse")]
+        void AddProcedures(string procedureName, int consentTypeID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPdfFolderPath", ReplyAction="http://tempuri.org/IFormHandlerService/GetPdfFolderPathResponse")]
-        string GetPdfFolderPath(WindowsCEConsentForms.FormHandlerService.ConsentType consentType);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/UpdateProcedures", ReplyAction="http://tempuri.org/ConsentFormSvc/UpdateProceduresResponse")]
+        void UpdateProcedures(string procedureName, int procedureID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetDoctorsDetails", ReplyAction="http://tempuri.org/IFormHandlerService/GetDoctorsDetailsResponse")]
-        WindowsCEConsentForms.FormHandlerService.DoctorAndProcedure[] GetDoctorsDetails(string PatientID, string ConsentFormType);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/DeleteProcedure", ReplyAction="http://tempuri.org/ConsentFormSvc/DeleteProcedureResponse")]
+        void DeleteProcedure(int Id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetProcedurenameList", ReplyAction="http://tempuri.org/IFormHandlerService/GetProcedurenameListResponse")]
-        string[] GetProcedurenameList();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/ListProcedures", ReplyAction="http://tempuri.org/ConsentFormSvc/ListProceduresResponse")]
+        string[] ListProcedures(string Name);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetEndoscopyProcedurenameList", ReplyAction="http://tempuri.org/IFormHandlerService/GetEndoscopyProcedurenameListResponse")]
-        string[] GetEndoscopyProcedurenameList();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/GetDoctorDetails", ReplyAction="http://tempuri.org/ConsentFormSvc/GetDoctorDetailsResponse")]
+        WindowsCEConsentForms.FormHandlerService.DoctorDetails[] GetDoctorDetails(WindowsCEConsentForms.FormHandlerService.ConsentType consentType);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetCardiovascularProcedurenameList", ReplyAction="http://tempuri.org/IFormHandlerService/GetCardiovascularProcedurenameListResponse" +
-            "")]
-        string[] GetCardiovascularProcedurenameList();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/GetDoctorDetail", ReplyAction="http://tempuri.org/ConsentFormSvc/GetDoctorDetailResponse")]
+        WindowsCEConsentForms.FormHandlerService.DoctorDetails GetDoctorDetail(int ID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/UpdatePatientUnableSignReason", ReplyAction="http://tempuri.org/IFormHandlerService/UpdatePatientUnableSignReasonResponse")]
-        void UpdatePatientUnableSignReason(string PatientId, string Reason, string ConsentFormType);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/GetAssociatedDoctors", ReplyAction="http://tempuri.org/ConsentFormSvc/GetAssociatedDoctorsResponse")]
+        WindowsCEConsentForms.FormHandlerService.AssociatedDoctorDetails[] GetAssociatedDoctors(int primaryDoctorID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientIds", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientIdsResponse")]
-        System.Xml.Linq.XElement GetPatientIds();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/SavePdFFolderPath", ReplyAction="http://tempuri.org/ConsentFormSvc/SavePdFFolderPathResponse")]
+        void SavePdFFolderPath(WindowsCEConsentForms.FormHandlerService.ConsentType consenttype, string FolderPath);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientID", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientIDResponse")]
-        System.Xml.Linq.XElement GetPatientID();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/GetPdFFolderPath", ReplyAction="http://tempuri.org/ConsentFormSvc/GetPdFFolderPathResponse")]
+        string GetPdFFolderPath(WindowsCEConsentForms.FormHandlerService.ConsentType consenttype);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetAssociateDRDetails", ReplyAction="http://tempuri.org/IFormHandlerService/GetAssociateDRDetailsResponse")]
-        System.Xml.Linq.XElement GetAssociateDRDetails(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetAssociateDRDetail", ReplyAction="http://tempuri.org/IFormHandlerService/GetAssociateDRDetailResponse")]
-        System.Data.DataSet GetAssociateDRDetail(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/GetPatientDetailWithDS", ReplyAction="http://tempuri.org/IFormHandlerService/GetPatientDetailWithDSResponse")]
-        System.Data.DataSet GetPatientDetailWithDS(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/UpdatePatientProcedures", ReplyAction="http://tempuri.org/IFormHandlerService/UpdatePatientProceduresResponse")]
-        void UpdatePatientProcedures(string PatientId, string Procedures, string ConsentFormType);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFormHandlerService/SendSignatures", ReplyAction="http://tempuri.org/IFormHandlerService/SendSignaturesResponse")]
-        void SendSignatures(int id, string signatures);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/IsValidEmployee", ReplyAction="http://tempuri.org/ConsentFormSvc/IsValidEmployeeResponse")]
+        bool IsValidEmployee(string EmpID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IFormHandlerServiceChannel : WindowsCEConsentForms.FormHandlerService.IFormHandlerService, System.ServiceModel.IClientChannel {
+    public interface ConsentFormSvcChannel : WindowsCEConsentForms.FormHandlerService.ConsentFormSvc, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class FormHandlerServiceClient : System.ServiceModel.ClientBase<WindowsCEConsentForms.FormHandlerService.IFormHandlerService>, WindowsCEConsentForms.FormHandlerService.IFormHandlerService {
+    public partial class ConsentFormSvcClient : System.ServiceModel.ClientBase<WindowsCEConsentForms.FormHandlerService.ConsentFormSvc>, WindowsCEConsentForms.FormHandlerService.ConsentFormSvc {
         
-        public FormHandlerServiceClient() {
+        public ConsentFormSvcClient() {
         }
         
-        public FormHandlerServiceClient(string endpointConfigurationName) : 
+        public ConsentFormSvcClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public FormHandlerServiceClient(string endpointConfigurationName, string remoteAddress) : 
+        public ConsentFormSvcClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public FormHandlerServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ConsentFormSvcClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public FormHandlerServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ConsentFormSvcClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public System.Xml.Linq.XElement GetPatientDetails(string patientNumber) {
-            return base.Channel.GetPatientDetails(patientNumber);
+        public void AddTreatment(WindowsCEConsentForms.FormHandlerService.Treatment treatment) {
+            base.Channel.AddTreatment(treatment);
         }
         
-        public System.Data.DataTable GetPatientfromLocation(string Location) {
-            return base.Channel.GetPatientfromLocation(Location);
+        public WindowsCEConsentForms.FormHandlerService.Treatment GetTreatment(string patientId, WindowsCEConsentForms.FormHandlerService.ConsentType consentType) {
+            return base.Channel.GetTreatment(patientId, consentType);
         }
         
-        public System.Xml.Linq.XElement GetPatientNumbers() {
-            return base.Channel.GetPatientNumbers();
+        public string GetPatientSignature(string patientId, WindowsCEConsentForms.FormHandlerService.ConsentType consentType, WindowsCEConsentForms.FormHandlerService.SignatureType signatureType) {
+            return base.Channel.GetPatientSignature(patientId, consentType, signatureType);
         }
         
-        public string[] GetPatientIdsList() {
-            return base.Channel.GetPatientIdsList();
+        public void DeleteTables() {
+            base.Channel.DeleteTables();
         }
         
         public WindowsCEConsentForms.FormHandlerService.PatientDetail GetPatientDetail(string patientNumber, string ConsentFormType) {
             return base.Channel.GetPatientDetail(patientNumber, ConsentFormType);
         }
         
-        public bool SavePatientSignature(string PatientNumber, string SignaturesContent, WindowsCEConsentForms.FormHandlerService.ConsentType ConsentType, WindowsCEConsentForms.FormHandlerService.SignatureType signatureType, string signedPersonName) {
-            return base.Channel.SavePatientSignature(PatientNumber, SignaturesContent, ConsentType, signatureType, signedPersonName);
-        }
-        
-        public bool UpdateTranslatedby(string PatientNumber, string ConsentFormType, string Translatedby) {
-            return base.Channel.UpdateTranslatedby(PatientNumber, ConsentFormType, Translatedby);
-        }
-        
-        public string GetPatientSignature(string PatientNumber, WindowsCEConsentForms.FormHandlerService.ConsentType ConsentType, WindowsCEConsentForms.FormHandlerService.SignatureType signatureType) {
-            return base.Channel.GetPatientSignature(PatientNumber, ConsentType, signatureType);
-        }
-        
-        public string GetSignedPersonName(string PatientNumber, WindowsCEConsentForms.FormHandlerService.ConsentType ConsentType, WindowsCEConsentForms.FormHandlerService.SignatureType signatureType) {
-            return base.Channel.GetSignedPersonName(PatientNumber, ConsentType, signatureType);
-        }
-        
-        public bool VerifyEmployeeID(string empID) {
-            return base.Channel.VerifyEmployeeID(empID);
-        }
-        
-        public System.Data.DataTable GetPatientList() {
-            return base.Channel.GetPatientList();
-        }
-        
-        public System.Data.DataTable GetPrimaryPhysiciansList() {
-            return base.Channel.GetPrimaryPhysiciansList();
-        }
-        
-        public System.Data.DataTable GetAssociatedPhysiciansList(string primaryPhysicianId) {
-            return base.Channel.GetAssociatedPhysiciansList(primaryPhysicianId);
-        }
-        
-        public void UpdateDoctorAssociation(string patientId, string primaryDoctorId, string associatedDoctorId, string ConsentFormType) {
-            base.Channel.UpdateDoctorAssociation(patientId, primaryDoctorId, associatedDoctorId, ConsentFormType);
-        }
-        
-        public WindowsCEConsentForms.FormHandlerService.DoctorDetails GetPrimaryDoctorDetail(string id) {
-            return base.Channel.GetPrimaryDoctorDetail(id);
-        }
-        
-        public WindowsCEConsentForms.FormHandlerService.DoctorDetails GetAssociateDoctorDetail(string id) {
-            return base.Channel.GetAssociateDoctorDetail(id);
-        }
-        
-        public void UpdateTrackingInfo(string PatientId, WindowsCEConsentForms.FormHandlerService.TrackingInfo trackingInfo, string ConsentFormType) {
-            base.Channel.UpdateTrackingInfo(PatientId, trackingInfo, ConsentFormType);
+        public System.Data.DataTable GetPatientfromLocation(string location) {
+            return base.Channel.GetPatientfromLocation(location);
         }
         
         public void GenerateAndUploadPDFtoSharePoint(string RelativeUrl, string PatientId, WindowsCEConsentForms.FormHandlerService.ConsentType ConsentFormType) {
             base.Channel.GenerateAndUploadPDFtoSharePoint(RelativeUrl, PatientId, ConsentFormType);
         }
         
-        public void UpdateConsentFormStatementType(string PatientNumber, WindowsCEConsentForms.FormHandlerService.StatementOfConsent StatementType, string ConsentFormType) {
-            base.Channel.UpdateConsentFormStatementType(PatientNumber, StatementType, ConsentFormType);
+        public System.Data.DataTable GetProcedures(WindowsCEConsentForms.FormHandlerService.ConsentType consentType) {
+            return base.Channel.GetProcedures(consentType);
         }
         
-        public void SaveDoctorsDetails(string PatientID, string ConsentFormType, WindowsCEConsentForms.FormHandlerService.DoctorAndProcedure[] _doctorAndPrcedures) {
-            base.Channel.SaveDoctorsDetails(PatientID, ConsentFormType, _doctorAndPrcedures);
+        public System.Data.DataTable GetConsentType() {
+            return base.Channel.GetConsentType();
         }
         
-        public void savePdfFoderPath(string ConsentFormType, string FolderPath) {
-            base.Channel.savePdfFoderPath(ConsentFormType, FolderPath);
+        public void AddProcedures(string procedureName, int consentTypeID) {
+            base.Channel.AddProcedures(procedureName, consentTypeID);
         }
         
-        public string GetPdfFolderPath(WindowsCEConsentForms.FormHandlerService.ConsentType consentType) {
-            return base.Channel.GetPdfFolderPath(consentType);
+        public void UpdateProcedures(string procedureName, int procedureID) {
+            base.Channel.UpdateProcedures(procedureName, procedureID);
         }
         
-        public WindowsCEConsentForms.FormHandlerService.DoctorAndProcedure[] GetDoctorsDetails(string PatientID, string ConsentFormType) {
-            return base.Channel.GetDoctorsDetails(PatientID, ConsentFormType);
+        public void DeleteProcedure(int Id) {
+            base.Channel.DeleteProcedure(Id);
         }
         
-        public string[] GetProcedurenameList() {
-            return base.Channel.GetProcedurenameList();
+        public string[] ListProcedures(string Name) {
+            return base.Channel.ListProcedures(Name);
         }
         
-        public string[] GetEndoscopyProcedurenameList() {
-            return base.Channel.GetEndoscopyProcedurenameList();
+        public WindowsCEConsentForms.FormHandlerService.DoctorDetails[] GetDoctorDetails(WindowsCEConsentForms.FormHandlerService.ConsentType consentType) {
+            return base.Channel.GetDoctorDetails(consentType);
         }
         
-        public string[] GetCardiovascularProcedurenameList() {
-            return base.Channel.GetCardiovascularProcedurenameList();
+        public WindowsCEConsentForms.FormHandlerService.DoctorDetails GetDoctorDetail(int ID) {
+            return base.Channel.GetDoctorDetail(ID);
         }
         
-        public void UpdatePatientUnableSignReason(string PatientId, string Reason, string ConsentFormType) {
-            base.Channel.UpdatePatientUnableSignReason(PatientId, Reason, ConsentFormType);
+        public WindowsCEConsentForms.FormHandlerService.AssociatedDoctorDetails[] GetAssociatedDoctors(int primaryDoctorID) {
+            return base.Channel.GetAssociatedDoctors(primaryDoctorID);
         }
         
-        public System.Xml.Linq.XElement GetPatientIds() {
-            return base.Channel.GetPatientIds();
+        public void SavePdFFolderPath(WindowsCEConsentForms.FormHandlerService.ConsentType consenttype, string FolderPath) {
+            base.Channel.SavePdFFolderPath(consenttype, FolderPath);
         }
         
-        public System.Xml.Linq.XElement GetPatientID() {
-            return base.Channel.GetPatientID();
+        public string GetPdFFolderPath(WindowsCEConsentForms.FormHandlerService.ConsentType consenttype) {
+            return base.Channel.GetPdFFolderPath(consenttype);
         }
         
-        public System.Xml.Linq.XElement GetAssociateDRDetails(int id) {
-            return base.Channel.GetAssociateDRDetails(id);
-        }
-        
-        public System.Data.DataSet GetAssociateDRDetail(int id) {
-            return base.Channel.GetAssociateDRDetail(id);
-        }
-        
-        public System.Data.DataSet GetPatientDetailWithDS(string id) {
-            return base.Channel.GetPatientDetailWithDS(id);
-        }
-        
-        public void UpdatePatientProcedures(string PatientId, string Procedures, string ConsentFormType) {
-            base.Channel.UpdatePatientProcedures(PatientId, Procedures, ConsentFormType);
-        }
-        
-        public void SendSignatures(int id, string signatures) {
-            base.Channel.SendSignatures(id, signatures);
+        public bool IsValidEmployee(string EmpID) {
+            return base.Channel.IsValidEmployee(EmpID);
         }
     }
 }

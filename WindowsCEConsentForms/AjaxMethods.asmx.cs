@@ -1,4 +1,5 @@
-﻿using System.Web.Services;
+﻿using System;
+using System.Web.Services;
 
 namespace WindowsCEConsentForms
 {
@@ -16,7 +17,7 @@ namespace WindowsCEConsentForms
         [WebMethod]
         public string GetAssociatedDoctors(string primaryPhysicianId)
         {
-            return Utilities.GetAssociatedDoctors(primaryPhysicianId);
+            return Utilities.GetAssociatedDoctors(Convert.ToInt32(primaryPhysicianId));
         }
     }
 }

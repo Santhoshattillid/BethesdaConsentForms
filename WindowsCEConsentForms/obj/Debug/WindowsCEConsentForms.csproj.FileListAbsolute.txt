@@ -2,3 +2,7 @@ C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\WindowsCEConsen
 C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\bin\WindowsCEConsentForms.pdb
 C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.dll
 C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.pdb
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms - Copy\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.pdb
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms - Copy\WindowsCEConsentForms\bin\WindowsCEConsentForms.dll
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms - Copy\WindowsCEConsentForms\bin\WindowsCEConsentForms.pdb
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms - Copy\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.dll

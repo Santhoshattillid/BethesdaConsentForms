@@ -12,14 +12,12 @@
             </h3>
         </li>
         <li>PATIENT:</li>
-        <li>I here by authorize Doctor(s)
+        <li>I authorize Doctor(s)
             <br />
             <br />
-            to perform upon
+            and such designee or assistants as he/she may designate to perform upon
             <br />
-            <br />
-            the following procedure or operation:
-            <br />
+            the following procedure:
             <br />
             <br />
         </li>
@@ -84,11 +82,11 @@
             </div>
             <div class="right">
                 I understand that this procedure is done under local anesthesia. Small tubes (catheters)
-                are placed into blood vessels of the groin by means of a small incision or vessel
+                are placed into blood vessels of the groin/arm by means of a small incision or vessel
                 puncture with needles. The tube is then passed through the blood vessels until it
-                enters and traverses the proper chambers of the heart. Through this catheter, I
-                will receive x-ray contrast material for the purpose of enhancing the coronary arteries
-                and coronary structures, for a more complete diagnostic and/or interventional study.
+                enters and crosses the proper chambers of the heart. Through this catheter, I will
+                receive x-ray contrast material for the purpose of enhancing the blood vessels and
+                heart structures, for a more complete diagnostic and/or interventional study.
             </div>
             <div class="clear">
             </div>
@@ -100,9 +98,10 @@
                 There are certain risks, hazards, complications and consequences associated with
                 these procedures that may occur even when the procedure is performed flawlessly
                 and with the greatest care. These risks or complications include fainting, very
-                slow or fast heartbeat, infection, loss of blood requiring transfusion, tamponade,
-                perforation of blood vessels, allergic reactions, blockage of a groin blood vessel
-                requiring emergency surgical procedure to restore circulation, heart attack, heart
+                slow or fast heartbeat, infection, loss of blood requiring transfusion; or Perforation
+                of the blood vessels, or other damage to the arteries requiring emergency surgical
+                procedure to restore circulation. A very small percentage of patients who have the
+                above procedures develop more serious complications such as heart attack, heart
                 failure, rarely loss of limb, stroke, brain death, blood clots or death. I understand
                 and accept all such risks or complications.
             </div>
@@ -111,8 +110,6 @@
         </li>
     </ul>
     <uc3:printfooter ID="PrintFooter2" runat="server" ConsentType="Cardiovascular" />
-    <ul class="pageHeader">
-    </ul>
     <ul class="content">
         <li>
             <div class="PrintsigBox">
@@ -135,7 +132,7 @@
                 I have been given no guarantee against complications or assurance of success by
                 the physician who has explained them. I know I have been given free choice to accept
                 or reject any and/or all of the procedures to be performed on myself. In the event
-                any complications should arise. I permit the above physicians to seek consultation
+                any complications should arise, I permit the above physicians to seek consultation
                 with other specialties and permit the performance of any surgical or other procedures
                 that may be required on an emergency basis to correct such complications.
             </div>
@@ -148,8 +145,9 @@
             <div class="right">
                 The nature of my conditions; the purposes and techniques of the proposed procedure(s);
                 and the risks have been explained to me by my physician. In addition, the physician
-                has explained to me that there are alternative ways of treating my condition but
-                I have chosen this procedure.
+                has explained to me that there are alternative ways of treating my condition. .
+                I understand that I have the right to refuse this procedure. I have chosen to go
+                forward with this procedure.
             </div>
             <div class="clear">
             </div>

@@ -9,11 +9,9 @@
                 value='<%= ViewState[SignatureType.DoctorSign1.ToString()].ToString() %>' />
         </div>
         <div class="right">
-            The Physician has explained to me the nature of this operation it is generally carried
-            out. I understand that all procedures surgeries involve general risks such as severe
-            loss of blood, infection, heart stoppage or death. The physician has discussed with
-            me the specific risks, benefits and possible side effects of this procedure and
-            I understand them.
+            The physician has explained to me the nature of this operation and how it is carried
+            out. I understand that all surgeries and procedures involve general risks such as
+            severe loss of blood, infection, heart stoppage, and in rare cases death.
         </div>
         <div class="clear">
         </div>
@@ -38,13 +36,15 @@
                 value='<%= ViewState[SignatureType.DoctorSign3.ToString()].ToString() %>' />
         </div>
         <div class="right">
-            I consent to the administration of anesthesia by or under the direction of a fully
-            qualified anesthestist and to the use of such anesthetics as may be deemed advisable.
-            I consent to the administration of blood and blood products, to the disposal by
-            authorities of Bethesda Memorial Hospital of any tissue or parts which may be removed;
-            to the taking and publication of photographs or video taping in the course of operation;
-            and to the admittance of observers to the operating room for the purpose of advancement
-            and medical education.
+            I consent to the administration of sedation with or without anesthesia by or under
+            the direction of the above physician to the use of such medications as may be advisable.
+            When an anesthesiologist or nurse anesthetist involved, an evaluation will be performed
+            by them and the administration of sedation will be directed by them. I consent to
+            the administration of blood and blood products, to the disposal by authorities of
+            Bethesda Memorial Hospital of any tissue or parts which may be removed; to the taking
+            and publication of photographs or video taping in the course of operation; and to
+            the admittance of observers to the procedure room for the purpose of advancement
+            of medical education.
         </div>
         <div class="clear">
         </div>
@@ -56,7 +56,7 @@
                 value='<%= ViewState[SignatureType.DoctorSign4.ToString()].ToString() %>' />
         </div>
         <div class="right">
-            I permit and authorize the physician and such other physicians qualifeid medical
+            I permit and authorize the physician and such other physicians or qualified medical
             persons as are needed to perform this operation on me.
         </div>
         <div class="clear">
@@ -69,9 +69,9 @@
                 value='<%= ViewState[SignatureType.DoctorSign5.ToString()].ToString() %>' />
         </div>
         <div class="right">
-            The Physician has explained to me that sometimes during surgery, it is discovered
+            The physician has explained to me that sometimes during surgery, it is discovered
             that additional surgery is needed. If such additional surgery is deemed necessary
-            by the Physician, I permit the Physician to proceed.
+            by the physician, I permit the physician to proceed.
         </div>
         <div class="clear">
         </div>

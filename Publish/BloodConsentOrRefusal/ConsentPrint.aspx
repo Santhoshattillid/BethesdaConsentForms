@@ -17,7 +17,7 @@
         <li>PATIENT:
             <asp:Label runat="server" ID="LblPatientName3" CssClass="errorInfo"></asp:Label>
         </li>
-        <li>I here by authorize Doctor(s)
+        <li>I hereby authorize Doctor(s)
             <asp:Label runat="server" ID="LblAuthoriseDoctors" CssClass="errorInfo"></asp:Label>
             to perform upon
             <asp:Label runat="server" ID="LblPatientName2" CssClass="errorInfo"></asp:Label>
@@ -56,10 +56,10 @@
                 </li>
                 <li>
                     <div class="small-content">
-                        • Minor and temporary reactions are not uncommon, including bruising, or local reaction
-                        in the area where the needle pierces your skin or a non serious reaction to the
-                        transfused material itself, including headache, fever or mild reaction such as skin
-                        rash.
+                        • Minor and temporary reactions are not uncommon, including bruising, swelling or
+                        local reaction in the area where the needle pierces your skin or a non serious reaction
+                        to the transfused material itself, including headache, fever or mild reaction such
+                        as rash.
                     </div>
                 </li>
                 <li>
@@ -89,9 +89,9 @@
                 <li>
                     <div class="small-content">
                         • The loss of blood can pose serious threats during the course of treatment for
-                        which there is no effective alternative to blood transfusion. If you have any further
-                        questions on this matter, your physician or his/her colleagues will explain the
-                        alternatives to you if this has not already been done.
+                        which there is no effective alternative to blood or blood component transfusion.
+                        If you have any further questions on this matter, your physician or his/her colleagues
+                        will explain the alternatives to you if this has not already been done.
                     </div>
                 </li>
             </ul>
@@ -141,7 +141,7 @@
                     <div class="small-content">
                         I request that no blood or blood component be administered to me during the course
                         of this hospitalization. I hereby release my physician(s), the hospital and its
-                        personnel from any responsibility whatsoever for unfavorable reactions, untoward
+                        personnel from any responsibility whatsoever such as unfavorable reactions, untoward
                         results or death due to my refusal to permit the use of blood or blood components.
                         The possible consequences of such refusal on my part have been fully explained to
                         me by a physician and I fully understand that such consequences may occur as a result

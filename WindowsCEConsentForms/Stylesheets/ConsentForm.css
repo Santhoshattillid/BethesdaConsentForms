@@ -151,6 +151,11 @@
 {
     padding: 5px;
 }
+
+.content LI p
+{
+    font-weight: bold;
+}
 .small
 {
     width: 70px;
@@ -492,7 +497,7 @@
 }
 .small
 {
-    width: 102px;
+    width: 85px;
 }
 .large
 {

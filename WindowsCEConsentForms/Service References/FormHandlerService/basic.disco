@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?wsdl" docRef="http://devsp1.dev.local:6139/ConsentFormSvc.svc" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+</discovery>

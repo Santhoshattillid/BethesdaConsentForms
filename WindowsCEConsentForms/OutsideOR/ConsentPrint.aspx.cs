@@ -18,7 +18,7 @@ namespace WindowsCEConsentForms.OutsideOR
             }
             if (!string.IsNullOrEmpty(patientId))
             {
-                var formHandlerServiceClient = new FormHandlerServiceClient();
+                var formHandlerServiceClient = new ConsentFormSvcClient();
                 var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.OutsideOR.ToString());
                 if (patientDetails != null)
                 {

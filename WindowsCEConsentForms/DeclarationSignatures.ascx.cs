@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using WindowsCEConsentForms.FormHandlerService;
 
@@ -29,7 +30,7 @@ namespace WindowsCEConsentForms
                     ViewState[SignatureType.PICCSignature.ToString()] =
                         Request.Form[SignatureType.PICCSignature.ToString()];
             }
-            SetPanels(false);
+            SetPanels(ChkPatientisUnableToSign.Checked);
         }
 
         protected void ChkPatientisUnableToSign_CheckedChanged(object sender, EventArgs e)
@@ -92,43 +93,67 @@ namespace WindowsCEConsentForms
             LblError.Text = outPut;
         }
 
-        public void SaveForm(FormHandlerServiceClient formHandlerServiceClient, string patientId)
+        public List<Signatures> GetSignatures()
         {
+            var outPut = new List<Signatures>();
             if (Request.Form[SignatureType.PatientSign.ToString()] != null)
             {
                 var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.PatientSign.ToString()]);
-                var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType, SignatureType.PatientSign, string.Empty);
+                outPut.Add(new Signatures
+                               {
+                                   _name = string.Empty,
+                                   _signatureContent = Encoding.ASCII.GetString(bytes),
+                                   _signatureType = SignatureType.PatientSign
+                               });
             }
 
             if (Request.Form[SignatureType.PatientAuthorizeSign.ToString()] != null)
             {
                 var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.PatientAuthorizeSign.ToString()]); // Patient Signature
-                var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType, SignatureType.PatientAuthorizeSign, TxtAuthorizedPersonName.Text.Trim());
+                outPut.Add(new Signatures
+                {
+                    _name = string.Empty,
+                    _signatureContent = Encoding.ASCII.GetString(bytes),
+                    _signatureType = SignatureType.PatientAuthorizeSign
+                });
             }
 
             // updating signature5
             if (Request.Form[SignatureType.WitnessSignature1.ToString()] != null)
             {
                 var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.WitnessSignature1.ToString()]);
-                var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType, SignatureType.WitnessSignature1, TxtWitnessSignature1Name.Text.Trim());
+                outPut.Add(new Signatures
+                {
+                    _name = string.Empty,
+                    _signatureContent = Encoding.ASCII.GetString(bytes),
+                    _signatureType = SignatureType.WitnessSignature1
+                });
             }
 
             // updating signature6
             if (Request.Form[SignatureType.WitnessSignature2.ToString()] != null)
             {
                 var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.WitnessSignature2.ToString()]);
-                var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType, SignatureType.WitnessSignature2, TxtSecondWitnessName.Text.Trim());
+                outPut.Add(new Signatures
+                {
+                    _name = string.Empty,
+                    _signatureContent = Encoding.ASCII.GetString(bytes),
+                    _signatureType = SignatureType.WitnessSignature2
+                });
             }
 
             if (Request.Form[SignatureType.PICCSignature.ToString()] != null)
             {
                 var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.PICCSignature.ToString()]);
-                var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), ConsentType, SignatureType.PICCSignature, TxtPICCNurseName.Text.Trim());
+                outPut.Add(new Signatures
+                {
+                    _name = string.Empty,
+                    _signatureContent = Encoding.ASCII.GetString(bytes),
+                    _signatureType = SignatureType.PICCSignature
+                });
             }
 
-            formHandlerServiceClient.UpdatePatientUnableSignReason(patientId, ChkPatientisUnableToSign.Checked ? TxtPatientNotSignedBecause.Text : string.Empty, ConsentType.ToString());
-
-            formHandlerServiceClient.UpdateTranslatedby(patientId, ConsentType.ToString(), TxtTranslatedBy.Text);
+            return outPut;
         }
 
         protected void btnHmme_Click(object sender, EventArgs e)

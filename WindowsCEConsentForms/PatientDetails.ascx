@@ -12,6 +12,10 @@
         </div>
         <div class="right small">
             <asp:Label runat="server" ID="LblPatientName" CssClass="errorInfo"></asp:Label></div>
+        <div class="clear">
+        </div>
+    </li>
+    <li>
         <div class="right smallest">
             Date:
         </div>

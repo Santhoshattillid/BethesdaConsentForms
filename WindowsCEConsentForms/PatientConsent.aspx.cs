@@ -24,7 +24,7 @@ namespace WindowsCEConsentForms
                 // loading select form type box and patient details
                 if (DdlPatientIds.SelectedIndex > 0)
                 {
-                    var formHandlerServiceClient = new FormHandlerServiceClient();
+                    var formHandlerServiceClient = new ConsentFormSvcClient();
                     var patientDetail = formHandlerServiceClient.GetPatientDetail(DdlPatientIds.SelectedValue, ConsentType.None.ToString());
                     if (patientDetail != null)
                     {
@@ -247,7 +247,7 @@ namespace WindowsCEConsentForms
         {
             // loading patient ids
             DdlPatientIds.Items.Clear();
-            var formHandlerServiceClient = new FormHandlerServiceClient();
+            var formHandlerServiceClient = new ConsentFormSvcClient();
             DdlPatientIds.Items.Add("---------Select Patient--------");
             var patientList = formHandlerServiceClient.GetPatientfromLocation(location);
             if (patientList != null)
@@ -273,13 +273,12 @@ namespace WindowsCEConsentForms
         {
             if (string.IsNullOrEmpty(TxtEmployeeID.Text.Trim()))
             {
-                Reset();
                 LblError.Text = "Employee ID field should not be empty.";
             }
             else
             {
-                var formHanlderServiceClient = new FormHandlerServiceClient();
-                if (formHanlderServiceClient.VerifyEmployeeID(TxtEmployeeID.Text.Trim()))
+                var formHanlderServiceClient = new ConsentFormSvcClient();
+                if (formHanlderServiceClient.IsValidEmployee(TxtEmployeeID.Text.Trim()))
                 {
                     RdoBHE.Enabled = true;
                     RdoBMH.Enabled = true;
@@ -288,6 +287,8 @@ namespace WindowsCEConsentForms
                 else
                 {
                     Reset();
+                    RdoBHE.Enabled = false;
+                    RdoBMH.Enabled = false;
                     LblError2.Text = "Please input valid employee ID.";
                 }
             }

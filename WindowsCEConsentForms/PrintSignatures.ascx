@@ -1,8 +1,16 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PrintSignatures.ascx.cs"
     Inherits="WindowsCEConsentForms.PrintSignatures" %>
+<%@ Import Namespace="WindowsCEConsentForms.FormHandlerService" %>
 <ul class="content">
-    <li><span class="content-heading">I UNDERSTAND that no guarantees have been made to
-        me that this operation will improve my condition. </span></li>
+    <% if (ConsentType != ConsentType.BloodConsentOrRefusal && ConsentType != ConsentType.Cardiovascular)
+       { %>
+    <li>
+        <p>
+            <span class="content-heading">I understand that no guarantees have been made to me that
+                this operation will improve my condition. </span>
+        </p>
+    </li>
+    <% } %>
     <li>
         <asp:Panel runat="server" ID="PnlPatientSignature">
             <div class="sigBox">

@@ -20,7 +20,7 @@ namespace WindowsCEConsentForms.Cardiovascular
             }
             if (!string.IsNullOrEmpty(patientId))
             {
-                var formHandlerServiceClient = new FormHandlerServiceClient();
+                var formHandlerServiceClient = new ConsentFormSvcClient();
                 ConsentType = ConsentType.Cardiovascular;
                 var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
                 if (patientDetails != null)

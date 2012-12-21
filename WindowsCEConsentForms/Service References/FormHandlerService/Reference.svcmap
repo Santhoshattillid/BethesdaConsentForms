@@ -18,16 +18,16 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="basic.xsd" MetadataType="Schema" ID="aacaa015-528a-454c-94c5-c6ddc45f0f50" SourceId="1" SourceUrl="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd1" />
-    <MetadataFile FileName="basic4.xsd" MetadataType="Schema" ID="9e1deefe-7011-4934-a41e-a9753cca5058" SourceId="1" SourceUrl="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd2" />
-    <MetadataFile FileName="basic2.xsd" MetadataType="Schema" ID="f1e93ace-6f78-46c0-90e0-63286d4e6b93" SourceId="1" SourceUrl="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd4" />
-    <MetadataFile FileName="basic1.xsd" MetadataType="Schema" ID="27c8f8df-789a-482a-b878-a17d1ab1ddcc" SourceId="1" SourceUrl="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd5" />
-    <MetadataFile FileName="basic3.xsd" MetadataType="Schema" ID="736a42fc-3c8d-4137-837b-39a6c6317c1d" SourceId="1" SourceUrl="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd0" />
-    <MetadataFile FileName="basic5.xsd" MetadataType="Schema" ID="a2b93522-8fbb-4aad-8f5a-8f65a59ee07c" SourceId="1" SourceUrl="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?xsd=xsd3" />
-    <MetadataFile FileName="FormHandlerService.wsdl" MetadataType="Wsdl" ID="749acfa2-4361-4faa-b340-e45c4bb91c1e" SourceId="1" SourceUrl="http://devsp1.atbapps.com:1061/FormHandlerService.svc/basic?wsdl" />
+    <MetadataFile FileName="basic.xsd" MetadataType="Schema" ID="f0de095d-8361-406a-b111-b1bda7344c26" SourceId="1" SourceUrl="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?xsd=xsd2" />
+    <MetadataFile FileName="basic1.xsd" MetadataType="Schema" ID="7e9136bf-9c39-4f7d-a371-6066097cc256" SourceId="1" SourceUrl="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?xsd=xsd0" />
+    <MetadataFile FileName="basic2.xsd" MetadataType="Schema" ID="9bb3c7af-9ae9-4cc0-99ee-7e375ff6c865" SourceId="1" SourceUrl="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?xsd=xsd1" />
+    <MetadataFile FileName="basic.disco" MetadataType="Disco" ID="6f200968-51ab-4b06-8af3-17a964f814ad" SourceId="1" SourceUrl="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?disco" />
+    <MetadataFile FileName="basic3.xsd" MetadataType="Schema" ID="afd0c6cf-a338-4030-9abe-5861f8365eae" SourceId="1" SourceUrl="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?xsd=xsd3" />
+    <MetadataFile FileName="basic4.xsd" MetadataType="Schema" ID="badab20d-44b3-4a5f-b865-428ecf7f3881" SourceId="1" SourceUrl="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?xsd=xsd4" />
+    <MetadataFile FileName="ConsentFormSvc1.wsdl" MetadataType="Wsdl" ID="50231132-6de5-4ab4-822f-403e1ed51cd0" SourceId="1" SourceUrl="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

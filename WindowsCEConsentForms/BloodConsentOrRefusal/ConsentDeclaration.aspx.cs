@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms.BloodConsentOrRefusal
@@ -7,15 +9,15 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DeclarationSignatures.BtnCompleted.Click += BtnCompleted_Click;
-            DeclarationSignatures.BtnReset.Click += BtnReset_Click;
+            DeclarationSignatures1.BtnCompleted.Click += BtnCompleted_Click;
+            DeclarationSignatures1.BtnReset.Click += BtnReset_Click;
         }
 
         private void BtnReset_Click(object sender, EventArgs e)
         {
-            DeclarationSignatures.ResetSignatures();
-            DeclarationSignatures.ChkPatientisUnableToSign.Checked = false;
-            DeclarationSignatures.SetPanels(false);
+            DeclarationSignatures1.ResetSignatures();
+            DeclarationSignatures1.ChkPatientisUnableToSign.Checked = false;
+            DeclarationSignatures1.SetPanels(false);
 
             RdoStatementOfConsentAccepted.Checked = false;
             RdoStatementOfConsentRefusal.Checked = false;
@@ -28,11 +30,11 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
                 const ConsentType consentType = ConsentType.BloodConsentOrRefusal;
 
                 //validation
-                var lblError = DeclarationSignatures.LblError;
+                var lblError = DeclarationSignatures1.LblError;
 
                 lblError.Text = string.Empty;
 
-                DeclarationSignatures.ValidateForm();
+                DeclarationSignatures1.ValidateForm();
 
                 if (!string.IsNullOrEmpty(lblError.Text))
                 {
@@ -49,10 +51,6 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
                     Response.Redirect("/PatientConsent.aspx");
                 }
 
-                var formHandlerServiceClient = new FormHandlerServiceClient();
-
-                DeclarationSignatures.SaveForm(formHandlerServiceClient, patientId);
-
                 string ip = Request.ServerVariables["REMOTE_ADDR"];
                 string device;
                 if (Request.Browser.IsMobileDevice)
@@ -60,10 +58,27 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
                 else
                     device = Request.Browser.Browser + " " + Request.Browser.Version;
 
-                formHandlerServiceClient.UpdateTrackingInfo(patientId, new TrackingInfo { IP = ip, Device = device }, consentType.ToString());
+                var signatureses = new List<Signatures>();
 
-                formHandlerServiceClient.UpdateConsentFormStatementType(patientId, RdoStatementOfConsentAccepted.Checked ? new StatementOfConsent() { AutologousUnits = ChkAutologousUnits.Checked, DirectedUnits = ChkDirectedUnits.Checked } : null, consentType.ToString());
+                signatureses.AddRange(DeclarationSignatures1.GetSignatures());
 
+                var treatment = new Treatment
+                {
+                    _patientId = patientId,
+                    _consentType = consentType,
+                    _signatureses = signatureses.ToArray(),
+                    _isPatientUnableSign = DeclarationSignatures1.ChkPatientisUnableToSign.Checked,
+                    _unableToSignReason = DeclarationSignatures1.TxtPatientNotSignedBecause.Text,
+                    _translatedBy = DeclarationSignatures1.TxtTranslatedBy.Text,
+                    _trackingInformation = new TrackingInformation
+                    {
+                        _device = device,
+                        _iP = ip
+                    }
+                };
+
+                var formHandlerServiceClient = new ConsentFormSvcClient();
+                formHandlerServiceClient.AddTreatment(treatment);
                 Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId);
 
                 Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));

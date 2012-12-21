@@ -20,7 +20,7 @@ namespace WindowsCEConsentForms
             }
             if (!string.IsNullOrEmpty(patientId))
             {
-                var formHandlerServiceClient = new FormHandlerServiceClient();
+                var formHandlerServiceClient = new ConsentFormSvcClient();
                 var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
                 if (patientDetails != null)
                 {
@@ -59,9 +59,28 @@ namespace WindowsCEConsentForms
 
                     LblTranslatedBy.Text = patientDetails.Translatedby;
 
-                    LblAuthorizePersonName.Text = formHandlerServiceClient.GetSignedPersonName(patientId, ConsentType, SignatureType.PatientAuthorizeSign);
-                    LblWitnessName1.Text = formHandlerServiceClient.GetSignedPersonName(patientId, ConsentType, SignatureType.WitnessSignature1);
-                    LblWitnessName2.Text = formHandlerServiceClient.GetSignedPersonName(patientId, ConsentType, SignatureType.WitnessSignature2);
+                    var treatment = formHandlerServiceClient.GetTreatment(patientId, ConsentType);
+                    foreach (Signatures signatures in treatment._signatureses)
+                    {
+                        switch (signatures._signatureType)
+                        {
+                            case SignatureType.PatientAuthorizeSign:
+                                {
+                                    LblAuthorizePersonName.Text = signatures._name;
+                                    break;
+                                }
+                            case SignatureType.WitnessSignature1:
+                                {
+                                    LblWitnessName1.Text = signatures._name;
+                                    break;
+                                }
+                            case SignatureType.WitnessSignature2:
+                                {
+                                    LblWitnessName2.Text = signatures._name;
+                                    break;
+                                }
+                        }
+                    }
                 }
             }
         }

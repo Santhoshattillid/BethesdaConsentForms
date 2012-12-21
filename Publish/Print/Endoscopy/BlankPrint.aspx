@@ -22,7 +22,7 @@
             <div class="PrintsigBox">
             </div>
             <div class="right">
-                The Physician has explained to me the nature of this operation it is generally carried
+                The physician has explained to me the nature of this operation it is generally carried
                 out. I understand that all procedures surgeries involve general risks such as severe
                 loss of blood, infection, heart stoppage or death. The physician has discussed with
                 me the specific risks, benefits and possible side effects of this procedure and
@@ -70,9 +70,9 @@
             <div class="PrintsigBox">
             </div>
             <div class="right">
-                The Physician has explained to me that sometimes during surgery, it is discovered
+                The physician has explained to me that sometimes during surgery, it is discovered
                 that additional surgery is needed. If such additional surgery is deemed necessary
-                by the Physician, I permit the Physician to proceed.
+                by the physician, I permit the physician to proceed.
             </div>
             <div class="clear">
             </div>

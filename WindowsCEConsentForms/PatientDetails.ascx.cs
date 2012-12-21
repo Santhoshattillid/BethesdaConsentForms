@@ -29,7 +29,7 @@ namespace WindowsCEConsentForms
             {
                 if (!string.IsNullOrEmpty(patientId))
                 {
-                    var formHandlerServiceClient = new FormHandlerServiceClient();
+                    var formHandlerServiceClient = new ConsentFormSvcClient();
                     var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
                     if (patientDetail != null)
                     {

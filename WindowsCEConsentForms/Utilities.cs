@@ -57,38 +57,41 @@ namespace WindowsCEConsentForms
             return "/PatientConsent.aspx";
         }
 
-        public static void GeneratePdfAndUploadToSharePointSite(FormHandlerServiceClient formHandlerServiceClient, ConsentType consentType, string patientId)
+        public static void GeneratePdfAndUploadToSharePointSite(ConsentFormSvcClient formHandlerServiceClient, ConsentType consentType, string patientId)
         {
-            formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/" + consentType + @"/ConsentPrint.aspx?PatientId=" + patientId, patientId, consentType);
+            //formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/" + consentType + @"/ConsentPrint.aspx?PatientId=" + patientId, patientId, consentType);
         }
 
-        public static string GetAssociatedDoctors(string primaryPhysicianId)
+        public static string GetAssociatedDoctors(int primaryPhysicianId)
         {
             string outPut = string.Empty;
-            var formHandlerServiceClient = new FormHandlerServiceClient();
-            var associatedDoctors = formHandlerServiceClient.GetAssociatedPhysiciansList(primaryPhysicianId);
-            if (associatedDoctors != null)
+            if (primaryPhysicianId != 0)
             {
-                foreach (DataRow row in associatedDoctors.Rows)
+                var formHandlerServiceClient = new ConsentFormSvcClient();
+                var associatedDoctors = formHandlerServiceClient.GetAssociatedDoctors(primaryPhysicianId);
+                if (associatedDoctors != null)
                 {
-                    if (!string.IsNullOrEmpty(outPut))
-                        outPut += " , ";
-                    outPut += row["Lname"].ToString().Trim() + " " + row["Fname"].ToString().Trim();
+                    foreach (AssociatedDoctorDetails associatedDoctor in associatedDoctors)
+                    {
+                        if (!string.IsNullOrEmpty(outPut))
+                            outPut += " , ";
+                        outPut += associatedDoctor.Lname + " " + associatedDoctor.Fname;
+                    }
                 }
             }
             return outPut;
         }
 
-        public static string GetPrimaryDoctorName(string primaryPhysicianId)
+        public static string GetPrimaryDoctorName(int primaryPhysicianId)
         {
-            var formHandlerServiceClient = new FormHandlerServiceClient();
-            var primaryDoctor = formHandlerServiceClient.GetPrimaryDoctorDetail(primaryPhysicianId);
+            var formHandlerServiceClient = new ConsentFormSvcClient();
+            var primaryDoctor = formHandlerServiceClient.GetDoctorDetail(primaryPhysicianId);
             return primaryDoctor.Lname + " " + primaryDoctor.Fname;
         }
 
         public static PatientDetail GetPatientName(string patientId, string consentType)
         {
-            var formHandlerServiceClient = new FormHandlerServiceClient();
+            var formHandlerServiceClient = new ConsentFormSvcClient();
             return formHandlerServiceClient.GetPatientDetail(patientId, consentType);
         }
 

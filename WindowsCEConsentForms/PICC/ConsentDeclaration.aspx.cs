@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms.PICC
@@ -36,12 +37,6 @@ namespace WindowsCEConsentForms.PICC
                     Response.Redirect("/PatientConsent.aspx");
                 }
 
-                // validation for other procedure
-
-                var formHandlerServiceClient = new FormHandlerServiceClient();
-
-                DeclarationSignatures.SaveForm(formHandlerServiceClient, patientId);
-
                 string ip = Request.ServerVariables["REMOTE_ADDR"];
                 string device;
                 if (Request.Browser.IsMobileDevice)
@@ -49,7 +44,27 @@ namespace WindowsCEConsentForms.PICC
                 else
                     device = Request.Browser.Browser + " " + Request.Browser.Version;
 
-                formHandlerServiceClient.UpdateTrackingInfo(patientId, new TrackingInfo { IP = ip, Device = device }, consentType.ToString());
+                var signatureses = new List<Signatures>();
+
+                signatureses.AddRange(DeclarationSignatures.GetSignatures());
+
+                var treatment = new Treatment
+                {
+                    _patientId = patientId,
+                    _consentType = consentType,
+                    _signatureses = signatureses.ToArray(),
+                    _isPatientUnableSign = DeclarationSignatures.ChkPatientisUnableToSign.Checked,
+                    _unableToSignReason = DeclarationSignatures.TxtPatientNotSignedBecause.Text,
+                    _translatedBy = DeclarationSignatures.TxtTranslatedBy.Text,
+                    _trackingInformation = new TrackingInformation
+                    {
+                        _device = device,
+                        _iP = ip
+                    }
+                };
+
+                var formHandlerServiceClient = new ConsentFormSvcClient();
+                formHandlerServiceClient.AddTreatment(treatment);
                 Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId);
 
                 Response.Redirect("/PatientConsent.aspx");

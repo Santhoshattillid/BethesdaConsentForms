@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms
@@ -22,18 +23,16 @@ namespace WindowsCEConsentForms
             var docAndProcPrints = new List<DocAndProcPrint>();
             if (!string.IsNullOrEmpty(patientId))
             {
-                var formHandlerServiceClient = new FormHandlerServiceClient();
+                var formHandlerServiceClient = new ConsentFormSvcClient();
+                var treatment = formHandlerServiceClient.GetTreatment(patientId, ConsentType);
                 string patientName = Utilities.GetPatientName(patientId, ConsentType.ToString()).name;
-                foreach (var docandproc in formHandlerServiceClient.GetDoctorsDetails(patientId, ConsentType.ToString()))
-                {
-                    docAndProcPrints.Add(new DocAndProcPrint()
-                                             {
-                                                 Doctor = Utilities.GetPrimaryDoctorName(docandproc._primaryDoctorId) + " , " + Utilities.GetAssociatedDoctors(docandproc._primaryDoctorId),
-                                                 PatientName = patientName,
-                                                 Procedures = docandproc._precedures.Substring(0, docandproc._precedures.Length - 1).Replace("#", " , ")
-                                             }
-                        );
-                }
+                docAndProcPrints.AddRange(treatment._doctorAndPrcedures.Select(docandproc => new DocAndProcPrint
+                                       {
+                                           Doctor = Utilities.GetPrimaryDoctorName(Convert.ToInt32(docandproc._primaryDoctorId)) + " , " + Utilities.GetAssociatedDoctors(Convert.ToInt32(docandproc._primaryDoctorId)),
+                                           PatientName = patientName,
+                                           Procedures = docandproc._precedures.Substring(0, docandproc._precedures.Length - 1).Replace("#", " , ")
+                                       }));
+                LblPatientName.Text = patientName;
             }
             ViewState["DocAndProcDetails"] = docAndProcPrints;
         }

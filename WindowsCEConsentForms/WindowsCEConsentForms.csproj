@@ -142,12 +142,29 @@
     <Content Include="Scripts\jquery.multiselect.min.js" />
     <Content Include="Scripts\ui.core.js" />
     <Content Include="Scripts\ui.dropdownchecklist.js" />
+    <None Include="Service References\FormHandlerService\basic.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormHandlerService\basic1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormHandlerService\basic2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormHandlerService\basic3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\FormHandlerService\basic4.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\FormHandlerService\configuration91.svcinfo" />
     <None Include="Service References\FormHandlerService\configuration.svcinfo" />
+    <None Include="Service References\FormHandlerService\ConsentFormSvc1.wsdl" />
     <None Include="Service References\FormHandlerService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\FormHandlerService\basic.disco" />
     <Content Include="Stylesheets\dropdownchecklist.css" />
     <Content Include="Stylesheets\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Stylesheets\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -186,32 +203,16 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <None Include="Service References\FormHandlerService\basic.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\FormHandlerService\basic1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\FormHandlerService\basic2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\FormHandlerService\basic3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\FormHandlerService\basic4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\FormHandlerService\basic5.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\FormHandlerService\FormHandlerService.wsdl" />
-    <None Include="Service References\FormHandlerService\WindowsCEConsentForms.FormHandlerService.DoctorAndProcedure.datasource">
+    <None Include="Service References\FormHandlerService\WindowsCEConsentForms.FormHandlerService.AssociatedDoctorDetails.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\FormHandlerService\WindowsCEConsentForms.FormHandlerService.DoctorDetails.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\FormHandlerService\WindowsCEConsentForms.FormHandlerService.PatientDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FormHandlerService\WindowsCEConsentForms.FormHandlerService.Treatment.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>

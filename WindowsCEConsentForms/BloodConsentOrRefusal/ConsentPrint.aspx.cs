@@ -24,18 +24,18 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
             {
                 ConsentType = ConsentType.BloodConsentOrRefusal;
 
-                var formHandlerServiceClient = new FormHandlerServiceClient();
+                var formHandlerServiceClient = new ConsentFormSvcClient();
                 var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
                 if (patientDetails != null)
                 {
-                    var primaryDoctor = formHandlerServiceClient.GetPrimaryDoctorDetail(patientDetails.PrimaryDoctorId);
+                    var primaryDoctor = formHandlerServiceClient.GetDoctorDetail(Convert.ToInt32(patientDetails.PrimaryDoctorId));
                     if (primaryDoctor != null)
                     {
                         LblAuthoriseDoctors.Text = primaryDoctor.Fname + " " + primaryDoctor.Lname;
                     }
-                    foreach (DataRow row in formHandlerServiceClient.GetAssociatedPhysiciansList(patientDetails.PrimaryDoctorId).Rows)
+                    foreach (AssociatedDoctorDetails associatedDoctor in formHandlerServiceClient.GetAssociatedDoctors(Convert.ToInt32(patientDetails.PrimaryDoctorId)))
                     {
-                        LblAuthoriseDoctors.Text += " , " + row["Lname"].ToString().Trim() + " " + row["Fname"].ToString().Trim();
+                        LblAuthoriseDoctors.Text += " , " + associatedDoctor.Lname + " " + associatedDoctor.Fname;
                     }
 
                     LblPatientName2.Text = patientDetails.name;

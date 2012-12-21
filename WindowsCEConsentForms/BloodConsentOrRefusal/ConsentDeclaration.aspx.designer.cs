@@ -58,12 +58,12 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal {
         protected global::System.Web.UI.WebControls.CheckBox ChkAutologousUnits;
         
         /// <summary>
-        /// DeclarationSignatures control.
+        /// DeclarationSignatures1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::WindowsCEConsentForms.DeclarationSignatures DeclarationSignatures;
+        protected global::WindowsCEConsentForms.DeclarationSignatures DeclarationSignatures1;
     }
 }

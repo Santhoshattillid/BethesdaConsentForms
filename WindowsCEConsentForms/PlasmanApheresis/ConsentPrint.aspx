@@ -18,14 +18,6 @@
     <ul class="content">
         <li>
             <div class="small-content">
-                The nature and purpose of the procedure necessary to treat my condition, possible
-                alternative methods of treatment, the risks involved, the possible consequences
-                and the possibility of complications have been explained to me by phyname and I
-                understand the nature of the procedure to be as follows:
-            </div>
-        </li>
-        <li>
-            <div class="small-content">
                 Therapeutic Apheresis involves the separation, removal and replacement of specific
                 blood cells or plasma components from my blood. This involves the passage of my
                 blood from my circulatory system into a machine, where it is circulated through

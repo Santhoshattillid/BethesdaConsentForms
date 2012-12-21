@@ -12,24 +12,13 @@
             </h3>
         </li>
         <li>PATIENT:</li>
-        <li>I here by authorize Doctor(s)
+        <li>I authorize the performance of therapeutic apheresis on
             <br />
             <br />
-            to perform upon
-            <br />
-            <br />
-            the following procedure or operation:
+            of therapeutic apheresis to be performed by or under the direction of
             <br />
             <br />
             <br />
-        </li>
-        <li>
-            <div class="small-content">
-                The nature and purpose of the procedure necessary to treat my condition, possible
-                alternative methods of treatment, the risks involved, the possible consequences
-                and the possibility of complications have been explained to me by phyname and I
-                understand the nature of the procedure to be as follows:
-            </div>
         </li>
         <li>
             <div class="small-content">
