@@ -36,10 +36,10 @@ namespace WindowsCEConsentForms.OutsideOR
                 DeclarationSignatures1.ValidateForm();
 
                 if (string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign1.ToString()]) ||
-                  string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign2.ToString()]) ||
-                  string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign3.ToString()]) ||
-                  string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign4.ToString()]) ||
-                  string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign5.ToString()]))
+                    string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign2.ToString()]) ||
+                    string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign3.ToString()]) ||
+                    string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign4.ToString()]) ||
+                    string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign5.ToString()]))
                 {
                     lblError.Text += "Please input signatures.";
                 }
@@ -57,7 +57,6 @@ namespace WindowsCEConsentForms.OutsideOR
                     Response.Redirect("/PatientConsent.aspx");
                 }
 
-<<<<<<< HEAD
                 string ip = Request.ServerVariables["REMOTE_ADDR"];
                 string device;
                 if (Request.Browser.IsMobileDevice)
@@ -71,74 +70,74 @@ namespace WindowsCEConsentForms.OutsideOR
                 {
                     var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign1.ToString()]);
                     signatureses.Add(new Signatures
-                    {
-                        _name = string.Empty,
-                        _signatureContent = Encoding.ASCII.GetString(bytes),
-                        _signatureType = SignatureType.DoctorSign1
-                    });
+                                         {
+                                             _name = string.Empty,
+                                             _signatureContent = Encoding.ASCII.GetString(bytes),
+                                             _signatureType = SignatureType.DoctorSign1
+                                         });
                 }
 
                 if (Request.Form[SignatureType.DoctorSign2.ToString()] != null)
                 {
                     var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign2.ToString()]);
                     signatureses.Add(new Signatures
-                    {
-                        _name = string.Empty,
-                        _signatureContent = Encoding.ASCII.GetString(bytes),
-                        _signatureType = SignatureType.DoctorSign2
-                    });
+                                         {
+                                             _name = string.Empty,
+                                             _signatureContent = Encoding.ASCII.GetString(bytes),
+                                             _signatureType = SignatureType.DoctorSign2
+                                         });
                 }
 
                 if (Request.Form[SignatureType.DoctorSign3.ToString()] != null)
                 {
                     var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign3.ToString()]);
                     signatureses.Add(new Signatures
-                    {
-                        _name = string.Empty,
-                        _signatureContent = Encoding.ASCII.GetString(bytes),
-                        _signatureType = SignatureType.DoctorSign3
-                    });
+                                         {
+                                             _name = string.Empty,
+                                             _signatureContent = Encoding.ASCII.GetString(bytes),
+                                             _signatureType = SignatureType.DoctorSign3
+                                         });
                 }
 
                 if (Request.Form[SignatureType.DoctorSign4.ToString()] != null)
                 {
                     var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign4.ToString()]);
                     signatureses.Add(new Signatures
-                    {
-                        _name = string.Empty,
-                        _signatureContent = Encoding.ASCII.GetString(bytes),
-                        _signatureType = SignatureType.DoctorSign4
-                    });
+                                         {
+                                             _name = string.Empty,
+                                             _signatureContent = Encoding.ASCII.GetString(bytes),
+                                             _signatureType = SignatureType.DoctorSign4
+                                         });
                 }
 
                 if (Request.Form[SignatureType.DoctorSign5.ToString()] != null)
                 {
                     var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign5.ToString()]);
                     signatureses.Add(new Signatures
-                    {
-                        _name = string.Empty,
-                        _signatureContent = Encoding.ASCII.GetString(bytes),
-                        _signatureType = SignatureType.DoctorSign5
-                    });
+                                         {
+                                             _name = string.Empty,
+                                             _signatureContent = Encoding.ASCII.GetString(bytes),
+                                             _signatureType = SignatureType.DoctorSign5
+                                         });
                 }
 
                 signatureses.AddRange(DeclarationSignatures1.GetSignatures());
 
                 var treatment = new Treatment
-                {
-                    _patientId = patientId,
-                    _consentType = consentType,
-                    _signatureses = signatureses.ToArray(),
-                    _isPatientUnableSign = DeclarationSignatures1.ChkPatientisUnableToSign.Checked,
-                    _unableToSignReason = DeclarationSignatures1.TxtPatientNotSignedBecause.Text,
-                    _translatedBy = DeclarationSignatures1.TxtTranslatedBy.Text,
-                    _trackingInformation = new TrackingInformation
-                    {
-                        _device = device,
-                        _iP = ip
-                    },
-                    _doctorAndPrcedures = DoctorsAndProcedures1.GetDoctorsAndProcedures().ToArray()
-                };
+                                    {
+                                        _patientId = patientId,
+                                        _consentType = consentType,
+                                        _signatureses = signatureses.ToArray(),
+                                        _isPatientUnableSign = DeclarationSignatures1.ChkPatientisUnableToSign.Checked,
+                                        _unableToSignReason = DeclarationSignatures1.TxtPatientNotSignedBecause.Text,
+                                        _translatedBy = DeclarationSignatures1.TxtTranslatedBy.Text,
+                                        _trackingInformation = new TrackingInformation
+                                                                   {
+                                                                       _device = device,
+                                                                       _iP = ip
+                                                                   },
+                                        _doctorAndPrcedures = DoctorsAndProcedures1.GetDoctorsAndProcedures().ToArray()
+                                    };
 
                 if (treatment._doctorAndPrcedures.GetUpperBound(0) < 0)
                 {
@@ -149,32 +148,8 @@ namespace WindowsCEConsentForms.OutsideOR
                 var formHandlerServiceClient = new ConsentFormSvcClient();
                 formHandlerServiceClient.AddTreatment(treatment);
                 Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId);
-=======
-                var formHandlerServiceClient = new FormHandlerServiceClient();
 
-                if (DoctorsAndProcedures1.SaveDoctorsAndProcedures(formHandlerServiceClient, patientId))
-                {
-                    DeclarationSignatures1.SaveForm(formHandlerServiceClient, patientId);
-
-                    ConsentSignatures1.SaveForm(formHandlerServiceClient, patientId, consentType);
-
-                    string ip = Request.ServerVariables["REMOTE_ADDR"];
-                    string device;
-                    if (Request.Browser.IsMobileDevice)
-                        device = Request.Browser.Browser + " " + Request.Browser.Version;
-                    else
-                        device = Request.Browser.Browser + " " + Request.Browser.Version;
-
-                    formHandlerServiceClient.UpdateTrackingInfo(patientId, new TrackingInfo { IP = ip, Device = device },
-                                                                consentType.ToString());
-
-                    Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId);
->>>>>>> 54b88a0cb799edf472e32e9cd029700f5c07bd47
-
-                    Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));
-                }
-                else
-                    lblError.Text += "Please input procedures in all boxes.";
+                Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));
             }
             catch (Exception)
             {

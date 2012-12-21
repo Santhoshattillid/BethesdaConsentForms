@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectView>ProjectFiles</ProjectView>
@@ -7,11 +7,9 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-<<<<<<< HEAD
           <StartPageUrl>Print/PrintAll.aspx</StartPageUrl>
-=======
           <StartPageUrl>Default.aspx</StartPageUrl>
->>>>>>> 54b88a0cb799edf472e32e9cd029700f5c07bd47
+           54b88a0cb799edf472e32e9cd029700f5c07bd47
           <StartAction>SpecificPage</StartAction>
           <AspNetDebugging>True</AspNetDebugging>
           <SilverlightDebugging>False</SilverlightDebugging>
