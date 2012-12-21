@@ -79,6 +79,7 @@ namespace WindowsCEConsentForms.Cardiovascular
                     Response.Redirect("/PatientConsent.aspx");
                 }
 
+<<<<<<< HEAD
                 string ip = Request.ServerVariables["REMOTE_ADDR"];
                 string device;
                 if (Request.Browser.IsMobileDevice)
@@ -172,6 +173,59 @@ namespace WindowsCEConsentForms.Cardiovascular
                 Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId);
 
                 Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));
+=======
+                var formHandlerServiceClient = new FormHandlerServiceClient();
+
+                if (DoctorsAndProcedures1.SaveDoctorsAndProcedures(formHandlerServiceClient, patientId))
+                {
+                    DeclarationSignatures.SaveForm(formHandlerServiceClient, patientId);
+
+                    if (Request.Form[SignatureType.DoctorSign1.ToString()] != null)
+                    {
+                        var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign1.ToString()]);
+                        bool result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType, SignatureType.DoctorSign1, string.Empty);
+                    }
+
+                    if (Request.Form[SignatureType.DoctorSign2.ToString()] != null)
+                    {
+                        var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign2.ToString()]);
+                        var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType, SignatureType.DoctorSign2, string.Empty);
+                    }
+
+                    if (Request.Form[SignatureType.DoctorSign3.ToString()] != null)
+                    {
+                        var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign3.ToString()]);
+                        var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType, SignatureType.DoctorSign3, string.Empty);
+                    }
+
+                    if (Request.Form[SignatureType.DoctorSign4.ToString()] != null)
+                    {
+                        var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign4.ToString()]);
+                        var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType, SignatureType.DoctorSign4, string.Empty);
+                    }
+
+                    if (Request.Form[SignatureType.DoctorSign5.ToString()] != null)
+                    {
+                        var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.DoctorSign5.ToString()]);
+                        var result = formHandlerServiceClient.SavePatientSignature(patientId, Encoding.ASCII.GetString(bytes), consentType, SignatureType.DoctorSign5, string.Empty);
+                    }
+
+                    string ip = Request.ServerVariables["REMOTE_ADDR"];
+                    string device;
+                    if (Request.Browser.IsMobileDevice)
+                        device = Request.Browser.Browser + " " + Request.Browser.Version;
+                    else
+                        device = Request.Browser.Browser + " " + Request.Browser.Version;
+
+                    formHandlerServiceClient.UpdateTrackingInfo(patientId, new TrackingInfo { IP = ip, Device = device }, consentType.ToString());
+
+                    Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId);
+
+                    Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));
+                }
+                else
+                    lblError.Text += "Please input procedures in all boxes.";
+>>>>>>> 54b88a0cb799edf472e32e9cd029700f5c07bd47
             }
             catch (Exception)
             {

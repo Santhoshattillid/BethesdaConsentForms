@@ -7,7 +7,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
+<<<<<<< HEAD
           <StartPageUrl>Print/PrintAll.aspx</StartPageUrl>
+=======
+          <StartPageUrl>Default.aspx</StartPageUrl>
+>>>>>>> 54b88a0cb799edf472e32e9cd029700f5c07bd47
           <StartAction>SpecificPage</StartAction>
           <AspNetDebugging>True</AspNetDebugging>
           <SilverlightDebugging>False</SilverlightDebugging>

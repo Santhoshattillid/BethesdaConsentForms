@@ -57,6 +57,7 @@ namespace WindowsCEConsentForms.Endoscopy
                     Response.Redirect("/PatientConsent.aspx");
                 }
 
+<<<<<<< HEAD
                 string ip = Request.ServerVariables["REMOTE_ADDR"];
                 string device;
                 if (Request.Browser.IsMobileDevice)
@@ -148,8 +149,32 @@ namespace WindowsCEConsentForms.Endoscopy
                 var formHandlerServiceClient = new ConsentFormSvcClient();
                 formHandlerServiceClient.AddTreatment(treatment);
                 Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId);
+=======
+                var formHandlerServiceClient = new FormHandlerServiceClient();
 
-                Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));
+                if (DoctorsAndProcedures1.SaveDoctorsAndProcedures(formHandlerServiceClient, patientId))
+                {
+                    DeclarationSignatures.SaveForm(formHandlerServiceClient, patientId);
+
+                    ConsentSignatures.SaveForm(formHandlerServiceClient, patientId, consentType);
+
+                    string ip = Request.ServerVariables["REMOTE_ADDR"];
+                    string device;
+                    if (Request.Browser.IsMobileDevice)
+                        device = Request.Browser.Browser + " " + Request.Browser.Version;
+                    else
+                        device = Request.Browser.Browser + " " + Request.Browser.Version;
+
+                    formHandlerServiceClient.UpdateTrackingInfo(patientId, new TrackingInfo { IP = ip, Device = device },
+                                                                consentType.ToString());
+
+                    Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId);
+>>>>>>> 54b88a0cb799edf472e32e9cd029700f5c07bd47
+
+                    Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));
+                }
+                else
+                    lblError.Text += "Please input procedures in all boxes.";
             }
             catch (Exception)
             {

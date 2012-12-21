@@ -13,7 +13,11 @@
     </ul>
     <uc1:PatientDetails ID="PatientDetails1" runat="server" />
     <uc1:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" ConsentType="Cardiovascular"
+<<<<<<< HEAD
         IsStaticTextBoxForPrecedures="False" />
+=======
+        IsStaticTextBoxForPrecedures="True" />
+>>>>>>> 54b88a0cb799edf472e32e9cd029700f5c07bd47
     <ul class="content">
         <li>
             <div class="small-content">
