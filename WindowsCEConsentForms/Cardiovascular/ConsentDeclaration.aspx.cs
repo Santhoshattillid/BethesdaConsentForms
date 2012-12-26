@@ -36,9 +36,6 @@ namespace WindowsCEConsentForms.Cardiovascular
         private void BtnReset_Click(object sender, EventArgs e)
         {
             DeclarationSignatures.ResetSignatures();
-            DeclarationSignatures.ChkPatientisUnableToSign.Checked = false;
-            DeclarationSignatures.SetPanels(false);
-
             ResetDoctorsSignatures();
         }
 
@@ -157,15 +154,10 @@ namespace WindowsCEConsentForms.Cardiovascular
                     {
                         _device = device,
                         _iP = ip
-                    },
-                    _doctorAndPrcedures = DoctorsAndProcedures1.GetDoctorsAndProcedures().ToArray()
-                };
+                    }
 
-                if (treatment._doctorAndPrcedures.GetUpperBound(0) < 0)
-                {
-                    lblError.Text += "Please input procedure.";
-                    return;
-                }
+                    //,_doctorAndPrcedures = DoctorsAndProcedures1.GetDoctorsAndProcedures().ToArray()
+                };
 
                 var formHandlerServiceClient = new ConsentFormSvcClient();
                 formHandlerServiceClient.AddTreatment(treatment);

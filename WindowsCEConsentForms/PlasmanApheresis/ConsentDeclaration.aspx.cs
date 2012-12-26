@@ -80,8 +80,10 @@ namespace WindowsCEConsentForms.PlasmanApheresis
             ResetSignatures();
 
             DeclarationSignatures.ResetSignatures();
-            DeclarationSignatures.ChkPatientisUnableToSign.Checked = false;
-            DeclarationSignatures.SetPanels(false);
+
+            ViewState["doctorSelectedIndex"] = 0;
+
+            //ViewState["PrimaryDoctors"] = new List<PrimaryDoctor>();
         }
 
         protected void BtnCompleted_Click(object sender, EventArgs e)
@@ -95,6 +97,9 @@ namespace WindowsCEConsentForms.PlasmanApheresis
 
                 lblError.Text = string.Empty;
 
+                if (string.IsNullOrEmpty(Request.QueryString["DdlPrimaryDoctors"]))
+                    lblError.Text += "<br /> Please select physician.";
+
                 DeclarationSignatures.ValidateForm();
 
                 if (string.IsNullOrEmpty(Request.Form[SignatureType.DoctorSign1.ToString()]) ||
@@ -105,7 +110,7 @@ namespace WindowsCEConsentForms.PlasmanApheresis
                     lblError.Text = "Please input signatures.";
                 }
 
-                if (string.IsNullOrEmpty(Request.Form["DdlPrimaryDoctors"]) || Request.Form["DdlPrimaryDoctors"] != "0")
+                if (string.IsNullOrEmpty(Request.Form["DdlPrimaryDoctors"]) || Request.Form["DdlPrimaryDoctors"] == "0")
                     lblError.Text += "Please select physician.";
 
                 if (!string.IsNullOrEmpty(lblError.Text))
@@ -200,7 +205,7 @@ namespace WindowsCEConsentForms.PlasmanApheresis
                                                                        _device = device,
                                                                        _iP = ip
                                                                    },
-                                        _doctorAndPrcedures = new DoctorAndProcedure[1] { new DoctorAndProcedure() { _precedures = string.Empty, _primaryDoctorId = Request.QueryString[""] } }
+                                        _doctorAndPrcedures = new DoctorAndProcedure[1] { new DoctorAndProcedure { _precedures = string.Empty, _primaryDoctorId = Request.QueryString["DdlPrimaryDoctors"] } }
                                     };
 
                 var formHandlerServiceClient = new ConsentFormSvcClient();

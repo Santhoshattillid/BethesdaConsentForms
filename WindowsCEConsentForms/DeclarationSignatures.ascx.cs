@@ -38,7 +38,7 @@ namespace WindowsCEConsentForms
             SetPanels(ChkPatientisUnableToSign.Checked);
         }
 
-        public void SetPanels(bool flag)
+        private void SetPanels(bool flag)
         {
             PnlPatientReason1.Visible = flag;
             PnlPatientReason2.Visible = flag;
@@ -55,6 +55,17 @@ namespace WindowsCEConsentForms
             ViewState[SignatureType.WitnessSignature1.ToString()] = string.Empty;
             ViewState[SignatureType.WitnessSignature2.ToString()] = string.Empty;
             ViewState[SignatureType.PICCSignature.ToString()] = string.Empty;
+            SetPanels(false);
+            TxtAuthorizedPersonName.Text = string.Empty;
+            TxtPICCNurseName.Text = string.Empty;
+            TxtPatientNotSignedBecause.Text = string.Empty;
+            TxtSecondWitnessName.Text = string.Empty;
+            TxtTranslatedBy.Text = string.Empty;
+            TxtWitnessSignature1Name.Text = string.Empty;
+            ChkPatientisUnableToSign.Checked = false;
+            ChkPatientisUnableToSign.Enabled = true;
+            ChkTelephoneConsent.Checked = false;
+            LblError.Text = string.Empty;
         }
 
         protected void ChkTelephoneConsent_CheckedChanged(object sender, EventArgs e)
@@ -77,6 +88,9 @@ namespace WindowsCEConsentForms
 
                 if (string.IsNullOrEmpty(Request.Form[SignatureType.PatientAuthorizeSign.ToString()]))
                     outPut += " <br /> Please input patient authorized person signature.";
+
+                if (string.IsNullOrEmpty(TxtAuthorizedPersonName.Text.Trim()))
+                    outPut += " <br /> Please input patient authorized person name.";
             }
             else
             {
@@ -87,10 +101,29 @@ namespace WindowsCEConsentForms
             if (string.IsNullOrEmpty(Request.Form[SignatureType.WitnessSignature1.ToString()]))
                 outPut += " <br /> Please input witness signature.";
 
-            if (ChkTelephoneConsent.Checked &&
-                string.IsNullOrEmpty(Request.Form[SignatureType.WitnessSignature2.ToString()]))
+            if (string.IsNullOrEmpty(TxtWitnessSignature1Name.Text.Trim()))
+                outPut += " <br /> Please input witness name.";
+
+            if (ChkTelephoneConsent.Checked && string.IsNullOrEmpty(Request.Form[SignatureType.WitnessSignature2.ToString()]))
+            {
                 outPut += " <br /> Please input witness 2 signature.";
-            LblError.Text = outPut;
+                if (string.IsNullOrEmpty(TxtSecondWitnessName.Text.Trim()))
+                    outPut += " <br /> Please input second witness name.";
+            }
+
+            if (ConsentType == ConsentType.PICC)
+            {
+                if (string.IsNullOrEmpty(Request.Form[SignatureType.PICCSignature.ToString()]))
+                    outPut += " <br /> Please input PICC Nurse signature.";
+
+                if (string.IsNullOrEmpty(TxtPICCNurseName.Text.Trim()))
+                    outPut += " <br /> Please input PICC  nurse name.";
+            }
+
+            if (string.IsNullOrEmpty(TxtTranslatedBy.Text.Trim()))
+                outPut += " <br /> Please input interpreted by name.";
+
+            LblError.Text += outPut;
         }
 
         public List<Signatures> GetSignatures()

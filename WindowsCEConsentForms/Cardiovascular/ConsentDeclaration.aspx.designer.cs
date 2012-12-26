@@ -22,15 +22,6 @@ namespace WindowsCEConsentForms.Cardiovascular {
         protected global::WindowsCEConsentForms.PatientDetails PatientDetails1;
         
         /// <summary>
-        /// DoctorsAndProcedures1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::WindowsCEConsentForms.DoctorsAndProcedures DoctorsAndProcedures1;
-        
-        /// <summary>
         /// DeclarationSignatures control.
         /// </summary>
         /// <remarks>

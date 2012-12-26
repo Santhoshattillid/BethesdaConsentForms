@@ -2,12 +2,10 @@
     CodeBehind="ConsentDeclaration.aspx.cs" Inherits="WindowsCEConsentForms.PlasmanApheresis.ConsentDeclaration" %>
 
 <%@ Import Namespace="System.Collections.Generic" %>
-<%@ Import Namespace="System.Globalization" %>
 <%@ Import Namespace="WindowsCEConsentForms" %>
 <%@ Import Namespace="WindowsCEConsentForms.FormHandlerService" %>
 <%@ Register TagPrefix="uc1" TagName="DeclarationSignatures" Src="~/DeclarationSignatures.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="PatientDetails" Src="~/PatientDetails.ascx" %>
-<%@ Register Src="../DoctorsAndProcedures.ascx" TagName="DoctorsAndProcedures" TagPrefix="uc2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

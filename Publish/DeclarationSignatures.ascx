@@ -2,7 +2,7 @@
     Inherits="WindowsCEConsentForms.DeclarationSignatures" %>
 <%@ Import Namespace="WindowsCEConsentForms.FormHandlerService" %>
 <ul class="content">
-    <% if (ConsentType != ConsentType.PICC && ConsentType != ConsentType.BloodConsentOrRefusal)
+    <% if (ConsentType != ConsentType.PICC && ConsentType != ConsentType.BloodConsentOrRefusal && ConsentType != ConsentType.Cardiovascular)
        { %>
     <li>
         <p>

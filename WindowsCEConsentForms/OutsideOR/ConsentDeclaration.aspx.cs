@@ -18,8 +18,8 @@ namespace WindowsCEConsentForms.OutsideOR
             ConsentSignatures1.ResetSignatures();
 
             DeclarationSignatures1.ResetSignatures();
-            DeclarationSignatures1.ChkPatientisUnableToSign.Checked = false;
-            DeclarationSignatures1.SetPanels(false);
+
+            DoctorsAndProcedures1.Reset();
         }
 
         protected void BtnCompleted_Click(object sender, EventArgs e)
@@ -32,6 +32,11 @@ namespace WindowsCEConsentForms.OutsideOR
                 var lblError = DeclarationSignatures1.LblError;
 
                 lblError.Text = string.Empty;
+
+                var doctorsAndProcedures = DoctorsAndProcedures1.GetDoctorsAndProcedures().ToArray();
+
+                if (doctorsAndProcedures.Length == 0)
+                    lblError.Text += "<br /> Please select physicians and procedures.";
 
                 DeclarationSignatures1.ValidateForm();
 
@@ -136,7 +141,7 @@ namespace WindowsCEConsentForms.OutsideOR
                                                                        _device = device,
                                                                        _iP = ip
                                                                    },
-                                        _doctorAndPrcedures = DoctorsAndProcedures1.GetDoctorsAndProcedures().ToArray()
+                                        _doctorAndPrcedures = doctorsAndProcedures
                                     };
 
                 if (treatment._doctorAndPrcedures.GetUpperBound(0) < 0)

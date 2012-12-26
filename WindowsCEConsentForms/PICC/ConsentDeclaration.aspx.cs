@@ -9,6 +9,12 @@ namespace WindowsCEConsentForms.PICC
         protected void Page_Load(object sender, EventArgs e)
         {
             DeclarationSignatures.BtnCompleted.Click += BtnCompleted_Click;
+            DeclarationSignatures.BtnReset.Click += BtnReset_Click;
+        }
+
+        private void BtnReset_Click(object sender, EventArgs e)
+        {
+            DeclarationSignatures.ResetSignatures();
         }
 
         protected void BtnCompleted_Click(object sender, EventArgs e)

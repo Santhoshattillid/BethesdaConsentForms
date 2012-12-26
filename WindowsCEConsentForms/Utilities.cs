@@ -59,7 +59,7 @@ namespace WindowsCEConsentForms
 
         public static void GeneratePdfAndUploadToSharePointSite(ConsentFormSvcClient formHandlerServiceClient, ConsentType consentType, string patientId)
         {
-            //formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/" + consentType + @"/ConsentPrint.aspx?PatientId=" + patientId, patientId, consentType);
+            formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/" + consentType + @"/ConsentPrint.aspx?PatientId=" + patientId, patientId, consentType);
         }
 
         public static string GetAssociatedDoctors(int primaryPhysicianId)

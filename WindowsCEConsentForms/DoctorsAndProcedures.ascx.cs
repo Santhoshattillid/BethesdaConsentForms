@@ -36,7 +36,6 @@ namespace WindowsCEConsentForms
 
                 ViewState["PrimaryDoctors"] = primaryDoctors;
 
-                ViewState["PrimaryDoctors"] = primaryDoctors;
                 var doctorsProceduresState = new DoctorsProceduresState
                 {
                     SelectedDoctorsIndex = new[] { "0" },
@@ -114,6 +113,16 @@ namespace WindowsCEConsentForms
                 }
             }
             return outPut;
+        }
+
+        public void Reset()
+        {
+            var doctorsProceduresState = new DoctorsProceduresState
+            {
+                SelectedDoctorsIndex = new[] { "0" },
+                SelectedProcedures = new[] { "" }
+            };
+            ViewState["DoctorsProceduresState"] = doctorsProceduresState;
         }
     }
 

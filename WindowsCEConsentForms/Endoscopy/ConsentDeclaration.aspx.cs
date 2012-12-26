@@ -16,10 +16,9 @@ namespace WindowsCEConsentForms.Endoscopy
 
         private void BtnReset_Click(object sender, EventArgs e)
         {
+            DoctorsAndProcedures1.Reset();
             ConsentSignatures.ResetSignatures();
             DeclarationSignatures.ResetSignatures();
-            DeclarationSignatures.ChkPatientisUnableToSign.Checked = false;
-            DeclarationSignatures.SetPanels(false);
         }
 
         protected void BtnCompleted_Click(object sender, EventArgs e)
@@ -32,6 +31,11 @@ namespace WindowsCEConsentForms.Endoscopy
                 var lblError = DeclarationSignatures.LblError;
 
                 lblError.Text = string.Empty;
+
+                var doctorsAndProcedures = DoctorsAndProcedures1.GetDoctorsAndProcedures().ToArray();
+
+                if (doctorsAndProcedures.Length == 0)
+                    lblError.Text += "<br /> Please select physicians and procedures.";
 
                 DeclarationSignatures.ValidateForm();
 
@@ -136,7 +140,7 @@ namespace WindowsCEConsentForms.Endoscopy
                         _device = device,
                         _iP = ip
                     },
-                    _doctorAndPrcedures = DoctorsAndProcedures1.GetDoctorsAndProcedures().ToArray()
+                    _doctorAndPrcedures = doctorsAndProcedures
                 };
 
                 if (treatment._doctorAndPrcedures.GetUpperBound(0) < 0)

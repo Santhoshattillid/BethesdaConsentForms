@@ -1,5 +1,5 @@
-2012/12/21-17:26:00.501 1bf4 Recovering log #3
-2012/12/21-17:26:00.501 1bf4 Level-0 table #5: started
-2012/12/21-17:26:00.515 1bf4 Level-0 table #5: 2012 bytes OK
-2012/12/21-17:26:00.539 1bf4 Delete type=0 #3
-2012/12/21-17:26:00.539 1bf4 Delete type=3 #2
+2012/12/24-11:54:15.399 10a4 Recovering log #12
+2012/12/24-11:54:15.399 10a4 Level-0 table #14: started
+2012/12/24-11:54:15.447 10a4 Level-0 table #14: 28252 bytes OK
+2012/12/24-11:54:15.473 10a4 Delete type=0 #12
+2012/12/24-11:54:15.473 10a4 Delete type=3 #10

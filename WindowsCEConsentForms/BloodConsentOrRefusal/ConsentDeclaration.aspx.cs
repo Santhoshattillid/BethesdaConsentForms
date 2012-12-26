@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms.BloodConsentOrRefusal
@@ -16,11 +15,11 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
         private void BtnReset_Click(object sender, EventArgs e)
         {
             DeclarationSignatures1.ResetSignatures();
-            DeclarationSignatures1.ChkPatientisUnableToSign.Checked = false;
-            DeclarationSignatures1.SetPanels(false);
 
             RdoStatementOfConsentAccepted.Checked = false;
             RdoStatementOfConsentRefusal.Checked = false;
+            ChkAutologousUnits.Checked = false;
+            ChkDirectedUnits.Checked = false;
         }
 
         protected void BtnCompleted_Click(object sender, EventArgs e)

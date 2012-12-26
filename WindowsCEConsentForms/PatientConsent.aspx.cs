@@ -74,18 +74,7 @@ namespace WindowsCEConsentForms
                     DdlPatientIds.SelectedIndex = 0;
                 if (DdlFormList.Items.Count > 0)
                     DdlFormList.SelectedIndex = 0;
-                LblId.Text = string.Empty;
-                LblAdmDate.Text = string.Empty;
-                LblAge.Text = string.Empty;
-                LblAttDr.Text = string.Empty;
-                LblError.Text = string.Empty;
-                LblGender.Text = string.Empty;
-                LblName.Text = string.Empty;
-                LblSalutation.Text = string.Empty;
-                ChkBCOrR.Checked = false;
-                ChkCCLC.Checked = false;
-                ChkEC.Checked = false;
-                ChkSurgicalConcent.Checked = false;
+                ClearEmpFields();
                 RdoBMH.Checked = false;
                 RdoBHE.Checked = false;
                 DdlPatientIds.Items.Clear();
@@ -95,6 +84,22 @@ namespace WindowsCEConsentForms
             {
                 return;
             }
+        }
+
+        private void ClearEmpFields()
+        {
+            LblId.Text = string.Empty;
+            LblAdmDate.Text = string.Empty;
+            LblAge.Text = string.Empty;
+            LblAttDr.Text = string.Empty;
+            LblError.Text = string.Empty;
+            LblGender.Text = string.Empty;
+            LblName.Text = string.Empty;
+            LblSalutation.Text = string.Empty;
+            ChkBCOrR.Checked = false;
+            ChkCCLC.Checked = false;
+            ChkEC.Checked = false;
+            ChkSurgicalConcent.Checked = false;
         }
 
         protected void DdlFormList_SelectedIndexChanged(object sender, EventArgs e)
@@ -233,12 +238,14 @@ namespace WindowsCEConsentForms
 
         protected void RdoBMH_CheckedChanged(object sender, EventArgs e)
         {
-            LoadPatients("BMH");
+            ClearEmpFields();
+            LoadPatients("BHW");
             RdoBHE.Checked = !RdoBMH.Checked;
         }
 
         protected void RdoBHE_CheckedChanged(object sender, EventArgs e)
         {
+            ClearEmpFields();
             LoadPatients("BHE");
             RdoBMH.Checked = !RdoBHE.Checked;
         }
