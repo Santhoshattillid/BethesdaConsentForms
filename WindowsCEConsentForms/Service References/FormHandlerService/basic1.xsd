@@ -136,15 +136,15 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetConsentType">
+  <xs:element name="GetConsentTypes">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetConsentTypeResponse">
+  <xs:element name="GetConsentTypesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetConsentTypeResult" nillable="true">
+        <xs:element minOccurs="0" name="GetConsentTypesResult" nillable="true">
           <xs:complexType>
             <xs:annotation>
               <xs:appinfo>
@@ -173,7 +173,7 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdateProcedures">
+  <xs:element name="UpdateProcedureName">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="procedureName" nillable="true" type="xs:string" />
@@ -181,7 +181,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UpdateProceduresResponse">
+  <xs:element name="UpdateProcedureNameResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

@@ -153,10 +153,9 @@
 {
 	padding: 5px;
 }
-
-.content LI p
+.content LI P
 {
-    font-weight: bold;
+	font-weight: bold;
 }
 .small
 {
@@ -504,11 +503,7 @@
 }
 .small
 {
-<<<<<<< HEAD
-    width: 85px;
-=======
-	width: 275px;
->>>>>>> 54b88a0cb799edf472e32e9cd029700f5c07bd47
+	width: 105px;
 }
 .large
 {

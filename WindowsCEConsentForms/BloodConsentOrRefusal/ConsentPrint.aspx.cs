@@ -26,6 +26,7 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
 
                 var formHandlerServiceClient = new ConsentFormSvcClient();
                 var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
+                var treatment = formHandlerServiceClient.GetTreatment(patientId, ConsentType);
                 if (patientDetails != null)
                 {
                     var primaryDoctor = formHandlerServiceClient.GetDoctorDetail(Convert.ToInt32(patientDetails.PrimaryDoctorId));
@@ -41,11 +42,11 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
                     LblPatientName2.Text = patientDetails.name;
                     LblPatientName3.Text = patientDetails.name;
                     LblProcedureName.Text = patientDetails.ProcedureName;
-                    if (patientDetails.StatementOfConsent != null)
+                    if (treatment._IsStatementOfConsentAccepted)
                     {
                         IsStatementOfConsent = true;
-                        ChkAutologousUnits.Checked = patientDetails.StatementOfConsent.AutologousUnits;
-                        ChkDirectedUnits.Checked = patientDetails.StatementOfConsent.DirectedUnits;
+                        ChkAutologousUnits.Checked = treatment._IsAutologousUnits;
+                        ChkDirectedUnits.Checked = treatment._IsDirectedUnits;
                     }
                     else
                         IsStatementOfConsent = false;

@@ -1140,14 +1140,14 @@ namespace WindowsCEConsentForms.FormHandlerService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/GetProcedures", ReplyAction="http://tempuri.org/ConsentFormSvc/GetProceduresResponse")]
         System.Data.DataTable GetProcedures(WindowsCEConsentForms.FormHandlerService.ConsentType consentType);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/GetConsentType", ReplyAction="http://tempuri.org/ConsentFormSvc/GetConsentTypeResponse")]
-        System.Data.DataTable GetConsentType();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/GetConsentTypes", ReplyAction="http://tempuri.org/ConsentFormSvc/GetConsentTypesResponse")]
+        System.Data.DataTable GetConsentTypes();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/AddProcedures", ReplyAction="http://tempuri.org/ConsentFormSvc/AddProceduresResponse")]
         void AddProcedures(string procedureName, int consentTypeID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/UpdateProcedures", ReplyAction="http://tempuri.org/ConsentFormSvc/UpdateProceduresResponse")]
-        void UpdateProcedures(string procedureName, int procedureID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/UpdateProcedureName", ReplyAction="http://tempuri.org/ConsentFormSvc/UpdateProcedureNameResponse")]
+        void UpdateProcedureName(string procedureName, int procedureID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/DeleteProcedure", ReplyAction="http://tempuri.org/ConsentFormSvc/DeleteProcedureResponse")]
         void DeleteProcedure(int Id);
@@ -1233,16 +1233,16 @@ namespace WindowsCEConsentForms.FormHandlerService {
             return base.Channel.GetProcedures(consentType);
         }
         
-        public System.Data.DataTable GetConsentType() {
-            return base.Channel.GetConsentType();
+        public System.Data.DataTable GetConsentTypes() {
+            return base.Channel.GetConsentTypes();
         }
         
         public void AddProcedures(string procedureName, int consentTypeID) {
             base.Channel.AddProcedures(procedureName, consentTypeID);
         }
         
-        public void UpdateProcedures(string procedureName, int procedureID) {
-            base.Channel.UpdateProcedures(procedureName, procedureID);
+        public void UpdateProcedureName(string procedureName, int procedureID) {
+            base.Channel.UpdateProcedureName(procedureName, procedureID);
         }
         
         public void DeleteProcedure(int Id) {

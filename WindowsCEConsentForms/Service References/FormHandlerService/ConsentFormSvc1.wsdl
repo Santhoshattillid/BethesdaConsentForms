@@ -57,11 +57,11 @@
   <wsdl:message name="ConsentFormSvc_GetProcedures_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetProceduresResponse" />
   </wsdl:message>
-  <wsdl:message name="ConsentFormSvc_GetConsentType_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetConsentType" />
+  <wsdl:message name="ConsentFormSvc_GetConsentTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConsentTypes" />
   </wsdl:message>
-  <wsdl:message name="ConsentFormSvc_GetConsentType_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetConsentTypeResponse" />
+  <wsdl:message name="ConsentFormSvc_GetConsentTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConsentTypesResponse" />
   </wsdl:message>
   <wsdl:message name="ConsentFormSvc_AddProcedures_InputMessage">
     <wsdl:part name="parameters" element="tns:AddProcedures" />
@@ -69,11 +69,11 @@
   <wsdl:message name="ConsentFormSvc_AddProcedures_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddProceduresResponse" />
   </wsdl:message>
-  <wsdl:message name="ConsentFormSvc_UpdateProcedures_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateProcedures" />
+  <wsdl:message name="ConsentFormSvc_UpdateProcedureName_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProcedureName" />
   </wsdl:message>
-  <wsdl:message name="ConsentFormSvc_UpdateProcedures_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateProceduresResponse" />
+  <wsdl:message name="ConsentFormSvc_UpdateProcedureName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProcedureNameResponse" />
   </wsdl:message>
   <wsdl:message name="ConsentFormSvc_DeleteProcedure_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteProcedure" />
@@ -156,17 +156,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/GetProcedures" message="tns:ConsentFormSvc_GetProcedures_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/GetProceduresResponse" message="tns:ConsentFormSvc_GetProcedures_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetConsentType">
-      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/GetConsentType" message="tns:ConsentFormSvc_GetConsentType_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/GetConsentTypeResponse" message="tns:ConsentFormSvc_GetConsentType_OutputMessage" />
+    <wsdl:operation name="GetConsentTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/GetConsentTypes" message="tns:ConsentFormSvc_GetConsentTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/GetConsentTypesResponse" message="tns:ConsentFormSvc_GetConsentTypes_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddProcedures">
       <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/AddProcedures" message="tns:ConsentFormSvc_AddProcedures_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/AddProceduresResponse" message="tns:ConsentFormSvc_AddProcedures_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateProcedures">
-      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/UpdateProcedures" message="tns:ConsentFormSvc_UpdateProcedures_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/UpdateProceduresResponse" message="tns:ConsentFormSvc_UpdateProcedures_OutputMessage" />
+    <wsdl:operation name="UpdateProcedureName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/UpdateProcedureName" message="tns:ConsentFormSvc_UpdateProcedureName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/UpdateProcedureNameResponse" message="tns:ConsentFormSvc_UpdateProcedureName_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteProcedure">
       <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/DeleteProcedure" message="tns:ConsentFormSvc_DeleteProcedure_InputMessage" />
@@ -275,8 +275,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetConsentType">
-      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/GetConsentType" style="document" />
+    <wsdl:operation name="GetConsentTypes">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/GetConsentTypes" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -293,8 +293,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateProcedures">
-      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/UpdateProcedures" style="document" />
+    <wsdl:operation name="UpdateProcedureName">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/UpdateProcedureName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

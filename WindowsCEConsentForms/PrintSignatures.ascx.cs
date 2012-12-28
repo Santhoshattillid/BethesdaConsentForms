@@ -22,6 +22,8 @@ namespace WindowsCEConsentForms
             {
                 var formHandlerServiceClient = new ConsentFormSvcClient();
                 var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
+                var treatment = formHandlerServiceClient.GetTreatment(patientId, ConsentType);
+
                 if (patientDetails != null)
                 {
                     LblPatientName.Text = patientDetails.name;
@@ -39,7 +41,7 @@ namespace WindowsCEConsentForms
                     LblTranslatedDate.Text = DateTime.Now.ToString("MMM dd yyyy");
                     LblTranslatedTime.Text = DateTime.Now.ToLongTimeString();
 
-                    if (!string.IsNullOrEmpty(LblPatientUnableToSignBecause.Text.Trim()))
+                    if (treatment._isPatientUnableSign)
                     {
                         PnlPatientSignature.Visible = false;
                         PnlPatientUnableToSignBecause.Visible = true;
@@ -57,9 +59,8 @@ namespace WindowsCEConsentForms
                     ImgWitnessSignature1.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.WitnessSignature1 + "&ConsentType=" + ConsentType.ToString();
                     ImgWitnessSignature2.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.WitnessSignature2 + "&ConsentType=" + ConsentType.ToString();
 
-                    LblTranslatedBy.Text = patientDetails.Translatedby;
+                    LblTranslatedBy.Text = treatment._translatedBy;
 
-                    var treatment = formHandlerServiceClient.GetTreatment(patientId, ConsentType);
                     foreach (Signatures signatures in treatment._signatureses)
                     {
                         switch (signatures._signatureType)

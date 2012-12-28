@@ -164,7 +164,7 @@
     }
 
     // removing procedure box
-    $('.RemoveDocAndProc').hide();
+    $('.RemoveDocAndProc:first').hide();
 
     // Patient not able to sign check box handling here
     //    var checkbox = $('input[id$="ChkPatientisUnableToSign"]');
