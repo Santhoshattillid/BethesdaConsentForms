@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ConsentFormSvc" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ConsentFormSvc" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -9,6 +9,18 @@
       <xsd:import schemaLocation="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="ConsentFormSvc_SetDBConnection_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetDBConnection" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_SetDBConnection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetDBConnectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_SetBethesdaDBConnection_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetBethesdaDBConnection" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_SetBethesdaDBConnection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetBethesdaDBConnectionResponse" />
+  </wsdl:message>
   <wsdl:message name="ConsentFormSvc_AddTreatment_InputMessage">
     <wsdl:part name="parameters" element="tns:AddTreatment" />
   </wsdl:message>
@@ -99,6 +111,12 @@
   <wsdl:message name="ConsentFormSvc_GetDoctorDetail_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDoctorDetailResponse" />
   </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_BMHConsentGetPhysicianList_InputMessage">
+    <wsdl:part name="parameters" element="tns:BMHConsentGetPhysicianList" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_BMHConsentGetPhysicianList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BMHConsentGetPhysicianListResponse" />
+  </wsdl:message>
   <wsdl:message name="ConsentFormSvc_GetAssociatedDoctors_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAssociatedDoctors" />
   </wsdl:message>
@@ -124,6 +142,14 @@
     <wsdl:part name="parameters" element="tns:IsValidEmployeeResponse" />
   </wsdl:message>
   <wsdl:portType name="ConsentFormSvc">
+    <wsdl:operation name="SetDBConnection">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/SetDBConnection" message="tns:ConsentFormSvc_SetDBConnection_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/SetDBConnectionResponse" message="tns:ConsentFormSvc_SetDBConnection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetBethesdaDBConnection">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/SetBethesdaDBConnection" message="tns:ConsentFormSvc_SetBethesdaDBConnection_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/SetBethesdaDBConnectionResponse" message="tns:ConsentFormSvc_SetBethesdaDBConnection_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AddTreatment">
       <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/AddTreatment" message="tns:ConsentFormSvc_AddTreatment_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/AddTreatmentResponse" message="tns:ConsentFormSvc_AddTreatment_OutputMessage" />
@@ -184,6 +210,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/GetDoctorDetail" message="tns:ConsentFormSvc_GetDoctorDetail_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/GetDoctorDetailResponse" message="tns:ConsentFormSvc_GetDoctorDetail_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="BMHConsentGetPhysicianList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/BMHConsentGetPhysicianList" message="tns:ConsentFormSvc_BMHConsentGetPhysicianList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/BMHConsentGetPhysicianListResponse" message="tns:ConsentFormSvc_BMHConsentGetPhysicianList_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAssociatedDoctors">
       <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/GetAssociatedDoctors" message="tns:ConsentFormSvc_GetAssociatedDoctors_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/GetAssociatedDoctorsResponse" message="tns:ConsentFormSvc_GetAssociatedDoctors_OutputMessage" />
@@ -203,6 +233,24 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ConsentFormSvc" type="tns:ConsentFormSvc">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetDBConnection">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/SetDBConnection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBethesdaDBConnection">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/SetBethesdaDBConnection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AddTreatment">
       <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/AddTreatment" style="document" />
       <wsdl:input>
@@ -331,6 +379,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetDoctorDetail">
       <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/GetDoctorDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BMHConsentGetPhysicianList">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/BMHConsentGetPhysicianList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

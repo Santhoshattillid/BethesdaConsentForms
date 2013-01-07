@@ -2,6 +2,30 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc" />
   <xs:import schemaLocation="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="SetDBConnection">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="connectionString" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDBConnectionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetBethesdaDBConnection">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="connectionString" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetBethesdaDBConnectionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AddTreatment">
     <xs:complexType>
       <xs:sequence>
@@ -240,6 +264,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="BMHConsentGetPhysicianList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc" minOccurs="0" name="consentType" type="q13:ConsentType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BMHConsentGetPhysicianListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc" minOccurs="0" name="BMHConsentGetPhysicianListResult" nillable="true" type="q14:ArrayOfDoctorDetails" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAssociatedDoctors">
     <xs:complexType>
       <xs:sequence>
@@ -250,14 +288,14 @@
   <xs:element name="GetAssociatedDoctorsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc" minOccurs="0" name="GetAssociatedDoctorsResult" nillable="true" type="q13:ArrayOfAssociatedDoctorDetails" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc" minOccurs="0" name="GetAssociatedDoctorsResult" nillable="true" type="q15:ArrayOfAssociatedDoctorDetails" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SavePdFFolderPath">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc" minOccurs="0" name="consenttype" type="q14:ConsentType" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc" minOccurs="0" name="consenttype" type="q16:ConsentType" />
         <xs:element minOccurs="0" name="FolderPath" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -270,7 +308,7 @@
   <xs:element name="GetPdFFolderPath">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc" minOccurs="0" name="consenttype" type="q15:ConsentType" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc" minOccurs="0" name="consenttype" type="q17:ConsentType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
