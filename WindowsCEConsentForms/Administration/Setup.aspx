@@ -106,17 +106,17 @@
                 </div>
                 <div class="leftBox">
                     <asp:RadioButton runat="server" ID="RdoSqlServerAuthenticationExternal" Text="Sql Server Authentication"
-                        GroupName="authenticationExternal" OnCheckedChanged="RdoSqlServerAuthentication_CheckedChanged"
+                        GroupName="authenticationExternal" OnCheckedChanged="RdoWindowsAuthenticationExternal_CheckedChanged"
                         AutoPostBack="True" />
                     <asp:RadioButton runat="server" ID="RdoWindowsAuthenticationExternal" Text="Windows Authentication"
-                        GroupName="authenticationExternal" OnCheckedChanged="RdoWindowsAuthentication_CheckedChanged"
+                        GroupName="authenticationExternal" OnCheckedChanged="RdoWindowsAuthenticationExternal_CheckedChanged"
                         AutoPostBack="True" />
                 </div>
                 <div class="clear">
                 </div>
             </li>
             <li>
-                <asp:Panel runat="server" ID="Panel1">
+                <asp:Panel runat="server" ID="PnlCredentialsExternal1">
                     <div class="adminHeading leftBox content-heading">
                         Username
                     </div>
@@ -128,7 +128,7 @@
                 </asp:Panel>
             </li>
             <li>
-                <asp:Panel runat="server" ID="Panel2">
+                <asp:Panel runat="server" ID="PnlCredentialsExternal2">
                     <div class="adminHeading leftBox content-heading">
                         Password
                     </div>

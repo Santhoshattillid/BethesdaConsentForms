@@ -38,6 +38,12 @@ namespace WindowsCEConsentForms.Administration
             TxtServerName.Text = string.Empty;
             TxtUsername.Text = string.Empty;
             TxtPassword.Text = string.Empty;
+
+            TxtDatabasenameExternal.Text = string.Empty;
+            TxtServerNameExternal.Text = string.Empty;
+            TxtUsernameExternal.Text = string.Empty;
+            TxtPasswordExternal.Text = string.Empty;
+
             TxtBloodConsentOrRefusalExportPath.Text = string.Empty;
             TxtCardiovascularExportPath.Text = string.Empty;
             TxtEndoscopyExportPath.Text = string.Empty;
@@ -88,6 +94,9 @@ namespace WindowsCEConsentForms.Administration
                             config.Save(ConfigurationSaveMode.Modified);
                             ConfigurationManager.RefreshSection("appSettings");
 
+                            var formHanlderServices = new ConsentFormSvcClient();
+                            formHanlderServices.SetDBConnection(connectionString);
+
                             if (CreateDatabase(TxtDatabasename.Text.Trim(), connectionString))
                             {
                                 config.AppSettings.Settings.Remove("DBSetupStatus");
@@ -103,6 +112,38 @@ namespace WindowsCEConsentForms.Administration
                         }
                         else
                             LblError.Text = "DB Information Already configured.";
+                    }
+                    else
+                        LblError.Text = "Please input required fields and submit.";
+                }
+                catch (Exception ex)
+                {
+                    LblError.Text = "Unable to create database due to [" + ex.Message + "]";
+                }
+
+                try
+                {
+                    if (!string.IsNullOrEmpty(TxtServerNameExternal.Text.Trim()) &&
+                        !string.IsNullOrEmpty(TxtDatabasenameExternal.Text.Trim()) ||
+
+                        (RdoSqlServerAuthenticationExternal.Checked && !string.IsNullOrEmpty(TxtUsernameExternal.Text.Trim()) && !string.IsNullOrEmpty(TxtPasswordExternal.Text.Trim())))
+                    {
+                        string connectionString;
+                        if (RdoSqlServerAuthenticationExternal.Checked)
+                            connectionString = @"server=" + TxtServerNameExternal.Text.Trim() + ";database=master;uid=" +
+                               TxtUsernameExternal.Text.Trim() + ";pwd=" + TxtPasswordExternal.Text.Trim();
+                        else
+                            connectionString = "Server=" + TxtServerNameExternal.Text.Trim() + ";Database=" + TxtDatabasenameExternal.Text.Trim() + ";Trusted_Connection=True;";
+                        Configuration config =
+                            WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
+                        config.AppSettings.Settings.Remove("BethesdaConnectionString");
+                        config.AppSettings.Settings.Add("BethesdaConnectionString", connectionString);
+                        config.Save(ConfigurationSaveMode.Modified);
+                        ConfigurationManager.RefreshSection("appSettings");
+
+                        var formHanlderServices = new ConsentFormSvcClient();
+                        formHanlderServices.SetBethesdaDBConnection(connectionString);
+
                     }
                     else
                         LblError.Text = "Please input required fields and submit.";
@@ -179,10 +220,21 @@ namespace WindowsCEConsentForms.Administration
             SetCredentialPanel();
         }
 
+        protected void RdoWindowsAuthenticationExternal_CheckedChanged(object sender, EventArgs e)
+        {
+            SetCredentialPanelExternal();
+        }
+
         private void SetCredentialPanel()
         {
             PnlCredentials1.Visible = RdoSqlServerAuthentication.Checked;
             PnlCredentials2.Visible = RdoSqlServerAuthentication.Checked;
+        }
+
+        private void SetCredentialPanelExternal()
+        {
+            PnlCredentialsExternal1.Visible = RdoSqlServerAuthenticationExternal.Checked;
+            PnlCredentialsExternal2.Visible = RdoSqlServerAuthenticationExternal.Checked;
         }
     }
 }

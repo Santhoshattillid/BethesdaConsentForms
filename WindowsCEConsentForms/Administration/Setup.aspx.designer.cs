@@ -130,13 +130,13 @@ namespace WindowsCEConsentForms.Administration {
         protected global::System.Web.UI.WebControls.RadioButton RdoWindowsAuthenticationExternal;
         
         /// <summary>
-        /// Panel1 control.
+        /// PnlCredentialsExternal1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.Panel PnlCredentialsExternal1;
         
         /// <summary>
         /// TxtUsernameExternal control.
@@ -148,13 +148,13 @@ namespace WindowsCEConsentForms.Administration {
         protected global::System.Web.UI.WebControls.TextBox TxtUsernameExternal;
         
         /// <summary>
-        /// Panel2 control.
+        /// PnlCredentialsExternal2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel2;
+        protected global::System.Web.UI.WebControls.Panel PnlCredentialsExternal2;
         
         /// <summary>
         /// TxtPasswordExternal control.
