@@ -15,6 +15,12 @@
   <wsdl:message name="ConsentFormSvc_SetDBConnection_OutputMessage">
     <wsdl:part name="parameters" element="tns:SetDBConnectionResponse" />
   </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_SetBethesdaDBConnection_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetBethesdaDBConnection" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_SetBethesdaDBConnection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetBethesdaDBConnectionResponse" />
+  </wsdl:message>
   <wsdl:message name="ConsentFormSvc_AddTreatment_InputMessage">
     <wsdl:part name="parameters" element="tns:AddTreatment" />
   </wsdl:message>
@@ -105,6 +111,12 @@
   <wsdl:message name="ConsentFormSvc_GetDoctorDetail_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDoctorDetailResponse" />
   </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_BMHConsentGetPhysicianList_InputMessage">
+    <wsdl:part name="parameters" element="tns:BMHConsentGetPhysicianList" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_BMHConsentGetPhysicianList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BMHConsentGetPhysicianListResponse" />
+  </wsdl:message>
   <wsdl:message name="ConsentFormSvc_GetAssociatedDoctors_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAssociatedDoctors" />
   </wsdl:message>
@@ -133,6 +145,10 @@
     <wsdl:operation name="SetDBConnection">
       <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/SetDBConnection" message="tns:ConsentFormSvc_SetDBConnection_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/SetDBConnectionResponse" message="tns:ConsentFormSvc_SetDBConnection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetBethesdaDBConnection">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/SetBethesdaDBConnection" message="tns:ConsentFormSvc_SetBethesdaDBConnection_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/SetBethesdaDBConnectionResponse" message="tns:ConsentFormSvc_SetBethesdaDBConnection_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddTreatment">
       <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/AddTreatment" message="tns:ConsentFormSvc_AddTreatment_InputMessage" />
@@ -194,6 +210,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/GetDoctorDetail" message="tns:ConsentFormSvc_GetDoctorDetail_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/GetDoctorDetailResponse" message="tns:ConsentFormSvc_GetDoctorDetail_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="BMHConsentGetPhysicianList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/BMHConsentGetPhysicianList" message="tns:ConsentFormSvc_BMHConsentGetPhysicianList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/BMHConsentGetPhysicianListResponse" message="tns:ConsentFormSvc_BMHConsentGetPhysicianList_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAssociatedDoctors">
       <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/GetAssociatedDoctors" message="tns:ConsentFormSvc_GetAssociatedDoctors_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/GetAssociatedDoctorsResponse" message="tns:ConsentFormSvc_GetAssociatedDoctors_OutputMessage" />
@@ -215,6 +235,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="SetDBConnection">
       <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/SetDBConnection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBethesdaDBConnection">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/SetBethesdaDBConnection" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -350,6 +379,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetDoctorDetail">
       <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/GetDoctorDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BMHConsentGetPhysicianList">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/BMHConsentGetPhysicianList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

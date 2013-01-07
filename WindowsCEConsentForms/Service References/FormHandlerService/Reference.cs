@@ -1119,6 +1119,9 @@ namespace WindowsCEConsentForms.FormHandlerService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/SetDBConnection", ReplyAction="http://tempuri.org/ConsentFormSvc/SetDBConnectionResponse")]
         void SetDBConnection(string connectionString);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/SetBethesdaDBConnection", ReplyAction="http://tempuri.org/ConsentFormSvc/SetBethesdaDBConnectionResponse")]
+        void SetBethesdaDBConnection(string connectionString);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/AddTreatment", ReplyAction="http://tempuri.org/ConsentFormSvc/AddTreatmentResponse")]
         void AddTreatment(WindowsCEConsentForms.FormHandlerService.Treatment treatment);
         
@@ -1164,6 +1167,9 @@ namespace WindowsCEConsentForms.FormHandlerService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/GetDoctorDetail", ReplyAction="http://tempuri.org/ConsentFormSvc/GetDoctorDetailResponse")]
         WindowsCEConsentForms.FormHandlerService.DoctorDetails GetDoctorDetail(int ID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/BMHConsentGetPhysicianList", ReplyAction="http://tempuri.org/ConsentFormSvc/BMHConsentGetPhysicianListResponse")]
+        WindowsCEConsentForms.FormHandlerService.DoctorDetails[] BMHConsentGetPhysicianList(WindowsCEConsentForms.FormHandlerService.ConsentType consentType);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/GetAssociatedDoctors", ReplyAction="http://tempuri.org/ConsentFormSvc/GetAssociatedDoctorsResponse")]
         WindowsCEConsentForms.FormHandlerService.AssociatedDoctorDetails[] GetAssociatedDoctors(int primaryDoctorID);
         
@@ -1206,6 +1212,10 @@ namespace WindowsCEConsentForms.FormHandlerService {
         
         public void SetDBConnection(string connectionString) {
             base.Channel.SetDBConnection(connectionString);
+        }
+        
+        public void SetBethesdaDBConnection(string connectionString) {
+            base.Channel.SetBethesdaDBConnection(connectionString);
         }
         
         public void AddTreatment(WindowsCEConsentForms.FormHandlerService.Treatment treatment) {
@@ -1266,6 +1276,10 @@ namespace WindowsCEConsentForms.FormHandlerService {
         
         public WindowsCEConsentForms.FormHandlerService.DoctorDetails GetDoctorDetail(int ID) {
             return base.Channel.GetDoctorDetail(ID);
+        }
+        
+        public WindowsCEConsentForms.FormHandlerService.DoctorDetails[] BMHConsentGetPhysicianList(WindowsCEConsentForms.FormHandlerService.ConsentType consentType) {
+            return base.Channel.BMHConsentGetPhysicianList(consentType);
         }
         
         public WindowsCEConsentForms.FormHandlerService.AssociatedDoctorDetails[] GetAssociatedDoctors(int primaryDoctorID) {

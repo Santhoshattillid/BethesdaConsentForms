@@ -39,6 +39,12 @@ namespace WindowsCEConsentForms.Administration
             TxtServerName.Text = string.Empty;
             TxtUsername.Text = string.Empty;
             TxtPassword.Text = string.Empty;
+
+            TxtDatabasenameExternal.Text = string.Empty;
+            TxtServerNameExternal.Text = string.Empty;
+            TxtUsernameExternal.Text = string.Empty;
+            TxtPasswordExternal.Text = string.Empty;
+
             TxtBloodConsentOrRefusalExportPath.Text = string.Empty;
             TxtCardiovascularExportPath.Text = string.Empty;
             TxtEndoscopyExportPath.Text = string.Empty;
@@ -126,11 +132,6 @@ namespace WindowsCEConsentForms.Administration
 
                         LblError.Text += "<br /> Database Connection string saved successfully";
 
-                        if (CreateDatabase(TxtDatabasename.Text.Trim(), connectionString))
-                        {
-                            LblError.Text += "<br /> Database Created succefully";
-                        }
-
                         config.AppSettings.Settings.Remove("DBSetupStatus");
                         config.AppSettings.Settings.Add("DBSetupStatus", "1");
                         connectionString = connectionString.Replace(connectionString.Split('=')[2], TxtDatabasename.Text + ";uid");
@@ -139,7 +140,23 @@ namespace WindowsCEConsentForms.Administration
                         try
                         {
                             if (!string.IsNullOrEmpty(TxtServiceURL.Text.Trim()))
+                                if (RdoSqlServerAuthentication.Checked)
+                                    connectionString = @"server=" + TxtServerName.Text.Trim() + ";database=master;uid=" +
+                                       TxtUsername.Text.Trim() + ";pwd=" + TxtPassword.Text.Trim();
+                                else
+                                    connectionString = "Server=" + TxtServerName.Text.Trim() + ";Database=" + TxtDatabasename.Text.Trim() + ";Trusted_Connection=True;";
+                            config.AppSettings.Settings.Remove("ConnectionString");
+                            config.AppSettings.Settings.Add("ConnectionString", connectionString);
+                            config.Save(ConfigurationSaveMode.Modified);
+                            ConfigurationManager.RefreshSection("appSettings");
+
+                            var formHanlderServices = new ConsentFormSvcClient();
+                            formHanlderServices.SetDBConnection(connectionString);
+
+                            if (CreateDatabase(TxtDatabasename.Text.Trim(), connectionString))
                             {
+                                LblError.Text += "<br /> Database Created succefully";
+
                                 // testing the given WCF url with a sample method
                                 var endpoint = new EndpointAddress(new Uri(TxtServiceURL.Text.Trim()));
                                 var consentFormSvcClient = new ConsentFormSvcClient(new BasicHttpBinding(), endpoint);
@@ -213,6 +230,62 @@ namespace WindowsCEConsentForms.Administration
                 {
                     LblError.Text += "<br /> Unable to create database due to [" + ex.Message + "]";
                 }
+
+                try
+                {
+                    if (!string.IsNullOrEmpty(TxtServerNameExternal.Text.Trim()) &&
+                        !string.IsNullOrEmpty(TxtDatabasenameExternal.Text.Trim()) ||
+
+                        (RdoSqlServerAuthenticationExternal.Checked && !string.IsNullOrEmpty(TxtUsernameExternal.Text.Trim()) && !string.IsNullOrEmpty(TxtPasswordExternal.Text.Trim())))
+                    {
+                        string connectionString;
+                        if (RdoSqlServerAuthenticationExternal.Checked)
+                            connectionString = @"server=" + TxtServerNameExternal.Text.Trim() + ";database=master;uid=" +
+                               TxtUsernameExternal.Text.Trim() + ";pwd=" + TxtPasswordExternal.Text.Trim();
+                        else
+                            connectionString = "Server=" + TxtServerNameExternal.Text.Trim() + ";Database=" + TxtDatabasenameExternal.Text.Trim() + ";Trusted_Connection=True;";
+                        config.AppSettings.Settings.Remove("BethesdaConnectionString");
+                        config.AppSettings.Settings.Add("BethesdaConnectionString", connectionString);
+                        config.Save(ConfigurationSaveMode.Modified);
+                        ConfigurationManager.RefreshSection("appSettings");
+
+                        var formHanlderServices = new ConsentFormSvcClient();
+                        formHanlderServices.SetBethesdaDBConnection(connectionString);
+                    }
+                    else
+                        LblError.Text = "Please input required fields and submit.";
+                }
+                catch (Exception ex)
+                {
+                    LblError.Text = "Unable to create database due to [" + ex.Message + "]";
+                }
+            }
+
+            //setting exports path
+            try
+            {
+                if (!string.IsNullOrEmpty(TxtSurgicalExportPath.Text.Trim())
+                    && !string.IsNullOrEmpty(TxtBloodConsentOrRefusalExportPath.Text.Trim())
+                    && !string.IsNullOrEmpty(TxtCardiovascularExportPath.Text.Trim())
+                    && !string.IsNullOrEmpty(TxtEndoscopyExportPath.Text.Trim())
+                    && !string.IsNullOrEmpty(TxtOutsideORExportPath.Text.Trim())
+                    && !string.IsNullOrEmpty(TxtPICCExportPath.Text.Trim())
+                    && !string.IsNullOrEmpty(TxtPlasmanApheresisExportPath.Text.Trim()))
+                {
+                    var formHanlderServices = new ConsentFormSvcClient();
+                    formHanlderServices.SavePdFFolderPath(ConsentType.Surgical, TxtSurgicalExportPath.Text);
+                    formHanlderServices.SavePdFFolderPath(ConsentType.BloodConsentOrRefusal, TxtBloodConsentOrRefusalExportPath.Text);
+                    formHanlderServices.SavePdFFolderPath(ConsentType.Cardiovascular, TxtCardiovascularExportPath.Text);
+                    formHanlderServices.SavePdFFolderPath(ConsentType.Endoscopy, TxtEndoscopyExportPath.Text);
+                    formHanlderServices.SavePdFFolderPath(ConsentType.OutsideOR, TxtOutsideORExportPath.Text);
+                    formHanlderServices.SavePdFFolderPath(ConsentType.PICC, TxtPICCExportPath.Text);
+                    formHanlderServices.SavePdFFolderPath(ConsentType.PlasmanApheresis, TxtPlasmanApheresisExportPath.Text);
+                    LblError.Text = "Export paths saved successfully.";
+                }
+            }
+            catch (Exception ex)
+            {
+                LblError.Text = "<br /> Unable to set exports path due to [" + ex.Message + "]";
             }
         }
 
@@ -260,10 +333,21 @@ namespace WindowsCEConsentForms.Administration
             SetCredentialPanel();
         }
 
+        protected void RdoWindowsAuthenticationExternal_CheckedChanged(object sender, EventArgs e)
+        {
+            SetCredentialPanelExternal();
+        }
+
         private void SetCredentialPanel()
         {
             PnlCredentials1.Visible = RdoSqlServerAuthentication.Checked;
             PnlCredentials2.Visible = RdoSqlServerAuthentication.Checked;
+        }
+
+        private void SetCredentialPanelExternal()
+        {
+            PnlCredentialsExternal1.Visible = RdoSqlServerAuthenticationExternal.Checked;
+            PnlCredentialsExternal2.Visible = RdoSqlServerAuthenticationExternal.Checked;
         }
     }
 } ;
