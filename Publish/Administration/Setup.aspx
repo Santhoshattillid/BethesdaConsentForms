@@ -28,7 +28,7 @@
             </li>
             <li>
                 <h3>
-                    Database Information</h3>
+                    Internal Database Information</h3>
             </li>
             <li>
                 <div class="adminHeading leftBox content-heading">
@@ -89,6 +89,71 @@
                     </div>
                 </asp:Panel>
             </li>
+            <!--start-->
+            <li>
+                <h3>
+                    External Database Information</h3>
+            </li>
+            <li>
+                <div class="adminHeading leftBox content-heading">
+                    SQL Server
+                </div>
+                <div class="leftBox">
+                    <asp:TextBox runat="server" ID="TxtServerNameExternal"></asp:TextBox>
+                </div>
+                <div class="clear">
+                </div>
+            </li>
+            <li>
+                <div class="adminHeading leftBox content-heading">
+                    Database name
+                </div>
+                <div class="leftBox">
+                    <asp:TextBox runat="server" ID="TxtDatabasenameExternal"></asp:TextBox>
+                </div>
+                <div class="clear">
+                </div>
+            </li>
+            <li>
+                <div class="adminHeading leftBox content-heading">
+                    Authentication Mode
+                </div>
+                <div class="leftBox">
+                    <asp:RadioButton runat="server" ID="RdoSqlServerAuthenticationExternal" Text="Sql Server Authentication"
+                        GroupName="authenticationExternal" OnCheckedChanged="RdoSqlServerAuthentication_CheckedChanged"
+                        AutoPostBack="True" />
+                    <asp:RadioButton runat="server" ID="RdoWindowsAuthenticationExternal" Text="Windows Authentication"
+                        GroupName="authenticationExternal" OnCheckedChanged="RdoWindowsAuthentication_CheckedChanged"
+                        AutoPostBack="True" />
+                </div>
+                <div class="clear">
+                </div>
+            </li>
+            <li>
+                <asp:Panel runat="server" ID="Panel1">
+                    <div class="adminHeading leftBox content-heading">
+                        Username
+                    </div>
+                    <div class="leftBox">
+                        <asp:TextBox runat="server" ID="TxtUsernameExternal"></asp:TextBox>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </asp:Panel>
+            </li>
+            <li>
+                <asp:Panel runat="server" ID="Panel2">
+                    <div class="adminHeading leftBox content-heading">
+                        Password
+                    </div>
+                    <div class="leftBox">
+                        <asp:TextBox runat="server" ID="TxtPasswordExternal" TextMode="Password"></asp:TextBox>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </asp:Panel>
+            </li>
+            <!--end-->
         </ul>
     </asp:Panel>
     <asp:Panel runat="server" ID="PnlFolderConfiguration">
@@ -174,22 +239,22 @@
             var passwordElement = $("#" + "<%= TxtPassword.ClientID%>");
             var serviceUrlElement = $("#" + "<%= TxtServiceURL.ClientID%>");
             var errorInfoElement = $("#" + "<%= LblError.ClientID%>");
-            if (dataSourceElement.size()> 0 && $.trim(dataSourceElement.val()) == "") {
+            if (dataSourceElement.size() > 0 && $.trim(dataSourceElement.val()) == "") {
                 errorInfoElement.html("Datasource Field can not be blank");
                 dataSourceElement.focus();
                 return false;
             }
-            if (databaseNameElement.size()> 0 && $.trim(databaseNameElement.val()) == "") {
+            if (databaseNameElement.size() > 0 && $.trim(databaseNameElement.val()) == "") {
                 errorInfoElement.html("Database Field can not be blank");
                 databaseNameElement.focus();
                 return false;
             }
-            if (usernameElement.size()> 0 && $.trim(usernameElement.val()) == "") {
+            if (usernameElement.size() > 0 && $.trim(usernameElement.val()) == "") {
                 errorInfoElement.html("User Name can not be blank");
                 usernameElement.focus();
                 return false;
             }
-            if (passwordElement.size()> 0 && $.trim(passwordElement.val()) == "") {
+            if (passwordElement.size() > 0 && $.trim(passwordElement.val()) == "") {
                 errorInfoElement.html("Password can not be blank");
                 passwordElement.focus();
                 return false;

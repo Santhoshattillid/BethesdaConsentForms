@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Configuration;
-using System.Data;
-using System.ServiceModel;
-using System.Web;
-using System.Web.Configuration;
 using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms.BloodConsentOrRefusal

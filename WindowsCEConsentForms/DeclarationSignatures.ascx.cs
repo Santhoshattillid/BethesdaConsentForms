@@ -120,8 +120,8 @@ namespace WindowsCEConsentForms
                     outPut += " <br /> Please input PICC  nurse name.";
             }
 
-            if (string.IsNullOrEmpty(TxtTranslatedBy.Text.Trim()))
-                outPut += " <br /> Please input interpreted by name.";
+            //if (string.IsNullOrEmpty(TxtTranslatedBy.Text.Trim()))
+            //    outPut += " <br /> Please input interpreted by name.";
 
             LblError.Text += outPut;
         }
