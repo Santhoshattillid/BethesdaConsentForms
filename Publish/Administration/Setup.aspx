@@ -6,6 +6,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <ul class="content">
+        <li>
+            <h3>
+                WCF Service Configuration</h3>
+        </li>
+        <li>
+            <div class="content-heading">
+                Service URL
+            </div>
+            <div>
+                <asp:TextBox runat="server" ID="TxtServiceURL"></asp:TextBox>
+            </div>
+        </li>
+    </ul>
     <asp:Panel runat="server" ID="PnlDBConfiguration">
         <ul class="content">
             <li class="center">
@@ -158,6 +172,7 @@
             var databaseNameElement = $("#" + "<%= TxtDatabasename.ClientID%>");
             var usernameElement = $("#" + "<%= TxtUsername.ClientID%>");
             var passwordElement = $("#" + "<%= TxtPassword.ClientID%>");
+            var serviceUrlElement = $("#" + "<%= TxtServiceURL.ClientID%>");
             var errorInfoElement = $("#" + "<%= LblError.ClientID%>");
             if (dataSourceElement.size()> 0 && $.trim(dataSourceElement.val()) == "") {
                 errorInfoElement.html("Datasource Field can not be blank");
@@ -177,6 +192,11 @@
             if (passwordElement.size()> 0 && $.trim(passwordElement.val()) == "") {
                 errorInfoElement.html("Password can not be blank");
                 passwordElement.focus();
+                return false;
+            }
+            if (serviceUrlElement.size()> 0 && $.trim(serviceUrlElement.val()) == "") {
+                serviceUrlElement.html("WCF Service URL can not be blank");
+                serviceUrlElement.focus();
                 return false;
             }
             return true;

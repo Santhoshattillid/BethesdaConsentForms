@@ -69,7 +69,7 @@ namespace WindowsCEConsentForms.PICC
                     }
                 };
 
-                var formHandlerServiceClient = new ConsentFormSvcClient();
+                var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
                 formHandlerServiceClient.AddTreatment(treatment);
                 Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId);
 

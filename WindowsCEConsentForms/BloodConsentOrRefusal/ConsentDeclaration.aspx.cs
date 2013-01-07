@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.ServiceModel;
+using System.Web;
+using System.Web.Configuration;
 using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms.BloodConsentOrRefusal
@@ -76,9 +80,9 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
                     }
                 };
 
-                var formHandlerServiceClient = new ConsentFormSvcClient();
-                formHandlerServiceClient.AddTreatment(treatment);
-                Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId);
+                var consentFormSvcClient = Utilities.GetConsentFormSvcClient();
+                consentFormSvcClient.AddTreatment(treatment);
+                Utilities.GeneratePdfAndUploadToSharePointSite(consentFormSvcClient, consentType, patientId);
 
                 Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));
             }

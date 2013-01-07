@@ -1,4 +1,9 @@
-﻿using System.Data;
+﻿using System;
+using System.Configuration;
+using System.Data;
+using System.ServiceModel;
+using System.Web;
+using System.Web.Configuration;
 using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms
@@ -59,7 +64,7 @@ namespace WindowsCEConsentForms
 
         public static void GeneratePdfAndUploadToSharePointSite(ConsentFormSvcClient formHandlerServiceClient, ConsentType consentType, string patientId)
         {
-            formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/" + consentType + @"/ConsentPrint.aspx?PatientId=" + patientId, patientId, consentType);
+            //formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/" + consentType + @"/ConsentPrint.aspx?PatientId=" + patientId, patientId, consentType);
         }
 
         public static string GetAssociatedDoctors(int primaryPhysicianId)
@@ -67,7 +72,7 @@ namespace WindowsCEConsentForms
             string outPut = string.Empty;
             if (primaryPhysicianId != 0)
             {
-                var formHandlerServiceClient = new ConsentFormSvcClient();
+                var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
                 var associatedDoctors = formHandlerServiceClient.GetAssociatedDoctors(primaryPhysicianId);
                 if (associatedDoctors != null)
                 {
@@ -84,14 +89,14 @@ namespace WindowsCEConsentForms
 
         public static string GetPrimaryDoctorName(int primaryPhysicianId)
         {
-            var formHandlerServiceClient = new ConsentFormSvcClient();
+            var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
             var primaryDoctor = formHandlerServiceClient.GetDoctorDetail(primaryPhysicianId);
             return primaryDoctor.Lname + " " + primaryDoctor.Fname;
         }
 
         public static PatientDetail GetPatientName(string patientId, string consentType)
         {
-            var formHandlerServiceClient = new ConsentFormSvcClient();
+            var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
             return formHandlerServiceClient.GetPatientDetail(patientId, consentType);
         }
 
@@ -116,6 +121,13 @@ namespace WindowsCEConsentForms
                 default:
                     return string.Empty;
             }
+        }
+
+        public static ConsentFormSvcClient GetConsentFormSvcClient()
+        {
+            Configuration config = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
+            var endpoint = new EndpointAddress(new Uri(config.AppSettings.Settings["ServiceURL"].Value));
+            return new ConsentFormSvcClient(new BasicHttpBinding(), endpoint);
         }
     }
 

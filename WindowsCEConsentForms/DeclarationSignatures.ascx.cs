@@ -145,7 +145,7 @@ namespace WindowsCEConsentForms
                 var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.PatientAuthorizeSign.ToString()]); // Patient Signature
                 outPut.Add(new Signatures
                 {
-                    _name = string.Empty,
+                    _name = TxtAuthorizedPersonName.Text,
                     _signatureContent = Encoding.ASCII.GetString(bytes),
                     _signatureType = SignatureType.PatientAuthorizeSign
                 });
@@ -157,7 +157,7 @@ namespace WindowsCEConsentForms
                 var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.WitnessSignature1.ToString()]);
                 outPut.Add(new Signatures
                 {
-                    _name = string.Empty,
+                    _name = TxtWitnessSignature1Name.Text,
                     _signatureContent = Encoding.ASCII.GetString(bytes),
                     _signatureType = SignatureType.WitnessSignature1
                 });
@@ -169,7 +169,7 @@ namespace WindowsCEConsentForms
                 var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.WitnessSignature2.ToString()]);
                 outPut.Add(new Signatures
                 {
-                    _name = string.Empty,
+                    _name = TxtSecondWitnessName.Text,
                     _signatureContent = Encoding.ASCII.GetString(bytes),
                     _signatureType = SignatureType.WitnessSignature2
                 });
@@ -180,7 +180,7 @@ namespace WindowsCEConsentForms
                 var bytes = Encoding.ASCII.GetBytes(Request.Form[SignatureType.PICCSignature.ToString()]);
                 outPut.Add(new Signatures
                 {
-                    _name = string.Empty,
+                    _name = TxtPICCNurseName.Text,
                     _signatureContent = Encoding.ASCII.GetString(bytes),
                     _signatureType = SignatureType.PICCSignature
                 });

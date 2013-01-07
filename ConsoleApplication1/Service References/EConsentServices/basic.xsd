@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Treatment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_IsAutologousUnits" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_IsDirectedUnits" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_IsStatementOfConsentAccepted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_consentID" type="xs:int" />
+      <xs:element minOccurs="0" name="_consentType" type="tns:ConsentType" />
+      <xs:element minOccurs="0" name="_doctorAndPrcedures" nillable="true" type="tns:ArrayOfDoctorAndProcedure" />
+      <xs:element minOccurs="0" name="_isPatientUnableSign" type="xs:boolean" />
+      <xs:element minOccurs="0" name="_patientId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_physican" nillable="true" type="tns:Physican" />
+      <xs:element minOccurs="0" name="_procedures" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_signatureses" nillable="true" type="tns:ArrayOfSignatures" />
+      <xs:element minOccurs="0" name="_trackingInformation" nillable="true" type="tns:TrackingInformation" />
+      <xs:element minOccurs="0" name="_translatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_unableToSignReason" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Treatment" nillable="true" type="tns:Treatment" />
+  <xs:simpleType name="ConsentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Surgical" />
+      <xs:enumeration value="Cardiovascular" />
+      <xs:enumeration value="OutsideOR" />
+      <xs:enumeration value="Endoscopy" />
+      <xs:enumeration value="BloodConsentOrRefusal" />
+      <xs:enumeration value="PlasmanApheresis" />
+      <xs:enumeration value="PICC" />
+      <xs:enumeration value="None" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ConsentType" nillable="true" type="tns:ConsentType" />
+  <xs:complexType name="ArrayOfDoctorAndProcedure">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DoctorAndProcedure" nillable="true" type="tns:DoctorAndProcedure" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDoctorAndProcedure" nillable="true" type="tns:ArrayOfDoctorAndProcedure" />
+  <xs:complexType name="DoctorAndProcedure">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_precedures" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_primaryDoctorId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DoctorAndProcedure" nillable="true" type="tns:DoctorAndProcedure" />
+  <xs:complexType name="Physican">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Associated" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ConsentTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="FName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PCID" type="xs:int" />
+      <xs:element minOccurs="0" name="PrimaryDoctor" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Physican" nillable="true" type="tns:Physican" />
+  <xs:complexType name="ArrayOfSignatures">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Signatures" nillable="true" type="tns:Signatures" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSignatures" nillable="true" type="tns:ArrayOfSignatures" />
+  <xs:complexType name="Signatures">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_signatureContent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_signatureType" type="tns:SignatureType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Signatures" nillable="true" type="tns:Signatures" />
+  <xs:simpleType name="SignatureType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DoctorSign1" />
+      <xs:enumeration value="DoctorSign2" />
+      <xs:enumeration value="DoctorSign3" />
+      <xs:enumeration value="DoctorSign4" />
+      <xs:enumeration value="DoctorSign5" />
+      <xs:enumeration value="DoctorSign6" />
+      <xs:enumeration value="DoctorSign7" />
+      <xs:enumeration value="PatientSign" />
+      <xs:enumeration value="PatientAuthorizeSign" />
+      <xs:enumeration value="WitnessSignature1" />
+      <xs:enumeration value="WitnessSignature2" />
+      <xs:enumeration value="PICCSignature" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SignatureType" nillable="true" type="tns:SignatureType" />
+  <xs:complexType name="TrackingInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_device" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="_iP" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TrackingInformation" nillable="true" type="tns:TrackingInformation" />
+  <xs:complexType name="PatientDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdmDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AssociatedDoctorId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AttnDr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DOB" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MRHash" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PatientHash" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrimaryDoctorId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProcedureName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StatementOfConsent" nillable="true" type="tns:StatementOfConsent" />
+      <xs:element minOccurs="0" name="Translatedby" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnableToSignReason" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="age" type="xs:int" />
+      <xs:element minOccurs="0" name="gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientDetail" nillable="true" type="tns:PatientDetail" />
+  <xs:complexType name="StatementOfConsent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AutologousUnits" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DirectedUnits" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StatementOfConsent" nillable="true" type="tns:StatementOfConsent" />
+  <xs:complexType name="ArrayOfDoctorDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DoctorDetails" nillable="true" type="tns:DoctorDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDoctorDetails" nillable="true" type="tns:ArrayOfDoctorDetails" />
+  <xs:complexType name="DoctorDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Fname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Lname" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DoctorDetails" nillable="true" type="tns:DoctorDetails" />
+  <xs:complexType name="ArrayOfAssociatedDoctorDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AssociatedDoctorDetails" nillable="true" type="tns:AssociatedDoctorDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAssociatedDoctorDetails" nillable="true" type="tns:ArrayOfAssociatedDoctorDetails" />
+  <xs:complexType name="AssociatedDoctorDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Fname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lname" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AssociatedDoctorDetails" nillable="true" type="tns:AssociatedDoctorDetails" />
+</xs:schema>

@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.ServiceModel;
 using System.Text;
+using System.Web;
+using System.Web.Configuration;
 using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms.Cardiovascular
@@ -159,7 +163,7 @@ namespace WindowsCEConsentForms.Cardiovascular
                     //,_doctorAndPrcedures = DoctorsAndProcedures1.GetDoctorsAndProcedures().ToArray()
                 };
 
-                var formHandlerServiceClient = new ConsentFormSvcClient();
+                var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
                 formHandlerServiceClient.AddTreatment(treatment);
                 Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId);
 

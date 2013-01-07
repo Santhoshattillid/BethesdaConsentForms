@@ -1,54 +1,66 @@
 ﻿<RecentFiles>
   <RecentFiles>
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:PICC/f:ConsentDeclaration.aspx.cs" caret="0" fromTop="0" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:OutsideOR/f:ConsentDeclaration.aspx.cs" caret="1060" fromTop="24" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Endoscopy/f:ConsentDeclaration.aspx" caret="0" fromTop="0" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Endoscopy/f:ConsentDeclaration.aspx.cs" caret="0" fromTop="0" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Scripts/f:Signature.js" caret="6507" fromTop="23" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:DoctorsAndProcedures.ascx" caret="3894" fromTop="24" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:BloodConsentOrRefusal/f:ConsentDeclaration.aspx" caret="705" fromTop="13" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:BloodConsentOrRefusal/f:ConsentDeclaration.aspx.cs" caret="3338" fromTop="14" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Cardiovascular/f:ConsentDeclaration.aspx.cs" caret="8014" fromTop="33" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:DeclarationSignatures.ascx.cs" caret="5766" fromTop="31" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Surgical/f:ConsentDeclaration.aspx.cs" caret="1019" fromTop="22" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Cardiovascular/f:ConsentPrint.aspx" caret="2342" fromTop="0" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:BloodConsentOrRefusal/f:ConsentPrint.aspx.cs" caret="1969" fromTop="37" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:BloodConsentOrRefusal/f:ConsentPrint.aspx" caret="0" fromTop="0" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PrintSignatures.ascx" caret="1432" fromTop="30" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:ConsentPrint.ascx" caret="1319" fromTop="0" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Cardiovascular/f:ConsentPrint.aspx.cs" caret="594" fromTop="20" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Endoscopy/f:ConsentPrint.aspx.cs" caret="121" fromTop="5" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Endoscopy/f:ConsentPrint.aspx" caret="712" fromTop="15" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:OutsideOR/f:ConsentPrint.aspx.cs" caret="0" fromTop="0" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:PICC/f:ConsentPrint.aspx.cs" caret="654" fromTop="22" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:PlasmanApheresis/f:ConsentPrint.aspx.cs" caret="472" fromTop="16" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Surgical/f:ConsentPrint.aspx.cs" caret="130" fromTop="5" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:ConsentPrint.ascx.cs" caret="699" fromTop="22" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:ConsentSignatures.ascx.cs" caret="0" fromTop="0" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:DoctorsAndProceduresPrint.ascx.cs" caret="545" fromTop="7" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PageHeader.ascx.cs" caret="17" fromTop="2" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PatientDetails.ascx.cs" caret="769" fromTop="15" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PrintFooter.ascx.cs" caret="513" fromTop="13" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PrintSignatures.ascx.cs" caret="1024" fromTop="0" />
+    <File id="CDF282E5-956C-42A0-AC63-A88106E45C26/d:Properties/d:DataSources/f:System.Data.DataTable.datasource" caret="600" fromTop="9" />
+    <File id="CDF282E5-956C-42A0-AC63-A88106E45C26/f:app.config" caret="0" fromTop="0" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Administration/f:Setup.aspx" caret="1154" fromTop="31" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:OutsideOR/f:ConsentPrint.aspx.cs" caret="763" fromTop="24" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:OutsideOR/f:ConsentDeclaration.aspx.cs" caret="7557" fromTop="21" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:GetImage.ashx.cs" caret="1640" fromTop="21" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Endoscopy/f:ConsentDeclaration.aspx.cs" caret="6643" fromTop="21" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PatientConsent.aspx.cs" caret="11264" fromTop="22" />
+    <File id="CDF282E5-956C-42A0-AC63-A88106E45C26/d:Service References/d:EConsentServices/f:Reference.cs" caret="52861" fromTop="42" />
+    <File id="CDF282E5-956C-42A0-AC63-A88106E45C26/f:Program.cs" caret="529" fromTop="13" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Service References/d:FormHandlerService/f:Reference.cs" caret="51521" fromTop="39" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PrintSignatures.ascx.cs" caret="686" fromTop="22" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PrintFooter.ascx.cs" caret="719" fromTop="22" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:PlasmanApheresis/f:ConsentPrint.aspx.cs" caret="693" fromTop="22" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:PlasmanApheresis/f:ConsentDeclaration.aspx.cs" caret="10266" fromTop="22" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:PICC/f:ConsentPrint.aspx.cs" caret="738" fromTop="22" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:PICC/f:ConsentDeclaration.aspx.cs" caret="2693" fromTop="22" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PatientDetails.ascx.cs" caret="944" fromTop="22" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Administration/f:Setup.aspx.cs" caret="7271" fromTop="25" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:BloodConsentOrRefusal/f:ConsentDeclaration.aspx.cs" caret="3059" fromTop="21" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:BloodConsentOrRefusal/f:ConsentPrint.aspx.cs" caret="942" fromTop="21" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Cardiovascular/f:ConsentDeclaration.aspx.cs" caret="7760" fromTop="21" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Cardiovascular/f:ConsentPrint.aspx.cs" caret="800" fromTop="25" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:ConsentPrint.ascx.cs" caret="971" fromTop="24" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:DoctorsAndProcedures.ascx.cs" caret="613" fromTop="20" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:DoctorsAndProceduresPrint.ascx.cs" caret="925" fromTop="21" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:Utilities.cs" caret="4267" fromTop="18" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Surgical/f:ConsentDeclaration.aspx.cs" caret="789" fromTop="13" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Administration/f:ConsentDB.sql" caret="892" fromTop="0" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:Web.config" caret="2083" fromTop="17" />
   </RecentFiles>
   <RecentEdits>
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:DeclarationSignatures.ascx" caret="385" fromTop="4" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Cardiovascular/f:ConsentDeclaration.aspx" caret="530" fromTop="6" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:PlasmanApheresis/f:ConsentDeclaration.aspx" caret="258" fromTop="3" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PatientConsent.aspx.cs" caret="9252" fromTop="24" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:Utilities.cs" caret="3096" fromTop="13" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:DoctorsAndProcedures.ascx.cs" caret="5668" fromTop="43" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:PlasmanApheresis/f:ConsentDeclaration.aspx.cs" caret="4516" fromTop="17" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:PICC/f:ConsentDeclaration.aspx.cs" caret="880" fromTop="22" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:OutsideOR/f:ConsentDeclaration.aspx.cs" caret="7117" fromTop="19" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Endoscopy/f:ConsentDeclaration.aspx.cs" caret="6222" fromTop="16" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:DeclarationSignatures.ascx.cs" caret="5889" fromTop="37" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Surgical/f:ConsentDeclaration.aspx.cs" caret="1048" fromTop="22" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:DoctorsAndProcedures.ascx" caret="3894" fromTop="24" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Scripts/f:Signature.js" caret="6507" fromTop="23" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:BloodConsentOrRefusal/f:ConsentDeclaration.aspx.cs" caret="801" fromTop="9" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Cardiovascular/f:ConsentDeclaration.aspx.cs" caret="7567" fromTop="16" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:BloodConsentOrRefusal/f:ConsentPrint.aspx.cs" caret="2275" fromTop="33" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PageHeader.ascx.cs" caret="17" fromTop="2" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:DeclarationSignatures.ascx.cs" caret="8529" fromTop="31" />
+    <File id="CDF282E5-956C-42A0-AC63-A88106E45C26/f:Program.cs" caret="362" fromTop="11" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Administration/f:Setup.aspx" caret="6811" fromTop="21" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:Web.config" caret="2323" fromTop="19" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Administration/f:Setup.aspx.cs" caret="11699" fromTop="23" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PatientConsent.aspx.cs" caret="11267" fromTop="22" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:OutsideOR/f:ConsentPrint.aspx.cs" caret="766" fromTop="24" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:OutsideOR/f:ConsentDeclaration.aspx.cs" caret="7560" fromTop="21" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:GetImage.ashx.cs" caret="1643" fromTop="21" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Endoscopy/f:ConsentDeclaration.aspx.cs" caret="6646" fromTop="21" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:DoctorsAndProceduresPrint.ascx.cs" caret="928" fromTop="21" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:DoctorsAndProcedures.ascx.cs" caret="616" fromTop="20" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:ConsentPrint.ascx.cs" caret="974" fromTop="24" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Cardiovascular/f:ConsentPrint.aspx.cs" caret="803" fromTop="25" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Cardiovascular/f:ConsentDeclaration.aspx.cs" caret="7763" fromTop="21" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:BloodConsentOrRefusal/f:ConsentPrint.aspx.cs" caret="945" fromTop="21" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:BloodConsentOrRefusal/f:ConsentDeclaration.aspx.cs" caret="3062" fromTop="21" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PatientDetails.ascx.cs" caret="947" fromTop="22" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:PICC/f:ConsentDeclaration.aspx.cs" caret="2696" fromTop="22" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:PICC/f:ConsentPrint.aspx.cs" caret="741" fromTop="22" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:PlasmanApheresis/f:ConsentDeclaration.aspx.cs" caret="10269" fromTop="22" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:PlasmanApheresis/f:ConsentPrint.aspx.cs" caret="696" fromTop="22" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PrintFooter.ascx.cs" caret="722" fromTop="22" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PrintSignatures.ascx.cs" caret="689" fromTop="22" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Surgical/f:ConsentDeclaration.aspx.cs" caret="6544" fromTop="22" />
+    <File id="CDF282E5-956C-42A0-AC63-A88106E45C26/d:Service References/d:EConsentServices/f:Reference.cs" caret="52861" fromTop="42" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:Utilities.cs" caret="3222" fromTop="18" />
   </RecentEdits>
 </RecentFiles>

@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.ServiceModel;
+using System.Web;
+using System.Web.Configuration;
 using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms
@@ -23,7 +27,7 @@ namespace WindowsCEConsentForms
             var docAndProcPrints = new List<DocAndProcPrint>();
             if (!string.IsNullOrEmpty(patientId))
             {
-                var formHandlerServiceClient = new ConsentFormSvcClient();
+                var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
                 var treatment = formHandlerServiceClient.GetTreatment(patientId, ConsentType);
                 string patientName = Utilities.GetPatientName(patientId, ConsentType.ToString()).name;
                 docAndProcPrints.AddRange(treatment._doctorAndPrcedures.Select(docandproc => new DocAndProcPrint

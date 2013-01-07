@@ -1,0 +1,5 @@
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.exe
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.pdb

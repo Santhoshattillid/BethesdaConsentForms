@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ConsentFormSvc" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc" />
+      <xsd:import schemaLocation="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ConsentFormSvc_AddTreatment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTreatment" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_AddTreatment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTreatmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GetTreatment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatment" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GetTreatment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTreatmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GetPatientSignature_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientSignature" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GetPatientSignature_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientSignatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_DeleteTables_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTables" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_DeleteTables_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTablesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GetPatientDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientDetail" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GetPatientDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GetPatientfromLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientfromLocation" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GetPatientfromLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPatientfromLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GenerateAndUploadPDFtoSharePoint_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateAndUploadPDFtoSharePoint" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GenerateAndUploadPDFtoSharePoint_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateAndUploadPDFtoSharePointResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GetProcedures_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProcedures" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GetProcedures_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProceduresResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GetConsentTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConsentTypes" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GetConsentTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConsentTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_AddProcedures_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProcedures" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_AddProcedures_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProceduresResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_UpdateProcedureName_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProcedureName" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_UpdateProcedureName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProcedureNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_DeleteProcedure_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProcedure" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_DeleteProcedure_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProcedureResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_ListProcedures_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListProcedures" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_ListProcedures_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListProceduresResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GetDoctorDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoctorDetails" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GetDoctorDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoctorDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GetDoctorDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoctorDetail" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GetDoctorDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoctorDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GetAssociatedDoctors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssociatedDoctors" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GetAssociatedDoctors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssociatedDoctorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_SavePdFFolderPath_InputMessage">
+    <wsdl:part name="parameters" element="tns:SavePdFFolderPath" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_SavePdFFolderPath_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SavePdFFolderPathResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GetPdFFolderPath_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPdFFolderPath" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GetPdFFolderPath_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPdFFolderPathResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_IsValidEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsValidEmployee" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_IsValidEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsValidEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ConsentFormSvc">
+    <wsdl:operation name="AddTreatment">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/AddTreatment" message="tns:ConsentFormSvc_AddTreatment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/AddTreatmentResponse" message="tns:ConsentFormSvc_AddTreatment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatment">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/GetTreatment" message="tns:ConsentFormSvc_GetTreatment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/GetTreatmentResponse" message="tns:ConsentFormSvc_GetTreatment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientSignature">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/GetPatientSignature" message="tns:ConsentFormSvc_GetPatientSignature_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/GetPatientSignatureResponse" message="tns:ConsentFormSvc_GetPatientSignature_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTables">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/DeleteTables" message="tns:ConsentFormSvc_DeleteTables_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/DeleteTablesResponse" message="tns:ConsentFormSvc_DeleteTables_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/GetPatientDetail" message="tns:ConsentFormSvc_GetPatientDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/GetPatientDetailResponse" message="tns:ConsentFormSvc_GetPatientDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientfromLocation">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/GetPatientfromLocation" message="tns:ConsentFormSvc_GetPatientfromLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/GetPatientfromLocationResponse" message="tns:ConsentFormSvc_GetPatientfromLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateAndUploadPDFtoSharePoint">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/GenerateAndUploadPDFtoSharePoint" message="tns:ConsentFormSvc_GenerateAndUploadPDFtoSharePoint_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/GenerateAndUploadPDFtoSharePointResponse" message="tns:ConsentFormSvc_GenerateAndUploadPDFtoSharePoint_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProcedures">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/GetProcedures" message="tns:ConsentFormSvc_GetProcedures_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/GetProceduresResponse" message="tns:ConsentFormSvc_GetProcedures_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConsentTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/GetConsentTypes" message="tns:ConsentFormSvc_GetConsentTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/GetConsentTypesResponse" message="tns:ConsentFormSvc_GetConsentTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProcedures">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/AddProcedures" message="tns:ConsentFormSvc_AddProcedures_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/AddProceduresResponse" message="tns:ConsentFormSvc_AddProcedures_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProcedureName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/UpdateProcedureName" message="tns:ConsentFormSvc_UpdateProcedureName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/UpdateProcedureNameResponse" message="tns:ConsentFormSvc_UpdateProcedureName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProcedure">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/DeleteProcedure" message="tns:ConsentFormSvc_DeleteProcedure_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/DeleteProcedureResponse" message="tns:ConsentFormSvc_DeleteProcedure_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListProcedures">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/ListProcedures" message="tns:ConsentFormSvc_ListProcedures_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/ListProceduresResponse" message="tns:ConsentFormSvc_ListProcedures_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDoctorDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/GetDoctorDetails" message="tns:ConsentFormSvc_GetDoctorDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/GetDoctorDetailsResponse" message="tns:ConsentFormSvc_GetDoctorDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDoctorDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/GetDoctorDetail" message="tns:ConsentFormSvc_GetDoctorDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/GetDoctorDetailResponse" message="tns:ConsentFormSvc_GetDoctorDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssociatedDoctors">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/GetAssociatedDoctors" message="tns:ConsentFormSvc_GetAssociatedDoctors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/GetAssociatedDoctorsResponse" message="tns:ConsentFormSvc_GetAssociatedDoctors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SavePdFFolderPath">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/SavePdFFolderPath" message="tns:ConsentFormSvc_SavePdFFolderPath_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/SavePdFFolderPathResponse" message="tns:ConsentFormSvc_SavePdFFolderPath_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPdFFolderPath">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/GetPdFFolderPath" message="tns:ConsentFormSvc_GetPdFFolderPath_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/GetPdFFolderPathResponse" message="tns:ConsentFormSvc_GetPdFFolderPath_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsValidEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/IsValidEmployee" message="tns:ConsentFormSvc_IsValidEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/IsValidEmployeeResponse" message="tns:ConsentFormSvc_IsValidEmployee_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ConsentFormSvc" type="tns:ConsentFormSvc">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddTreatment">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/AddTreatment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatment">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/GetTreatment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientSignature">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/GetPatientSignature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTables">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/DeleteTables" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientDetail">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/GetPatientDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientfromLocation">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/GetPatientfromLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateAndUploadPDFtoSharePoint">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/GenerateAndUploadPDFtoSharePoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcedures">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/GetProcedures" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConsentTypes">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/GetConsentTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProcedures">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/AddProcedures" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProcedureName">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/UpdateProcedureName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProcedure">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/DeleteProcedure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListProcedures">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/ListProcedures" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDoctorDetails">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/GetDoctorDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDoctorDetail">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/GetDoctorDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssociatedDoctors">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/GetAssociatedDoctors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePdFFolderPath">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/SavePdFFolderPath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPdFFolderPath">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/GetPdFFolderPath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsValidEmployee">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/IsValidEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConsentFormSvc">
+    <wsdl:port name="BasicHttpBinding_ConsentFormSvc" binding="tns:BasicHttpBinding_ConsentFormSvc">
+      <soap:address location="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

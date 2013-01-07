@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Configuration;
+using System.ServiceModel;
+using System.Web;
+using System.Web.Configuration;
 using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms.OutsideOR
@@ -18,7 +22,7 @@ namespace WindowsCEConsentForms.OutsideOR
             }
             if (!string.IsNullOrEmpty(patientId))
             {
-                var formHandlerServiceClient = new ConsentFormSvcClient();
+                var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
                 var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.OutsideOR.ToString());
                 if (patientDetails != null)
                 {

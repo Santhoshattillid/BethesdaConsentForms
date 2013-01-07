@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
+using System.ServiceModel;
+using System.Web;
+using System.Web.Configuration;
 using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms
@@ -14,7 +18,7 @@ namespace WindowsCEConsentForms
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var formHandlerServiceClient = new ConsentFormSvcClient();
+            var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
             if (!IsPostBack)
             {
                 var procedures = new List<string>();

@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
+using System.ServiceModel;
+using System.Web;
+using System.Web.Configuration;
 using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms.BloodConsentOrRefusal
@@ -24,7 +28,8 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
             {
                 ConsentType = ConsentType.BloodConsentOrRefusal;
 
-                var formHandlerServiceClient = new ConsentFormSvcClient();
+                var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
+
                 var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
                 var treatment = formHandlerServiceClient.GetTreatment(patientId, ConsentType);
                 if (patientDetails != null)

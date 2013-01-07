@@ -1116,6 +1116,9 @@ namespace WindowsCEConsentForms.FormHandlerService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="FormHandlerService.ConsentFormSvc")]
     public interface ConsentFormSvc {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/SetDBConnection", ReplyAction="http://tempuri.org/ConsentFormSvc/SetDBConnectionResponse")]
+        void SetDBConnection(string connectionString);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/AddTreatment", ReplyAction="http://tempuri.org/ConsentFormSvc/AddTreatmentResponse")]
         void AddTreatment(WindowsCEConsentForms.FormHandlerService.Treatment treatment);
         
@@ -1199,6 +1202,10 @@ namespace WindowsCEConsentForms.FormHandlerService {
         
         public ConsentFormSvcClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public void SetDBConnection(string connectionString) {
+            base.Channel.SetDBConnection(connectionString);
         }
         
         public void AddTreatment(WindowsCEConsentForms.FormHandlerService.Treatment treatment) {

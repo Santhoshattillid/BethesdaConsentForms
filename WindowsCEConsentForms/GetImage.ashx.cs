@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Configuration;
 using System.Drawing.Imaging;
+using System.ServiceModel;
 using System.Web;
+using System.Web.Configuration;
 using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms
@@ -45,7 +48,7 @@ namespace WindowsCEConsentForms
                     }
                     if (string.IsNullOrEmpty(consentType))
                         return;
-                    var formHandlerServiceClient = new ConsentFormSvcClient();
+                    var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
                     var content = formHandlerServiceClient.GetPatientSignature(patientId, (ConsentType)Enum.Parse(typeof(ConsentType), consentType), (SignatureType)Enum.Parse(typeof(SignatureType), signatureId));
                     var signatureToImage = new SignatureToImage();
                     var bitmap = signatureToImage.SigJsonToImage(content);

@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.ServiceModel;
 using System.Text;
+using System.Web;
+using System.Web.Configuration;
 using System.Web.UI;
 using WindowsCEConsentForms.FormHandlerService;
 
@@ -149,7 +153,7 @@ namespace WindowsCEConsentForms.Endoscopy
                     return;
                 }
 
-                var formHandlerServiceClient = new ConsentFormSvcClient();
+                var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
                 formHandlerServiceClient.AddTreatment(treatment);
                 Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId);
                 Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));

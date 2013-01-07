@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
+using System.ServiceModel;
+using System.Web;
+using System.Web.Configuration;
 using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms
@@ -24,7 +28,8 @@ namespace WindowsCEConsentForms
                 // loading select form type box and patient details
                 if (DdlPatientIds.SelectedIndex > 0)
                 {
-                    var formHandlerServiceClient = new ConsentFormSvcClient();
+                    var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
+
                     var patientDetail = formHandlerServiceClient.GetPatientDetail(DdlPatientIds.SelectedValue, ConsentType.None.ToString());
                     if (patientDetail != null)
                     {
@@ -254,7 +259,7 @@ namespace WindowsCEConsentForms
         {
             // loading patient ids
             DdlPatientIds.Items.Clear();
-            var formHandlerServiceClient = new ConsentFormSvcClient();
+            var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
             DdlPatientIds.Items.Add("---------Select Patient--------");
             var patientList = formHandlerServiceClient.GetPatientfromLocation(location);
             if (patientList != null)
@@ -284,7 +289,7 @@ namespace WindowsCEConsentForms
             }
             else
             {
-                var formHanlderServiceClient = new ConsentFormSvcClient();
+                var formHanlderServiceClient = Utilities.GetConsentFormSvcClient();
                 if (formHanlderServiceClient.IsValidEmployee(TxtEmployeeID.Text.Trim()))
                 {
                     RdoBHE.Enabled = true;

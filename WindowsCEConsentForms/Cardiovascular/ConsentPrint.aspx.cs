@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Configuration;
+using System.ServiceModel;
+using System.Web;
+using System.Web.Configuration;
 using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms.Cardiovascular
@@ -20,7 +24,7 @@ namespace WindowsCEConsentForms.Cardiovascular
             }
             if (!string.IsNullOrEmpty(patientId))
             {
-                var formHandlerServiceClient = new ConsentFormSvcClient();
+                var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
                 ConsentType = ConsentType.Cardiovascular;
                 var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
                 if (patientDetails != null)

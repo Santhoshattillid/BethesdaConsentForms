@@ -72,9 +72,8 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Administration\ConsentDB_Old.sql" />
-    <Content Include="Administration\ConsentDB.sql" />
     <Content Include="Administration\Setup.aspx" />
+    <Content Include="Administration\ConsentDB.sql" />
     <Content Include="AjaxMethods.asmx" />
     <Content Include="BloodConsentOrRefusal\ConsentDeclaration.aspx" />
     <Content Include="BloodConsentOrRefusal\ConsentPrint.aspx" />

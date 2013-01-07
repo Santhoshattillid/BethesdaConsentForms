@@ -29,7 +29,7 @@ namespace WindowsCEConsentForms.PlasmanApheresis
 
             if (!string.IsNullOrEmpty(patientId))
             {
-                var formHandlerServiceClient = new ConsentFormSvcClient();
+                var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
                 var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.PlasmanApheresis.ToString());
                 if (patientDetail != null)
                     LblPatientName.Text = patientDetail.name;
@@ -208,7 +208,7 @@ namespace WindowsCEConsentForms.PlasmanApheresis
                                         _doctorAndPrcedures = new DoctorAndProcedure[1] { new DoctorAndProcedure { _precedures = string.Empty, _primaryDoctorId = Request.QueryString["DdlPrimaryDoctors"] } }
                                     };
 
-                var formHandlerServiceClient = new ConsentFormSvcClient();
+                var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
                 formHandlerServiceClient.AddTreatment(treatment);
                 Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId);
 

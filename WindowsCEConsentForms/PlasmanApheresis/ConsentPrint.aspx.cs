@@ -20,7 +20,7 @@ namespace WindowsCEConsentForms.PlasmanApheresis
             }
             if (!string.IsNullOrEmpty(patientId))
             {
-                var formHandlerServiceClient = new ConsentFormSvcClient();
+                var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
                 ConsentType = ConsentType.PlasmanApheresis;
                 var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
                 if (patientDetails != null)

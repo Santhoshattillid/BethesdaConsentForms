@@ -9,6 +9,12 @@
       <xsd:import schemaLocation="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="ConsentFormSvc_SetDBConnection_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetDBConnection" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_SetDBConnection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetDBConnectionResponse" />
+  </wsdl:message>
   <wsdl:message name="ConsentFormSvc_AddTreatment_InputMessage">
     <wsdl:part name="parameters" element="tns:AddTreatment" />
   </wsdl:message>
@@ -124,6 +130,10 @@
     <wsdl:part name="parameters" element="tns:IsValidEmployeeResponse" />
   </wsdl:message>
   <wsdl:portType name="ConsentFormSvc">
+    <wsdl:operation name="SetDBConnection">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/SetDBConnection" message="tns:ConsentFormSvc_SetDBConnection_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/SetDBConnectionResponse" message="tns:ConsentFormSvc_SetDBConnection_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AddTreatment">
       <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/AddTreatment" message="tns:ConsentFormSvc_AddTreatment_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/AddTreatmentResponse" message="tns:ConsentFormSvc_AddTreatment_OutputMessage" />
@@ -203,6 +213,15 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ConsentFormSvc" type="tns:ConsentFormSvc">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetDBConnection">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/SetDBConnection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AddTreatment">
       <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/AddTreatment" style="document" />
       <wsdl:input>
