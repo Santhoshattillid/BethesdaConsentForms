@@ -269,7 +269,8 @@ namespace WindowsCEConsentForms
                     if (!string.IsNullOrEmpty(row["BirthDate"].ToString()) && !string.IsNullOrEmpty(row["Lname"].ToString()) && !string.IsNullOrEmpty(row["Fname"].ToString()) && !string.IsNullOrEmpty(row["PatientId"].ToString()))
                     {
                         var dt = Convert.ToDateTime(row["BirthDate"].ToString());
-                        DdlPatientIds.Items.Add(new System.Web.UI.WebControls.ListItem(row["Lname"] + ", " + row["Fname"] + ", " + dt.ToShortDateString(), row["PatientId"].ToString()));
+                        var admissionDate = Convert.ToDateTime(row["AdmDate"].ToString());
+                        DdlPatientIds.Items.Add(new System.Web.UI.WebControls.ListItem(row["Lname"] + ", " + row["Fname"] + ", " + dt.ToShortDateString() + ", " + admissionDate.ToShortDateString(), row["PatientId"].ToString()));
                     }
                 }
             }

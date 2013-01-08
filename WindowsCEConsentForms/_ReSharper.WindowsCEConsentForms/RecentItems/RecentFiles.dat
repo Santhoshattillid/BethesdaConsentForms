@@ -1,8 +1,5 @@
 ﻿<RecentFiles>
   <RecentFiles>
-    <File id="CDF282E5-956C-42A0-AC63-A88106E45C26/d:Service References/d:EConsentServices/f:Reference.cs" caret="52861" fromTop="42" />
-    <File id="CDF282E5-956C-42A0-AC63-A88106E45C26/f:Program.cs" caret="529" fromTop="13" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Service References/d:FormHandlerService/f:Reference.cs" caret="51521" fromTop="39" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PrintSignatures.ascx.cs" caret="686" fromTop="22" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PrintFooter.ascx.cs" caret="719" fromTop="22" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:PlasmanApheresis/f:ConsentPrint.aspx.cs" caret="693" fromTop="22" />
@@ -17,7 +14,6 @@
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Surgical/f:ConsentDeclaration.aspx.cs" caret="5968" fromTop="52" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:PICC/f:ConsentDeclaration.aspx.cs" caret="2392" fromTop="22" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:OutsideOR/f:ConsentDeclaration.aspx.cs" caret="6736" fromTop="121" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Endoscopy/f:ConsentDeclaration.aspx.cs" caret="6069" fromTop="22" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:DeclarationSignatures.ascx.designer.cs" caret="4994" fromTop="28" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:DeclarationSignatures.ascx" caret="4758" fromTop="21" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Cardiovascular/f:ConsentDeclaration.aspx.cs" caret="7353" fromTop="22" />
@@ -30,15 +26,16 @@
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:BloodConsentOrRefusal/f:ConsentPrint.aspx.cs" caret="1176" fromTop="31" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Administration/f:ConsentDB.sql" caret="24196" fromTop="21" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Administration/f:Setup.aspx.cs" caret="8001" fromTop="140" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Endoscopy/f:ConsentDeclaration.aspx" caret="1096" fromTop="18" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Endoscopy/f:ConsentDeclaration.aspx.cs" caret="758" fromTop="0" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Scripts/f:Signature.js" caret="3578" fromTop="18" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PatientConsent.aspx.cs" caret="10345" fromTop="24" />
   </RecentFiles>
   <RecentEdits>
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:DoctorsAndProcedures.ascx" caret="3894" fromTop="24" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Scripts/f:Signature.js" caret="6507" fromTop="23" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PageHeader.ascx.cs" caret="17" fromTop="2" />
     <File id="CDF282E5-956C-42A0-AC63-A88106E45C26/f:Program.cs" caret="362" fromTop="11" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Administration/f:Setup.aspx" caret="6811" fromTop="21" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:Web.config" caret="2323" fromTop="19" />
-    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PatientConsent.aspx.cs" caret="11267" fromTop="22" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:OutsideOR/f:ConsentPrint.aspx.cs" caret="766" fromTop="24" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:OutsideOR/f:ConsentDeclaration.aspx.cs" caret="7560" fromTop="21" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:GetImage.ashx.cs" caret="1643" fromTop="21" />
@@ -62,5 +59,8 @@
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:DeclarationSignatures.ascx.cs" caret="5804" fromTop="29" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:BloodConsentOrRefusal/f:ConsentPrint.aspx.cs" caret="64" fromTop="2" />
     <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Administration/f:Setup.aspx.cs" caret="8001" fromTop="26" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Endoscopy/f:ConsentDeclaration.aspx" caret="1096" fromTop="18" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/d:Scripts/f:Signature.js" caret="3348" fromTop="23" />
+    <File id="5D2036ED-17B6-475E-8B75-4E3540D861BA/f:PatientConsent.aspx.cs" caret="10413" fromTop="25" />
   </RecentEdits>
 </RecentFiles>

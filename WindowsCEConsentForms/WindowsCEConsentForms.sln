@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsCEConsentForms", "Wi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "..\ConsoleApplication1\ConsoleApplication1.csproj", "{CDF282E5-956C-42A0-AC63-A88106E45C26}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BethesdaEConsentsSetup", "..\BethesdaEConsentsSetup\BethesdaEConsentsSetup.vdproj", "{6502DC28-8712-4C1A-9547-61458E19C11C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,12 @@ Global
 		{CDF282E5-956C-42A0-AC63-A88106E45C26}.Release|Mixed Platforms.Build.0 = Release|x86
 		{CDF282E5-956C-42A0-AC63-A88106E45C26}.Release|x86.ActiveCfg = Release|x86
 		{CDF282E5-956C-42A0-AC63-A88106E45C26}.Release|x86.Build.0 = Release|x86
+		{6502DC28-8712-4C1A-9547-61458E19C11C}.Debug|Any CPU.ActiveCfg = Debug
+		{6502DC28-8712-4C1A-9547-61458E19C11C}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{6502DC28-8712-4C1A-9547-61458E19C11C}.Debug|x86.ActiveCfg = Debug
+		{6502DC28-8712-4C1A-9547-61458E19C11C}.Release|Any CPU.ActiveCfg = Release
+		{6502DC28-8712-4C1A-9547-61458E19C11C}.Release|Mixed Platforms.ActiveCfg = Release
+		{6502DC28-8712-4C1A-9547-61458E19C11C}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
