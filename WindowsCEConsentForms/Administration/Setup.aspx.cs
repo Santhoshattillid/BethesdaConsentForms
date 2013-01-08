@@ -349,5 +349,22 @@ namespace WindowsCEConsentForms.Administration
             PnlCredentialsExternal1.Visible = RdoSqlServerAuthenticationExternal.Checked;
             PnlCredentialsExternal2.Visible = RdoSqlServerAuthenticationExternal.Checked;
         }
+
+        private bool CheckConnectionString(string connectionString,string errorText)
+        {
+            try
+            {
+                using(SqlConnection connection=new SqlConnection())
+                {
+                    connection.Open();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                LblError.Text = errorText;
+                return false;
+            }
+        }
     }
 } ;
