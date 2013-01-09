@@ -782,7 +782,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Bethesda EConsents "
         "ProductCode" = "8:{D74FF48A-C764-4EB2-9A36-261A234234CC}"
-        "PackageCode" = "8:{690E2CCB-F947-4937-8FB6-B468517DA5BA}"
+        "PackageCode" = "8:{375F9003-A1EC-4A1D-AD66-1124EBD8AD93}"
         "UpgradeCode" = "8:{E7B8A2C3-4519-4145-B27F-911E2DB9C33D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
