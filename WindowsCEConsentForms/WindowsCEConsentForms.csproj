@@ -100,6 +100,7 @@
     <None Include="Properties\DataSources\System.Xml.Linq.XElement.datasource" />
     <Content Include="Images\dropdown.png" />
     <Content Include="Images\dropdown_hover.png" />
+    <Content Include="Images\econsentum.png" />
     <Content Include="Images\index.jpg" />
     <Content Include="Images\Logo.jpg" />
     <Content Include="Images\logo.png" />
