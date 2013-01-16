@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Muhimbi.DocumentConverter.WebService.Data.Graphics" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Muhimbi.DocumentConverter.WebService.Data.Graphics" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="HPosition">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Absolute" />
+      <xs:enumeration value="Random" />
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="Center" />
+      <xs:enumeration value="Right" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="HPosition" nillable="true" type="tns:HPosition" />
+  <xs:simpleType name="VPosition">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Absolute" />
+      <xs:enumeration value="Random" />
+      <xs:enumeration value="Top" />
+      <xs:enumeration value="Middle" />
+      <xs:enumeration value="Bottom" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="VPosition" nillable="true" type="tns:VPosition" />
+  <xs:simpleType name="ScaleMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Absolute" />
+      <xs:enumeration value="MaintainAspectRatio" />
+      <xs:enumeration value="ExactFit" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ScaleMode" nillable="true" type="tns:ScaleMode" />
+  <xs:simpleType name="FontStyle">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Default">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Regular">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Bold">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Italic">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Underline">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Strikeout">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="FontStyle" nillable="true" type="tns:FontStyle" />
+  <xs:simpleType name="HAlign">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Center" />
+      <xs:enumeration value="Justify" />
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="Right" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="HAlign" nillable="true" type="tns:HAlign" />
+  <xs:simpleType name="VAlign">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Middle" />
+      <xs:enumeration value="Bottom" />
+      <xs:enumeration value="Top" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="VAlign" nillable="true" type="tns:VAlign" />
+  <xs:simpleType name="WordWrap">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="WordOnly" />
+      <xs:enumeration value="Character" />
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Word" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="WordWrap" nillable="true" type="tns:WordWrap" />
+  <xs:simpleType name="PageOrientation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Portrait" />
+      <xs:enumeration value="Landscape" />
+      <xs:enumeration value="Both" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PageOrientation" nillable="true" type="tns:PageOrientation" />
+</xs:schema>

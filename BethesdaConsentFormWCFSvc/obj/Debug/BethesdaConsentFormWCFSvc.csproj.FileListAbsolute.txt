@@ -1,0 +1,9 @@
+C:\Software\Santhosh\BethesdaConsentFormWCFSvc\BethesdaConsentFormWCFSvc\bin\BethesdaConsentFormWCFSvc.dll
+C:\Software\Santhosh\BethesdaConsentFormWCFSvc\BethesdaConsentFormWCFSvc\bin\BethesdaConsentFormWCFSvc.pdb
+C:\Software\Santhosh\BethesdaConsentFormWCFSvc\BethesdaConsentFormWCFSvc\obj\Debug\ResolveAssemblyReference.cache
+C:\Software\Santhosh\BethesdaConsentFormWCFSvc\BethesdaConsentFormWCFSvc\obj\Debug\BethesdaConsentFormWCFSvc.dll
+C:\Software\Santhosh\BethesdaConsentFormWCFSvc\BethesdaConsentFormWCFSvc\obj\Debug\BethesdaConsentFormWCFSvc.pdb
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\BethesdaConsentFormWCFSvc\bin\BethesdaConsentFormWCFSvc.dll
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\BethesdaConsentFormWCFSvc\bin\BethesdaConsentFormWCFSvc.pdb
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\BethesdaConsentFormWCFSvc\obj\Debug\BethesdaConsentFormWCFSvc.dll
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\BethesdaConsentFormWCFSvc\obj\Debug\BethesdaConsentFormWCFSvc.pdb

@@ -1,0 +1,8 @@
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\SequenceInstaller\obj\x86\Debug\SequenceInstaller.BethesdEConsentsnstaller.resources
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\SequenceInstaller\obj\x86\Debug\SequenceInstaller.Properties.Resources.resources
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\SequenceInstaller\obj\x86\Debug\SequenceInstaller.csproj.GenerateResource.Cache
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\SequenceInstaller\bin\Debug\SequenceInstaller.exe.config
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\SequenceInstaller\bin\Debug\SequenceInstaller.exe
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\SequenceInstaller\bin\Debug\SequenceInstaller.pdb
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\SequenceInstaller\obj\x86\Debug\SequenceInstaller.exe
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\SequenceInstaller\obj\x86\Debug\SequenceInstaller.pdb

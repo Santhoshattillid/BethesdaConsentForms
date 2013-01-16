@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3ebf3cfc-3dd2-4f14-9c98-1842fb52d899" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://devsp1:41734/Muhimbi.DocumentConverter.WebService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="06.wsdl" MetadataType="Wsdl" ID="43e6874e-2eff-46e2-b230-58c521659e2d" SourceId="1" SourceUrl="http://devsp1:41734/Muhimbi.DocumentConverter.WebService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="69ef1faa-1da4-42e7-9940-980516c0e6f0" SourceId="1" SourceUrl="http://devsp1:41734/Muhimbi.DocumentConverter.WebService/mex" />
+    <MetadataFile FileName="06.xsd" MetadataType="Schema" ID="e3b5e4ee-1f3d-46b2-a003-82863778534b" SourceId="1" SourceUrl="http://devsp1:41734/Muhimbi.DocumentConverter.WebService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="a6e68c62-e5f6-4b9e-8436-b912a1a211e7" SourceId="1" SourceUrl="http://devsp1:41734/Muhimbi.DocumentConverter.WebService/mex" />
+    <MetadataFile FileName="061.xsd" MetadataType="Schema" ID="67aa3c07-8512-456f-924a-f89fb672f1ba" SourceId="1" SourceUrl="http://devsp1:41734/Muhimbi.DocumentConverter.WebService/mex" />
+    <MetadataFile FileName="Muhimbi.DocumentConverter.WebService.Data.xsd" MetadataType="Schema" ID="5088a883-6360-4011-8288-6eb46be3e182" SourceId="1" SourceUrl="http://devsp1:41734/Muhimbi.DocumentConverter.WebService/mex" />
+    <MetadataFile FileName="17.xsd" MetadataType="Schema" ID="610a8bb6-bf67-45e4-a3f0-514cd8e78318" SourceId="1" SourceUrl="http://devsp1:41734/Muhimbi.DocumentConverter.WebService/mex" />
+    <MetadataFile FileName="Muhimbi.DocumentConverter.WebService.Data.Graphics.xsd" MetadataType="Schema" ID="43eb186a-40c4-4fa5-8529-8065cfcf2f93" SourceId="1" SourceUrl="http://devsp1:41734/Muhimbi.DocumentConverter.WebService/mex" />
+    <MetadataFile FileName="22.xsd" MetadataType="Schema" ID="4012f34f-33a3-4946-a198-10dc24cf9ab6" SourceId="1" SourceUrl="http://devsp1:41734/Muhimbi.DocumentConverter.WebService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="ce5dd9e9-a8fd-460a-a449-31072ecc9caa" SourceId="1" SourceUrl="http://devsp1:41734/Muhimbi.DocumentConverter.WebService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

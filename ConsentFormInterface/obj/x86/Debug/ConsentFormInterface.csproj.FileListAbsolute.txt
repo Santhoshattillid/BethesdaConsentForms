@@ -1,0 +1,6 @@
+C:\Software\Santhosh\BethesdaConsentFormWCFSvc\ConsentFormInterface\bin\Debug\ConsentFormInterface.exe
+C:\Software\Santhosh\BethesdaConsentFormWCFSvc\ConsentFormInterface\bin\Debug\ConsentFormInterface.pdb
+C:\Software\Santhosh\BethesdaConsentFormWCFSvc\ConsentFormInterface\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Software\Santhosh\BethesdaConsentFormWCFSvc\ConsentFormInterface\obj\x86\Debug\ConsentFormInterface.exe
+C:\Software\Santhosh\BethesdaConsentFormWCFSvc\ConsentFormInterface\obj\x86\Debug\ConsentFormInterface.pdb
+C:\Software\Santhosh\BethesdaConsentFormWCFSvc\ConsentFormInterface\bin\Debug\ConsentFormInterface.exe.config
