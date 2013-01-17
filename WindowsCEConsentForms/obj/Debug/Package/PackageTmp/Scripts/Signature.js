@@ -84,7 +84,7 @@
             ddlProcedures.multiselect("widget").find(":checkbox").each(function () {
                 var thisObj = $(this);
                 for (var j = 0; j < proceduresList.length; j++) {
-                    if (thisObj.val().trim() == proceduresList[j].toString().trim()) {
+                    if ($.trim(thisObj.val()) == $.trim(proceduresList[j].toString())) {
                         thisObj.attr('checked', false);
                         thisObj.click();
                         thisObj.attr('checked', true);

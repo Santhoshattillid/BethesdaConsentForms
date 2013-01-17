@@ -16,7 +16,7 @@
     </ul>
     <uc1:PatientDetails ID="PatientDetails1" runat="server" />
     <uc1:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" ConsentType="Endoscopy"
-        IsStaticTextBoxForPrecedures="True" />
+        IsStaticTextBoxForPrecedures="False" />
     <uc1:ConsentSignatures ID="ConsentSignatures" runat="server" />
     <uc1:DeclarationSignatures ID="DeclarationSignatures" runat="server" ConsentType="Endoscopy" />
 </asp:Content>

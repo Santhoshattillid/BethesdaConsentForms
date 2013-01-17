@@ -7,4 +7,3 @@ D:\siva_projects\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\bin\Windows
 D:\siva_projects\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\ResolveAssemblyReference.cache
 D:\siva_projects\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.dll
 D:\siva_projects\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.pdb
-C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.csprojResolveAssemblyReference.cache
