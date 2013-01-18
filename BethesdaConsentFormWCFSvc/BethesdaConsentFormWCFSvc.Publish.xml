@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <publishData>
-  <publishProfile publishUrl="\\devsp1.atbapps.com\c$\inetpub\wwwroot\wss\VirtualDirectories\6139" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FTP" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
-    <file relUrl="bin/BethesdaConsentFormWCFSvc.pdb" publishTime="01/07/2013 07:26:08" />
-    <file relUrl="bin/BethesdaConsentFormWCFSvc.dll" publishTime="01/07/2013 07:26:09" />
-    <file relUrl="ConsentFormSvc.svc" publishTime="11/27/2012 10:53:10" />
-    <file relUrl="Web.config" publishTime="01/04/2013 13:32:27" />
+  <publishProfile publishUrl="C:\inetpub\wwwroot\80" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="WCf" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FTP" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Web.config" publishTime="01/18/2013 17:46:38" />
+    <file relUrl="bin/BethesdaConsentFormWCFSvc.pdb" publishTime="01/18/2013 17:46:15" />
+    <file relUrl="ConsentFormSvc.svc" publishTime="11/27/2012 16:23:10" />
+    <file relUrl="bin/BethesdaConsentFormWCFSvc.dll" publishTime="01/18/2013 17:46:15" />
   </publishProfile>
 </publishData>

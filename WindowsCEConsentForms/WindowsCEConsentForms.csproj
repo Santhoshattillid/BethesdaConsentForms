@@ -142,29 +142,28 @@
     <Content Include="Scripts\jquery.multiselect.min.js" />
     <Content Include="Scripts\ui.core.js" />
     <Content Include="Scripts\ui.dropdownchecklist.js" />
-    <None Include="Service References\FormHandlerService\basic.xsd">
+    <None Include="Service References\FormHandlerService\basic5.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\FormHandlerService\basic1.xsd">
+    <None Include="Service References\FormHandlerService\basic51.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\FormHandlerService\basic2.xsd">
+    <None Include="Service References\FormHandlerService\basic52.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\FormHandlerService\basic3.xsd">
+    <None Include="Service References\FormHandlerService\basic53.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\FormHandlerService\basic4.xsd">
+    <None Include="Service References\FormHandlerService\basic54.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\FormHandlerService\configuration91.svcinfo" />
     <None Include="Service References\FormHandlerService\configuration.svcinfo" />
-    <None Include="Service References\FormHandlerService\ConsentFormSvc1.wsdl" />
+    <None Include="Service References\FormHandlerService\ConsentFormSvc.wsdl" />
     <None Include="Service References\FormHandlerService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\FormHandlerService\basic.disco" />
     <Content Include="Stylesheets\dropdownchecklist.css" />
     <Content Include="Stylesheets\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Stylesheets\images\ui-bg_flat_75_ffffff_40x100.png" />

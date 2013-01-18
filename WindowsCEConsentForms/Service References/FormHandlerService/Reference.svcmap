@@ -18,16 +18,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://tillid-pc12.tillid.com/ConsentFormSvc.svc/basic?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="basic.xsd" MetadataType="Schema" ID="f0de095d-8361-406a-b111-b1bda7344c26" SourceId="1" SourceUrl="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?xsd=xsd2" />
-    <MetadataFile FileName="basic2.xsd" MetadataType="Schema" ID="9bb3c7af-9ae9-4cc0-99ee-7e375ff6c865" SourceId="1" SourceUrl="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?xsd=xsd1" />
-    <MetadataFile FileName="basic.disco" MetadataType="Disco" ID="6f200968-51ab-4b06-8af3-17a964f814ad" SourceId="1" SourceUrl="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?disco" />
-    <MetadataFile FileName="basic1.xsd" MetadataType="Schema" ID="7e9136bf-9c39-4f7d-a371-6066097cc256" SourceId="1" SourceUrl="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?xsd=xsd0" />
-    <MetadataFile FileName="basic3.xsd" MetadataType="Schema" ID="afd0c6cf-a338-4030-9abe-5861f8365eae" SourceId="1" SourceUrl="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?xsd=xsd3" />
-    <MetadataFile FileName="basic4.xsd" MetadataType="Schema" ID="badab20d-44b3-4a5f-b865-428ecf7f3881" SourceId="1" SourceUrl="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?xsd=xsd4" />
-    <MetadataFile FileName="ConsentFormSvc1.wsdl" MetadataType="Wsdl" ID="50231132-6de5-4ab4-822f-403e1ed51cd0" SourceId="1" SourceUrl="http://devsp1.atbapps.com:6139/ConsentFormSvc.svc/basic?wsdl" />
+    <MetadataFile FileName="basic5.xsd" MetadataType="Schema" ID="161a8c09-6b74-4c5c-87ff-6c000142a82a" SourceId="1" SourceUrl="http://tillid-pc12.tillid.com/ConsentFormSvc.svc/basic?xsd=xsd3" />
+    <MetadataFile FileName="basic51.xsd" MetadataType="Schema" ID="b5b949cf-4116-4b47-991f-2220d1d832e0" SourceId="1" SourceUrl="http://tillid-pc12.tillid.com/ConsentFormSvc.svc/basic?xsd=xsd4" />
+    <MetadataFile FileName="basic52.xsd" MetadataType="Schema" ID="8f428649-01af-4c8a-b5b3-d4f0e4edb959" SourceId="1" SourceUrl="http://tillid-pc12.tillid.com/ConsentFormSvc.svc/basic?xsd=xsd2" />
+    <MetadataFile FileName="basic53.xsd" MetadataType="Schema" ID="2b541676-2367-4ff7-b865-4f2b5505fde1" SourceId="1" SourceUrl="http://tillid-pc12.tillid.com/ConsentFormSvc.svc/basic?xsd=xsd1" />
+    <MetadataFile FileName="ConsentFormSvc.wsdl" MetadataType="Wsdl" ID="cbf662d5-9074-4eaf-915e-d0af2148f0a3" SourceId="1" SourceUrl="http://tillid-pc12.tillid.com/ConsentFormSvc.svc/basic?wsdl" />
+    <MetadataFile FileName="basic54.xsd" MetadataType="Schema" ID="c713acb5-c874-436b-a6b5-9f09571be5c0" SourceId="1" SourceUrl="http://tillid-pc12.tillid.com/ConsentFormSvc.svc/basic?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
