@@ -28,7 +28,7 @@ namespace WindowsCEConsentForms
                 {
                     LblPatientName.Text = patientDetails.name;
 
-                    LblPatientUnableToSignBecause.Text = patientDetails.UnableToSignReason;
+                    LblPatientUnableToSignBecause.Text = treatment._unableToSignReason;
 
                     LblPatientSignatureDate.Text = DateTime.Now.ToString("MMM dd yyyy");
                     LblPatientSignatureTime.Text = DateTime.Now.ToLongTimeString();

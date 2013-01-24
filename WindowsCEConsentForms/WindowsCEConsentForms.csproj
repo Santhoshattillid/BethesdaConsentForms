@@ -75,6 +75,7 @@
     <Content Include="Administration\Setup.aspx" />
     <Content Include="Administration\ConsentDB.sql" />
     <Content Include="AjaxMethods.asmx" />
+    <Content Include="BlankForm.aspx" />
     <Content Include="BloodConsentOrRefusal\ConsentDeclaration.aspx" />
     <Content Include="BloodConsentOrRefusal\ConsentPrint.aspx" />
     <Content Include="Cardiovascular\ConsentDeclaration.aspx" />
@@ -164,6 +165,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="PhysicianSyncJob.sql" />
     <Content Include="Stylesheets\dropdownchecklist.css" />
     <Content Include="Stylesheets\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Stylesheets\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -226,6 +228,13 @@
     <Compile Include="AjaxMethods.asmx.cs">
       <DependentUpon>AjaxMethods.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BlankForm.aspx.cs">
+      <DependentUpon>BlankForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BlankForm.aspx.designer.cs">
+      <DependentUpon>BlankForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="BloodConsentOrRefusal\ConsentDeclaration.aspx.cs">
       <DependentUpon>ConsentDeclaration.aspx</DependentUpon>

@@ -345,4 +345,14 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SeedData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SeedDataResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

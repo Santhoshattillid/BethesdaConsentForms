@@ -65,6 +65,10 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
 
                 signatureses.AddRange(DeclarationSignatures1.GetSignatures());
 
+                string empID = string.Empty;
+                if (Session["EmpID"] != null)
+                    empID = Session["EmpID"].ToString();
+
                 var treatment = new Treatment
                 {
                     _patientId = patientId,
@@ -77,7 +81,8 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
                     {
                         _device = device,
                         _iP = ip
-                    }
+                    },
+                    _empID = empID
                 };
 
                 var consentFormSvcClient = Utilities.GetConsentFormSvcClient();

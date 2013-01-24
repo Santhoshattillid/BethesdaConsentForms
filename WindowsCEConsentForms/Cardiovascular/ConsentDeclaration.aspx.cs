@@ -146,6 +146,10 @@ namespace WindowsCEConsentForms.Cardiovascular
 
                 signatureses.AddRange(DeclarationSignatures.GetSignatures());
 
+                string empID = string.Empty;
+                if (Session["EmpID"] != null)
+                    empID = Session["EmpID"].ToString();
+
                 var treatment = new Treatment
                 {
                     _patientId = patientId,
@@ -158,7 +162,8 @@ namespace WindowsCEConsentForms.Cardiovascular
                     {
                         _device = device,
                         _iP = ip
-                    }
+                    },
+                    _empID = empID
 
                     //,_doctorAndPrcedures = DoctorsAndProcedures1.GetDoctorsAndProcedures().ToArray()
                 };

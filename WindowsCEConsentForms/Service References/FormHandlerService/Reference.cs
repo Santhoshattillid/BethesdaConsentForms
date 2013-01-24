@@ -41,6 +41,9 @@ namespace WindowsCEConsentForms.FormHandlerService {
         private WindowsCEConsentForms.FormHandlerService.DoctorAndProcedure[] _doctorAndPrceduresField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string _empIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool _isPatientUnableSignField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -148,6 +151,19 @@ namespace WindowsCEConsentForms.FormHandlerService {
                 if ((object.ReferenceEquals(this._doctorAndPrceduresField, value) != true)) {
                     this._doctorAndPrceduresField = value;
                     this.RaisePropertyChanged("_doctorAndPrcedures");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string _empID {
+            get {
+                return this._empIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._empIDField, value) != true)) {
+                    this._empIDField = value;
+                    this.RaisePropertyChanged("_empID");
                 }
             }
         }
@@ -1184,6 +1200,9 @@ namespace WindowsCEConsentForms.FormHandlerService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/TestMethod", ReplyAction="http://tempuri.org/ConsentFormSvc/TestMethodResponse")]
         bool TestMethod();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/SeedData", ReplyAction="http://tempuri.org/ConsentFormSvc/SeedDataResponse")]
+        void SeedData();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1303,6 +1322,10 @@ namespace WindowsCEConsentForms.FormHandlerService {
         
         public bool TestMethod() {
             return base.Channel.TestMethod();
+        }
+        
+        public void SeedData() {
+            base.Channel.SeedData();
         }
     }
 }

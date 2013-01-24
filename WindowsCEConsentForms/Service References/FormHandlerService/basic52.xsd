@@ -8,6 +8,7 @@
       <xs:element minOccurs="0" name="_consentID" type="xs:int" />
       <xs:element minOccurs="0" name="_consentType" type="tns:ConsentType" />
       <xs:element minOccurs="0" name="_doctorAndPrcedures" nillable="true" type="tns:ArrayOfDoctorAndProcedure" />
+      <xs:element minOccurs="0" name="_empID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="_isPatientUnableSign" type="xs:boolean" />
       <xs:element minOccurs="0" name="_patientId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="_physican" nillable="true" type="tns:Physican" />

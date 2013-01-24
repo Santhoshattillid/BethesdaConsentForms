@@ -73,6 +73,7 @@ namespace BethesdaConsentFormWCFSvc
                         addTreatmentCommand.Parameters.Add(new SqlParameter("@signaturesID", SqlDbType.Int)).Value = signaturesID;
                         addTreatmentCommand.Parameters.Add(new SqlParameter("@doctorsAndProceduresID", SqlDbType.Int)).Value = doctorsAndProceduresID;
                         addTreatmentCommand.Parameters.Add(new SqlParameter("@translatedBy", SqlDbType.VarChar)).Value = (string.IsNullOrEmpty(treatment._translatedBy) ? string.Empty : treatment._translatedBy);
+                        addTreatmentCommand.Parameters.Add(new SqlParameter("@empID", SqlDbType.VarChar)).Value = treatment._empID;
                         addTreatmentCommand.ExecuteNonQuery();
                         /*
                         string query = @"insert into Treatment(PatentId,ConsentType,IsPatientunabletosign,IsStatementOfConsentAccepted,
@@ -122,12 +123,13 @@ namespace BethesdaConsentFormWCFSvc
                     {
                         treatment._patientId = patientId;
                         treatment._consentType = consentType;
-                        treatment._isPatientUnableSign = (dsTreatment.Tables[0].Rows[0]["IsPatientunabletosign"].ToString() == "1");
+                        treatment._isPatientUnableSign = (dsTreatment.Tables[0].Rows[0]["IsPatientunabletosign"].ToString() == "True");
                         treatment._unableToSignReason = dsTreatment.Tables[0].Rows[0]["Unabletosignreason"].ToString();
                         treatment._translatedBy = dsTreatment.Tables[0].Rows[0]["TransaltedBy"].ToString();
                         treatment._trackingInformation = GetTrackingInformation(sqlConnection, dsTreatment.Tables[0].Rows[0]["TrackingID"].ToString());
                         treatment._doctorAndPrcedures = GetDoctorsProceduresInformation(sqlConnection, dsTreatment.Tables[0].Rows[0]["DoctorandProcedure"].ToString());
                         treatment._signatureses = GetSignaturesInformation(sqlConnection, dsTreatment.Tables[0].Rows[0]["Signatures"].ToString());
+                        treatment._empID = dsTreatment.Tables[0].Rows[0]["EmpID"].ToString();
                     }
                 }
                 return treatment;
@@ -214,7 +216,7 @@ namespace BethesdaConsentFormWCFSvc
                                                     gender = record["Gender"].ToString(),
                                                     MRHash = record["MR#"].ToString(),
                                                     AttnDr = "Mr. Mathew Thomas",
-                                                    AdmDate = DateTime.Now.AddDays(-2),
+                                                    AdmDate = Convert.ToDateTime(record["AdmDate"]),
                                                     DOB = Convert.ToDateTime(record["BirthDate"]),
                                                     PatientHash = record["Patient#"].ToString()
                                                 };
@@ -751,7 +753,7 @@ namespace BethesdaConsentFormWCFSvc
                 using (var sqlDataAdapter = new SqlDataAdapter("CountOfEmpIdFromEmployeeInformation", sqlConnection))
                 {
                     sqlDataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                    sqlDataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@EmpID", SqlDbType.NChar)).Value = empID;
+                    sqlDataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@EmpID", SqlDbType.NVarChar)).Value = empID;
                     var dataset = new DataSet();
                     sqlDataAdapter.Fill(dataset);
                     if (dataset.Tables.Count > 0)
@@ -772,6 +774,30 @@ namespace BethesdaConsentFormWCFSvc
         public bool TestMethod()
         {
             return true;
+        }
+
+        [OperationContract]
+        public void SeedData()
+        {
+            System.Configuration.Configuration config = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
+            var conStr = config.AppSettings.Settings["DBConnection"].Value;
+            using (var sqlConnection = new SqlConnection(conStr))
+            {
+                sqlConnection.Open();
+                foreach (string consentType in Enum.GetNames(typeof(ConsentType)))
+                {
+                    var command = new SqlCommand("insert into dbo.ConsentType values('" + consentType + "')", sqlConnection);
+                    command.ExecuteNonQuery();
+                    command = new SqlCommand("insert into dbo.PhysicianCategory values('" + consentType + "')", sqlConnection);
+                    command.ExecuteNonQuery();
+                }
+
+                foreach (string signatureType in Enum.GetNames(typeof(SignatureType)))
+                {
+                    var command = new SqlCommand("insert into dbo.Signatures  values('" + signatureType + "')", sqlConnection);
+                    command.ExecuteNonQuery();
+                }
+            }
         }
 
         //private void InsertSeedRecords(bool associated, bool primaryDoc, int consentTypeId, string fName, string lName, int pcid)

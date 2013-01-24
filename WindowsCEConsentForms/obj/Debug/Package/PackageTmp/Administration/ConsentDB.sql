@@ -1,11 +1,7 @@
 USE [master]
 GO
 /****** Object:  Database [BethesdaCollege]    Script Date: 01/03/2013 09:06:26 ******/
-CREATE DATABASE [BethesdaCollege] ON  PRIMARY 
-( NAME = N'BethesdaCollege', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL10_50.MSSQLSERVER\MSSQL\DATA\BethesdaCollege.mdf' , SIZE = 4352KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
- LOG ON 
-( NAME = N'BethesdaCollege_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL10_50.MSSQLSERVER\MSSQL\DATA\BethesdaCollege_log.LDF' , SIZE = 768KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
-GO
+
 ALTER DATABASE [BethesdaCollege] SET COMPATIBILITY_LEVEL = 100
 GO
 IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
@@ -130,7 +126,8 @@ CREATE TABLE [dbo].[Treatment](
 	[Date] [datetime] NOT NULL,
 	[IsStatementOfConsentAccepted] [bit] NOT NULL,
 	[IsAutologousUnits] [bit] NOT NULL,
-	[IsDirectedUnits] [bit] NOT NULL
+	[IsDirectedUnits] [bit] NOT NULL,
+	[EmpID] [varchar] (255) NOT NULL
 ) ON [PRIMARY]
 GO
 /****** Object:  Table [dbo].[TrackingInformation]    Script Date: 01/03/2013 09:06:28 ******/
@@ -291,16 +288,17 @@ CREATE PROCEDURE [dbo].[AddTreatment]
 @trackingID INT,
 @signaturesID INT,
 @doctorsAndProceduresID INT,
-@translatedBy varchar(MAX)
+@translatedBy varchar(MAX),
+@empID varchar(255)
 AS
 BEGIN
 	SET NOCOUNT ON;
     insert into Treatment(PatentId,ConsentType,IsPatientunabletosign,IsStatementOfConsentAccepted,
                 IsAutologousUnits,IsDirectedUnits,Unabletosignreason,TrackingID,
-                Signatures,DoctorandProcedure,TransaltedBy,Date)
+                Signatures,DoctorandProcedure,TransaltedBy,Date,EmpID)
     values(@PatientID , @ConsentTypeID , @isPatientUnableSign , @isStatementOfConsentAccepted ,
 			@isAutologousUnits , @isDirectedUnits , @unableToSignReason , @trackingID , @signaturesID ,
-			@doctorsAndProceduresID ,@translatedBy ,GETDATE());
+			@doctorsAndProceduresID ,@translatedBy ,GETDATE(),@empID);
 END
 GO
 /****** Object:  StoredProcedure [dbo].[AddProcedures]    Script Date: 01/03/2013 09:06:29 ******/
@@ -385,7 +383,7 @@ BEGIN
 
     select PatentId,ConsentType,IsPatientunabletosign,IsStatementOfConsentAccepted,
 			IsAutologousUnits, IsDirectedUnits,Unabletosignreason,TrackingID,Signatures,
-            DoctorandProcedure,TransaltedBy, Date from Treatment,ConsentType as CT
+            DoctorandProcedure,TransaltedBy, Date, EmpID from Treatment,ConsentType as CT
     where   PatentId=1 and ConsentType=CT.ID and CT.Name=@consentType and
 			date=(select MAX(date) from Treatment,ConsentType as CT
                   where PatentId=1 and ConsentType=CT.ID and CT.Name=@consentType)

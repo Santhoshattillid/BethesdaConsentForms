@@ -82,8 +82,7 @@ namespace WindowsCEConsentForms.Administration
             // setting Database fields value from connection string
             try
             {
-                SqlConnectionStringBuilder sqlConnectionStringBuilder =
-                    new SqlConnectionStringBuilder(ConfigurationManager.AppSettings["ConnectionString"]);
+                var sqlConnectionStringBuilder = new SqlConnectionStringBuilder(ConfigurationManager.AppSettings["ConnectionString"]);
                 TxtServerName.Text = sqlConnectionStringBuilder.DataSource;
                 TxtDatabasename.Text = sqlConnectionStringBuilder.InitialCatalog;
                 if (!string.IsNullOrEmpty(sqlConnectionStringBuilder.UserID))
@@ -91,6 +90,27 @@ namespace WindowsCEConsentForms.Administration
                     RdoSqlServerAuthentication.Checked = true;
                     TxtUsername.Text = sqlConnectionStringBuilder.UserID;
                     TxtPassword.Text = sqlConnectionStringBuilder.Password;
+                }
+                else
+                {
+                    RdoWindowsAuthentication.Checked = true;
+                }
+            }
+            catch (Exception)
+            {
+            }
+
+            // setting Database fields value from connection string
+            try
+            {
+                var sqlConnectionStringBuilder = new SqlConnectionStringBuilder(ConfigurationManager.AppSettings["BethesdaConnectionString"]);
+                TxtServerNameExternal.Text = sqlConnectionStringBuilder.DataSource;
+                TxtDatabasenameExternal.Text = sqlConnectionStringBuilder.InitialCatalog;
+                if (!string.IsNullOrEmpty(sqlConnectionStringBuilder.UserID))
+                {
+                    RdoSqlServerAuthenticationExternal.Checked = true;
+                    TxtUsernameExternal.Text = sqlConnectionStringBuilder.UserID;
+                    TxtPasswordExternal.Text = sqlConnectionStringBuilder.Password;
                 }
                 else
                 {
@@ -161,7 +181,8 @@ namespace WindowsCEConsentForms.Administration
 
                             config.AppSettings.Settings.Remove("DBSetupStatus");
                             config.AppSettings.Settings.Add("DBSetupStatus", "1");
-                            connectionString = connectionString.Replace(connectionString.Split('=')[2], TxtDatabasename.Text + ";uid");
+
+                            string masterConnectionString = connectionString.Replace(connectionString.Split('=')[2], "master;uid");
 
                             // Setting connection in WCF application for configured DB connection
                             consentFormSvcClient.SetDbConnection(connectionString);
@@ -171,7 +192,7 @@ namespace WindowsCEConsentForms.Administration
                             try
                             {
                                 // create database if not exists
-                                if (CreateDatabase(TxtDatabasename.Text.Trim(), connectionString))
+                                if (CreateDatabase(TxtDatabasename.Text.Trim(), masterConnectionString))
                                 {
                                     LblError.Text += "<br /> Database Created succefully";
                                 }
@@ -201,7 +222,7 @@ namespace WindowsCEConsentForms.Administration
                             string connectionString;
                             if (RdoSqlServerAuthenticationExternal.Checked)
                                 connectionString = @"server=" + TxtServerNameExternal.Text.Trim() +
-                                                   ";database=master;uid=" +
+                                                   ";database=" + TxtDatabasename.Text.Trim() + ";uid=" +
                                                    TxtUsernameExternal.Text.Trim() + ";pwd=" +
                                                    TxtPasswordExternal.Text.Trim();
                             else
@@ -225,6 +246,9 @@ namespace WindowsCEConsentForms.Administration
                     //setting exports path
                     try
                     {
+                        // before saving paths seed the db
+                        consentFormSvcClient.SeedData();
+
                         if (!string.IsNullOrEmpty(TxtSurgicalExportPath.Text.Trim())
                             && !string.IsNullOrEmpty(TxtBloodConsentOrRefusalExportPath.Text.Trim())
                             && !string.IsNullOrEmpty(TxtCardiovascularExportPath.Text.Trim())
@@ -241,7 +265,7 @@ namespace WindowsCEConsentForms.Administration
                             consentFormSvcClient.SavePdFFolderPath(ConsentType.PICC, TxtPICCExportPath.Text);
                             consentFormSvcClient.SavePdFFolderPath(ConsentType.PlasmanApheresis, TxtPlasmanApheresisExportPath.Text);
 
-                            LblError.Text += "Export paths saved successfully.";
+                            LblError.Text += "<br /> Export paths saved successfully.";
                         }
                     }
                     catch (Exception ex)

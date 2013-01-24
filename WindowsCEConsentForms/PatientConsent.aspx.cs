@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Configuration;
 using System.Data;
-using System.ServiceModel;
-using System.Web;
-using System.Web.Configuration;
 using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms
@@ -277,7 +273,8 @@ namespace WindowsCEConsentForms
             DdlFormList.Items.Clear();
             DdlFormList.Items.Add("--Select Consent Form Type--");
             DdlFormList.Items.Add("Name Printed in Consent Form");
-            DdlFormList.Items.Add("Blank Consent Form");
+
+            //DdlFormList.Items.Add("Blank Consent Form");
             DdlFormList.SelectedIndex = 0;
             DdlPatientIds.SelectedIndex = 0;
         }
@@ -293,6 +290,7 @@ namespace WindowsCEConsentForms
                 var formHanlderServiceClient = Utilities.GetConsentFormSvcClient();
                 if (formHanlderServiceClient.IsValidEmployee(TxtEmployeeID.Text.Trim()))
                 {
+                    Session.Add("EmpID", TxtEmployeeID.Text);
                     RdoBHE.Enabled = true;
                     RdoBMH.Enabled = true;
                     LblError2.Text = string.Empty;
@@ -305,6 +303,11 @@ namespace WindowsCEConsentForms
                     LblError2.Text = "Please input valid employee ID.";
                 }
             }
+        }
+
+        protected void BtnBlankForm_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/BlankForm.aspx");
         }
     }
 }

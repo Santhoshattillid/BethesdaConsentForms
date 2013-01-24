@@ -10,7 +10,7 @@ namespace WindowsCEConsentForms
 {
     public class Utilities
     {
-        public static bool IsDevelopmentMode;
+        public static bool IsDevelopmentMode = true;
 
         public static string GetNextFormUrl(ConsentType consentType, System.Web.SessionState.HttpSessionState sessionState)
         {
@@ -64,7 +64,8 @@ namespace WindowsCEConsentForms
 
         public static void GeneratePdfAndUploadToSharePointSite(ConsentFormSvcClient formHandlerServiceClient, ConsentType consentType, string patientId)
         {
-            //formHandlerServiceClient.GenerateAndUploadPDFtoSharePoint("http://devsp1.atbapps.com:5555/" + consentType + @"/ConsentPrint.aspx?PatientId=" + patientId, patientId, consentType);
+            if (!IsDevelopmentMode)
+                formHandlerServiceClient.GenerateAndUploadPdFtoSharePoint("http://localhost/" + consentType + @"/ConsentPrint.aspx?PatientId=" + patientId, patientId, consentType);
         }
 
         public static string GetAssociatedDoctors(int primaryPhysicianId)

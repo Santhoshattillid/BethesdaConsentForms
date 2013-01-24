@@ -70,6 +70,15 @@
         return false;
     });
 
+    $('.RemoveDocAndProc').live('click', function () {
+        var li = $(this).parents('li.LiDoctorsAndProcedures');
+        li.slideUp(500);
+        setTimeout(function () {
+            li.remove();
+        }, 500);
+        return false;
+    });
+
     //procedure method
     initializeProcedures($("select.DdLProcedures"));
 
@@ -103,6 +112,7 @@
     $.ech.multiselect.prototype.options.click = function (e) {
         setProcedures(e);
     };
+
     function initializeProcedures(procedureDdl) {
         if (procedureDdl.size() > 0) {
             procedureDdl.multiselect({
@@ -162,6 +172,8 @@
             }
         });
     }
+
+    showOrHideOtherProcedureBox(true);
 
     // removing procedure box
     $('.RemoveDocAndProc:first').hide();

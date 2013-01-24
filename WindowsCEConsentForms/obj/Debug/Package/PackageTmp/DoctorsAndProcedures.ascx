@@ -70,14 +70,14 @@
                     <%= procedure %></option>
                 <% } %>
             </select>
-            <a href="#" class="RemoveDocAndProc extraMargin">Remove
-                <img src="/Images/index.jpg" alt="" /></a>
+            <a href="#" class="RemoveDocAndProc extraMargin">Remove<img src="/Images/index.jpg"
+                alt="" /></a>
             <input type="hidden" class="HdnSelectedProcedures" name="HdnSelectedProcedures" value="<%= doctorsProcedures.SelectedProcedures[index] %>" />
             <div id="DivOtherProcedure" class="DivOtherProcedure">
                 <label>
                     Specify procedure</label>
                 &nbsp;
-                <input type="text" name="TxtOtherProcedure" />
+                <input type="text" name="TxtOtherProcedure" value="<%= doctorsProcedures.OtherProcedures[index] %>" />
             </div>
             <% }
                else

@@ -128,6 +128,10 @@ namespace WindowsCEConsentForms.Surgical
 
                 signatureses.AddRange(DeclarationSignatures.GetSignatures());
 
+                string empID = string.Empty;
+                if (Session["EmpID"] != null)
+                    empID = Session["EmpID"].ToString();
+
                 var treatment = new Treatment
                 {
                     _patientId = patientId,
@@ -141,7 +145,8 @@ namespace WindowsCEConsentForms.Surgical
                         _device = device,
                         _iP = ip
                     },
-                    _doctorAndPrcedures = doctorsAndProcedures
+                    _doctorAndPrcedures = doctorsAndProcedures,
+                    _empID = empID
                 };
 
                 if (treatment._doctorAndPrcedures.GetUpperBound(0) < 0)

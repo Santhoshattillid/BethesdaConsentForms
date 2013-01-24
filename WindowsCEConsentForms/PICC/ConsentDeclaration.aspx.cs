@@ -54,6 +54,10 @@ namespace WindowsCEConsentForms.PICC
 
                 signatureses.AddRange(DeclarationSignatures.GetSignatures());
 
+                string empID = string.Empty;
+                if (Session["EmpID"] != null)
+                    empID = Session["EmpID"].ToString();
+
                 var treatment = new Treatment
                 {
                     _patientId = patientId,
@@ -66,7 +70,8 @@ namespace WindowsCEConsentForms.PICC
                     {
                         _device = device,
                         _iP = ip
-                    }
+                    },
+                    _empID = empID
                 };
 
                 var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();

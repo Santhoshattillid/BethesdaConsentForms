@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Linq;
-using System.ServiceModel;
-using System.Web;
-using System.Web.Configuration;
 using WindowsCEConsentForms.FormHandlerService;
 
 namespace WindowsCEConsentForms
@@ -43,7 +39,8 @@ namespace WindowsCEConsentForms
                 var doctorsProceduresState = new DoctorsProceduresState
                 {
                     SelectedDoctorsIndex = new[] { "0" },
-                    SelectedProcedures = new[] { "" }
+                    SelectedProcedures = new[] { "" },
+                    OtherProcedures = new[] { "" }
                 };
                 ViewState["DoctorsProceduresState"] = doctorsProceduresState;
 
@@ -68,6 +65,7 @@ namespace WindowsCEConsentForms
                                                          IsStaticTextBoxForPrecedures
                                                              ? Request.Form["TxtProcedures"].Split(',')
                                                              : Request.Form["HdnSelectedProcedures"].Split(','),
+                                                     OtherProcedures = Request.Form["TxtOtherProcedure"].Split(',')
                                                  };
                 ViewState["DoctorsProceduresState"] = doctorsProceduresState;
             }
@@ -144,5 +142,7 @@ namespace WindowsCEConsentForms
         public string[] SelectedDoctorsIndex;
 
         public string[] SelectedProcedures;
+
+        public string[] OtherProcedures;
     }
 }

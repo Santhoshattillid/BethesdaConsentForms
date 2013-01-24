@@ -192,6 +192,10 @@ namespace WindowsCEConsentForms.PlasmanApheresis
 
                 signatureses.AddRange(DeclarationSignatures.GetSignatures());
 
+                string empID = string.Empty;
+                if (Session["EmpID"] != null)
+                    empID = Session["EmpID"].ToString();
+
                 var treatment = new Treatment
                                     {
                                         _patientId = patientId,
@@ -205,7 +209,8 @@ namespace WindowsCEConsentForms.PlasmanApheresis
                                                                        _device = device,
                                                                        _iP = ip
                                                                    },
-                                        _doctorAndPrcedures = new DoctorAndProcedure[1] { new DoctorAndProcedure { _precedures = string.Empty, _primaryDoctorId = Request.QueryString["DdlPrimaryDoctors"] } }
+                                        _doctorAndPrcedures = new DoctorAndProcedure[1] { new DoctorAndProcedure { _precedures = string.Empty, _primaryDoctorId = Request.QueryString["DdlPrimaryDoctors"] } },
+                                        _empID = empID
                                     };
 
                 var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();

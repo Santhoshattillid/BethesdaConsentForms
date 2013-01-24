@@ -38,6 +38,8 @@ namespace BethesdaConsentFormWCFSvc
         public List<DoctorAndProcedure> _doctorAndPrcedures;
 
         public List<Signatures> _signatureses;
+
+        public string _empID;
     }
 
     public class DoctorDetails
