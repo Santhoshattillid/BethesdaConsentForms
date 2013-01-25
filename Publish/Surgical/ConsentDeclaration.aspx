@@ -18,4 +18,9 @@
     <uc2:DoctorsAndProcedures ID="DoctorsAndProcedures1" runat="server" IsStaticTextBoxForPrecedures="True" />
     <uc1:ConsentSignatures ID="ConsentSignatures" runat="server" />
     <uc1:DeclarationSignatures ID="DeclarationSignatures" runat="server" ConsentType="Surgical" />
+    <ul>
+        <li>
+            <asp:Label runat="server" ID="LblError" CssClass="errorInfomodified"></asp:Label>
+        </li>
+    </ul>
 </asp:Content>

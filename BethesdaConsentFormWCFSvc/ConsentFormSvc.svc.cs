@@ -348,7 +348,13 @@ namespace BethesdaConsentFormWCFSvc
                         }
                 }
 
-                fileName = Path.Combine(GetPdFFolderPath(consentFormType), fileName);
+                // creating the folder if it is not exits in the drive.
+                var folderPath = GetPdFFolderPath(consentFormType);
+
+                if (!Directory.Exists(folderPath))
+                    Directory.CreateDirectory(folderPath);
+
+                fileName = Path.Combine(folderPath, fileName);
 
                 File.WriteAllBytes(fileName, convertedFile);
 
@@ -486,24 +492,28 @@ namespace BethesdaConsentFormWCFSvc
         [OperationContract]
         public void AddProcedures(string procedureName, int consentTypeID)
         {
-            System.Configuration.Configuration config = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
-            var conStr = config.AppSettings.Settings["DBConnection"].Value;
-            using (var sqlConnection = new SqlConnection(conStr))
+            if (procedureName.Trim().ToLower() != "other") // no need to store reserved procedure name
             {
-                sqlConnection.Open();
-                SqlTransaction transaction = sqlConnection.BeginTransaction();
-                try
+                System.Configuration.Configuration config =
+                    WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
+                var conStr = config.AppSettings.Settings["DBConnection"].Value;
+                using (var sqlConnection = new SqlConnection(conStr))
                 {
-                    var cmdTreatment = new SqlCommand("AddProcedures", sqlConnection, transaction) { CommandType = CommandType.StoredProcedure };
-                    cmdTreatment.Parameters.Add("@consentTypeID", SqlDbType.Int).Value = consentTypeID;
-                    cmdTreatment.Parameters.Add("@procedureName", SqlDbType.VarChar).Value = procedureName;
-                    cmdTreatment.ExecuteNonQuery();
-                    transaction.Commit();
-                }
-                catch (Exception ex)
-                {
-                    transaction.Rollback();
-                    throw new Exception(ex.Message);
+                    sqlConnection.Open();
+                    SqlTransaction transaction = sqlConnection.BeginTransaction();
+                    try
+                    {
+                        var cmdTreatment = new SqlCommand("AddProcedures", sqlConnection, transaction) { CommandType = CommandType.StoredProcedure };
+                        cmdTreatment.Parameters.Add("@consentTypeID", SqlDbType.Int).Value = consentTypeID;
+                        cmdTreatment.Parameters.Add("@procedureName", SqlDbType.VarChar).Value = procedureName;
+                        cmdTreatment.ExecuteNonQuery();
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        throw new Exception(ex.Message);
+                    }
                 }
             }
         }

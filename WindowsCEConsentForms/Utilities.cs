@@ -10,7 +10,7 @@ namespace WindowsCEConsentForms
 {
     public class Utilities
     {
-        public static bool IsDevelopmentMode = true;
+        public static bool IsDevelopmentMode = false;
 
         public static string GetNextFormUrl(ConsentType consentType, System.Web.SessionState.HttpSessionState sessionState)
         {

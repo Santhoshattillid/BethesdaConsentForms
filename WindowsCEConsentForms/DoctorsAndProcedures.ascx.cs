@@ -65,7 +65,7 @@ namespace WindowsCEConsentForms
                                                          IsStaticTextBoxForPrecedures
                                                              ? Request.Form["TxtProcedures"].Split(',')
                                                              : Request.Form["HdnSelectedProcedures"].Split(','),
-                                                     OtherProcedures = Request.Form["TxtOtherProcedure"].Split(',')
+                                                     OtherProcedures = Request.Form["TxtOtherProcedure"] != null ? Request.Form["TxtOtherProcedure"].Split(',') : new string[] { "" }
                                                  };
                 ViewState["DoctorsProceduresState"] = doctorsProceduresState;
             }

@@ -160,8 +160,9 @@ namespace WindowsCEConsentForms.Surgical
                 Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId);
                 Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                LblError.Text = ex.Message;
                 return;
             }
         }
