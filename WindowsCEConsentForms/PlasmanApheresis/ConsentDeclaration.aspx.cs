@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WindowsCEConsentForms.FormHandlerService;
+using WindowsCEConsentForms.ConsentFormSvc;
 
 namespace WindowsCEConsentForms.PlasmanApheresis
 {
@@ -35,7 +35,7 @@ namespace WindowsCEConsentForms.PlasmanApheresis
                     LblPatientName.Text = patientDetail.name;
 
                 var primaryDoctors = new List<PrimaryDoctor> { new PrimaryDoctor() { Id = 0, Name = "----Select Primary Doctor----" } };
-                var physicians = formHandlerServiceClient.GetDoctorDetails(ConsentType.PICC);
+                var physicians = formHandlerServiceClient.GetDoctorDetails();
                 if (physicians != null)
                 {
                     primaryDoctors.AddRange(physicians.Select(doctorDetails => new PrimaryDoctor { Name = doctorDetails.Lname + ", " + doctorDetails.Fname, Id = doctorDetails.ID }));

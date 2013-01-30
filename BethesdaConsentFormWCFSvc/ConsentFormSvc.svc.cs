@@ -18,6 +18,82 @@ namespace BethesdaConsentFormWCFSvc
     public class ConsentFormSvc
     {
         [OperationContract]
+        public void SynchronizeBethesdaData()
+        {
+            System.Configuration.Configuration config = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
+
+            var localConStr = config.AppSettings.Settings["DBConnection"].Value;
+            var bethesdaConStr = config.AppSettings.Settings["BethesdaConnectionString"].Value;
+
+            using (var sqlConnectionLocal = new SqlConnection(localConStr))
+            {
+                sqlConnectionLocal.Open();
+                using (var sqlConnectionBethesda = new SqlConnection(bethesdaConStr))
+                {
+                    sqlConnectionBethesda.Open();
+
+                    # region Import Physician
+
+                    // ---------------starts physician import process------------------
+
+                    // starts synchronizing
+                    var command = new SqlCommand(string.Empty, sqlConnectionBethesda)
+                    {
+                        //CommandText = "select user_oid,GroupName,UserDescription from [soariandbtest].[dbo].[Physician]"
+                        CommandText = "BMH_Consent_GetPhysicianList",
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    var daPhysician = new SqlDataAdapter(command);
+
+                    var physiciansDs = new DataSet();
+                    daPhysician.Fill(physiciansDs);
+
+                    int syncId = Convert.ToInt32(DateTime.Now.Ticks % 65323);
+
+                    foreach (DataTable dataTable in physiciansDs.Tables)
+                    {
+                        foreach (DataRow dataRow in dataTable.Rows)
+                        {
+                            command = new SqlCommand("select * from Physician where Fname='" + dataRow["UserDescription"] + "'", sqlConnectionLocal);
+
+                            daPhysician = new SqlDataAdapter(command);
+
+                            var physiciansCheck = new DataSet();
+                            daPhysician.Fill(physiciansCheck);
+
+                            if (physiciansCheck.Tables.Count == 0 || physiciansCheck.Tables[0].Rows.Count == 0)
+                            {
+                                string physicianName = dataRow["UserDescription"].ToString();
+                                string userId = dataRow["user_oid"].ToString();
+                                string groupName = dataRow["GroupName"].ToString();
+
+                                command = new SqlCommand(@"insert into Physician
+                                                            values('False','True',8,'" + physicianName + "','" + userId +
+                                                            "',0,'" + groupName + "'," + syncId + ")", sqlConnectionLocal);
+                                command.ExecuteNonQuery();
+                            }
+                        }
+                    }
+
+                    // removing un - available physicians
+                    command = new SqlCommand("delete from Physician where SyncID !=" + syncId, sqlConnectionLocal);
+                    command.ExecuteNonQuery();
+
+                    #endregion
+
+                    #region Import Patients for BHE location
+
+                    AddPatient(sqlConnectionLocal, sqlConnectionBethesda, "BHE");
+
+                    AddPatient(sqlConnectionLocal, sqlConnectionBethesda, "BMH");
+
+                    #endregion
+                }
+            }
+        }
+
+        [OperationContract]
         public void SetDbConnection(string connectionString)
         {
             System.Configuration.Configuration config = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
@@ -572,7 +648,7 @@ namespace BethesdaConsentFormWCFSvc
         }
 
         [OperationContract]
-        public List<DoctorDetails> GetDoctorDetails(ConsentType consentType)
+        public List<DoctorDetails> GetDoctorDetails()
         {
             var output = new List<DoctorDetails>();
             System.Configuration.Configuration config = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
@@ -582,7 +658,6 @@ namespace BethesdaConsentFormWCFSvc
                 using (var sqlDataAdapter = new SqlDataAdapter("GetDoctorDetails", sqlConnection))
                 {
                     sqlDataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                    sqlDataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@Name", SqlDbType.NVarChar)).Value = consentType;
                     var dataset = new DataSet();
                     sqlDataAdapter.Fill(dataset);
                     if (dataset.Tables.Count > 0)
@@ -1039,6 +1114,56 @@ namespace BethesdaConsentFormWCFSvc
                 return listSig;
             }
             return listSig;
+        }
+
+        private static void AddPatient(SqlConnection sqlConnectionLocal, SqlConnection sqlConnectionBethesda, string location)
+        {
+            // ---------------starts patient import process------------------
+
+            // starts synchronizing
+            var command = new SqlCommand(string.Empty, sqlConnectionBethesda)
+            {
+                CommandText = "BMH_Consent_GetCurrentCensus",
+                CommandType = CommandType.StoredProcedure
+            };
+
+            command.Parameters.Add(new SqlParameter("@Entity", SqlDbType.NVarChar)).Value = location;
+
+            var daPatients = new SqlDataAdapter(command);
+
+            var patientDs = new DataSet();
+            daPatients.Fill(patientDs);
+
+            foreach (DataTable dataTable in patientDs.Tables)
+            {
+                foreach (DataRow dataRow in dataTable.Rows)
+                {
+                    command = new SqlCommand("select * from Patient where Patient#='" + dataRow["PatientAccountID"] + "'", sqlConnectionLocal);
+
+                    daPatients = new SqlDataAdapter(command);
+
+                    var patientCheck = new DataSet();
+                    daPatients.Fill(patientCheck);
+
+                    if (patientCheck.Tables.Count == 0 || patientCheck.Tables[0].Rows.Count == 0)
+                    {
+                        string fullname = dataRow["FullName"].ToString();
+                        string mrn = dataRow["MRN"].ToString();
+                        string patientAccountId = dataRow["PatientAccountID"].ToString();
+                        string sex = dataRow["Sex"].ToString();
+                        string birthDate = dataRow["BirthDate"].ToString();
+                        string attPhysicianName = dataRow["AttPhysicianName"].ToString();
+                        string visitDateTime = dataRow["VisitStartDateTime"].ToString();
+                        string age = dataRow["Age"].ToString();
+
+                        command = new SqlCommand(@"insert into Patient
+                                                   values('','','" + fullname + "','" + birthDate + "','" + age +
+                                                 "','" + sex + "','" + mrn + "',0,0,'" + visitDateTime + "','" + location +
+                                                 "','','" + patientAccountId + "','" + attPhysicianName + "')", sqlConnectionLocal);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
         }
     }
 }

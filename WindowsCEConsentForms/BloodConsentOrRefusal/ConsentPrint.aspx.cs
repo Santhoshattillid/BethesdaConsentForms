@@ -1,12 +1,12 @@
 ﻿using System;
-using WindowsCEConsentForms.FormHandlerService;
+using WindowsCEConsentForms.ConsentFormSvc;
 
 namespace WindowsCEConsentForms.BloodConsentOrRefusal
 {
     public partial class PICCConsentPrint : System.Web.UI.Page
     {
         public bool IsStatementOfConsent;
-        public ConsentType ConsentType;
+        public ConsentType consentType;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,12 +21,12 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
             }
             if (!string.IsNullOrEmpty(patientId))
             {
-                ConsentType = ConsentType.BloodConsentOrRefusal;
+                consentType = ConsentType.BloodConsentOrRefusal;
 
                 var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
 
-                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
-                var treatment = formHandlerServiceClient.GetTreatment(patientId, ConsentType);
+                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, consentType.ToString());
+                var treatment = formHandlerServiceClient.GetTreatment(patientId, consentType);
                 if (patientDetails != null)
                 {
                     var primaryDoctor = formHandlerServiceClient.GetDoctorDetail(Convert.ToInt32(patientDetails.PrimaryDoctorId));

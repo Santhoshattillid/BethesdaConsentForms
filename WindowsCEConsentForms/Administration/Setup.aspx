@@ -2,7 +2,7 @@
     CodeBehind="Setup.aspx.cs" Inherits="WindowsCEConsentForms.Administration.Setup" %>
 
 <%@ Import Namespace="WindowsCEConsentForms" %>
-<%@ Import Namespace="WindowsCEConsentForms.FormHandlerService" %>
+<%@ Import Namespace="WindowsCEConsentForms.ConsentFormSvc" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -239,22 +239,22 @@
             var passwordElement = $("#" + "<%= TxtPassword.ClientID%>");
             var serviceUrlElement = $("#" + "<%= TxtServiceURL.ClientID%>");
             var errorInfoElement = $("#" + "<%= LblError.ClientID%>");
-            if (dataSourceElement.size() > 0 && $.trim(dataSourceElement.val()) == "") {
+            if (dataSourceElement.size()> 0 && $.trim(dataSourceElement.val()) == "") {
                 errorInfoElement.html("Datasource Field can not be blank");
                 dataSourceElement.focus();
                 return false;
             }
-            if (databaseNameElement.size() > 0 && $.trim(databaseNameElement.val()) == "") {
+            if (databaseNameElement.size()> 0 && $.trim(databaseNameElement.val()) == "") {
                 errorInfoElement.html("Database Field can not be blank");
                 databaseNameElement.focus();
                 return false;
             }
-            if (usernameElement.size() > 0 && $.trim(usernameElement.val()) == "") {
+            if (usernameElement.size()> 0 && $.trim(usernameElement.val()) == "") {
                 errorInfoElement.html("User Name can not be blank");
                 usernameElement.focus();
                 return false;
             }
-            if (passwordElement.size() > 0 && $.trim(passwordElement.val()) == "") {
+            if (passwordElement.size()> 0 && $.trim(passwordElement.val()) == "") {
                 errorInfoElement.html("Password can not be blank");
                 passwordElement.focus();
                 return false;

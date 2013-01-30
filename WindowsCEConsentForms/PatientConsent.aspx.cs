@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data;
-using WindowsCEConsentForms.FormHandlerService;
+using WindowsCEConsentForms.ConsentFormSvc;
 
 namespace WindowsCEConsentForms
 {

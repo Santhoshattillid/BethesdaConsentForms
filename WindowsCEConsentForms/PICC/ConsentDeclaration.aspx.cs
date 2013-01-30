@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using WindowsCEConsentForms.FormHandlerService;
+using WindowsCEConsentForms.ConsentFormSvc;
 
 namespace WindowsCEConsentForms.PICC
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Web.UI;
-using WindowsCEConsentForms.FormHandlerService;
+using WindowsCEConsentForms.ConsentFormSvc;
 
 namespace WindowsCEConsentForms
 {

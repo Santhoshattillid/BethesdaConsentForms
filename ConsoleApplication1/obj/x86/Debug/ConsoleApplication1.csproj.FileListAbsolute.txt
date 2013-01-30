@@ -9,3 +9,7 @@ C:\Users\amita\Desktop\Bethesda\BethesdaConsentForms\ConsoleApplication1\bin\Deb
 C:\Users\amita\Desktop\Bethesda\BethesdaConsentForms\ConsoleApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\amita\Desktop\Bethesda\BethesdaConsentForms\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.exe
 C:\Users\amita\Desktop\Bethesda\BethesdaConsentForms\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.pdb
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\ConsoleApplication1\bin\Debug\Microsoft.Win32.TaskScheduler.dll
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\ConsoleApplication1\bin\Debug\Microsoft.Win32.TaskScheduler.xml
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\ConsoleApplication1\bin\Debug\it\Microsoft.Win32.TaskScheduler.resources.dll
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\ConsoleApplication1\bin\Debug\zh-CN\Microsoft.Win32.TaskScheduler.resources.dll

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using WindowsCEConsentForms.FormHandlerService;
+using WindowsCEConsentForms.ConsentFormSvc;
 
 namespace WindowsCEConsentForms
 {
     public partial class DoctorsAndProcedures : System.Web.UI.UserControl
     {
-        public ConsentType ConsentType;
+        public ConsentType consentType;
 
         public bool IsStaticTextBoxForPrecedures;
 
@@ -21,14 +21,14 @@ namespace WindowsCEConsentForms
 
                 if (!IsStaticTextBoxForPrecedures)
                 {
-                    procedures.AddRange(from DataRow row in formHandlerServiceClient.GetProcedures(ConsentType).Rows select row["CFName"].ToString());
+                    procedures.AddRange(from DataRow row in formHandlerServiceClient.GetProcedures(consentType).Rows select row["CFName"].ToString());
                     procedures.Add("Other");
                 }
 
                 ViewState["ListOfProcedures"] = procedures;
 
                 var primaryDoctors = new List<PrimaryDoctor> { new PrimaryDoctor() { Id = 0, Name = "----Select Primary Doctor----" } };
-                var physicians = formHandlerServiceClient.GetDoctorDetails(ConsentType);
+                var physicians = formHandlerServiceClient.GetDoctorDetails();
                 if (physicians != null)
                 {
                     primaryDoctors.AddRange(physicians.Select(doctorDetails => new PrimaryDoctor { Name = doctorDetails.Lname + ", " + doctorDetails.Fname, Id = doctorDetails.ID }));
@@ -54,7 +54,7 @@ namespace WindowsCEConsentForms
                     Response.Redirect("/PatientConsent.aspx");
                 }
 
-                LblPatientName.Text = Utilities.GetPatientName(patientId, ConsentType.ToString()).name;
+                LblPatientName.Text = Utilities.GetPatientName(patientId, consentType.ToString()).name;
             }
             else
             {

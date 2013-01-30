@@ -2,12 +2,14 @@
 using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
+using System.Linq;
 using System.ServiceModel;
 using System.Web;
 using System.Web.Configuration;
 using Microsoft.SqlServer.Management.Common;
 using Microsoft.SqlServer.Management.Smo;
-using WindowsCEConsentForms.FormHandlerService;
+using Microsoft.Win32.TaskScheduler;
+using WindowsCEConsentForms.ConsentFormSvc;
 using Configuration = System.Configuration.Configuration;
 
 namespace WindowsCEConsentForms.Administration
@@ -275,6 +277,64 @@ namespace WindowsCEConsentForms.Administration
                 }
                 else
                     LblError.Text += "<br /> Please input wcf service URL and try again.";
+
+                try
+                {
+                    // Get the service on the local machine
+                    using (var ts = new TaskService())
+                    {
+                        if (ts.RootFolder.GetTasks().Any(task => task.Name == "BethedaContentSync"))
+                        {
+                            ts.RootFolder.DeleteTask("BethedaContentSync");
+                        }
+
+                        // Create a new task definition and assign properties
+                        TaskDefinition td = ts.NewTask();
+                        td.RegistrationInfo.Description = "Bethesda Employee, Patient and Physician import task.";
+
+                        // Create a trigger that will fire the task at this time every day
+                        td.Triggers.Add(new DailyTrigger { StartBoundary = DateTime.Now.AddHours(-DateTime.Now.Hour), DaysInterval = 1, Enabled = true });
+
+                        string path = @"C:\Program Files\Internet Explorer\iexplore.exe";
+
+                        // Create an action that will launch Notepad whenever the trigger fires
+                        td.Actions.Add(new ExecAction(Request.Url.OriginalString.Replace(Request.Url.Query, string.Empty) + "/Administration/", "", null));
+
+                        // Register the task in the root folder
+                        ts.RootFolder.RegisterTaskDefinition(@"BethedaContentSync", td);
+                    }
+                }
+                catch (Exception)
+                {
+                }
+            }
+
+            try
+            {
+                // Get the service on the local machine
+                using (var ts = new TaskService())
+                {
+                    if (ts.RootFolder.GetTasks().Any(task => task.Name == "BethedaContentSync"))
+                    {
+                        ts.RootFolder.DeleteTask("BethedaContentSync");
+                    }
+
+                    // Create a new task definition and assign properties
+                    TaskDefinition td = ts.NewTask();
+                    td.RegistrationInfo.Description = "Bethesda Employee, Patient and Physician import task.";
+
+                    // Create a trigger that will fire the task at this time every day
+                    td.Triggers.Add(new DailyTrigger { StartBoundary = DateTime.Now.AddHours(-DateTime.Now.Hour), DaysInterval = 1, Enabled = true });
+
+                    // Create an action that will launch Notepad whenever the trigger fires
+                    td.Actions.Add(new ExecAction(Request.Url.Host, "", null));
+
+                    // Register the task in the root folder
+                    ts.RootFolder.RegisterTaskDefinition(@"BethedaContentSync", td);
+                }
+            }
+            catch (Exception)
+            {
             }
         }
 

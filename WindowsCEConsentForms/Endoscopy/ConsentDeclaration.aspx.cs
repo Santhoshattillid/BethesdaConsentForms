@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.ServiceModel;
 using System.Text;
-using System.Web;
-using System.Web.Configuration;
 using System.Web.UI;
-using WindowsCEConsentForms.FormHandlerService;
+using WindowsCEConsentForms.ConsentFormSvc;
 
 namespace WindowsCEConsentForms.Endoscopy
 {

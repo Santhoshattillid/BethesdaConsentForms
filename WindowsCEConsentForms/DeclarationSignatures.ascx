@@ -1,8 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="DeclarationSignatures.ascx.cs"
     Inherits="WindowsCEConsentForms.DeclarationSignatures" %>
-<%@ Import Namespace="WindowsCEConsentForms.FormHandlerService" %>
+<%@ Import Namespace="WindowsCEConsentForms.ConsentFormSvc" %>
 <ul class="content">
-    <% if (ConsentType != ConsentType.PICC && ConsentType != ConsentType.BloodConsentOrRefusal && ConsentType != ConsentType.Cardiovascular)
+    <% if (consentType != ConsentType.PICC && consentType != ConsentType.BloodConsentOrRefusal && consentType != ConsentType.Cardiovascular)
        { %>
     <li>
         <p>
@@ -120,7 +120,7 @@
         <div class="clear">
         </div>
     </li>
-    <% if (ConsentType == ConsentType.PICC)
+    <% if (consentType == ConsentType.PICC)
        { %>
     <li>
         <div>

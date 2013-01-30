@@ -1,11 +1,11 @@
 ﻿using System;
-using WindowsCEConsentForms.FormHandlerService;
+using WindowsCEConsentForms.ConsentFormSvc;
 
 namespace WindowsCEConsentForms.PlasmanApheresis
 {
     public partial class ConsentPrint : System.Web.UI.Page
     {
-        public ConsentType ConsentType;
+        public ConsentType consentType;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,14 +21,14 @@ namespace WindowsCEConsentForms.PlasmanApheresis
             if (!string.IsNullOrEmpty(patientId))
             {
                 var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
-                ConsentType = ConsentType.PlasmanApheresis;
-                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
+                consentType = ConsentType.PlasmanApheresis;
+                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, consentType.ToString());
                 if (patientDetails != null)
                 {
-                    ImgSignature1.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.DoctorSign1.ToString() + @"&ConsentType=" + ConsentType.ToString();
-                    ImgSignature2.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.DoctorSign2.ToString() + @"&ConsentType=" + ConsentType.ToString();
-                    ImgSignature3.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.DoctorSign3.ToString() + "&ConsentType=" + ConsentType.ToString();
-                    ImgSignature4.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.DoctorSign4.ToString() + "&ConsentType=" + ConsentType.ToString();
+                    ImgSignature1.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.DoctorSign1.ToString() + @"&ConsentType=" + consentType.ToString();
+                    ImgSignature2.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.DoctorSign2.ToString() + @"&ConsentType=" + consentType.ToString();
+                    ImgSignature3.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.DoctorSign3.ToString() + @"&ConsentType=" + consentType.ToString();
+                    ImgSignature4.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.DoctorSign4.ToString() + @"&ConsentType=" + consentType.ToString();
                 }
             }
         }
