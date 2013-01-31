@@ -20,10 +20,19 @@ namespace WindowsCEConsentForms
             {
                 patientId = string.Empty;
             }
-            if (!string.IsNullOrEmpty(patientId))
+            string location;
+            try
+            {
+                location = Request.QueryString["Location"];
+            }
+            catch (Exception)
+            {
+                location = string.Empty;
+            }
+            if (!string.IsNullOrEmpty(patientId) && !string.IsNullOrEmpty(location))
             {
                 var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
-                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
+                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString(), location);
                 if (patientDetails != null)
                 {
                     LblDOB.Text = DateTime.Now.ToString("MMM dd yyyy");

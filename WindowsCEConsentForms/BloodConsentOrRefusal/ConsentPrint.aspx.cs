@@ -19,13 +19,22 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
             {
                 patientId = string.Empty;
             }
+            string location;
+            try
+            {
+                location = Request.QueryString["Location"];
+            }
+            catch (Exception)
+            {
+                location = string.Empty;
+            }
             if (!string.IsNullOrEmpty(patientId))
             {
                 consentType = ConsentType.BloodConsentOrRefusal;
 
                 var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
 
-                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, consentType.ToString());
+                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, consentType.ToString(), location);
                 var treatment = formHandlerServiceClient.GetTreatment(patientId, consentType);
                 if (patientDetails != null)
                 {

@@ -115,7 +115,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Treatment](
-	[PatentId] [int] NOT NULL,
+	[PatentId] [nvarchar] (255) NOT NULL,
 	[ConsentType] [int] NOT NULL,
 	[IsPatientunabletosign] [bit] NOT NULL,
 	[Unabletosignreason] [nvarchar](max) NOT NULL,
@@ -279,7 +279,7 @@ GO
 -- Description:	<Description,,>
 -- =============================================
 CREATE PROCEDURE [dbo].[AddTreatment]
-@PatientID INT,
+@PatientID nvarchar (255),
 @ConsentTypeID INT,
 @isPatientUnableSign INT,
 @isStatementOfConsentAccepted INT,
@@ -385,9 +385,9 @@ BEGIN
     select PatentId,ConsentType,IsPatientunabletosign,IsStatementOfConsentAccepted,
 			IsAutologousUnits, IsDirectedUnits,Unabletosignreason,TrackingID,Signatures,
             DoctorandProcedure,TransaltedBy, Date, EmpID from Treatment,ConsentType as CT
-    where   PatentId=1 and ConsentType=CT.ID and CT.Name=@consentType and
+    where   ConsentType=CT.ID and CT.Name=@consentType and
 			date=(select MAX(date) from Treatment,ConsentType as CT
-                  where PatentId=1 and ConsentType=CT.ID and CT.Name=@consentType)
+                  where ConsentType=CT.ID and CT.Name=@consentType)
                                                                                         
 END
 GO
@@ -531,7 +531,7 @@ GO
 -- =============================================
 CREATE PROCEDURE [dbo].[GetPatientSignature]
 	@signatureType varchar(MAX),
-	@patientID INT,
+	@patientID varchar(255),
 	@consentType varchar(MAX)
 AS
 BEGIN

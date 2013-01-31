@@ -719,7 +719,7 @@ namespace WindowsCEConsentForms.ConsentFormSvc {
         private string UnableToSignReasonField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ageField;
+        private string ageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string genderField;
@@ -881,12 +881,12 @@ namespace WindowsCEConsentForms.ConsentFormSvc {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int age {
+        public string age {
             get {
                 return this.ageField;
             }
             set {
-                if ((this.ageField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.ageField, value) != true)) {
                     this.ageField = value;
                     this.RaisePropertyChanged("age");
                 }
@@ -1154,13 +1154,13 @@ namespace WindowsCEConsentForms.ConsentFormSvc {
         void DeleteTables();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/GetPatientDetail", ReplyAction="http://tempuri.org/ConsentFormSvc/GetPatientDetailResponse")]
-        WindowsCEConsentForms.ConsentFormSvc.PatientDetail GetPatientDetail(string patientNumber, string consentFormType);
+        WindowsCEConsentForms.ConsentFormSvc.PatientDetail GetPatientDetail(string patientNumber, string consentFormType, string location);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/GetPatientfromLocation", ReplyAction="http://tempuri.org/ConsentFormSvc/GetPatientfromLocationResponse")]
         System.Data.DataTable GetPatientfromLocation(string location);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/GenerateAndUploadPdFtoSharePoint", ReplyAction="http://tempuri.org/ConsentFormSvc/GenerateAndUploadPdFtoSharePointResponse")]
-        void GenerateAndUploadPdFtoSharePoint(string relativeUrl, string patientId, WindowsCEConsentForms.ConsentFormSvc.ConsentType consentFormType);
+        void GenerateAndUploadPdFtoSharePoint(string relativeUrl, string patientId, WindowsCEConsentForms.ConsentFormSvc.ConsentType consentFormType, string location);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/GetProcedures", ReplyAction="http://tempuri.org/ConsentFormSvc/GetProceduresResponse")]
         System.Data.DataTable GetProcedures(WindowsCEConsentForms.ConsentFormSvc.ConsentType consentType);
@@ -1263,16 +1263,16 @@ namespace WindowsCEConsentForms.ConsentFormSvc {
             base.Channel.DeleteTables();
         }
         
-        public WindowsCEConsentForms.ConsentFormSvc.PatientDetail GetPatientDetail(string patientNumber, string consentFormType) {
-            return base.Channel.GetPatientDetail(patientNumber, consentFormType);
+        public WindowsCEConsentForms.ConsentFormSvc.PatientDetail GetPatientDetail(string patientNumber, string consentFormType, string location) {
+            return base.Channel.GetPatientDetail(patientNumber, consentFormType, location);
         }
         
         public System.Data.DataTable GetPatientfromLocation(string location) {
             return base.Channel.GetPatientfromLocation(location);
         }
         
-        public void GenerateAndUploadPdFtoSharePoint(string relativeUrl, string patientId, WindowsCEConsentForms.ConsentFormSvc.ConsentType consentFormType) {
-            base.Channel.GenerateAndUploadPdFtoSharePoint(relativeUrl, patientId, consentFormType);
+        public void GenerateAndUploadPdFtoSharePoint(string relativeUrl, string patientId, WindowsCEConsentForms.ConsentFormSvc.ConsentType consentFormType, string location) {
+            base.Channel.GenerateAndUploadPdFtoSharePoint(relativeUrl, patientId, consentFormType, location);
         }
         
         public System.Data.DataTable GetProcedures(WindowsCEConsentForms.ConsentFormSvc.ConsentType consentType) {

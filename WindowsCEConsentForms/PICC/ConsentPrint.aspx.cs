@@ -18,12 +18,21 @@ namespace WindowsCEConsentForms.PICC
             {
                 patientId = string.Empty;
             }
-            if (!string.IsNullOrEmpty(patientId))
+            string location;
+            try
+            {
+                location = Request.QueryString["Location"];
+            }
+            catch (Exception)
+            {
+                location = string.Empty;
+            }
+            if (!string.IsNullOrEmpty(patientId) && !string.IsNullOrEmpty(location))
             {
                 consentType = ConsentType.PICC;
 
                 var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
-                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, consentType.ToString());
+                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, consentType.ToString(), location);
                 if (patientDetails != null)
                 {
                     LblPatientName3.Text = patientDetails.name;

@@ -26,7 +26,7 @@ namespace WindowsCEConsentForms
                 {
                     var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
 
-                    var patientDetail = formHandlerServiceClient.GetPatientDetail(DdlPatientIds.SelectedValue, ConsentType.None.ToString());
+                    var patientDetail = formHandlerServiceClient.GetPatientDetail(DdlPatientIds.SelectedValue, ConsentType.None.ToString(), Session["Location"].ToString());
                     if (patientDetail != null)
                     {
                         LblId.Text = patientDetail.PatientHash; // DdlPatientIds.SelectedValue;
@@ -262,11 +262,18 @@ namespace WindowsCEConsentForms
             {
                 foreach (DataRow row in patientList.Rows)
                 {
-                    if (!string.IsNullOrEmpty(row["BirthDate"].ToString()) && !string.IsNullOrEmpty(row["Lname"].ToString()) && !string.IsNullOrEmpty(row["Fname"].ToString()) && !string.IsNullOrEmpty(row["PatientId"].ToString()))
+                    //if (!string.IsNullOrEmpty(row["BirthDate"].ToString()) && !string.IsNullOrEmpty(row["Lname"].ToString()) && !string.IsNullOrEmpty(row["Fname"].ToString()) && !string.IsNullOrEmpty(row["PatientId"].ToString()))
+                    //{
+                    //    var dt = Convert.ToDateTime(row["BirthDate"].ToString());
+                    //    var admissionDate = Convert.ToDateTime(row["AdmDate"].ToString());
+                    //    DdlPatientIds.Items.Add(new System.Web.UI.WebControls.ListItem(row["Lname"] + ", " + row["Fname"] + ", " + dt.ToShortDateString() + ", " + admissionDate.ToShortDateString(), row["PatientId"].ToString()));
+                    //}
+
+                    if (!string.IsNullOrEmpty(row["BirthDate"].ToString()) && !string.IsNullOrEmpty(row["FullName"].ToString()) && !string.IsNullOrEmpty(row["PatientAccountId"].ToString()))
                     {
                         var dt = Convert.ToDateTime(row["BirthDate"].ToString());
-                        var admissionDate = Convert.ToDateTime(row["AdmDate"].ToString());
-                        DdlPatientIds.Items.Add(new System.Web.UI.WebControls.ListItem(row["Lname"] + ", " + row["Fname"] + ", " + dt.ToShortDateString() + ", " + admissionDate.ToShortDateString(), row["PatientId"].ToString()));
+                        var admissionDate = Convert.ToDateTime(row["VisitStartDateTime"].ToString());
+                        DdlPatientIds.Items.Add(new System.Web.UI.WebControls.ListItem(row["FullName"] + "," + dt.ToShortDateString() + ", " + admissionDate.ToShortDateString(), row["PatientAccountId"].ToString()));
                     }
                 }
             }
@@ -277,6 +284,7 @@ namespace WindowsCEConsentForms
             //DdlFormList.Items.Add("Blank Consent Form");
             DdlFormList.SelectedIndex = 0;
             DdlPatientIds.SelectedIndex = 0;
+            Session.Add("Location", location);
         }
 
         protected void BtnLogin_Click(object sender, EventArgs e)

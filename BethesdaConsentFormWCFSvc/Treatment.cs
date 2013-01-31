@@ -74,7 +74,7 @@ namespace BethesdaConsentFormWCFSvc
     public class PatientDetail
     {
         public string name;
-        public int age;
+        public string age;
         public string gender;
         public string MRHash;
         public string AttnDr;

@@ -16,10 +16,19 @@ namespace WindowsCEConsentForms.OutsideOR
             {
                 patientId = string.Empty;
             }
-            if (!string.IsNullOrEmpty(patientId))
+            string location;
+            try
+            {
+                location = Request.QueryString["Location"];
+            }
+            catch (Exception)
+            {
+                location = string.Empty;
+            }
+            if (!string.IsNullOrEmpty(patientId) && !string.IsNullOrEmpty(location))
             {
                 var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
-                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.OutsideOR.ToString());
+                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.OutsideOR.ToString(), location);
                 if (patientDetails != null)
                 {
                     ImgSignature1.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=1&ConsentType=" + ConsentType.OutsideOR.ToString();

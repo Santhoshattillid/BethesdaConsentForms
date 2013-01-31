@@ -83,7 +83,7 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
 
                 var consentFormSvcClient = Utilities.GetConsentFormSvcClient();
                 consentFormSvcClient.AddTreatment(treatment);
-                Utilities.GeneratePdfAndUploadToSharePointSite(consentFormSvcClient, consentType, patientId);
+                Utilities.GeneratePdfAndUploadToSharePointSite(consentFormSvcClient, consentType, patientId, Request, Session["Location"].ToString());
 
                 Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));
             }

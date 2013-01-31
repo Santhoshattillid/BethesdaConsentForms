@@ -20,12 +20,21 @@ namespace WindowsCEConsentForms
             {
                 patientId = string.Empty;
             }
+            string location;
+            try
+            {
+                location = Request.QueryString["Location"];
+            }
+            catch (Exception)
+            {
+                location = string.Empty;
+            }
             var docAndProcPrints = new List<DocAndProcPrint>();
-            if (!string.IsNullOrEmpty(patientId))
+            if (!string.IsNullOrEmpty(patientId) && !string.IsNullOrEmpty(location))
             {
                 var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
                 var treatment = formHandlerServiceClient.GetTreatment(patientId, consentType);
-                string patientName = Utilities.GetPatientName(patientId, consentType.ToString()).name;
+                string patientName = Utilities.GetPatientName(patientId, consentType.ToString(), location).name;
                 docAndProcPrints.AddRange(treatment._doctorAndPrcedures.Select(docandproc => new DocAndProcPrint
                                        {
                                            Doctor = Utilities.GetPrimaryDoctorName(Convert.ToInt32(docandproc._primaryDoctorId)) + " , " + Utilities.GetAssociatedDoctors(Convert.ToInt32(docandproc._primaryDoctorId)),

@@ -54,7 +54,7 @@ namespace WindowsCEConsentForms
                     Response.Redirect("/PatientConsent.aspx");
                 }
 
-                LblPatientName.Text = Utilities.GetPatientName(patientId, consentType.ToString()).name;
+                LblPatientName.Text = Utilities.GetPatientName(patientId, consentType.ToString(), Session["Location"].ToString()).name;
             }
             else
             {

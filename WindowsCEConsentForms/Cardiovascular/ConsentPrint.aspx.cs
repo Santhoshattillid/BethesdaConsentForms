@@ -18,11 +18,20 @@ namespace WindowsCEConsentForms.Cardiovascular
             {
                 patientId = string.Empty;
             }
-            if (!string.IsNullOrEmpty(patientId))
+            string location;
+            try
+            {
+                location = Request.QueryString["Location"];
+            }
+            catch (Exception)
+            {
+                location = string.Empty;
+            }
+            if (!string.IsNullOrEmpty(patientId) && !string.IsNullOrEmpty(location))
             {
                 var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
                 consentType = ConsentType.Cardiovascular;
-                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, consentType.ToString());
+                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, consentType.ToString(), location);
                 if (patientDetails != null)
                 {
                     ImgSignature1.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.DoctorSign1.ToString() + @"&ConsentType=" + consentType.ToString();

@@ -156,7 +156,7 @@ namespace WindowsCEConsentForms.Endoscopy
 
                 var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
                 formHandlerServiceClient.AddTreatment(treatment);
-                Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId);
+                Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId, Request, Session["Location"].ToString());
                 Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));
             }
             catch (Exception)

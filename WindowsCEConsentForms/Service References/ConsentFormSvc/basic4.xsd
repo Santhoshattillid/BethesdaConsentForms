@@ -94,6 +94,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="patientNumber" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="consentFormType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="location" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -136,6 +137,7 @@
         <xs:element minOccurs="0" name="relativeUrl" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="patientId" nillable="true" type="xs:string" />
         <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc" minOccurs="0" name="consentFormType" type="q7:ConsentType" />
+        <xs:element minOccurs="0" name="location" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

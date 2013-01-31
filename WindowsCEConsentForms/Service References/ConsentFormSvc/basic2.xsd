@@ -108,7 +108,7 @@
       <xs:element minOccurs="0" name="StatementOfConsent" nillable="true" type="tns:StatementOfConsent" />
       <xs:element minOccurs="0" name="Translatedby" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UnableToSignReason" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="age" type="xs:int" />
+      <xs:element minOccurs="0" name="age" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="gender" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
     </xs:sequence>
