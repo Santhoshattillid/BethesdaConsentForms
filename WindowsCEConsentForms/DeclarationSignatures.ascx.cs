@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using WindowsCEConsentForms.FormHandlerService;
+using WindowsCEConsentForms.ConsentFormSvc;
 
 namespace WindowsCEConsentForms
 {
     public partial class DeclarationSignatures : System.Web.UI.UserControl
     {
-        public ConsentType ConsentType;
+        public ConsentType consentType;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -111,7 +111,7 @@ namespace WindowsCEConsentForms
                     outPut += " <br /> Please input second witness name.";
             }
 
-            if (ConsentType == ConsentType.PICC)
+            if (consentType == ConsentType.PICC)
             {
                 if (string.IsNullOrEmpty(Request.Form[SignatureType.PICCSignature.ToString()]))
                     outPut += " <br /> Please input PICC Nurse signature.";
@@ -196,7 +196,7 @@ namespace WindowsCEConsentForms
 
         protected void btnSkip_Click(object sender, EventArgs e)
         {
-            Response.Redirect(Utilities.GetNextFormUrl(ConsentType, Session));
+            Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));
         }
     }
 }

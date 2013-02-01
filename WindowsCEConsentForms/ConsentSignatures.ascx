@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ConsentSignatures.ascx.cs"
     Inherits="WindowsCEConsentForms.ConsentSignatures" %>
-<%@ Import Namespace="WindowsCEConsentForms.FormHandlerService" %>
+<%@ Import Namespace="WindowsCEConsentForms.ConsentFormSvc" %>
 <ul class="content">
     <li>
         <div class="sig1 sigWrapper">

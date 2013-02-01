@@ -18,6 +18,110 @@ namespace BethesdaConsentFormWCFSvc
     public class ConsentFormSvc
     {
         [OperationContract]
+        public void SynchronizeBethesdaData()
+        {
+            int positionIndex = 0;
+            try
+            {
+                positionIndex = 1;
+
+                System.Configuration.Configuration config = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
+                positionIndex = 2;
+
+                var localConStr = config.AppSettings.Settings["DBConnection"].Value;
+                var bethesdaConStr = config.AppSettings.Settings["BethesdaDBConnection"].Value;
+
+                positionIndex = 3;
+
+                using (var sqlConnectionLocal = new SqlConnection(localConStr))
+                {
+                    positionIndex = 3;
+                    sqlConnectionLocal.Open();
+
+                    positionIndex = 4;
+
+                    using (var sqlConnectionBethesda = new SqlConnection(bethesdaConStr))
+                    {
+                        positionIndex = 5;
+
+                        sqlConnectionBethesda.Open();
+
+                        positionIndex = 6;
+
+                        # region Import Physician
+
+                        // ---------------starts physician import process------------------
+
+                        // starts synchronizing
+                        var command = new SqlCommand(string.Empty, sqlConnectionBethesda)
+                                          {
+                                              //CommandText = "select user_oid,GroupName,UserDescription from [soariandbtest].[dbo].[Physician]"
+                                              CommandText = "BMH_Consent_GetPhysicianList",
+                                              CommandType = CommandType.StoredProcedure
+                                          };
+
+                        var daPhysician = new SqlDataAdapter(command);
+
+                        var physiciansDs = new DataSet();
+                        daPhysician.Fill(physiciansDs);
+
+                        int syncId = Convert.ToInt32(DateTime.Now.Ticks % 65323);
+
+                        foreach (DataTable dataTable in physiciansDs.Tables)
+                        {
+                            foreach (DataRow dataRow in dataTable.Rows)
+                            {
+                                command =
+                                    new SqlCommand(
+                                        "select * from Physician where Fname='" + dataRow["UserDescription"] + "'",
+                                        sqlConnectionLocal);
+
+                                daPhysician = new SqlDataAdapter(command);
+
+                                var physiciansCheck = new DataSet();
+                                daPhysician.Fill(physiciansCheck);
+
+                                if (physiciansCheck.Tables.Count == 0 || physiciansCheck.Tables[0].Rows.Count == 0)
+                                {
+                                    string physicianName = dataRow["UserDescription"].ToString();
+                                    string userId = dataRow["user_oid"].ToString();
+                                    string groupName = dataRow["GroupName"].ToString();
+
+                                    command = new SqlCommand(@"insert into Physician
+                                                            values('False','True',8,'" +
+                                                             physicianName + "','" + userId +
+                                                             "',0,'" + groupName + "'," + syncId + ")",
+                                                             sqlConnectionLocal);
+                                    command.ExecuteNonQuery();
+                                }
+                            }
+                        }
+
+                        // removing un - available physicians
+                        command = new SqlCommand("delete from Physician where SyncID !=" + syncId, sqlConnectionLocal);
+                        command.ExecuteNonQuery();
+
+                        #endregion
+
+                        positionIndex = 7;
+
+                        #region Import Patients for BHE location
+
+                        //AddPatient(sqlConnectionLocal, sqlConnectionBethesda, "BHE");
+
+                        //AddPatient(sqlConnectionLocal, sqlConnectionBethesda, "BMH");
+
+                        #endregion
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message + "   " + positionIndex);
+            }
+        }
+
+        [OperationContract]
         public void SetDbConnection(string connectionString)
         {
             System.Configuration.Configuration config = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
@@ -43,7 +147,9 @@ namespace BethesdaConsentFormWCFSvc
             try
             {
                 System.Configuration.Configuration config = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
+
                 var conStr = config.AppSettings.Settings["DBConnection"].Value;
+
                 using (var sqlConnection = new SqlConnection(conStr))
                 {
                     sqlConnection.Open();
@@ -62,7 +168,7 @@ namespace BethesdaConsentFormWCFSvc
                         int signaturesID = GetSignatures(sqlConnection, transaction, treatment._signatureses);
 
                         var addTreatmentCommand = new SqlCommand("AddTreatment", sqlConnection, transaction) { CommandType = CommandType.StoredProcedure };
-                        addTreatmentCommand.Parameters.Add(new SqlParameter("@PatientID", SqlDbType.Int)).Value = treatment._patientId;
+                        addTreatmentCommand.Parameters.Add(new SqlParameter("@PatientID", SqlDbType.NVarChar)).Value = treatment._patientId;
                         addTreatmentCommand.Parameters.Add(new SqlParameter("@ConsentTypeID", SqlDbType.Int)).Value = consentType;
                         addTreatmentCommand.Parameters.Add(new SqlParameter("@isPatientUnableSign", SqlDbType.Int)).Value = (treatment._isPatientUnableSign ? 1 : 0);
                         addTreatmentCommand.Parameters.Add(new SqlParameter("@isStatementOfConsentAccepted", SqlDbType.Int)).Value = (treatment._IsStatementOfConsentAccepted ? 1 : 0);
@@ -90,6 +196,7 @@ namespace BethesdaConsentFormWCFSvc
                         cmdTreatment.ExecuteNonQuery(); */
                         transaction.Commit();
                     }
+
                     catch (Exception ex)
                     {
                         transaction.Rollback();
@@ -149,7 +256,7 @@ namespace BethesdaConsentFormWCFSvc
             {
                 sqlConnection.Open();
                 var cmdSignature = new SqlCommand(@"GetPatientSignature", sqlConnection) { CommandType = CommandType.StoredProcedure };
-                cmdSignature.Parameters.Add("@patientID", SqlDbType.Int).Value = patientId;
+                cmdSignature.Parameters.Add("@patientID", SqlDbType.NVarChar).Value = patientId;
                 cmdSignature.Parameters.Add("@signatureType", SqlDbType.VarChar).Value = signatureType.ToString();
                 cmdSignature.Parameters.Add("@consentType", SqlDbType.VarChar).Value = consentType.ToString();
                 using (var sqlDataAdapter = new SqlDataAdapter(cmdSignature))
@@ -193,48 +300,102 @@ namespace BethesdaConsentFormWCFSvc
         }
 
         [OperationContract]
-        public PatientDetail GetPatientDetail(string patientNumber, string consentFormType)
+        public PatientDetail GetPatientDetail(string patientNumber, string consentFormType, string location)
         {
+            //PatientDetail patientDetail = null;
+            //System.Configuration.Configuration config = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
+            //var conStr = config.AppSettings.Settings["DBConnection"].Value;
+            //using (var sqlConnection = new SqlConnection(conStr))
+            //{
+            //    using (var sqlDataAdapter = new SqlDataAdapter("select * from Patient where PatientId=" + patientNumber, sqlConnection))
+            //    {
+            //        var dataset = new DataSet();
+            //        sqlDataAdapter.Fill(dataset);
+            //        if (dataset.Tables.Count > 0)
+            //        {
+            //            if (dataset.Tables[0].Rows.Count > 0)
+            //            {
+            //                DataRow record = dataset.Tables[0].Rows[0];
+            //                patientDetail = new PatientDetail
+            //                                    {
+            //                                        name = record["FullName"].ToString(),
+            //                                        age = Convert.ToInt16(record["Age"]),
+            //                                        gender = record["Gender"].ToString(),
+            //                                        MRHash = record["MR#"].ToString(),
+            //                                        AttnDr = "Mr. Mathew Thomas",
+            //                                        AdmDate = Convert.ToDateTime(record["AdmDate"]),
+            //                                        DOB = Convert.ToDateTime(record["BirthDate"]),
+            //                                        PatientHash = record["Patient#"].ToString()
+            //                                    };
+            //                try
+            //                {
+            //                    patientDetail.PrimaryDoctorId = record["PrimaryDoctor"].ToString();
+            //                }
+            //                catch (Exception)
+            //                {
+            //                    patientDetail.PrimaryDoctorId = string.Empty;
+            //                }
+            //                try
+            //                {
+            //                    patientDetail.AssociatedDoctorId = record["AssociatedDoctor"].ToString();
+            //                }
+            //                catch (Exception)
+            //                {
+            //                    patientDetail.AssociatedDoctorId = string.Empty;
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
+            //return patientDetail;
+
             PatientDetail patientDetail = null;
             System.Configuration.Configuration config = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
-            var conStr = config.AppSettings.Settings["DBConnection"].Value;
+            var conStr = config.AppSettings.Settings["BethesdaDBConnection"].Value;
             using (var sqlConnection = new SqlConnection(conStr))
             {
-                using (var sqlDataAdapter = new SqlDataAdapter("select * from Patient where PatientId=" + patientNumber, sqlConnection))
+                using (var sqlDataAdapter = new SqlDataAdapter("BMH_Consent_GetCurrentCensus", sqlConnection))
                 {
+                    sqlDataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    sqlDataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@Entity", SqlDbType.NVarChar)).Value = location;
+                    sqlDataAdapter.SelectCommand.CommandTimeout = 0;
+
                     var dataset = new DataSet();
                     sqlDataAdapter.Fill(dataset);
                     if (dataset.Tables.Count > 0)
                     {
                         if (dataset.Tables[0].Rows.Count > 0)
                         {
-                            DataRow record = dataset.Tables[0].Rows[0];
-                            patientDetail = new PatientDetail
-                                                {
-                                                    name = record["FullName"].ToString(),
-                                                    age = Convert.ToInt16(record["Age"]),
-                                                    gender = record["Gender"].ToString(),
-                                                    MRHash = record["MR#"].ToString(),
-                                                    AttnDr = "Mr. Mathew Thomas",
-                                                    AdmDate = Convert.ToDateTime(record["AdmDate"]),
-                                                    DOB = Convert.ToDateTime(record["BirthDate"]),
-                                                    PatientHash = record["Patient#"].ToString()
-                                                };
-                            try
+                            DataRow record = dataset.Tables[0].Rows.Cast<DataRow>().FirstOrDefault(row => row["PatientAccountID"].ToString() == patientNumber);
+                            if (record != null)
                             {
-                                patientDetail.PrimaryDoctorId = record["PrimaryDoctor"].ToString();
-                            }
-                            catch (Exception)
-                            {
-                                patientDetail.PrimaryDoctorId = string.Empty;
-                            }
-                            try
-                            {
-                                patientDetail.AssociatedDoctorId = record["AssociatedDoctor"].ToString();
-                            }
-                            catch (Exception)
-                            {
-                                patientDetail.AssociatedDoctorId = string.Empty;
+                                patientDetail = new PatientDetail
+                                                    {
+                                                        name = record["FullName"].ToString(),
+                                                        age = record["Age"].ToString(),
+                                                        gender = record["Sex"].ToString(),
+                                                        MRHash = record["MRN"].ToString(),
+                                                        AttnDr = record["AttPhysicianName"].ToString(),
+                                                        AdmDate = Convert.ToDateTime(record["VisitStartDateTime"]),
+                                                        DOB = Convert.ToDateTime(record["BirthDate"]),
+                                                        PatientHash = record["PatientAccountID"].ToString()
+                                                    };
+                                try
+                                {
+                                    patientDetail.PrimaryDoctorId = record["PrimaryDoctor"].ToString();
+                                }
+                                catch (Exception)
+                                {
+                                    patientDetail.PrimaryDoctorId = string.Empty;
+                                }
+                                try
+                                {
+                                    patientDetail.AssociatedDoctorId = record["AssociatedDoctor"].ToString();
+                                }
+                                catch (Exception)
+                                {
+                                    patientDetail.AssociatedDoctorId = string.Empty;
+                                }
                             }
                         }
                     }
@@ -246,14 +407,29 @@ namespace BethesdaConsentFormWCFSvc
         [OperationContract]
         public DataTable GetPatientfromLocation(string location)
         {
+            //System.Configuration.Configuration config = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
+            //var conStr = config.AppSettings.Settings["DBConnection"].Value;
+            //using (var sqlConnection = new SqlConnection(conStr))
+            //{
+            //    using (var sqlDataAdapter = new SqlDataAdapter("GetPatientfromLocation", sqlConnection))
+            //    {
+            //        sqlDataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+            //        sqlDataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@LOCATION", SqlDbType.NVarChar)).Value = location;
+            //        var dataset = new DataSet();
+            //        sqlDataAdapter.Fill(dataset);
+            //        if (dataset.Tables.Count > 0)
+            //            return dataset.Tables[0];
+            //    }
+            //}
             System.Configuration.Configuration config = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
-            var conStr = config.AppSettings.Settings["DBConnection"].Value;
+            var conStr = config.AppSettings.Settings["BethesdaDBConnection"].Value;
             using (var sqlConnection = new SqlConnection(conStr))
             {
-                using (var sqlDataAdapter = new SqlDataAdapter("GetPatientfromLocation", sqlConnection))
+                using (var sqlDataAdapter = new SqlDataAdapter("BMH_Consent_GetCurrentCensus", sqlConnection))
                 {
                     sqlDataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                    sqlDataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@LOCATION", SqlDbType.NVarChar)).Value = location;
+                    sqlDataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@Entity", SqlDbType.NVarChar)).Value = location;
+                    sqlDataAdapter.SelectCommand.CommandTimeout = 0;
                     var dataset = new DataSet();
                     sqlDataAdapter.Fill(dataset);
                     if (dataset.Tables.Count > 0)
@@ -267,184 +443,195 @@ namespace BethesdaConsentFormWCFSvc
         //private const string DocumentLibary = "PatientConsentForms";
 
         [OperationContract]
-        public void GenerateAndUploadPdFtoSharePoint(string relativeUrl, string patientId, ConsentType consentFormType)
+        public void GenerateAndUploadPdFtoSharePoint(string relativeUrl, string patientId, ConsentType consentFormType, string location)
         {
             DocumentConverterServiceClient client = null;
             try
             {
-                string sourceFileName = null;
-                byte[] sourceFile = null;
-                client = OpenService("http://localhost:41734/Muhimbi.DocumentConverter.WebService/");
-                var openOptions = new OpenOptions
-                                      {
-                                          UserName = "",
-                                          Password = "",
-                                          OriginalFileName = relativeUrl,
-                                          FileExtension = "html"
-                                      };
-
-                //** Specify optional authentication settings for the web page
-
-                // ** Specify the URL to convert
-
-                //** Generate a temp file name that is later used to write the PDF to
-                sourceFileName = Path.GetTempFileName();
-                File.Delete(sourceFileName);
-
-                // ** Enable JavaScript on the page to convert.
-                openOptions.AllowMacros = MacroSecurityOption.All;
-
-                // ** Set the various conversion settings
-                var conversionSettings = new ConversionSettings
-                                             {
-                                                 Fidelity = ConversionFidelities.Full,
-                                                 PDFProfile = PDFProfile.PDF_1_5,
-                                                 Quality = ConversionQuality.OptimizeForOnScreen
-                                             };
-
-                // ** Carry out the actual conversion
-                byte[] convertedFile = client.Convert(sourceFile, openOptions, conversionSettings);
-
-                var patientDetails = GetPatientDetail(patientId, consentFormType.ToString());
-
-                string fileName = consentFormType + patientDetails.MRHash + patientDetails.name + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
-
-                switch (consentFormType)
-                {
-                    case ConsentType.Surgical:
-                        {
-                            fileName = "SUR_CONSENT_" + patientDetails.MRHash + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
-                            break;
-                        }
-                    case ConsentType.BloodConsentOrRefusal:
-                        {
-                            fileName = "BLOOD_FEFUSAL_CONSENT_" + patientDetails.MRHash + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
-                            break;
-                        }
-                    case ConsentType.Cardiovascular:
-                        {
-                            fileName = "CARDIAC_CATH_CONSENT_" + patientDetails.MRHash + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
-                            break;
-                        }
-                    case ConsentType.Endoscopy:
-                        {
-                            fileName = "ENDO_CONSENT_" + patientDetails.MRHash + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
-                            break;
-                        }
-                    case ConsentType.OutsideOR:
-                        {
-                            fileName = "OUTSDE_OR_" + patientDetails.MRHash + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
-                            break;
-                        }
-                    case ConsentType.PICC:
-                        {
-                            fileName = "PICC_CONSENT_" + patientDetails.MRHash + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
-                            break;
-                        }
-                    case ConsentType.PlasmanApheresis:
-                        {
-                            fileName = "PLASMA_APHERESIS_CONSENT_" + patientDetails.MRHash + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
-                            break;
-                        }
-                }
-
                 // creating the folder if it is not exits in the drive.
                 var folderPath = GetPdFFolderPath(consentFormType);
 
-                if (!Directory.Exists(folderPath))
-                    Directory.CreateDirectory(folderPath);
-
-                fileName = Path.Combine(folderPath, fileName);
-
-                File.WriteAllBytes(fileName, convertedFile);
-
-                /*
-
-                //try
-                //{
-                SPSecurity.RunWithElevatedPrivileges(delegate()
+                if (!string.IsNullOrEmpty(folderPath))
                 {
-                    using (var site = new SPSite(SiteUrl))
+                    string sourceFileName = null;
+                    byte[] sourceFile = null;
+                    client = OpenService("http://localhost:41734/Muhimbi.DocumentConverter.WebService/");
+                    var openOptions = new OpenOptions
+                                          {
+                                              UserName = "",
+                                              Password = "",
+                                              OriginalFileName = relativeUrl,
+                                              FileExtension = "html"
+                                          };
+
+                    //** Specify optional authentication settings for the web page
+
+                    // ** Specify the URL to convert
+
+                    //** Generate a temp file name that is later used to write the PDF to
+                    sourceFileName = Path.GetTempFileName();
+                    File.Delete(sourceFileName);
+
+                    // ** Enable JavaScript on the page to convert.
+                    openOptions.AllowMacros = MacroSecurityOption.All;
+
+                    // ** Set the various conversion settings
+                    var conversionSettings = new ConversionSettings
+                                                 {
+                                                     Fidelity = ConversionFidelities.Full,
+                                                     PDFProfile = PDFProfile.PDF_1_5,
+                                                     Quality = ConversionQuality.OptimizeForOnScreen
+                                                 };
+
+                    // ** Carry out the actual conversion
+                    byte[] convertedFile = client.Convert(sourceFile, openOptions, conversionSettings);
+
+                    var patientDetails = GetPatientDetail(patientId, consentFormType.ToString(), location);
+
+                    string fileName = consentFormType + patientDetails.MRHash + patientDetails.name +
+                                      DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
+
+                    switch (consentFormType)
                     {
-                        using (var web = site.OpenWeb())
-                        {
-                            web.AllowUnsafeUpdates = true;
-
-                            var list = web.Lists.TryGetList(DocumentLibary);
-                            if (list != null)
+                        case ConsentType.Surgical:
                             {
-                                var libFolder = list.RootFolder;
+                                fileName = "SUR_CONSENT_" + patientDetails.MRHash +
+                                           DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
+                                break;
+                            }
+                        case ConsentType.BloodConsentOrRefusal:
+                            {
+                                fileName = "BLOOD_FEFUSAL_CONSENT_" + patientDetails.MRHash +
+                                           DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
+                                break;
+                            }
+                        case ConsentType.Cardiovascular:
+                            {
+                                fileName = "CARDIAC_CATH_CONSENT_" + patientDetails.MRHash +
+                                           DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
+                                break;
+                            }
+                        case ConsentType.Endoscopy:
+                            {
+                                fileName = "ENDO_CONSENT_" + patientDetails.MRHash +
+                                           DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
+                                break;
+                            }
+                        case ConsentType.OutsideOR:
+                            {
+                                fileName = "OUTSDE_OR_" + patientDetails.MRHash +
+                                           DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
+                                break;
+                            }
+                        case ConsentType.PICC:
+                            {
+                                fileName = "PICC_CONSENT_" + patientDetails.MRHash +
+                                           DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
+                                break;
+                            }
+                        case ConsentType.PlasmanApheresis:
+                            {
+                                fileName = "PLASMA_APHERESIS_CONSENT_" + patientDetails.MRHash +
+                                           DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
+                                break;
+                            }
+                    }
 
-                                var patientDetails = GetPatientDetail(PatientId, ConsentFormType.ToString());
+                    if (!Directory.Exists(folderPath))
+                        Directory.CreateDirectory(folderPath);
 
-                                if (patientDetails != null)
+                    fileName = Path.Combine(folderPath, fileName);
+
+                    File.WriteAllBytes(fileName, convertedFile);
+
+                    /*
+
+                    //try
+                    //{
+                    SPSecurity.RunWithElevatedPrivileges(delegate()
+                    {
+                        using (var site = new SPSite(SiteUrl))
+                        {
+                            using (var web = site.OpenWeb())
+                            {
+                                web.AllowUnsafeUpdates = true;
+
+                                var list = web.Lists.TryGetList(DocumentLibary);
+                                if (list != null)
                                 {
-                                    string fileName = ConsentFormType + patientDetails.MRHash + patientDetails.name + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
-                                    switch (ConsentFormType)
+                                    var libFolder = list.RootFolder;
+
+                                    var patientDetails = GetPatientDetail(PatientId, ConsentFormType.ToString());
+
+                                    if (patientDetails != null)
                                     {
-                                        case ConsentType.Surgical:
-                                            {
-                                                fileName = "SUR_CONSENT_" + patientDetails.MRHash + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
-                                                break;
-                                            }
-                                        case ConsentType.BloodConsentOrRefusal:
-                                            {
-                                                fileName = "BLOOD_FEFUSAL_CONSENT_" + patientDetails.MRHash + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
-                                                break;
-                                            }
-                                        case ConsentType.Cardiovascular:
-                                            {
-                                                fileName = "CARDIAC_CATH_CONSENT_" + patientDetails.MRHash + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
-                                                break;
-                                            }
-                                        case ConsentType.Endoscopy:
-                                            {
-                                                fileName = "ENDO_CONSENT_" + patientDetails.MRHash + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
-                                                break;
-                                            }
-                                        case ConsentType.OutsideOR:
-                                            {
-                                                fileName = "OUTSDE_OR_" + patientDetails.MRHash + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
-                                                break;
-                                            }
-                                        case ConsentType.PICC:
-                                            {
-                                                fileName = "PICC_CONSENT_" + patientDetails.MRHash + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
-                                                break;
-                                            }
-                                        case ConsentType.PlasmanApheresis:
-                                            {
-                                                fileName = "PLASMA_APHERESIS_CONSENT_" + patientDetails.MRHash + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
-                                                break;
-                                            }
-                                    }
+                                        string fileName = ConsentFormType + patientDetails.MRHash + patientDetails.name + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
+                                        switch (ConsentFormType)
+                                        {
+                                            case ConsentType.Surgical:
+                                                {
+                                                    fileName = "SUR_CONSENT_" + patientDetails.MRHash + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
+                                                    break;
+                                                }
+                                            case ConsentType.BloodConsentOrRefusal:
+                                                {
+                                                    fileName = "BLOOD_FEFUSAL_CONSENT_" + patientDetails.MRHash + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
+                                                    break;
+                                                }
+                                            case ConsentType.Cardiovascular:
+                                                {
+                                                    fileName = "CARDIAC_CATH_CONSENT_" + patientDetails.MRHash + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
+                                                    break;
+                                                }
+                                            case ConsentType.Endoscopy:
+                                                {
+                                                    fileName = "ENDO_CONSENT_" + patientDetails.MRHash + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
+                                                    break;
+                                                }
+                                            case ConsentType.OutsideOR:
+                                                {
+                                                    fileName = "OUTSDE_OR_" + patientDetails.MRHash + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
+                                                    break;
+                                                }
+                                            case ConsentType.PICC:
+                                                {
+                                                    fileName = "PICC_CONSENT_" + patientDetails.MRHash + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
+                                                    break;
+                                                }
+                                            case ConsentType.PlasmanApheresis:
+                                                {
+                                                    fileName = "PLASMA_APHERESIS_CONSENT_" + patientDetails.MRHash + DateTime.Now.ToString("MMddyyyyHHmmss") + ".pdf";
+                                                    break;
+                                                }
+                                        }
 
-                                    if (libFolder.RequiresCheckout) { try { SPFile fileOld = libFolder.Files[fileName]; fileOld.CheckOut(); } catch { } }
-                                    var spFileProperty = new Hashtable();
-                                    spFileProperty.Add("MR#", patientDetails.MRHash);
-                                    spFileProperty.Add("Patient#", PatientId);
-                                    spFileProperty.Add("Patient Name", patientDetails.name);
-                                    spFileProperty.Add("DOB#", Microsoft.SharePoint.Utilities.SPUtility.CreateISO8601DateTimeFromSystemDateTime(patientDetails.DOB));
-                                    spFileProperty.Add("Procedure Type", patientDetails.ProcedureName);
-                                    spFileProperty.Add("Patient Information", patientDetails.name + " " + DateTime.Now.ToShortDateString());
+                                        if (libFolder.RequiresCheckout) { try { SPFile fileOld = libFolder.Files[fileName]; fileOld.CheckOut(); } catch { } }
+                                        var spFileProperty = new Hashtable();
+                                        spFileProperty.Add("MR#", patientDetails.MRHash);
+                                        spFileProperty.Add("Patient#", PatientId);
+                                        spFileProperty.Add("Patient Name", patientDetails.name);
+                                        spFileProperty.Add("DOB#", Microsoft.SharePoint.Utilities.SPUtility.CreateISO8601DateTimeFromSystemDateTime(patientDetails.DOB));
+                                        spFileProperty.Add("Procedure Type", patientDetails.ProcedureName);
+                                        spFileProperty.Add("Patient Information", patientDetails.name + " " + DateTime.Now.ToShortDateString());
 
-                                    SPFile spfile = libFolder.Files.Add(fileName, convertedFile, spFileProperty, true);
+                                        SPFile spfile = libFolder.Files.Add(fileName, convertedFile, spFileProperty, true);
 
-                                    list.Update();
+                                        list.Update();
 
-                                    if (libFolder.RequiresCheckout)
-                                    {
-                                        spfile.CheckIn("Upload Comment", SPCheckinType.MajorCheckIn);
-                                        spfile.Publish("Publish Comment");
+                                        if (libFolder.RequiresCheckout)
+                                        {
+                                            spfile.CheckIn("Upload Comment", SPCheckinType.MajorCheckIn);
+                                            spfile.Publish("Publish Comment");
+                                        }
                                     }
                                 }
-                            }
 
-                            web.AllowUnsafeUpdates = false;
+                                web.AllowUnsafeUpdates = false;
+                            }
                         }
-                    }
-                });
-                 */
+                    });
+                     */
+                }
             }
             finally
             {
@@ -572,7 +759,7 @@ namespace BethesdaConsentFormWCFSvc
         }
 
         [OperationContract]
-        public List<DoctorDetails> GetDoctorDetails(ConsentType consentType)
+        public List<DoctorDetails> GetDoctorDetails()
         {
             var output = new List<DoctorDetails>();
             System.Configuration.Configuration config = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
@@ -582,7 +769,6 @@ namespace BethesdaConsentFormWCFSvc
                 using (var sqlDataAdapter = new SqlDataAdapter("GetDoctorDetails", sqlConnection))
                 {
                     sqlDataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                    sqlDataAdapter.SelectCommand.Parameters.Add(new SqlParameter("@Name", SqlDbType.NVarChar)).Value = consentType;
                     var dataset = new DataSet();
                     sqlDataAdapter.Fill(dataset);
                     if (dataset.Tables.Count > 0)
@@ -1039,6 +1225,56 @@ namespace BethesdaConsentFormWCFSvc
                 return listSig;
             }
             return listSig;
+        }
+
+        private static void AddPatient(SqlConnection sqlConnectionLocal, SqlConnection sqlConnectionBethesda, string location)
+        {
+            // ---------------starts patient import process------------------
+
+            // starts synchronizing
+            var command = new SqlCommand(string.Empty, sqlConnectionBethesda)
+            {
+                CommandText = "BMH_Consent_GetCurrentCensus",
+                CommandType = CommandType.StoredProcedure
+            };
+
+            command.Parameters.Add(new SqlParameter("@Entity", SqlDbType.NVarChar)).Value = location;
+
+            var daPatients = new SqlDataAdapter(command);
+
+            var patientDs = new DataSet();
+            daPatients.Fill(patientDs);
+
+            foreach (DataTable dataTable in patientDs.Tables)
+            {
+                foreach (DataRow dataRow in dataTable.Rows)
+                {
+                    command = new SqlCommand("select * from Patient where Patient#='" + dataRow["PatientAccountID"] + "'", sqlConnectionLocal);
+
+                    daPatients = new SqlDataAdapter(command);
+
+                    var patientCheck = new DataSet();
+                    daPatients.Fill(patientCheck);
+
+                    if (patientCheck.Tables.Count == 0 || patientCheck.Tables[0].Rows.Count == 0)
+                    {
+                        string fullname = dataRow["FullName"].ToString();
+                        string mrn = dataRow["MRN"].ToString();
+                        string patientAccountId = dataRow["PatientAccountID"].ToString();
+                        string sex = dataRow["Sex"].ToString();
+                        string birthDate = dataRow["BirthDate"].ToString();
+                        string attPhysicianName = dataRow["AttPhysicianName"].ToString();
+                        string visitDateTime = dataRow["VisitStartDateTime"].ToString();
+                        string age = dataRow["Age"].ToString();
+
+                        command = new SqlCommand(@"insert into Patient
+                                                   values('','','" + fullname + "','" + birthDate + "','" + age +
+                                                 "','" + sex + "','" + mrn + "',0,0,'" + visitDateTime + "','" + location +
+                                                 "','','" + patientAccountId + "','" + attPhysicianName + "')", sqlConnectionLocal);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
         }
     }
 }

@@ -3,7 +3,7 @@
 <%@ Import Namespace="System.Collections.Generic" %>
 <%@ Import Namespace="System.Globalization" %>
 <%@ Import Namespace="WindowsCEConsentForms" %>
-<%@ Import Namespace="WindowsCEConsentForms.FormHandlerService" %>
+<%@ Import Namespace="WindowsCEConsentForms.ConsentFormSvc" %>
 <ul class="content">
     <%
         List<string> listOfProcedures = (List<string>)ViewState["ListOfProcedures"];
@@ -18,7 +18,7 @@
     %>
     <li class="LiDoctorsAndProcedures">
         <div class="leftBox">
-            <% if (ConsentType == ConsentType.Cardiovascular)
+            <% if (consentType == ConsentType.Cardiovascular)
                { %>
             I authorize Doctor(s)
             <% }
@@ -47,13 +47,13 @@
             </select>
             <label class="errorInfo LblAssociatedDoctors">
                 <%= associatedDoctors  %></label>
-            <% if (ConsentType == ConsentType.Cardiovascular)
+            <% if (consentType == ConsentType.Cardiovascular)
                { %>
             and such designee or assistants as he/she may designate to
             <% } %>
             perform upon
             <asp:Label runat="server" ID="LblPatientName"></asp:Label>
-            <% if (ConsentType == ConsentType.Cardiovascular)
+            <% if (consentType == ConsentType.Cardiovascular)
                { %>
             the following procedures
             <% }

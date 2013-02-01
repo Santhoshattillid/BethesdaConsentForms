@@ -1,5 +1,5 @@
 ﻿using System;
-using WindowsCEConsentForms.FormHandlerService;
+using WindowsCEConsentForms.ConsentFormSvc;
 
 namespace WindowsCEConsentForms
 {
@@ -30,7 +30,7 @@ namespace WindowsCEConsentForms
                 if (!string.IsNullOrEmpty(patientId))
                 {
                     var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
-                    var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
+                    var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString(), Session["Location"].ToString());
                     if (patientDetail != null)
                     {
                         LblPatientName.Text = patientDetail.name;

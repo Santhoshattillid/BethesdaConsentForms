@@ -2,20 +2,20 @@
     Inherits="WindowsCEConsentForms.DoctorsAndProceduresPrint" %>
 <%@ Import Namespace="System.Collections.Generic" %>
 <%@ Import Namespace="WindowsCEConsentForms" %>
-<%@ Import Namespace="WindowsCEConsentForms.FormHandlerService" %>
+<%@ Import Namespace="WindowsCEConsentForms.ConsentFormSvc" %>
 <ul class="content">
     <% List<DocAndProcPrint> outPut = (List<DocAndProcPrint>)ViewState["DocAndProcDetails"]; %>
     <% foreach (DocAndProcPrint doctorAndProcedure in outPut)
        { %>
     <li>
-        <% if (ConsentType == ConsentType.PlasmanApheresis)
+        <% if (consentType == ConsentType.PlasmanApheresis)
            { %>
         I authorize the performance of therapeutic apheresis on
         <asp:Label runat="server" ID="LblPatientName"></asp:Label>
         of therapeutic apheresis to be performed by or under the direction of <span class="errorInfo">
             <%= doctorAndProcedure.Doctor %></span>
         <% }
-           else if (ConsentType == ConsentType.Cardiovascular)
+           else if (consentType == ConsentType.Cardiovascular)
            { %>
         I authorize Doctor(s) <span class="errorInfo">
             <%= doctorAndProcedure.Doctor %></span> and such designee or assistant as he/she

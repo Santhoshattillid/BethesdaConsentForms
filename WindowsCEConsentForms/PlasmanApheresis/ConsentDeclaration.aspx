@@ -3,7 +3,7 @@
 
 <%@ Import Namespace="System.Collections.Generic" %>
 <%@ Import Namespace="WindowsCEConsentForms" %>
-<%@ Import Namespace="WindowsCEConsentForms.FormHandlerService" %>
+<%@ Import Namespace="WindowsCEConsentForms.ConsentFormSvc" %>
 <%@ Register TagPrefix="uc1" TagName="DeclarationSignatures" Src="~/DeclarationSignatures.ascx" %>
 <%@ Register TagPrefix="uc1" TagName="PatientDetails" Src="~/PatientDetails.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -174,4 +174,9 @@
         </li>
     </ul>
     <uc1:DeclarationSignatures ID="DeclarationSignatures" runat="server" ConsentType="PlasmanApheresis" />
+    <ul>
+        <li>
+            <asp:Label runat="server" ID="LblError" CssClass="errorInfomodified"></asp:Label>
+        </li>
+    </ul>
 </asp:Content>

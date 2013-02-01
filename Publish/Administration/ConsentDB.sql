@@ -597,6 +597,8 @@ CREATE TABLE [dbo].[Physician](
 	[Fname] [nvarchar](max) NOT NULL,
 	[Lname] [nvarchar](max) NOT NULL,
 	[PCID] [int] NOT NULL,
+	[GroupName] [nvarchar] (max) NOT NULL,
+	SyncID [int] NOT NULL,
  CONSTRAINT [PK_Physician_1] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -701,8 +703,9 @@ CREATE PROCEDURE [dbo].[GetAssociatedDoctors]
 AS
 BEGIN
 	SET NOCOUNT ON;
-
-    select Physician.Fname as FName, Physician.Lname as LName from Physician where Physician.PCID =@PCID
+	select Physician.Fname as FName, Physician.Lname as LName from Physician 
+		where Physician.GroupName in (select Physician.GroupName from Physician where ID=@PCID) 
+			And Physician.ID != @PCID
 END
 GO
 /****** Object:  StoredProcedure [dbo].[GetDoctorsProceduresInformation]    Script Date: 01/03/2013 09:06:29 ******/
@@ -739,13 +742,10 @@ GO
 -- Description:	<Description,,>
 -- =============================================
 CREATE PROCEDURE [dbo].[GetDoctorDetails]
-@Name NVARCHAR(MAX)
 AS
 BEGIN
 	SET NOCOUNT ON;
-
-    select Physician.Fname as FName, Physician.Lname as LName,Physician.ID as ID from Physician,ConsentType 
-    where Physician.ConsentTypeID=ConsentType.ID AND  ConsentType.Name =@Name AND Physician.Primary_Doctor='True'
+	select Physician.Fname as FName, Physician.Lname as LName,Physician.ID as ID from Physician 
 END
 GO
 /****** Object:  StoredProcedure [dbo].[GetDoctorDetail]    Script Date: 01/03/2013 09:06:29 ******/
@@ -763,8 +763,7 @@ CREATE PROCEDURE [dbo].[GetDoctorDetail]
 AS
 BEGIN
 	SET NOCOUNT ON;
-
-    select Physician.Fname as FName, Physician.Lname as LName from Physician where Physician.ID  =@ID
+    select Physician.Fname as FName, Physician.Lname as LName from Physician where Physician.ID=@ID
 END
 GO
 /****** Object:  ForeignKey [FK_Physician_PhysicianCategory1]    Script Date: 01/03/2013 09:06:29 ******/

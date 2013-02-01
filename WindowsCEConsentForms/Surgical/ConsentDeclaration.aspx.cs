@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using WindowsCEConsentForms.FormHandlerService;
+using WindowsCEConsentForms.ConsentFormSvc;
 
 namespace WindowsCEConsentForms.Surgical
 {
@@ -157,7 +157,7 @@ namespace WindowsCEConsentForms.Surgical
 
                 var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
                 formHandlerServiceClient.AddTreatment(treatment);
-                Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId);
+                Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId, Request, Session["Location"].ToString());
                 Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));
             }
             catch (Exception ex)

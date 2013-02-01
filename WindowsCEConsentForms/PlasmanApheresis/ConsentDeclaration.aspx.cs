@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WindowsCEConsentForms.FormHandlerService;
+using WindowsCEConsentForms.ConsentFormSvc;
 
 namespace WindowsCEConsentForms.PlasmanApheresis
 {
@@ -30,12 +30,12 @@ namespace WindowsCEConsentForms.PlasmanApheresis
             if (!string.IsNullOrEmpty(patientId))
             {
                 var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
-                var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.PlasmanApheresis.ToString());
+                var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.PlasmanApheresis.ToString(), Session["Location"].ToString());
                 if (patientDetail != null)
                     LblPatientName.Text = patientDetail.name;
 
                 var primaryDoctors = new List<PrimaryDoctor> { new PrimaryDoctor() { Id = 0, Name = "----Select Primary Doctor----" } };
-                var physicians = formHandlerServiceClient.GetDoctorDetails(ConsentType.PICC);
+                var physicians = formHandlerServiceClient.GetDoctorDetails();
                 if (physicians != null)
                 {
                     primaryDoctors.AddRange(physicians.Select(doctorDetails => new PrimaryDoctor { Name = doctorDetails.Lname + ", " + doctorDetails.Fname, Id = doctorDetails.ID }));
@@ -97,7 +97,7 @@ namespace WindowsCEConsentForms.PlasmanApheresis
 
                 lblError.Text = string.Empty;
 
-                if (string.IsNullOrEmpty(Request.QueryString["DdlPrimaryDoctors"]))
+                if (string.IsNullOrEmpty(Request["DdlPrimaryDoctors"]))
                     lblError.Text += "<br /> Please select physician.";
 
                 DeclarationSignatures.ValidateForm();
@@ -209,18 +209,19 @@ namespace WindowsCEConsentForms.PlasmanApheresis
                                                                        _device = device,
                                                                        _iP = ip
                                                                    },
-                                        _doctorAndPrcedures = new DoctorAndProcedure[1] { new DoctorAndProcedure { _precedures = string.Empty, _primaryDoctorId = Request.QueryString["DdlPrimaryDoctors"] } },
+                                        _doctorAndPrcedures = new DoctorAndProcedure[1] { new DoctorAndProcedure { _precedures = string.Empty, _primaryDoctorId = Request["DdlPrimaryDoctors"] } },
                                         _empID = empID
                                     };
 
                 var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
                 formHandlerServiceClient.AddTreatment(treatment);
-                Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId);
+                Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId, Request, Session["Location"].ToString());
 
                 Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                LblError.Text = ex.Message;
                 return;
             }
         }

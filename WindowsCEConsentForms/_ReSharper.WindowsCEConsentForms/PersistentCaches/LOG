@@ -1,5 +1,5 @@
-2013/01/25-17:24:13.394 740 Recovering log #42
-2013/01/25-17:24:13.394 740 Level-0 table #44: started
-2013/01/25-17:24:13.522 740 Level-0 table #44: 15503 bytes OK
-2013/01/25-17:24:13.567 740 Delete type=0 #42
-2013/01/25-17:24:13.567 740 Delete type=3 #40
+2013/01/31-09:34:12.608 1adc Recovering log #61
+2013/01/31-09:34:12.609 1adc Level-0 table #64: started
+2013/01/31-09:34:12.742 1adc Level-0 table #64: 125100 bytes OK
+2013/01/31-09:34:12.768 1adc Delete type=0 #61
+2013/01/31-09:34:12.768 1adc Delete type=3 #59

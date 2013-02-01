@@ -4,7 +4,7 @@ using System.Data;
 using System.ServiceModel;
 using System.Web;
 using System.Web.Configuration;
-using WindowsCEConsentForms.FormHandlerService;
+using WindowsCEConsentForms.ConsentFormSvc;
 
 namespace WindowsCEConsentForms
 {
@@ -62,10 +62,12 @@ namespace WindowsCEConsentForms
             return "/PatientConsent.aspx";
         }
 
-        public static void GeneratePdfAndUploadToSharePointSite(ConsentFormSvcClient formHandlerServiceClient, ConsentType consentType, string patientId)
+        public static void GeneratePdfAndUploadToSharePointSite(ConsentFormSvcClient formHandlerServiceClient, ConsentType consentType, string patientId, HttpRequest request, string location)
         {
             if (!IsDevelopmentMode)
-                formHandlerServiceClient.GenerateAndUploadPdFtoSharePoint("http://localhost/" + consentType + @"/ConsentPrint.aspx?PatientId=" + patientId, patientId, consentType);
+
+                //formHandlerServiceClient.GenerateAndUploadPdFtoSharePoint("http://" + request.Url.Host + ":" + request.Url.Port + "/" + consentType + @"/ConsentPrint.aspx?PatientId=" + patientId + "&Location=" + location, patientId, consentType, location);
+                formHandlerServiceClient.GenerateAndUploadPdFtoSharePoint("http://localhost/" + consentType + @"/ConsentPrint.aspx?PatientId=" + patientId + "&Location=" + location, patientId, consentType, location);
         }
 
         public static string GetAssociatedDoctors(int primaryPhysicianId)
@@ -95,10 +97,10 @@ namespace WindowsCEConsentForms
             return primaryDoctor.Lname + " " + primaryDoctor.Fname;
         }
 
-        public static PatientDetail GetPatientName(string patientId, string consentType)
+        public static PatientDetail GetPatientName(string patientId, string consentType, string location)
         {
             var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
-            return formHandlerServiceClient.GetPatientDetail(patientId, consentType);
+            return formHandlerServiceClient.GetPatientDetail(patientId, consentType, location);
         }
 
         public static string GetConsentHeader(ConsentType consentType)
@@ -128,7 +130,10 @@ namespace WindowsCEConsentForms
         {
             Configuration config = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
             var endpoint = new EndpointAddress(new Uri(config.AppSettings.Settings["ServiceURL"].Value));
-            return new ConsentFormSvcClient(new BasicHttpBinding(), endpoint);
+            var basicHttpBinding = new BasicHttpBinding();
+            basicHttpBinding.MaxReceivedMessageSize = 2147483647;
+            basicHttpBinding.MaxBufferSize = 2147483647;
+            return new ConsentFormSvcClient(basicHttpBinding, endpoint);
         }
     }
 

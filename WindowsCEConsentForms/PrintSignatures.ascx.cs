@@ -1,11 +1,11 @@
 ﻿using System;
-using WindowsCEConsentForms.FormHandlerService;
+using WindowsCEConsentForms.ConsentFormSvc;
 
 namespace WindowsCEConsentForms
 {
     public partial class PrintSignatures : System.Web.UI.UserControl
     {
-        public ConsentType ConsentType;
+        public ConsentType consentType;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,11 +18,20 @@ namespace WindowsCEConsentForms
             {
                 patientId = string.Empty;
             }
-            if (!string.IsNullOrEmpty(patientId))
+            string location;
+            try
+            {
+                location = Request.QueryString["Location"];
+            }
+            catch (Exception)
+            {
+                location = string.Empty;
+            }
+            if (!string.IsNullOrEmpty(patientId) && !string.IsNullOrEmpty(location))
             {
                 var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
-                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
-                var treatment = formHandlerServiceClient.GetTreatment(patientId, ConsentType);
+                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, consentType.ToString(), location);
+                var treatment = formHandlerServiceClient.GetTreatment(patientId, consentType);
 
                 if (patientDetails != null)
                 {
@@ -54,10 +63,10 @@ namespace WindowsCEConsentForms
                         PnlAuthorizedSignature.Visible = false;
                     }
 
-                    ImgPatientSignature.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.PatientSign + "&ConsentType=" + ConsentType.ToString();
-                    ImgAuthorizedSignature.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.PatientAuthorizeSign + "&ConsentType=" + ConsentType.ToString();
-                    ImgWitnessSignature1.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.WitnessSignature1 + "&ConsentType=" + ConsentType.ToString();
-                    ImgWitnessSignature2.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.WitnessSignature2 + "&ConsentType=" + ConsentType.ToString();
+                    ImgPatientSignature.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.PatientSign + "&ConsentType=" + consentType.ToString();
+                    ImgAuthorizedSignature.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.PatientAuthorizeSign + "&ConsentType=" + consentType.ToString();
+                    ImgWitnessSignature1.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.WitnessSignature1 + "&ConsentType=" + consentType.ToString();
+                    ImgWitnessSignature2.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.WitnessSignature2 + "&ConsentType=" + consentType.ToString();
 
                     LblTranslatedBy.Text = treatment._translatedBy;
 

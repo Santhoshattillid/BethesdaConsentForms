@@ -1,8 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PrintSignatures.ascx.cs"
     Inherits="WindowsCEConsentForms.PrintSignatures" %>
-<%@ Import Namespace="WindowsCEConsentForms.FormHandlerService" %>
+<%@ Import Namespace="WindowsCEConsentForms.ConsentFormSvc" %>
 <ul class="content">
-    <% if (ConsentType != ConsentType.BloodConsentOrRefusal && ConsentType != ConsentType.Cardiovascular)
+    <% if (consentType != ConsentType.BloodConsentOrRefusal && consentType != ConsentType.Cardiovascular)
        { %>
     <li>
         <p>

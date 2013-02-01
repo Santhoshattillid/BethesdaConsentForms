@@ -1,11 +1,11 @@
 ﻿using System;
-using WindowsCEConsentForms.FormHandlerService;
+using WindowsCEConsentForms.ConsentFormSvc;
 
 namespace WindowsCEConsentForms.PICC
 {
     public partial class PICCConsentPrintV1 : System.Web.UI.Page
     {
-        public ConsentType ConsentType;
+        public ConsentType consentType;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,18 +18,27 @@ namespace WindowsCEConsentForms.PICC
             {
                 patientId = string.Empty;
             }
-            if (!string.IsNullOrEmpty(patientId))
+            string location;
+            try
             {
-                ConsentType = ConsentType.PICC;
+                location = Request.QueryString["Location"];
+            }
+            catch (Exception)
+            {
+                location = string.Empty;
+            }
+            if (!string.IsNullOrEmpty(patientId) && !string.IsNullOrEmpty(location))
+            {
+                consentType = ConsentType.PICC;
 
                 var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
-                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.ToString());
+                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, consentType.ToString(), location);
                 if (patientDetails != null)
                 {
                     LblPatientName3.Text = patientDetails.name;
                     LblPICCNurseDate.Text = DateTime.Now.ToString("MMM dd yyyy");
                     LblPICCNurseTime.Text = DateTime.Now.ToLongTimeString();
-                    ImgPICCNurse.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.PICCSignature + "&ConsentType=" + ConsentType.ToString();
+                    ImgPICCNurse.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.PICCSignature + "&ConsentType=" + consentType.ToString();
                 }
             }
         }

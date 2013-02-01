@@ -56,6 +56,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.Smo.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Win32.TaskScheduler">
+      <HintPath>..\..\..\..\TaskScheduler\Microsoft.Win32.TaskScheduler.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
@@ -75,6 +78,7 @@
   <ItemGroup>
     <Content Include="Administration\Setup.aspx" />
     <Content Include="Administration\ConsentDB.sql" />
+    <Content Include="Administration\Synchronization.aspx" />
     <Content Include="AjaxMethods.asmx" />
     <Content Include="BlankForm.aspx" />
     <Content Include="BloodConsentOrRefusal\ConsentDeclaration.aspx" />
@@ -144,29 +148,13 @@
     <Content Include="Scripts\jquery.multiselect.min.js" />
     <Content Include="Scripts\ui.core.js" />
     <Content Include="Scripts\ui.dropdownchecklist.js" />
-    <None Include="Service References\FormHandlerService\basic5.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\FormHandlerService\basic51.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\FormHandlerService\basic52.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\FormHandlerService\basic53.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\FormHandlerService\basic54.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\FormHandlerService\configuration91.svcinfo" />
-    <None Include="Service References\FormHandlerService\configuration.svcinfo" />
-    <None Include="Service References\FormHandlerService\ConsentFormSvc.wsdl" />
-    <None Include="Service References\FormHandlerService\Reference.svcmap">
+    <Content Include="PhysicianSyncJob.sql" />
+    <None Include="Service References\ConsentFormSvc\configuration91.svcinfo" />
+    <None Include="Service References\ConsentFormSvc\configuration.svcinfo" />
+    <None Include="Service References\ConsentFormSvc\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="PhysicianSyncJob.sql" />
     <Content Include="Stylesheets\dropdownchecklist.css" />
     <Content Include="Stylesheets\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Stylesheets\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -205,16 +193,32 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <None Include="Service References\FormHandlerService\WindowsCEConsentForms.FormHandlerService.AssociatedDoctorDetails.datasource">
+    <None Include="Service References\ConsentFormSvc\basic.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ConsentFormSvc\basic1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ConsentFormSvc\basic2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ConsentFormSvc\basic3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ConsentFormSvc\basic4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ConsentFormSvc\ConsentFormSvc.wsdl" />
+    <None Include="Service References\ConsentFormSvc\WindowsCEConsentForms.ConsentFormSvc.AssociatedDoctorDetails.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\FormHandlerService\WindowsCEConsentForms.FormHandlerService.DoctorDetails.datasource">
+    <None Include="Service References\ConsentFormSvc\WindowsCEConsentForms.ConsentFormSvc.DoctorDetails.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\FormHandlerService\WindowsCEConsentForms.FormHandlerService.PatientDetail.datasource">
+    <None Include="Service References\ConsentFormSvc\WindowsCEConsentForms.ConsentFormSvc.PatientDetail.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\FormHandlerService\WindowsCEConsentForms.FormHandlerService.Treatment.datasource">
+    <None Include="Service References\ConsentFormSvc\WindowsCEConsentForms.ConsentFormSvc.Treatment.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
@@ -225,6 +229,13 @@
     </Compile>
     <Compile Include="Administration\Setup.aspx.designer.cs">
       <DependentUpon>Setup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Synchronization.aspx.cs">
+      <DependentUpon>Synchronization.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Synchronization.aspx.designer.cs">
+      <DependentUpon>Synchronization.aspx</DependentUpon>
     </Compile>
     <Compile Include="AjaxMethods.asmx.cs">
       <DependentUpon>AjaxMethods.asmx</DependentUpon>
@@ -401,7 +412,7 @@
     <Compile Include="Print\PrintAll.aspx.designer.cs">
       <DependentUpon>PrintAll.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Service References\FormHandlerService\Reference.cs">
+    <Compile Include="Service References\ConsentFormSvc\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -448,7 +459,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\FormHandlerService\" />
+    <WCFMetadataStorage Include="Service References\ConsentFormSvc\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

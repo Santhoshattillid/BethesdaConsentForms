@@ -115,7 +115,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Treatment](
-	[PatentId] [int] NOT NULL,
+	[PatentId] [nvarchar] (255) NOT NULL,
 	[ConsentType] [int] NOT NULL,
 	[IsPatientunabletosign] [bit] NOT NULL,
 	[Unabletosignreason] [nvarchar](max) NOT NULL,
@@ -204,7 +204,8 @@ CREATE TABLE [dbo].[Patient](
 	[AdmDate] [datetime] NULL,
 	[Location] [nchar](10) NULL,
 	[ConsentFormType] [nvarchar](max) NULL,
-	[Patient#] [nchar](255) NULL
+	[Patient#] [nchar](255) NULL,
+	[AttPhysicianName] [nvarchar](255) NULL
 ) ON [PRIMARY]
 GO
 SET ANSI_PADDING OFF
@@ -278,7 +279,7 @@ GO
 -- Description:	<Description,,>
 -- =============================================
 CREATE PROCEDURE [dbo].[AddTreatment]
-@PatientID INT,
+@PatientID nvarchar (255),
 @ConsentTypeID INT,
 @isPatientUnableSign INT,
 @isStatementOfConsentAccepted INT,
@@ -384,9 +385,9 @@ BEGIN
     select PatentId,ConsentType,IsPatientunabletosign,IsStatementOfConsentAccepted,
 			IsAutologousUnits, IsDirectedUnits,Unabletosignreason,TrackingID,Signatures,
             DoctorandProcedure,TransaltedBy, Date, EmpID from Treatment,ConsentType as CT
-    where   PatentId=1 and ConsentType=CT.ID and CT.Name=@consentType and
+    where   ConsentType=CT.ID and CT.Name=@consentType and
 			date=(select MAX(date) from Treatment,ConsentType as CT
-                  where PatentId=1 and ConsentType=CT.ID and CT.Name=@consentType)
+                  where ConsentType=CT.ID and CT.Name=@consentType)
                                                                                         
 END
 GO
@@ -530,7 +531,7 @@ GO
 -- =============================================
 CREATE PROCEDURE [dbo].[GetPatientSignature]
 	@signatureType varchar(MAX),
-	@patientID INT,
+	@patientID varchar(255),
 	@consentType varchar(MAX)
 AS
 BEGIN
@@ -597,6 +598,8 @@ CREATE TABLE [dbo].[Physician](
 	[Fname] [nvarchar](max) NOT NULL,
 	[Lname] [nvarchar](max) NOT NULL,
 	[PCID] [int] NOT NULL,
+	[GroupName] [nvarchar] (max) NOT NULL,
+	SyncID [int] NOT NULL,
  CONSTRAINT [PK_Physician_1] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -701,8 +704,9 @@ CREATE PROCEDURE [dbo].[GetAssociatedDoctors]
 AS
 BEGIN
 	SET NOCOUNT ON;
-
-    select Physician.Fname as FName, Physician.Lname as LName from Physician where Physician.PCID =@PCID
+	select Physician.Fname as FName, Physician.Lname as LName from Physician 
+		where Physician.GroupName in (select Physician.GroupName from Physician where ID=@PCID) 
+			And Physician.ID != @PCID
 END
 GO
 /****** Object:  StoredProcedure [dbo].[GetDoctorsProceduresInformation]    Script Date: 01/03/2013 09:06:29 ******/
@@ -739,13 +743,10 @@ GO
 -- Description:	<Description,,>
 -- =============================================
 CREATE PROCEDURE [dbo].[GetDoctorDetails]
-@Name NVARCHAR(MAX)
 AS
 BEGIN
 	SET NOCOUNT ON;
-
-    select Physician.Fname as FName, Physician.Lname as LName,Physician.ID as ID from Physician,ConsentType 
-    where Physician.ConsentTypeID=ConsentType.ID AND  ConsentType.Name =@Name AND Physician.Primary_Doctor='True'
+	select Physician.Fname as FName, Physician.Lname as LName,Physician.ID as ID from Physician 
 END
 GO
 /****** Object:  StoredProcedure [dbo].[GetDoctorDetail]    Script Date: 01/03/2013 09:06:29 ******/
@@ -763,8 +764,7 @@ CREATE PROCEDURE [dbo].[GetDoctorDetail]
 AS
 BEGIN
 	SET NOCOUNT ON;
-
-    select Physician.Fname as FName, Physician.Lname as LName from Physician where Physician.ID  =@ID
+    select Physician.Fname as FName, Physician.Lname as LName from Physician where Physician.ID=@ID
 END
 GO
 /****** Object:  ForeignKey [FK_Physician_PhysicianCategory1]    Script Date: 01/03/2013 09:06:29 ******/
