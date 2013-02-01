@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Diagnostics;
 using WindowsCEConsentForms.ConsentFormSvc;
 
 namespace WindowsCEConsentForms
@@ -59,6 +60,9 @@ namespace WindowsCEConsentForms
             }
             catch (Exception ex)
             {
+                var client = Utilities.GetConsentFormSvcClient();
+                client.CreateLog(Utilities.GetUsername(Session), LogType.E, GetType().Name + "-" + new StackTrace().GetFrame(0).GetMethod().ToString(),
+                                 ex.Message + Environment.NewLine + ex.StackTrace);
             }
         }
 
@@ -253,63 +257,80 @@ namespace WindowsCEConsentForms
 
         private void LoadPatients(string location)
         {
-            // loading patient ids
-            DdlPatientIds.Items.Clear();
-            var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
-            DdlPatientIds.Items.Add("---------Select Patient--------");
-            var patientList = formHandlerServiceClient.GetPatientfromLocation(location);
-            if (patientList != null)
+            try
             {
-                foreach (DataRow row in patientList.Rows)
+                // loading patient ids
+                DdlPatientIds.Items.Clear();
+                var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
+                DdlPatientIds.Items.Add("---------Select Patient--------");
+                var patientList = formHandlerServiceClient.GetPatientfromLocation(location);
+                if (patientList != null)
                 {
-                    //if (!string.IsNullOrEmpty(row["BirthDate"].ToString()) && !string.IsNullOrEmpty(row["Lname"].ToString()) && !string.IsNullOrEmpty(row["Fname"].ToString()) && !string.IsNullOrEmpty(row["PatientId"].ToString()))
-                    //{
-                    //    var dt = Convert.ToDateTime(row["BirthDate"].ToString());
-                    //    var admissionDate = Convert.ToDateTime(row["AdmDate"].ToString());
-                    //    DdlPatientIds.Items.Add(new System.Web.UI.WebControls.ListItem(row["Lname"] + ", " + row["Fname"] + ", " + dt.ToShortDateString() + ", " + admissionDate.ToShortDateString(), row["PatientId"].ToString()));
-                    //}
-
-                    if (!string.IsNullOrEmpty(row["BirthDate"].ToString()) && !string.IsNullOrEmpty(row["FullName"].ToString()) && !string.IsNullOrEmpty(row["PatientAccountId"].ToString()))
+                    foreach (DataRow row in patientList.Rows)
                     {
-                        var dt = Convert.ToDateTime(row["BirthDate"].ToString());
-                        var admissionDate = Convert.ToDateTime(row["VisitStartDateTime"].ToString());
-                        DdlPatientIds.Items.Add(new System.Web.UI.WebControls.ListItem(row["FullName"] + "," + dt.ToShortDateString() + ", " + admissionDate.ToShortDateString(), row["PatientAccountId"].ToString()));
+                        //if (!string.IsNullOrEmpty(row["BirthDate"].ToString()) && !string.IsNullOrEmpty(row["Lname"].ToString()) && !string.IsNullOrEmpty(row["Fname"].ToString()) && !string.IsNullOrEmpty(row["PatientId"].ToString()))
+                        //{
+                        //    var dt = Convert.ToDateTime(row["BirthDate"].ToString());
+                        //    var admissionDate = Convert.ToDateTime(row["AdmDate"].ToString());
+                        //    DdlPatientIds.Items.Add(new System.Web.UI.WebControls.ListItem(row["Lname"] + ", " + row["Fname"] + ", " + dt.ToShortDateString() + ", " + admissionDate.ToShortDateString(), row["PatientId"].ToString()));
+                        //}
+                        if (!string.IsNullOrEmpty(row["BirthDate"].ToString()) && !string.IsNullOrEmpty(row["FullName"].ToString()) && !string.IsNullOrEmpty(row["PatientAccountId"].ToString()))
+                        {
+                            var dt = Convert.ToDateTime(row["BirthDate"].ToString());
+                            var admissionDate = Convert.ToDateTime(row["VisitStartDateTime"].ToString());
+                            DdlPatientIds.Items.Add(new System.Web.UI.WebControls.ListItem(row["FullName"] + "," + dt.ToShortDateString() + ", " + admissionDate.ToShortDateString(), row["PatientAccountId"].ToString()));
+                        }
                     }
                 }
-            }
-            DdlFormList.Items.Clear();
-            DdlFormList.Items.Add("--Select Consent Form Type--");
-            DdlFormList.Items.Add("Name Printed in Consent Form");
+                DdlFormList.Items.Clear();
+                DdlFormList.Items.Add("--Select Consent Form Type--");
+                DdlFormList.Items.Add("Name Printed in Consent Form");
 
-            //DdlFormList.Items.Add("Blank Consent Form");
-            DdlFormList.SelectedIndex = 0;
-            DdlPatientIds.SelectedIndex = 0;
-            Session.Add("Location", location);
+                //DdlFormList.Items.Add("Blank Consent Form");
+                DdlFormList.SelectedIndex = 0;
+                DdlPatientIds.SelectedIndex = 0;
+                Session.Add("Location", location);
+            }
+            catch (Exception ex)
+            {
+                var client = Utilities.GetConsentFormSvcClient();
+                client.CreateLog(Utilities.GetUsername(Session), LogType.E, GetType().Name + "-" + new StackTrace().GetFrame(0).GetMethod().ToString(),
+                                 ex.Message + Environment.NewLine + ex.StackTrace);
+            }
         }
 
         protected void BtnLogin_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(TxtEmployeeID.Text.Trim()))
+            try
             {
-                LblError.Text = "Employee ID field should not be empty.";
-            }
-            else
-            {
-                var formHanlderServiceClient = Utilities.GetConsentFormSvcClient();
-                if (formHanlderServiceClient.IsValidEmployee(TxtEmployeeID.Text.Trim()))
+                if (string.IsNullOrEmpty(TxtEmployeeID.Text.Trim()))
                 {
-                    Session.Add("EmpID", TxtEmployeeID.Text);
-                    RdoBHE.Enabled = true;
-                    RdoBMH.Enabled = true;
-                    LblError2.Text = string.Empty;
+                    LblError.Text = "Employee ID field should not be empty.";
                 }
                 else
                 {
-                    Reset();
-                    RdoBHE.Enabled = false;
-                    RdoBMH.Enabled = false;
-                    LblError2.Text = "Please input valid employee ID.";
+                    var formHanlderServiceClient = Utilities.GetConsentFormSvcClient();
+                    if (formHanlderServiceClient.IsValidEmployee(TxtEmployeeID.Text.Trim()))
+                    {
+                        Session.Add("EmpID", TxtEmployeeID.Text);
+                        RdoBHE.Enabled = true;
+                        RdoBMH.Enabled = true;
+                        LblError2.Text = string.Empty;
+                    }
+                    else
+                    {
+                        Reset();
+                        RdoBHE.Enabled = false;
+                        RdoBMH.Enabled = false;
+                        LblError2.Text = "Please input valid employee ID.";
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                var client = Utilities.GetConsentFormSvcClient();
+                client.CreateLog(Utilities.GetUsername(Session), LogType.E, GetType().Name + "-" + new StackTrace().GetFrame(0).GetMethod().ToString(),
+                                 ex.Message + Environment.NewLine + ex.StackTrace);
             }
         }
 

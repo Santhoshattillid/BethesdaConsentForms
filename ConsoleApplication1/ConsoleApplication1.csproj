@@ -11,7 +11,8 @@
     <RootNamespace>ConsoleApplication1</RootNamespace>
     <AssemblyName>ConsoleApplication1</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -39,8 +40,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,7 +53,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\EConsentServices\Reference.cs">
+    <Compile Include="Service References\ConsentFormSvc\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -62,49 +65,49 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
-    <None Include="Service References\EConsentServices\basic.xsd">
+    <None Include="Service References\ConsentFormSvc\basic.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EConsentServices\basic1.xsd">
+    <None Include="Service References\ConsentFormSvc\basic1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EConsentServices\basic2.xsd">
+    <None Include="Service References\ConsentFormSvc\basic2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EConsentServices\basic3.xsd">
+    <None Include="Service References\ConsentFormSvc\basic3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EConsentServices\basic4.xsd">
+    <None Include="Service References\ConsentFormSvc\basic4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EConsentServices\ConsentFormSvc.wsdl" />
-    <None Include="Service References\EConsentServices\ConsoleApplication1.EConsentServices.AssociatedDoctorDetails.datasource">
+    <None Include="Service References\ConsentFormSvc\ConsentFormSvc.wsdl" />
+    <None Include="Service References\ConsentFormSvc\ConsoleApplication1.ConsentFormSvc.AssociatedDoctorDetails.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\EConsentServices\ConsoleApplication1.EConsentServices.DoctorDetails.datasource">
+    <None Include="Service References\ConsentFormSvc\ConsoleApplication1.ConsentFormSvc.DoctorDetails.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\EConsentServices\ConsoleApplication1.EConsentServices.PatientDetail.datasource">
+    <None Include="Service References\ConsentFormSvc\ConsoleApplication1.ConsentFormSvc.PatientDetail.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\EConsentServices\ConsoleApplication1.EConsentServices.Treatment.datasource">
+    <None Include="Service References\ConsentFormSvc\ConsoleApplication1.ConsentFormSvc.Treatment.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\EConsentServices\" />
+    <WCFMetadataStorage Include="Service References\ConsentFormSvc\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\EConsentServices\basic.disco" />
+    <None Include="Service References\ConsentFormSvc\basic.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\EConsentServices\configuration91.svcinfo" />
+    <None Include="Service References\ConsentFormSvc\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\EConsentServices\configuration.svcinfo" />
+    <None Include="Service References\ConsentFormSvc\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\EConsentServices\Reference.svcmap">
+    <None Include="Service References\ConsentFormSvc\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

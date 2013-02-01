@@ -18,37 +18,51 @@ namespace BethesdaConsentFormWCFSvc
     public class ConsentFormSvc
     {
         [OperationContract]
+        public int CreateLog(string user, LogType logType, string methodName, string description)
+        {
+            System.Configuration.Configuration config = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
+
+            var localConStr = config.AppSettings.Settings["DBConnection"].Value;
+
+            using (var con = new SqlConnection(localConStr))
+            {
+                con.Open();
+                using (var com = new SqlCommand("CreateLog", con))
+                {
+                    com.CommandType = CommandType.StoredProcedure;
+                    com.Parameters.Add(new SqlParameter("@CreatedDate", DateTime.Now.ToString()));
+                    com.Parameters.Add(new SqlParameter("@User", user));
+                    com.Parameters.Add(new SqlParameter("@LogType", logType.ToString()));
+                    com.Parameters.Add(new SqlParameter("@MethodName", methodName));
+                    com.Parameters.Add(new SqlParameter("@Description", description));
+
+                    return com.ExecuteNonQuery();
+                }
+            }
+        }
+
+        [OperationContract]
         public void SynchronizeBethesdaData()
         {
-            int positionIndex = 0;
+            string ërrorInfo = string.Empty;
             try
             {
-                positionIndex = 1;
-
                 System.Configuration.Configuration config = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
-                positionIndex = 2;
 
                 var localConStr = config.AppSettings.Settings["DBConnection"].Value;
                 var bethesdaConStr = config.AppSettings.Settings["BethesdaDBConnection"].Value;
 
-                positionIndex = 3;
-
                 using (var sqlConnectionLocal = new SqlConnection(localConStr))
                 {
-                    positionIndex = 3;
                     sqlConnectionLocal.Open();
-
-                    positionIndex = 4;
 
                     using (var sqlConnectionBethesda = new SqlConnection(bethesdaConStr))
                     {
-                        positionIndex = 5;
-
                         sqlConnectionBethesda.Open();
 
-                        positionIndex = 6;
+                        ërrorInfo += "## Started Physician Import Process ##";
 
-                        # region Import Physician
+                        #region Import Physician
 
                         // ---------------starts physician import process------------------
 
@@ -71,10 +85,10 @@ namespace BethesdaConsentFormWCFSvc
                         {
                             foreach (DataRow dataRow in dataTable.Rows)
                             {
-                                command =
-                                    new SqlCommand(
-                                        "select * from Physician where Fname='" + dataRow["UserDescription"] + "'",
-                                        sqlConnectionLocal);
+                                string physicianName = dataRow["UserDescription"].ToString().Replace("'", "''").Replace("\"", "");
+
+                                command = new SqlCommand("select * from Physician where Fname=@name", sqlConnectionLocal);
+                                command.Parameters.AddWithValue("@name", physicianName);
 
                                 daPhysician = new SqlDataAdapter(command);
 
@@ -83,15 +97,21 @@ namespace BethesdaConsentFormWCFSvc
 
                                 if (physiciansCheck.Tables.Count == 0 || physiciansCheck.Tables[0].Rows.Count == 0)
                                 {
-                                    string physicianName = dataRow["UserDescription"].ToString();
-                                    string userId = dataRow["user_oid"].ToString();
-                                    string groupName = dataRow["GroupName"].ToString();
-
+                                    string userId = dataRow["user_oid"].ToString().Replace("'", "''").Replace("\"", "");
+                                    string groupName = dataRow["GroupName"].ToString().Replace("'", "''").Replace("\"", "");
                                     command = new SqlCommand(@"insert into Physician
                                                             values('False','True',8,'" +
                                                              physicianName + "','" + userId +
                                                              "',0,'" + groupName + "'," + syncId + ")",
                                                              sqlConnectionLocal);
+                                    command.ExecuteNonQuery();
+                                }
+                                else
+                                {
+                                    command =
+                                    new SqlCommand(
+                                        "update Physician set SyncID='" + syncId + "' where Fname='" + physicianName + "'",
+                                        sqlConnectionLocal);
                                     command.ExecuteNonQuery();
                                 }
                             }
@@ -101,9 +121,9 @@ namespace BethesdaConsentFormWCFSvc
                         command = new SqlCommand("delete from Physician where SyncID !=" + syncId, sqlConnectionLocal);
                         command.ExecuteNonQuery();
 
-                        #endregion
+                        #endregion Import Physician
 
-                        positionIndex = 7;
+                        ërrorInfo += "## Started Patient Import Process ##";
 
                         #region Import Patients for BHE location
 
@@ -111,13 +131,70 @@ namespace BethesdaConsentFormWCFSvc
 
                         //AddPatient(sqlConnectionLocal, sqlConnectionBethesda, "BMH");
 
-                        #endregion
+                        #endregion Import Patients for BHE location
+
+                        ërrorInfo += "## Started Employee Import Process ##";
+
+                        #region Import Employee
+
+                        // ---------------starts physician import process------------------
+
+                        // starts synchronizing
+                        var commandEmployee = new SqlCommand(string.Empty, sqlConnectionBethesda)
+                        {
+                            //CommandText = "select user_oid,GroupName,UserDescription from [soariandbtest].[dbo].[Physician]"
+                            CommandText = "BMH_Consent_Users",
+                            CommandType = CommandType.StoredProcedure
+                        };
+
+                        var daEmployee = new SqlDataAdapter(commandEmployee);
+
+                        var employeeDs = new DataSet();
+                        daEmployee.Fill(employeeDs);
+
+                        int syncIdEmployee = Convert.ToInt32(DateTime.Now.Ticks % 65323);
+
+                        foreach (DataTable dataTable in employeeDs.Tables)
+                        {
+                            foreach (DataRow dataRow in dataTable.Rows)
+                            {
+                                string loginID = dataRow["LoginID"].ToString().Replace("'", "''").Replace("\"", "");
+
+                                commandEmployee = new SqlCommand("select * from EmployeeInformation where EmpID='" + loginID + "'", sqlConnectionLocal);
+
+                                daEmployee = new SqlDataAdapter(commandEmployee);
+
+                                var physiciansCheck = new DataSet();
+                                daEmployee.Fill(physiciansCheck);
+
+                                if (physiciansCheck.Tables.Count == 0 || physiciansCheck.Tables[0].Rows.Count == 0)
+                                {
+                                    string lastName = dataRow["LastName"].ToString().Replace("'", "''").Replace("\"", "");
+
+                                    string firstName = dataRow["FirstName"].ToString().Replace("'", "''").Replace("\"", "");
+
+                                    commandEmployee = new SqlCommand(@"insert into EmployeeInformation values('" + loginID + "','" + lastName + "','" + firstName + "','" + syncIdEmployee + "')", sqlConnectionLocal);
+                                    commandEmployee.ExecuteNonQuery();
+                                }
+                                else
+                                {
+                                    command = new SqlCommand("update EmployeeInformation set SyncID='" + syncId + "' where EmpID='" + loginID + "'", sqlConnectionLocal);
+                                    command.ExecuteNonQuery();
+                                }
+                            }
+                        }
+
+                        // removing un - available physicians
+                        commandEmployee = new SqlCommand("delete from EmployeeInformation where SyncID !=" + syncIdEmployee, sqlConnectionLocal);
+                        commandEmployee.ExecuteNonQuery();
+
+                        #endregion Import Employee
                     }
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message + "   " + positionIndex);
+                throw new Exception(ex.Message + ërrorInfo);
             }
         }
 

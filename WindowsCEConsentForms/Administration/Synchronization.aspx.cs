@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using Microsoft.Win32.TaskScheduler;
+using WindowsCEConsentForms.ConsentFormSvc;
 
 namespace WindowsCEConsentForms.Administration
 {
@@ -41,8 +43,19 @@ namespace WindowsCEConsentForms.Administration
             }
             catch (Exception ex)
             {
-                Response.Write(ex.Message);
-                Response.Write(ex.StackTrace);
+                try
+                {
+                    var client = Utilities.GetConsentFormSvcClient();
+                    client.CreateLog(Utilities.GetUsername(Session), LogType.E,
+                                     GetType().Name + "-" + new StackTrace().GetFrame(0).GetMethod().ToString(),
+                                     ex.Message + Environment.NewLine + ex.StackTrace);
+
+                    Response.Write(ex.Message);
+                    Response.Write(ex.StackTrace);
+                }
+                catch (Exception)
+                {
+                }
             }
         }
     }

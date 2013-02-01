@@ -12,7 +12,7 @@ C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\WindowsCEConsen
 C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\bin\WindowsCEConsentForms.pdb
 C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.dll
 C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.pdb
-C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\bin\Microsoft.Win32.TaskScheduler.dll
 C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\bin\Microsoft.Win32.TaskScheduler.xml
 C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\bin\it\Microsoft.Win32.TaskScheduler.resources.dll
 C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\bin\zh-CN\Microsoft.Win32.TaskScheduler.resources.dll
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\WindowsCEConsentForms\obj\Debug\WindowsCEConsentForms.csprojResolveAssemblyReference.cache

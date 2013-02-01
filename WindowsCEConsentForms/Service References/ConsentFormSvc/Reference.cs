@@ -13,6 +13,17 @@ namespace WindowsCEConsentForms.ConsentFormSvc {
     using System;
     
     
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LogType", Namespace="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc")]
+    public enum LogType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        E = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        S = 1,
+    }
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Treatment", Namespace="http://schemas.datacontract.org/2004/07/BethesdaConsentFormWCFSvc")]
@@ -1132,6 +1143,9 @@ namespace WindowsCEConsentForms.ConsentFormSvc {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ConsentFormSvc.ConsentFormSvc")]
     public interface ConsentFormSvc {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/CreateLog", ReplyAction="http://tempuri.org/ConsentFormSvc/CreateLogResponse")]
+        int CreateLog(string user, WindowsCEConsentForms.ConsentFormSvc.LogType logType, string methodName, string description);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConsentFormSvc/SynchronizeBethesdaData", ReplyAction="http://tempuri.org/ConsentFormSvc/SynchronizeBethesdaDataResponse")]
         void SynchronizeBethesdaData();
         
@@ -1233,6 +1247,10 @@ namespace WindowsCEConsentForms.ConsentFormSvc {
         
         public ConsentFormSvcClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public int CreateLog(string user, WindowsCEConsentForms.ConsentFormSvc.LogType logType, string methodName, string description) {
+            return base.Channel.CreateLog(user, logType, methodName, description);
         }
         
         public void SynchronizeBethesdaData() {

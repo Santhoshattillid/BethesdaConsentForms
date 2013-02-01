@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using WindowsCEConsentForms.ConsentFormSvc;
 
@@ -9,27 +10,43 @@ namespace WindowsCEConsentForms.Cardiovascular
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DeclarationSignatures.BtnCompleted.Click += BtnCompleted_Click;
-            DeclarationSignatures.BtnReset.Click += BtnReset_Click;
-
-            if (!IsPostBack)
-                ResetDoctorsSignatures();
-            else
+            try
             {
-                if (Request.Form[SignatureType.DoctorSign1.ToString()] != null)
-                    ViewState[SignatureType.DoctorSign1.ToString()] = Request.Form[SignatureType.DoctorSign1.ToString()];
-                if (Request.Form[SignatureType.DoctorSign2.ToString()] != null)
-                    ViewState[SignatureType.DoctorSign2.ToString()] = Request.Form[SignatureType.DoctorSign2.ToString()];
-                if (Request.Form[SignatureType.DoctorSign3.ToString()] != null)
-                    ViewState[SignatureType.DoctorSign3.ToString()] = Request.Form[SignatureType.DoctorSign3.ToString()];
-                if (Request.Form[SignatureType.DoctorSign4.ToString()] != null)
-                    ViewState[SignatureType.DoctorSign4.ToString()] = Request.Form[SignatureType.DoctorSign4.ToString()];
-                if (Request.Form[SignatureType.DoctorSign5.ToString()] != null)
-                    ViewState[SignatureType.DoctorSign5.ToString()] = Request.Form[SignatureType.DoctorSign5.ToString()];
-                if (Request.Form[SignatureType.DoctorSign6.ToString()] != null)
-                    ViewState[SignatureType.DoctorSign6.ToString()] = Request.Form[SignatureType.DoctorSign6.ToString()];
-                if (Request.Form[SignatureType.DoctorSign7.ToString()] != null)
-                    ViewState[SignatureType.DoctorSign7.ToString()] = Request.Form[SignatureType.DoctorSign7.ToString()];
+                DeclarationSignatures.BtnCompleted.Click += BtnCompleted_Click;
+                DeclarationSignatures.BtnReset.Click += BtnReset_Click;
+
+                if (!IsPostBack)
+                    ResetDoctorsSignatures();
+                else
+                {
+                    if (Request.Form[SignatureType.DoctorSign1.ToString()] != null)
+                        ViewState[SignatureType.DoctorSign1.ToString()] =
+                            Request.Form[SignatureType.DoctorSign1.ToString()];
+                    if (Request.Form[SignatureType.DoctorSign2.ToString()] != null)
+                        ViewState[SignatureType.DoctorSign2.ToString()] =
+                            Request.Form[SignatureType.DoctorSign2.ToString()];
+                    if (Request.Form[SignatureType.DoctorSign3.ToString()] != null)
+                        ViewState[SignatureType.DoctorSign3.ToString()] =
+                            Request.Form[SignatureType.DoctorSign3.ToString()];
+                    if (Request.Form[SignatureType.DoctorSign4.ToString()] != null)
+                        ViewState[SignatureType.DoctorSign4.ToString()] =
+                            Request.Form[SignatureType.DoctorSign4.ToString()];
+                    if (Request.Form[SignatureType.DoctorSign5.ToString()] != null)
+                        ViewState[SignatureType.DoctorSign5.ToString()] =
+                            Request.Form[SignatureType.DoctorSign5.ToString()];
+                    if (Request.Form[SignatureType.DoctorSign6.ToString()] != null)
+                        ViewState[SignatureType.DoctorSign6.ToString()] =
+                            Request.Form[SignatureType.DoctorSign6.ToString()];
+                    if (Request.Form[SignatureType.DoctorSign7.ToString()] != null)
+                        ViewState[SignatureType.DoctorSign7.ToString()] =
+                            Request.Form[SignatureType.DoctorSign7.ToString()];
+                }
+            }
+            catch (Exception ex)
+            {
+                var client = Utilities.GetConsentFormSvcClient();
+                client.CreateLog(Utilities.GetUsername(Session), LogType.E, GetType().Name + "-" + new StackTrace().GetFrame(0).GetMethod().ToString(),
+                                 ex.Message + Environment.NewLine + ex.StackTrace);
             }
         }
 
@@ -167,12 +184,19 @@ namespace WindowsCEConsentForms.Cardiovascular
                 var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
                 formHandlerServiceClient.AddTreatment(treatment);
                 Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId, Request, Session["Location"].ToString());
-
-                Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));
+                try
+                {
+                    Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));
+                }
+                catch (Exception)
+                {
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return;
+                var client = Utilities.GetConsentFormSvcClient();
+                client.CreateLog(Utilities.GetUsername(Session), LogType.E, GetType().Name + "-" + new StackTrace().GetFrame(0).GetMethod().ToString(),
+                                 ex.Message + Environment.NewLine + ex.StackTrace);
             }
         }
 

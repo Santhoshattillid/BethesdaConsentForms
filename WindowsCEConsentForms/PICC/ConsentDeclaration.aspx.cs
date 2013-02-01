@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using WindowsCEConsentForms.ConsentFormSvc;
 
 namespace WindowsCEConsentForms.PICC
@@ -77,12 +78,19 @@ namespace WindowsCEConsentForms.PICC
                 var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
                 formHandlerServiceClient.AddTreatment(treatment);
                 Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId, Request, Session["Location"].ToString());
-
-                Response.Redirect("/PatientConsent.aspx");
+                try
+                {
+                    Response.Redirect("/PatientConsent.aspx");
+                }
+                catch (Exception)
+                {
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return;
+                var client = Utilities.GetConsentFormSvcClient();
+                client.CreateLog(Utilities.GetUsername(Session), LogType.E, GetType().Name + "-" + new StackTrace().GetFrame(0).GetMethod().ToString(),
+                                 ex.Message + Environment.NewLine + ex.StackTrace);
             }
         }
     }

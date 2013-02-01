@@ -74,16 +74,10 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[EmployeeInformation](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[EmpID] [nchar](255) NOT NULL
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Employee]    Script Date: 01/03/2013 09:06:28 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Employee](
-	[EmployeeID] [nvarchar](50) NULL
+	[EmpID] [nchar](255) NOT NULL,
+	[LastName] [nchar](255) NOT NULL,
+	[FirstName] [nchar](255) NOT NULL,
+	[SyncID] [int]
 ) ON [PRIMARY]
 GO
 /****** Object:  Table [dbo].[Doctor_Procedures]    Script Date: 01/03/2013 09:06:28 ******/
@@ -599,7 +593,7 @@ CREATE TABLE [dbo].[Physician](
 	[Lname] [nvarchar](max) NOT NULL,
 	[PCID] [int] NOT NULL,
 	[GroupName] [nvarchar] (max) NOT NULL,
-	SyncID [int] NOT NULL,
+	[SyncID] [int] NOT NULL,
  CONSTRAINT [PK_Physician_1] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -773,3 +767,26 @@ REFERENCES [dbo].[PhysicianCategory] ([ID])
 GO
 ALTER TABLE [dbo].[Physician] CHECK CONSTRAINT [FK_Physician_PhysicianCategory1]
 GO
+
+CREATE TABLE [dbo].[Log](
+	[ID] [int] IDENTITY(1,1) NOT NULL primary key,
+	[CreatedDate] [datetime] NOT NULL,
+	[User] [varchar](50) NULL,
+	[LogType] [char](1) not null,
+	[MethodName] [varchar](200) not NULL,
+	[Description] [varchar](max) NULL,
+	)
+
+GO
+
+CREATE PROCEDURE CreateLog
+	@CreatedDate datetime,
+	@User varchar(50),
+	@LogType char(1),
+	@MethodName varchar(200),
+	@Description varchar(max)
+AS
+BEGIN
+	insert into log values(@CreatedDate,@User,@LogType,@MethodName,@Description)
+	
+END

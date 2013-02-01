@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5e967ebb-8d9c-4dd2-a0c6-749dd715ef00" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/ConsentFormSvc.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="basic.xsd" MetadataType="Schema" ID="4d3b255b-ced0-4d50-8bfe-875d08b83bbf" SourceId="1" SourceUrl="http://tillid-pc12.tillid.com/ConsentFormSvc.svc/basic?xsd=xsd3" />
+    <MetadataFile FileName="basic1.xsd" MetadataType="Schema" ID="cf155480-de67-4542-8b8f-037a0e497368" SourceId="1" SourceUrl="http://tillid-pc12.tillid.com/ConsentFormSvc.svc/basic?xsd=xsd4" />
+    <MetadataFile FileName="basic.disco" MetadataType="Disco" ID="7268af9f-02ca-4ea6-9f5f-1a3286927095" SourceId="1" SourceUrl="http://tillid-pc12.tillid.com/ConsentFormSvc.svc/basic?disco" />
+    <MetadataFile FileName="basic2.xsd" MetadataType="Schema" ID="27b429df-9a37-4856-b246-9818d497a92e" SourceId="1" SourceUrl="http://tillid-pc12.tillid.com/ConsentFormSvc.svc/basic?xsd=xsd2" />
+    <MetadataFile FileName="basic3.xsd" MetadataType="Schema" ID="3cd154c8-d895-4f6a-a079-1b67b15b9de5" SourceId="1" SourceUrl="http://tillid-pc12.tillid.com/ConsentFormSvc.svc/basic?xsd=xsd1" />
+    <MetadataFile FileName="ConsentFormSvc.wsdl" MetadataType="Wsdl" ID="869622e1-75be-45ee-8a87-949a9f6719c7" SourceId="1" SourceUrl="http://tillid-pc12.tillid.com/ConsentFormSvc.svc/basic?wsdl" />
+    <MetadataFile FileName="basic4.xsd" MetadataType="Schema" ID="4bbee918-9822-426c-85d4-d2f2ef54452c" SourceId="1" SourceUrl="http://tillid-pc12.tillid.com/ConsentFormSvc.svc/basic?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

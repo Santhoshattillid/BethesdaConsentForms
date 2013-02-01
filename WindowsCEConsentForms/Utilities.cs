@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.ServiceModel;
 using System.Web;
 using System.Web.Configuration;
+using System.Web.SessionState;
 using WindowsCEConsentForms.ConsentFormSvc;
 
 namespace WindowsCEConsentForms
@@ -12,7 +14,7 @@ namespace WindowsCEConsentForms
     {
         public static bool IsDevelopmentMode = false;
 
-        public static string GetNextFormUrl(ConsentType consentType, System.Web.SessionState.HttpSessionState sessionState)
+        public static string GetNextFormUrl(ConsentType consentType, HttpSessionState sessionState)
         {
             if (consentType == ConsentType.Surgical)
             {
@@ -73,21 +75,29 @@ namespace WindowsCEConsentForms
         public static string GetAssociatedDoctors(int primaryPhysicianId)
         {
             string outPut = string.Empty;
-            if (primaryPhysicianId != 0)
+            try
             {
-                var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
-                var associatedDoctors = formHandlerServiceClient.GetAssociatedDoctors(primaryPhysicianId);
-                if (associatedDoctors != null)
+                if (primaryPhysicianId != 0)
                 {
-                    foreach (AssociatedDoctorDetails associatedDoctor in associatedDoctors)
+                    var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
+                    var associatedDoctors = formHandlerServiceClient.GetAssociatedDoctors(primaryPhysicianId);
+                    if (associatedDoctors != null)
                     {
-                        if (!string.IsNullOrEmpty(outPut))
-                            outPut += " , ";
-                        outPut += associatedDoctor.Lname + " " + associatedDoctor.Fname;
+                        foreach (AssociatedDoctorDetails associatedDoctor in associatedDoctors)
+                        {
+                            if (!string.IsNullOrEmpty(outPut))
+                                outPut += " , ";
+                            outPut += associatedDoctor.Lname + " " + associatedDoctor.Fname;
+                        }
                     }
                 }
             }
-            return outPut;
+            catch (Exception ex)
+            {
+                var client = GetConsentFormSvcClient();
+                client.CreateLog(string.Empty, LogType.E, "GetAssociatedDoctors" + "-" + new StackTrace().GetFrame(0).GetMethod(),
+                                 ex.Message + Environment.NewLine + ex.StackTrace);
+            } return outPut;
         }
 
         public static string GetPrimaryDoctorName(int primaryPhysicianId)
@@ -130,10 +140,15 @@ namespace WindowsCEConsentForms
         {
             Configuration config = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
             var endpoint = new EndpointAddress(new Uri(config.AppSettings.Settings["ServiceURL"].Value));
-            var basicHttpBinding = new BasicHttpBinding();
-            basicHttpBinding.MaxReceivedMessageSize = 2147483647;
-            basicHttpBinding.MaxBufferSize = 2147483647;
+            var basicHttpBinding = new BasicHttpBinding { MaxReceivedMessageSize = 2147483647, MaxBufferSize = 2147483647 };
             return new ConsentFormSvcClient(basicHttpBinding, endpoint);
+        }
+
+        public static string GetUsername(HttpSessionState session)
+        {
+            if (session["EmpID"] != null)
+                return session["EmpID"].ToString();
+            return string.Empty;
         }
     }
 

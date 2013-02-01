@@ -6,3 +6,4 @@ C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\SequenceInstall
 C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\SequenceInstaller\bin\Debug\SequenceInstaller.pdb
 C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\SequenceInstaller\obj\x86\Debug\SequenceInstaller.exe
 C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\SequenceInstaller\obj\x86\Debug\SequenceInstaller.pdb
+C:\Users\santhosh\Desktop\My Works\Bethesda\BethesdaConsentForms\SequenceInstaller\obj\x86\Debug\SequenceInstaller.csprojResolveAssemblyReference.cache

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using WindowsCEConsentForms.ConsentFormSvc;
 
 namespace WindowsCEConsentForms
@@ -9,89 +10,98 @@ namespace WindowsCEConsentForms
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string patientId;
             try
             {
-                patientId = Request.QueryString["PatientID"];
-            }
-            catch (Exception)
-            {
-                patientId = string.Empty;
-            }
-            string location;
-            try
-            {
-                location = Request.QueryString["Location"];
-            }
-            catch (Exception)
-            {
-                location = string.Empty;
-            }
-            if (!string.IsNullOrEmpty(patientId) && !string.IsNullOrEmpty(location))
-            {
-                var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
-                var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, consentType.ToString(), location);
-                var treatment = formHandlerServiceClient.GetTreatment(patientId, consentType);
-
-                if (patientDetails != null)
+                string patientId;
+                try
                 {
-                    LblPatientName.Text = patientDetails.name;
+                    patientId = Request.QueryString["PatientID"];
+                }
+                catch (Exception)
+                {
+                    patientId = string.Empty;
+                }
+                string location;
+                try
+                {
+                    location = Request.QueryString["Location"];
+                }
+                catch (Exception)
+                {
+                    location = string.Empty;
+                }
+                if (!string.IsNullOrEmpty(patientId) && !string.IsNullOrEmpty(location))
+                {
+                    var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
+                    var patientDetails = formHandlerServiceClient.GetPatientDetail(patientId, consentType.ToString(), location);
+                    var treatment = formHandlerServiceClient.GetTreatment(patientId, consentType);
 
-                    LblPatientUnableToSignBecause.Text = treatment._unableToSignReason;
-
-                    LblPatientSignatureDate.Text = DateTime.Now.ToString("MMM dd yyyy");
-                    LblPatientSignatureTime.Text = DateTime.Now.ToLongTimeString();
-                    LblAuthorizedSignDate.Text = DateTime.Now.ToString("MMM dd yyyy");
-                    LblAuthorizedSignTime.Text = DateTime.Now.ToLongTimeString();
-                    LblWitnessSignature1Date.Text = DateTime.Now.ToString("MMM dd yyyy");
-                    LblWitnessSignature1Time.Text = DateTime.Now.ToLongTimeString();
-                    LblWitnessSignature2Date.Text = DateTime.Now.ToString("MMM dd yyyy");
-                    LblWitnessSignature2Time.Text = DateTime.Now.ToLongTimeString();
-                    LblTranslatedDate.Text = DateTime.Now.ToString("MMM dd yyyy");
-                    LblTranslatedTime.Text = DateTime.Now.ToLongTimeString();
-
-                    if (treatment._isPatientUnableSign)
+                    if (patientDetails != null)
                     {
-                        PnlPatientSignature.Visible = false;
-                        PnlPatientUnableToSignBecause.Visible = true;
-                        PnlAuthorizedSignature.Visible = true;
-                    }
-                    else
-                    {
-                        PnlPatientSignature.Visible = true;
-                        PnlPatientUnableToSignBecause.Visible = false;
-                        PnlAuthorizedSignature.Visible = false;
-                    }
+                        LblPatientName.Text = patientDetails.name;
 
-                    ImgPatientSignature.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.PatientSign + "&ConsentType=" + consentType.ToString();
-                    ImgAuthorizedSignature.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.PatientAuthorizeSign + "&ConsentType=" + consentType.ToString();
-                    ImgWitnessSignature1.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.WitnessSignature1 + "&ConsentType=" + consentType.ToString();
-                    ImgWitnessSignature2.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.WitnessSignature2 + "&ConsentType=" + consentType.ToString();
+                        LblPatientUnableToSignBecause.Text = treatment._unableToSignReason;
 
-                    LblTranslatedBy.Text = treatment._translatedBy;
+                        LblPatientSignatureDate.Text = DateTime.Now.ToString("MMM dd yyyy");
+                        LblPatientSignatureTime.Text = DateTime.Now.ToLongTimeString();
+                        LblAuthorizedSignDate.Text = DateTime.Now.ToString("MMM dd yyyy");
+                        LblAuthorizedSignTime.Text = DateTime.Now.ToLongTimeString();
+                        LblWitnessSignature1Date.Text = DateTime.Now.ToString("MMM dd yyyy");
+                        LblWitnessSignature1Time.Text = DateTime.Now.ToLongTimeString();
+                        LblWitnessSignature2Date.Text = DateTime.Now.ToString("MMM dd yyyy");
+                        LblWitnessSignature2Time.Text = DateTime.Now.ToLongTimeString();
+                        LblTranslatedDate.Text = DateTime.Now.ToString("MMM dd yyyy");
+                        LblTranslatedTime.Text = DateTime.Now.ToLongTimeString();
 
-                    foreach (Signatures signatures in treatment._signatureses)
-                    {
-                        switch (signatures._signatureType)
+                        if (treatment._isPatientUnableSign)
                         {
-                            case SignatureType.PatientAuthorizeSign:
-                                {
-                                    LblAuthorizePersonName.Text = signatures._name;
-                                    break;
-                                }
-                            case SignatureType.WitnessSignature1:
-                                {
-                                    LblWitnessName1.Text = signatures._name;
-                                    break;
-                                }
-                            case SignatureType.WitnessSignature2:
-                                {
-                                    LblWitnessName2.Text = signatures._name;
-                                    break;
-                                }
+                            PnlPatientSignature.Visible = false;
+                            PnlPatientUnableToSignBecause.Visible = true;
+                            PnlAuthorizedSignature.Visible = true;
+                        }
+                        else
+                        {
+                            PnlPatientSignature.Visible = true;
+                            PnlPatientUnableToSignBecause.Visible = false;
+                            PnlAuthorizedSignature.Visible = false;
+                        }
+
+                        ImgPatientSignature.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.PatientSign + "&ConsentType=" + consentType.ToString();
+                        ImgAuthorizedSignature.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.PatientAuthorizeSign + "&ConsentType=" + consentType.ToString();
+                        ImgWitnessSignature1.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.WitnessSignature1 + "&ConsentType=" + consentType.ToString();
+                        ImgWitnessSignature2.ImageUrl = "/GetImage.ashx?PatientId=" + patientId + "&Signature=" + SignatureType.WitnessSignature2 + "&ConsentType=" + consentType.ToString();
+
+                        LblTranslatedBy.Text = treatment._translatedBy;
+
+                        foreach (Signatures signatures in treatment._signatureses)
+                        {
+                            switch (signatures._signatureType)
+                            {
+                                case SignatureType.PatientAuthorizeSign:
+                                    {
+                                        LblAuthorizePersonName.Text = signatures._name;
+                                        break;
+                                    }
+                                case SignatureType.WitnessSignature1:
+                                    {
+                                        LblWitnessName1.Text = signatures._name;
+                                        break;
+                                    }
+                                case SignatureType.WitnessSignature2:
+                                    {
+                                        LblWitnessName2.Text = signatures._name;
+                                        break;
+                                    }
+                            }
                         }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                var client = Utilities.GetConsentFormSvcClient();
+                client.CreateLog(Utilities.GetUsername(Session), LogType.E, GetType().Name + "-" + new StackTrace().GetFrame(0).GetMethod().ToString(),
+                                 ex.Message + Environment.NewLine + ex.StackTrace);
             }
         }
     }

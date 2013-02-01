@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace BethesdaConsentFormWCFSvc
 {
@@ -135,4 +133,10 @@ namespace BethesdaConsentFormWCFSvc
         PICC,
         None
     }
+
+    public enum LogType
+    {
+        E,
+        S
+    };
 }

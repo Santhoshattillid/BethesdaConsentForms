@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using WindowsCEConsentForms.ConsentFormSvc;
@@ -10,68 +11,77 @@ namespace WindowsCEConsentForms.PlasmanApheresis
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string patientId;
             try
             {
-                patientId = Session["PatientID"].ToString();
-            }
-            catch (Exception)
-            {
+                string patientId;
                 try
                 {
-                    patientId = Request.QueryString["PatientId"];
+                    patientId = Session["PatientID"].ToString();
                 }
                 catch (Exception)
                 {
-                    patientId = string.Empty;
+                    try
+                    {
+                        patientId = Request.QueryString["PatientId"];
+                    }
+                    catch (Exception)
+                    {
+                        patientId = string.Empty;
+                    }
                 }
-            }
 
-            if (!string.IsNullOrEmpty(patientId))
-            {
-                var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
-                var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.PlasmanApheresis.ToString(), Session["Location"].ToString());
-                if (patientDetail != null)
-                    LblPatientName.Text = patientDetail.name;
-
-                var primaryDoctors = new List<PrimaryDoctor> { new PrimaryDoctor() { Id = 0, Name = "----Select Primary Doctor----" } };
-                var physicians = formHandlerServiceClient.GetDoctorDetails();
-                if (physicians != null)
+                if (!string.IsNullOrEmpty(patientId))
                 {
-                    primaryDoctors.AddRange(physicians.Select(doctorDetails => new PrimaryDoctor { Name = doctorDetails.Lname + ", " + doctorDetails.Fname, Id = doctorDetails.ID }));
+                    var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
+                    var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.PlasmanApheresis.ToString(), Session["Location"].ToString());
+                    if (patientDetail != null)
+                        LblPatientName.Text = patientDetail.name;
+
+                    var primaryDoctors = new List<PrimaryDoctor> { new PrimaryDoctor() { Id = 0, Name = "----Select Primary Doctor----" } };
+                    var physicians = formHandlerServiceClient.GetDoctorDetails();
+                    if (physicians != null)
+                    {
+                        primaryDoctors.AddRange(physicians.Select(doctorDetails => new PrimaryDoctor { Name = doctorDetails.Lname + ", " + doctorDetails.Fname, Id = doctorDetails.ID }));
+                    }
+
+                    ViewState["PrimaryDoctors"] = primaryDoctors;
                 }
+                else
+                    ViewState["PrimaryDoctors"] = new List<PrimaryDoctor>();
 
-                ViewState["PrimaryDoctors"] = primaryDoctors;
+                DeclarationSignatures.BtnCompleted.Click += BtnCompleted_Click;
+                DeclarationSignatures.BtnReset.Click += BtnReset_Click;
+
+                if (!IsPostBack)
+                {
+                    ResetSignatures();
+                    ViewState["doctorSelectedIndex"] = 0;
+                }
+                else
+                {
+                    if (Request.Form[SignatureType.DoctorSign1.ToString()] != null)
+                        ViewState[SignatureType.DoctorSign1.ToString()] = Request.Form[SignatureType.DoctorSign1.ToString()];
+                    if (Request.Form[SignatureType.DoctorSign2.ToString()] != null)
+                        ViewState[SignatureType.DoctorSign2.ToString()] = Request.Form[SignatureType.DoctorSign2.ToString()];
+                    if (Request.Form[SignatureType.DoctorSign3.ToString()] != null)
+                        ViewState[SignatureType.DoctorSign3.ToString()] = Request.Form[SignatureType.DoctorSign3.ToString()];
+                    if (Request.Form[SignatureType.DoctorSign4.ToString()] != null)
+                        ViewState[SignatureType.DoctorSign4.ToString()] = Request.Form[SignatureType.DoctorSign4.ToString()];
+                    if (Request.Form[SignatureType.DoctorSign5.ToString()] != null)
+                        ViewState[SignatureType.DoctorSign5.ToString()] = Request.Form[SignatureType.DoctorSign5.ToString()];
+                    if (Request.Form[SignatureType.DoctorSign6.ToString()] != null)
+                        ViewState[SignatureType.DoctorSign6.ToString()] = Request.Form[SignatureType.DoctorSign6.ToString()];
+                    if (Request.Form[SignatureType.DoctorSign7.ToString()] != null)
+                        ViewState[SignatureType.DoctorSign7.ToString()] = Request.Form[SignatureType.DoctorSign7.ToString()];
+
+                    ViewState["doctorSelectedIndex"] = Request.Form["DdlPrimaryDoctors"];
+                }
             }
-            else
-                ViewState["PrimaryDoctors"] = new List<PrimaryDoctor>();
-
-            DeclarationSignatures.BtnCompleted.Click += BtnCompleted_Click;
-            DeclarationSignatures.BtnReset.Click += BtnReset_Click;
-
-            if (!IsPostBack)
+            catch (Exception ex)
             {
-                ResetSignatures();
-                ViewState["doctorSelectedIndex"] = 0;
-            }
-            else
-            {
-                if (Request.Form[SignatureType.DoctorSign1.ToString()] != null)
-                    ViewState[SignatureType.DoctorSign1.ToString()] = Request.Form[SignatureType.DoctorSign1.ToString()];
-                if (Request.Form[SignatureType.DoctorSign2.ToString()] != null)
-                    ViewState[SignatureType.DoctorSign2.ToString()] = Request.Form[SignatureType.DoctorSign2.ToString()];
-                if (Request.Form[SignatureType.DoctorSign3.ToString()] != null)
-                    ViewState[SignatureType.DoctorSign3.ToString()] = Request.Form[SignatureType.DoctorSign3.ToString()];
-                if (Request.Form[SignatureType.DoctorSign4.ToString()] != null)
-                    ViewState[SignatureType.DoctorSign4.ToString()] = Request.Form[SignatureType.DoctorSign4.ToString()];
-                if (Request.Form[SignatureType.DoctorSign5.ToString()] != null)
-                    ViewState[SignatureType.DoctorSign5.ToString()] = Request.Form[SignatureType.DoctorSign5.ToString()];
-                if (Request.Form[SignatureType.DoctorSign6.ToString()] != null)
-                    ViewState[SignatureType.DoctorSign6.ToString()] = Request.Form[SignatureType.DoctorSign6.ToString()];
-                if (Request.Form[SignatureType.DoctorSign7.ToString()] != null)
-                    ViewState[SignatureType.DoctorSign7.ToString()] = Request.Form[SignatureType.DoctorSign7.ToString()];
-
-                ViewState["doctorSelectedIndex"] = Request.Form["DdlPrimaryDoctors"];
+                var client = Utilities.GetConsentFormSvcClient();
+                client.CreateLog(Utilities.GetUsername(Session), LogType.E, GetType().Name + "-" + new StackTrace().GetFrame(0).GetMethod().ToString(),
+                                 ex.Message + Environment.NewLine + ex.StackTrace);
             }
         }
 
@@ -216,13 +226,19 @@ namespace WindowsCEConsentForms.PlasmanApheresis
                 var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
                 formHandlerServiceClient.AddTreatment(treatment);
                 Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId, Request, Session["Location"].ToString());
-
-                Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));
+                try
+                {
+                    Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));
+                }
+                catch (Exception)
+                {
+                }
             }
             catch (Exception ex)
             {
-                LblError.Text = ex.Message;
-                return;
+                var client = Utilities.GetConsentFormSvcClient();
+                client.CreateLog(Utilities.GetUsername(Session), LogType.E, GetType().Name + "-" + new StackTrace().GetFrame(0).GetMethod().ToString(),
+                                 ex.Message + Environment.NewLine + ex.StackTrace);
             }
         }
 

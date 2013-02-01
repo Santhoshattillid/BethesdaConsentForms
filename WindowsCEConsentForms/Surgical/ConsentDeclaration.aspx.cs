@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using WindowsCEConsentForms.ConsentFormSvc;
 
@@ -162,8 +163,10 @@ namespace WindowsCEConsentForms.Surgical
             }
             catch (Exception ex)
             {
+                var client = Utilities.GetConsentFormSvcClient();
+                client.CreateLog(Utilities.GetUsername(Session), LogType.E, GetType().Name + "-" + new StackTrace().GetFrame(0).GetMethod().ToString(),
+                                 ex.Message + Environment.NewLine + ex.StackTrace);
                 LblError.Text = ex.Message;
-                return;
             }
         }
     }

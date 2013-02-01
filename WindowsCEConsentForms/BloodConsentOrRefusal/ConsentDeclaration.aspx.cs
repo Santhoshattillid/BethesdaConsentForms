@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using WindowsCEConsentForms.ConsentFormSvc;
 
 namespace WindowsCEConsentForms.BloodConsentOrRefusal
@@ -84,12 +85,19 @@ namespace WindowsCEConsentForms.BloodConsentOrRefusal
                 var consentFormSvcClient = Utilities.GetConsentFormSvcClient();
                 consentFormSvcClient.AddTreatment(treatment);
                 Utilities.GeneratePdfAndUploadToSharePointSite(consentFormSvcClient, consentType, patientId, Request, Session["Location"].ToString());
-
-                Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));
+                try
+                {
+                    Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));
+                }
+                catch (Exception)
+                {
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return;
+                var client = Utilities.GetConsentFormSvcClient();
+                client.CreateLog(Utilities.GetUsername(Session), LogType.E, GetType().Name + "-" + new StackTrace().GetFrame(0).GetMethod().ToString(),
+                                 ex.Message + Environment.NewLine + ex.StackTrace);
             }
         }
     }
