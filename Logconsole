@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,13 +23,19 @@ namespace LogEntry
 
         public static int CreateLog(string connection, string user, LogType logType, string methodName, string description)
         {
-            using(SqlConnection con=new SqlConnection(connection))
+            using (SqlConnection con = new SqlConnection(connection))
             {
                 con.Open();
-                string query = "insert into log values('"+DateTime.Now +"','"+user+"','"+logType+"','"+methodName+"','"+description+"')";
-                using(SqlCommand com=new SqlCommand(query, con))
+                //string query = "insert into log values('" + DateTime.Now + "','" + user + "','" + logType + "','" + methodName + "','" + description + "')";
+                using (SqlCommand com = new SqlCommand("CreateLog", con))
                 {
-                    return com.ExecuteNonQuery();    
+                    com.CommandType = System.Data.CommandType.StoredProcedure;
+                    com.Parameters.Add(new SqlParameter("@CreatedDate", SqlDbType.DateTime,0,DateTime.Now.ToString()));
+                    com.Parameters.Add(new SqlParameter("@User", SqlDbType.VarChar,0,user));
+                    com.Parameters.Add(new SqlParameter("@LogType", SqlDbType.VarChar,0,logType.ToString()));
+                    com.Parameters.Add(new SqlParameter("@MethodName", SqlDbType.VarChar,0,methodName));
+                    com.Parameters.Add(new SqlParameter("@Description", SqlDbType.VarChar, 0, description));
+                    return com.ExecuteNonQuery();
                 }
             }
         }
