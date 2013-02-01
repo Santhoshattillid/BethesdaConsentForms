@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LogEntry
+{
+    class Program
+    {
+        public enum LogType
+        {
+            E,
+            S
+        };
+
+        static void Main(string[] args)
+        {
+            CreateLog("Server=192.168.1.158;Database=bethesdacollege;User Id=sa;Password=sa@123;", "test", LogType.E, "siva", "siva");
+        }
+
+        public static int CreateLog(string connection, string user, LogType logType, string methodName, string description)
+        {
+            using(SqlConnection con=new SqlConnection(connection))
+            {
+                con.Open();
+                string query = "insert into log values('"+DateTime.Now +"','"+user+"','"+logType+"','"+methodName+"','"+description+"')";
+                using(SqlCommand com=new SqlCommand(query, con))
+                {
+                    return com.ExecuteNonQuery();    
+                }
+            }
+        }
+    }
+}
