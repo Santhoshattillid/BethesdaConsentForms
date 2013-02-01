@@ -1,10 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LogEntry
 {
@@ -30,11 +26,12 @@ namespace LogEntry
                 using (SqlCommand com = new SqlCommand("CreateLog", con))
                 {
                     com.CommandType = System.Data.CommandType.StoredProcedure;
-                    com.Parameters.Add(new SqlParameter("@CreatedDate", SqlDbType.DateTime,0,DateTime.Now.ToString()));
-                    com.Parameters.Add(new SqlParameter("@User", SqlDbType.VarChar,0,user));
-                    com.Parameters.Add(new SqlParameter("@LogType", SqlDbType.VarChar,0,logType.ToString()));
-                    com.Parameters.Add(new SqlParameter("@MethodName", SqlDbType.VarChar,0,methodName));
-                    com.Parameters.Add(new SqlParameter("@Description", SqlDbType.VarChar, 0, description));
+                    com.Parameters.Add(new SqlParameter("@CreatedDate", DateTime.Now.ToString()));
+                    com.Parameters.Add(new SqlParameter("@User",  user));
+                    com.Parameters.Add(new SqlParameter("@LogType",  logType.ToString()));
+                    com.Parameters.Add(new SqlParameter("@MethodName",  methodName));
+                    com.Parameters.Add(new SqlParameter("@Description",  description));
+
                     return com.ExecuteNonQuery();
                 }
             }
