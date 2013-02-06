@@ -104,10 +104,16 @@
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\DataSources\System.Xml.Linq.XElement.datasource" />
+    <Content Include="Images\blank.gif" />
     <Content Include="Images\dropdown.png" />
     <Content Include="Images\dropdown_hover.png" />
     <Content Include="Images\econsentum.png" />
+    <Content Include="Images\fancybox_loading.gif" />
+    <Content Include="Images\fancybox_overlay.png" />
+    <Content Include="Images\fancybox_sprite.png" />
     <Content Include="Images\index.jpg" />
+    <Content Include="Scripts\closeFancyBox.js" />
+    <Content Include="Stylesheets\jquery.fancybox.css" />
     <Content Include="Images\Logo.jpg" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\round_close_sign_4875.png" />
@@ -125,6 +131,7 @@
     <Content Include="Images\ui-icons_ef8c08_256x240.png" />
     <Content Include="Images\ui-icons_ffd27a_256x240.png" />
     <Content Include="Images\ui-icons_ffffff_256x240.png" />
+    <Content Include="LoginBox.aspx" />
     <Content Include="OutsideOR\ConsentPrint.aspx" />
     <Content Include="OutsideOR\ConsentDeclaration.aspx" />
     <Content Include="PageHeader.ascx" />
@@ -145,6 +152,8 @@
     <Content Include="Print\Surgical\BlankPrint.aspx" />
     <Content Include="Scripts\jquery-1.6.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.13.custom.min.js" />
+    <Content Include="Scripts\jquery.fancybox.pack.js" />
+    <Content Include="Scripts\jquery.mousewheel-3.0.6.pack.js" />
     <Content Include="Scripts\jquery.multiselect.min.js" />
     <Content Include="Scripts\ui.core.js" />
     <Content Include="Scripts\ui.dropdownchecklist.js" />
@@ -155,6 +164,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="SessionVerifier.aspx" />
     <Content Include="Stylesheets\dropdownchecklist.css" />
     <Content Include="Stylesheets\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Stylesheets\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -186,7 +196,9 @@
     <Content Include="Stylesheets\ConsentForm.css" />
     <Content Include="Surgical\ConsentPrint.aspx" />
     <Content Include="Temp.txt" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -335,6 +347,13 @@
     <Compile Include="GetImage.ashx.cs">
       <DependentUpon>GetImage.ashx</DependentUpon>
     </Compile>
+    <Compile Include="LoginBox.aspx.cs">
+      <DependentUpon>LoginBox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginBox.aspx.designer.cs">
+      <DependentUpon>LoginBox.aspx</DependentUpon>
+    </Compile>
     <Compile Include="OutsideOR\ConsentPrint.aspx.cs">
       <DependentUpon>ConsentPrint.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -416,6 +435,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SessionVerifier.aspx.cs">
+      <DependentUpon>SessionVerifier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SessionVerifier.aspx.designer.cs">
+      <DependentUpon>SessionVerifier.aspx</DependentUpon>
     </Compile>
     <Compile Include="SignatureToImage.cs" />
     <Compile Include="Surgical\ConsentDeclaration.aspx.cs">

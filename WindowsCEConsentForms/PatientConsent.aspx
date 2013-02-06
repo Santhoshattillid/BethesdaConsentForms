@@ -95,7 +95,7 @@
                     </tr>
                     <tr>
                         <td>
-                            Attending physician
+                            Attending Physician
                         </td>
                         <td colspan="4">
                             <asp:Label runat="server" ID="LblAttDr" Enabled="false"></asp:Label>

@@ -57,13 +57,21 @@
 	margin: 0 auto;
 	border: 6px solid #EFEFEF;
 	padding: 10px;
-	border-radius:10px;
+	border-radius: 10px;
 }
 .Container TABLE, .content
 {
 	width: 100%;
 /*border-top: 1px solid #EEE;*/
 	font: 17px Calibri;
+}
+.LoginBox
+{
+	width: 400px;
+}
+.LoginBox TABLE
+{
+	width: 380px;
 }
 .Container TABLE, .content LABEL, .content LI
 {
@@ -91,7 +99,7 @@
 	padding: 5px;
 	border: 1px solid #CCC;
 	color: #666;
-	border-radius:5px;
+	border-radius: 5px;
 }
 .Container INPUT[type="text"], INPUT[type="submit"], INPUT[type="pass"]
 {
@@ -125,7 +133,7 @@
 	border: 1px solid #AAA;
 	padding: 5px;
 	color: #444;
-	border-radius:5px;
+	border-radius: 5px;
 }
 .signature
 {
@@ -194,28 +202,28 @@
 {
 	width: 100px;
 	border: 1px solid #80A8BB;
-	background:#132041;
+	background: #132041;
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#2c4176), to(#132041));
-    background: -webkit-linear-gradient(top, #2c4176, #132041);
-    background: -moz-linear-gradient(top, #2c4176, #132041);
-    background: -ms-linear-gradient(top, #2c4176, #132041);
-    background: -o-linear-gradient(top, #2c4176, #132041);
+	background: -webkit-linear-gradient(top, #2c4176, #132041);
+	background: -moz-linear-gradient(top, #2c4176, #132041);
+	background: -ms-linear-gradient(top, #2c4176, #132041);
+	background: -o-linear-gradient(top, #2c4176, #132041);
 	color: #FFF;
 	padding: 8px;
 	cursor: pointer;
 	margin-left: 5px;
-	border-radius:5px;
-	font-size:16px;
+	border-radius: 5px;
+	font-size: 16px;
 }
 .Container .center INPUT:hover
 {
 	border: 1px solid #666;
 	background: #666;
-    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#666));
-    background: -webkit-linear-gradient(top, #ccc, #666);
-    background: -moz-linear-gradient(top, #ccc, #666);
-    background: -ms-linear-gradient(top, #ccc, #666);
-    background: -o-linear-gradient(top, #ccc, #666);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#666));
+	background: -webkit-linear-gradient(top, #ccc, #666);
+	background: -moz-linear-gradient(top, #ccc, #666);
+	background: -ms-linear-gradient(top, #ccc, #666);
+	background: -o-linear-gradient(top, #ccc, #666);
 	cursor: pointer;
 }
 .Container
@@ -549,22 +557,31 @@
 {
 	width: 20%;
 }
-.consentTable INPUT[type="text"]
+.consentTable INPUT[type="text"], .LoginBox INPUT[type="text"]
 {
 	width: 192px;
 	padding: 5px;
 	color: #777;
 }
+.LoginBox
+{
+	width: 350px;
+}
 .footer
 {
-    border-top:1px solid #ccc;
-    padding:10px;
+	border-top: 1px solid #CCC;
+	padding: 20px 10px 10px;
+	text-align: center;
+	margin-top: 10px;
 }
-.footer p
+.footer P
 {
-    background-image:url(../Images/econsentum.png);
-    background-repeat:no-repeat;
-    padding:10px 10px 10px 165px;
-    width:500px;
-    font-family:Arial;
+	padding: 10px 0 0 10px;
+	width: 462px;
+	font-family: Arial;
+}
+.footer IMG
+{
+	float: left;
+	margin-left: 154px;
 }
