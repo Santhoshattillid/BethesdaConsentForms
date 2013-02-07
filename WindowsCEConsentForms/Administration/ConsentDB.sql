@@ -124,6 +124,16 @@ CREATE TABLE [dbo].[Treatment](
 	[EmpID] [varchar] (255) NOT NULL
 ) ON [PRIMARY]
 GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[PDFPathCredentials](
+	[Domain] [nchar](255) NULL,
+	[Username] [nchar](255) NULL,
+	[Password] [nchar](255) NULL
+) ON [PRIMARY]
+
+GO
 /****** Object:  Table [dbo].[TrackingInformation]    Script Date: 01/03/2013 09:06:28 ******/
 SET ANSI_NULLS ON
 GO
@@ -777,6 +787,43 @@ CREATE TABLE [dbo].[Log](
 	[Description] [varchar](max) NULL,
 	)
 
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE UpdatePDFCredentials
+	@domain nchar(255),
+	@username nchar(255),
+	@password nchar(255)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    delete from PDFPathCredentials
+    insert into PDFPathCredentials values(@domain,@username,@password)
+    
+END
+GO
+
+CREATE PROCEDURE [GetPDFPathCredentials]
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select * from PDFPathCredentials
+END
 GO
 
 CREATE PROCEDURE CreateLog

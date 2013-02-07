@@ -174,4 +174,9 @@
         </li>
     </ul>
     <uc1:DeclarationSignatures ID="DeclarationSignatures" runat="server" ConsentType="PlasmanApheresis" />
+    <ul>
+        <li>
+            <asp:Label runat="server" ID="LblError" CssClass="errorInfomodified"></asp:Label>
+        </li>
+    </ul>
 </asp:Content>

@@ -96,7 +96,7 @@
     <%    }%>
     <li>
         <div class="addNewBox">
-            <a href="#" id="AddNewProcedure">Add a physician</a>
+            <a href="#" id="AddNewProcedure">Add a Physician</a>
         </div>
     </li>
 </ul>

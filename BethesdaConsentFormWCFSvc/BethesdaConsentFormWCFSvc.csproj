@@ -116,6 +116,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Treatment.cs" />
+    <Compile Include="UNCAccessWithCredentials.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

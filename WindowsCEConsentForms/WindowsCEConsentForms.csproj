@@ -78,6 +78,7 @@
   <ItemGroup>
     <Content Include="Administration\Setup.aspx" />
     <Content Include="Administration\ConsentDB.sql" />
+    <Content Include="Administration\SetupPdfConfiguration.aspx" />
     <Content Include="Administration\Synchronization.aspx" />
     <Content Include="AjaxMethods.asmx" />
     <Content Include="BlankForm.aspx" />
@@ -113,6 +114,12 @@
     <Content Include="Images\fancybox_sprite.png" />
     <Content Include="Images\index.jpg" />
     <Content Include="Scripts\closeFancyBox.js" />
+    <None Include="Service References\ConsentFormSvc\configuration91.svcinfo" />
+    <None Include="Service References\ConsentFormSvc\configuration.svcinfo" />
+    <None Include="Service References\ConsentFormSvc\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Stylesheets\jquery.fancybox.css" />
     <Content Include="Images\Logo.jpg" />
     <Content Include="Images\logo.png" />
@@ -158,12 +165,6 @@
     <Content Include="Scripts\ui.core.js" />
     <Content Include="Scripts\ui.dropdownchecklist.js" />
     <Content Include="PhysicianSyncJob.sql" />
-    <None Include="Service References\ConsentFormSvc\configuration91.svcinfo" />
-    <None Include="Service References\ConsentFormSvc\configuration.svcinfo" />
-    <None Include="Service References\ConsentFormSvc\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="SessionVerifier.aspx" />
     <Content Include="Stylesheets\dropdownchecklist.css" />
     <Content Include="Stylesheets\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -224,6 +225,9 @@
     <None Include="Service References\ConsentFormSvc\WindowsCEConsentForms.ConsentFormSvc.AssociatedDoctorDetails.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ConsentFormSvc\WindowsCEConsentForms.ConsentFormSvc.Credentials.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ConsentFormSvc\WindowsCEConsentForms.ConsentFormSvc.DoctorDetails.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -241,6 +245,13 @@
     </Compile>
     <Compile Include="Administration\Setup.aspx.designer.cs">
       <DependentUpon>Setup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\SetupPdfConfiguration.aspx.cs">
+      <DependentUpon>SetupPdfConfiguration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\SetupPdfConfiguration.aspx.designer.cs">
+      <DependentUpon>SetupPdfConfiguration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administration\Synchronization.aspx.cs">
       <DependentUpon>Synchronization.aspx</DependentUpon>

@@ -208,4 +208,43 @@
     //function showElement(element) {
     //    element.show();
     //}
+    var submitFlag = false;
+    // Session verifying here
+    //$("input[type='submit'][id$='BtnCompleted']").click(function () {
+    $("#ButtonComplete").click(function () {
+        $.ajax({
+            type: "GET",
+            url: "/SessionVerifier.aspx",
+            data: {},
+            xhrFields: {
+                withCredentials: true
+            },
+            cache: false,
+            error: function (e) {
+                window.location = "/PatientConsent.aspx";
+            }
+        }).done(function (msg) {
+            if (msg == "True") {
+                if (confirm('Are you sure that do you want to complete the form?')) {
+                    $("input[type='submit'][id$='BtnCompleted']").trigger('click');
+                }
+            } else {
+                $.fancybox.open({
+                    href: '/LoginBox.aspx',
+                    type: 'iframe',
+                    padding: 5,
+                    width: 415,
+                    minWidth: 415,
+                    height: 150,
+                    minHeight: 150,
+                    afterClose: function () {
+                        if (confirm('Are you sure that do you want to complete the form?')) {
+                            $("input[type='submit'][id$='BtnCompleted']").trigger('click');
+                        }
+                    }
+                });
+            }
+        });
+        return false;
+    });
 });

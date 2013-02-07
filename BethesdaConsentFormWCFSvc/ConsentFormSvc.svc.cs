@@ -530,7 +530,6 @@ namespace BethesdaConsentFormWCFSvc
 
                 if (!string.IsNullOrEmpty(folderPath))
                 {
-                    string sourceFileName = null;
                     byte[] sourceFile = null;
                     client = OpenService("http://localhost:41734/Muhimbi.DocumentConverter.WebService/");
                     var openOptions = new OpenOptions
@@ -538,19 +537,9 @@ namespace BethesdaConsentFormWCFSvc
                                               UserName = "",
                                               Password = "",
                                               OriginalFileName = relativeUrl,
-                                              FileExtension = "html"
+                                              FileExtension = "html",
+                                              AllowMacros = MacroSecurityOption.All
                                           };
-
-                    //** Specify optional authentication settings for the web page
-
-                    // ** Specify the URL to convert
-
-                    //** Generate a temp file name that is later used to write the PDF to
-                    sourceFileName = Path.GetTempFileName();
-                    File.Delete(sourceFileName);
-
-                    // ** Enable JavaScript on the page to convert.
-                    openOptions.AllowMacros = MacroSecurityOption.All;
 
                     // ** Set the various conversion settings
                     var conversionSettings = new ConversionSettings
@@ -614,13 +603,28 @@ namespace BethesdaConsentFormWCFSvc
                             }
                     }
 
-                    if (!Directory.Exists(folderPath))
-                        Directory.CreateDirectory(folderPath);
-
-                    fileName = Path.Combine(folderPath, fileName);
-
-                    File.WriteAllBytes(fileName, convertedFile);
-
+                    if (!new Uri(folderPath).IsUnc)
+                    {
+                        if (!Directory.Exists(folderPath))
+                            Directory.CreateDirectory(folderPath);
+                        fileName = Path.Combine(folderPath, fileName);
+                        File.WriteAllBytes(fileName, convertedFile);
+                    }
+                    else
+                    {
+                        var credentials = GetPdFPathCredentials();
+                        using (var unc = new UNCAccessWithCredentials())
+                        {
+                            unc.NetUseDelete();
+                            if (unc.NetUseWithCredentials(folderPath, credentials.Username, credentials.Domain, credentials.Password))
+                            {
+                                if (!Directory.Exists(folderPath))
+                                    Directory.CreateDirectory(folderPath);
+                                fileName = Path.Combine(folderPath, fileName);
+                                File.WriteAllBytes(fileName, convertedFile);
+                            }
+                        }
+                    }
                     /*
 
                     //try
@@ -1012,6 +1016,48 @@ namespace BethesdaConsentFormWCFSvc
                 }
             }
             return string.Empty;
+        }
+
+        [OperationContract]
+        public void SavePdFPathCredentials(Credentials credentials)
+        {
+            System.Configuration.Configuration config = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
+            var conStr = config.AppSettings.Settings["DBConnection"].Value;
+            using (var sqlConnection = new SqlConnection(conStr))
+            {
+                sqlConnection.Open();
+                var cmdTreatment = new SqlCommand("UpdatePDFCredentials", sqlConnection) { CommandType = CommandType.StoredProcedure };
+                cmdTreatment.Parameters.Add("@domain", SqlDbType.NVarChar).Value = credentials.Domain;
+                cmdTreatment.Parameters.Add("@username", SqlDbType.NVarChar).Value = credentials.Username;
+                cmdTreatment.Parameters.Add("@password", SqlDbType.NVarChar).Value = credentials.Password;
+                cmdTreatment.ExecuteNonQuery();
+            }
+        }
+
+        [OperationContract]
+        public Credentials GetPdFPathCredentials()
+        {
+            System.Configuration.Configuration config = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
+            var conStr = config.AppSettings.Settings["DBConnection"].Value;
+            using (var sqlConnection = new SqlConnection(conStr))
+            {
+                sqlConnection.Open();
+                using (var sqlDataAdapter = new SqlDataAdapter("GetPDFPathCredentials", sqlConnection))
+                {
+                    var credentialsDs = new DataSet();
+                    sqlDataAdapter.Fill(credentialsDs);
+                    if (credentialsDs.Tables.Count > 0 && credentialsDs.Tables[0].Rows.Count > 0)
+                    {
+                        return new Credentials
+                            {
+                                Domain = credentialsDs.Tables[0].Rows[0]["Domain"].ToString(),
+                                Username = credentialsDs.Tables[0].Rows[0]["Username"].ToString(),
+                                Password = credentialsDs.Tables[0].Rows[0]["Password"].ToString()
+                            };
+                    }
+                }
+            }
+            return null;
         }
 
         [OperationContract]

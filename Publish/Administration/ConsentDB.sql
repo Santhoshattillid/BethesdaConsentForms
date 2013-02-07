@@ -74,16 +74,10 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[EmployeeInformation](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[EmpID] [nchar](255) NOT NULL
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Employee]    Script Date: 01/03/2013 09:06:28 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Employee](
-	[EmployeeID] [nvarchar](50) NULL
+	[EmpID] [nchar](255) NOT NULL,
+	[LastName] [nchar](255) NOT NULL,
+	[FirstName] [nchar](255) NOT NULL,
+	[SyncID] [int]
 ) ON [PRIMARY]
 GO
 /****** Object:  Table [dbo].[Doctor_Procedures]    Script Date: 01/03/2013 09:06:28 ******/
@@ -115,7 +109,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Treatment](
-	[PatentId] [int] NOT NULL,
+	[PatentId] [nvarchar] (255) NOT NULL,
 	[ConsentType] [int] NOT NULL,
 	[IsPatientunabletosign] [bit] NOT NULL,
 	[Unabletosignreason] [nvarchar](max) NOT NULL,
@@ -129,6 +123,16 @@ CREATE TABLE [dbo].[Treatment](
 	[IsDirectedUnits] [bit] NOT NULL,
 	[EmpID] [varchar] (255) NOT NULL
 ) ON [PRIMARY]
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[PDFPathCredentials](
+	[Domain] [nchar](255) NULL,
+	[Username] [nchar](255) NULL,
+	[Password] [nchar](255) NULL
+) ON [PRIMARY]
+
 GO
 /****** Object:  Table [dbo].[TrackingInformation]    Script Date: 01/03/2013 09:06:28 ******/
 SET ANSI_NULLS ON
@@ -204,7 +208,8 @@ CREATE TABLE [dbo].[Patient](
 	[AdmDate] [datetime] NULL,
 	[Location] [nchar](10) NULL,
 	[ConsentFormType] [nvarchar](max) NULL,
-	[Patient#] [nchar](255) NULL
+	[Patient#] [nchar](255) NULL,
+	[AttPhysicianName] [nvarchar](255) NULL
 ) ON [PRIMARY]
 GO
 SET ANSI_PADDING OFF
@@ -278,7 +283,7 @@ GO
 -- Description:	<Description,,>
 -- =============================================
 CREATE PROCEDURE [dbo].[AddTreatment]
-@PatientID INT,
+@PatientID nvarchar (255),
 @ConsentTypeID INT,
 @isPatientUnableSign INT,
 @isStatementOfConsentAccepted INT,
@@ -384,9 +389,9 @@ BEGIN
     select PatentId,ConsentType,IsPatientunabletosign,IsStatementOfConsentAccepted,
 			IsAutologousUnits, IsDirectedUnits,Unabletosignreason,TrackingID,Signatures,
             DoctorandProcedure,TransaltedBy, Date, EmpID from Treatment,ConsentType as CT
-    where   PatentId=1 and ConsentType=CT.ID and CT.Name=@consentType and
+    where   ConsentType=CT.ID and CT.Name=@consentType and
 			date=(select MAX(date) from Treatment,ConsentType as CT
-                  where PatentId=1 and ConsentType=CT.ID and CT.Name=@consentType)
+                  where ConsentType=CT.ID and CT.Name=@consentType)
                                                                                         
 END
 GO
@@ -530,7 +535,7 @@ GO
 -- =============================================
 CREATE PROCEDURE [dbo].[GetPatientSignature]
 	@signatureType varchar(MAX),
-	@patientID INT,
+	@patientID varchar(255),
 	@consentType varchar(MAX)
 AS
 BEGIN
@@ -598,7 +603,7 @@ CREATE TABLE [dbo].[Physician](
 	[Lname] [nvarchar](max) NOT NULL,
 	[PCID] [int] NOT NULL,
 	[GroupName] [nvarchar] (max) NOT NULL,
-	SyncID [int] NOT NULL,
+	[SyncID] [int] NOT NULL,
  CONSTRAINT [PK_Physician_1] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -772,3 +777,63 @@ REFERENCES [dbo].[PhysicianCategory] ([ID])
 GO
 ALTER TABLE [dbo].[Physician] CHECK CONSTRAINT [FK_Physician_PhysicianCategory1]
 GO
+
+CREATE TABLE [dbo].[Log](
+	[ID] [int] IDENTITY(1,1) NOT NULL primary key,
+	[CreatedDate] [datetime] NOT NULL,
+	[User] [varchar](50) NULL,
+	[LogType] [char](1) not null,
+	[MethodName] [varchar](200) not NULL,
+	[Description] [varchar](max) NULL,
+	)
+
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE UpdatePDFCredentials
+	@domain nchar(255),
+	@username nchar(255),
+	@password nchar(255)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    delete from PDFPathCredentials
+    insert into PDFPathCredentials values(@domain,@username,@password)
+    
+END
+GO
+
+CREATE PROCEDURE [GetPDFPathCredentials]
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	select * from PDFPathCredentials
+END
+GO
+
+CREATE PROCEDURE CreateLog
+	@CreatedDate datetime,
+	@User varchar(50),
+	@LogType char(1),
+	@MethodName varchar(200),
+	@Description varchar(max)
+AS
+BEGIN
+	insert into log values(@CreatedDate,@User,@LogType,@MethodName,@Description)
+	
+END

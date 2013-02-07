@@ -60,13 +60,6 @@ namespace WindowsCEConsentForms.Administration
                 TxtUsernameExternal.Text = string.Empty;
                 TxtPasswordExternal.Text = string.Empty;
 
-                TxtBloodConsentOrRefusalExportPath.Text = string.Empty;
-                TxtCardiovascularExportPath.Text = string.Empty;
-                TxtEndoscopyExportPath.Text = string.Empty;
-                TxtOutsideORExportPath.Text = string.Empty;
-                TxtPICCExportPath.Text = string.Empty;
-                TxtPlasmanApheresisExportPath.Text = string.Empty;
-                TxtSurgicalExportPath.Text = string.Empty;
                 TxtServerName.Focus();
 
                 // loading WCF Service URL from web.config
@@ -77,21 +70,6 @@ namespace WindowsCEConsentForms.Administration
                 // Getting export paths and display in boxes
                 var endpoint = new EndpointAddress(new Uri(TxtServiceURL.Text.Trim()));
                 var formHandlerServices = new ConsentFormSvcClient(new BasicHttpBinding(), endpoint);
-
-                try // initially it might throw error
-                {
-                    TxtBloodConsentOrRefusalExportPath.Text =
-                        formHandlerServices.GetPdFFolderPath(ConsentType.BloodConsentOrRefusal);
-                    TxtCardiovascularExportPath.Text = formHandlerServices.GetPdFFolderPath(ConsentType.Cardiovascular);
-                    TxtEndoscopyExportPath.Text = formHandlerServices.GetPdFFolderPath(ConsentType.Endoscopy);
-                    TxtOutsideORExportPath.Text = formHandlerServices.GetPdFFolderPath(ConsentType.OutsideOR);
-                    TxtPICCExportPath.Text = formHandlerServices.GetPdFFolderPath(ConsentType.PICC);
-                    TxtPlasmanApheresisExportPath.Text = formHandlerServices.GetPdFFolderPath(ConsentType.PlasmanApheresis);
-                    TxtSurgicalExportPath.Text = formHandlerServices.GetPdFFolderPath(ConsentType.Surgical);
-                }
-                catch (Exception)
-                {
-                }
 
                 // setting Database fields value from connection string
                 try
@@ -265,36 +243,6 @@ namespace WindowsCEConsentForms.Administration
                         {
                             LblError.Text += "Unable to save external database settings due to [" + ex.Message + "]";
                         }
-
-                        //setting exports path
-                        try
-                        {
-                            // before saving paths seed the db
-                            consentFormSvcClient.SeedData();
-
-                            if (!string.IsNullOrEmpty(TxtSurgicalExportPath.Text.Trim())
-                                && !string.IsNullOrEmpty(TxtBloodConsentOrRefusalExportPath.Text.Trim())
-                                && !string.IsNullOrEmpty(TxtCardiovascularExportPath.Text.Trim())
-                                && !string.IsNullOrEmpty(TxtEndoscopyExportPath.Text.Trim())
-                                && !string.IsNullOrEmpty(TxtOutsideORExportPath.Text.Trim())
-                                && !string.IsNullOrEmpty(TxtPICCExportPath.Text.Trim())
-                                && !string.IsNullOrEmpty(TxtPlasmanApheresisExportPath.Text.Trim()))
-                            {
-                                consentFormSvcClient.SavePdFFolderPath(ConsentType.Surgical, TxtSurgicalExportPath.Text);
-                                consentFormSvcClient.SavePdFFolderPath(ConsentType.BloodConsentOrRefusal, TxtBloodConsentOrRefusalExportPath.Text);
-                                consentFormSvcClient.SavePdFFolderPath(ConsentType.Cardiovascular, TxtCardiovascularExportPath.Text);
-                                consentFormSvcClient.SavePdFFolderPath(ConsentType.Endoscopy, TxtEndoscopyExportPath.Text);
-                                consentFormSvcClient.SavePdFFolderPath(ConsentType.OutsideOR, TxtOutsideORExportPath.Text);
-                                consentFormSvcClient.SavePdFFolderPath(ConsentType.PICC, TxtPICCExportPath.Text);
-                                consentFormSvcClient.SavePdFFolderPath(ConsentType.PlasmanApheresis, TxtPlasmanApheresisExportPath.Text);
-
-                                LblError.Text += "<br /> Export paths saved successfully.";
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            LblError.Text += "<br /> Unable to set exports path due to [" + ex.Message + "]";
-                        }
                     }
                     else
                         LblError.Text += "<br /> Please input wcf service URL and try again.";
@@ -327,9 +275,15 @@ namespace WindowsCEConsentForms.Administration
                     }
                     catch (Exception ex)
                     {
-                        var client = Utilities.GetConsentFormSvcClient();
-                        client.CreateLog(Utilities.GetUsername(Session), LogType.E, GetType().Name + "-" + new StackTrace().GetFrame(0).GetMethod().ToString(),
-                                         ex.Message + Environment.NewLine + ex.StackTrace);
+                        try
+                        {
+                            var client = Utilities.GetConsentFormSvcClient();
+                            client.CreateLog(Utilities.GetUsername(Session), LogType.E, GetType().Name + "-" + new StackTrace().GetFrame(0).GetMethod().ToString(),
+                                             ex.Message + Environment.NewLine + ex.StackTrace);
+                        }
+                        catch (Exception)
+                        {
+                        }
                     }
                 }
 
@@ -359,16 +313,28 @@ namespace WindowsCEConsentForms.Administration
                 }
                 catch (Exception ex)
                 {
-                    var client = Utilities.GetConsentFormSvcClient();
-                    client.CreateLog(Utilities.GetUsername(Session), LogType.E, GetType().Name + "-" + new StackTrace().GetFrame(0).GetMethod().ToString(),
-                                     ex.Message + Environment.NewLine + ex.StackTrace);
+                    try
+                    {
+                        var client = Utilities.GetConsentFormSvcClient();
+                        client.CreateLog(Utilities.GetUsername(Session), LogType.E, GetType().Name + "-" + new StackTrace().GetFrame(0).GetMethod().ToString(),
+                                         ex.Message + Environment.NewLine + ex.StackTrace);
+                    }
+                    catch (Exception)
+                    {
+                    }
                 }
             }
             catch (Exception ex)
             {
-                var client = Utilities.GetConsentFormSvcClient();
-                client.CreateLog(Utilities.GetUsername(Session), LogType.E, GetType().Name + "-" + new StackTrace().GetFrame(0).GetMethod().ToString(),
-                                 ex.Message + Environment.NewLine + ex.StackTrace);
+                try
+                {
+                    var client = Utilities.GetConsentFormSvcClient();
+                    client.CreateLog(Utilities.GetUsername(Session), LogType.E, GetType().Name + "-" + new StackTrace().GetFrame(0).GetMethod().ToString(),
+                                     ex.Message + Environment.NewLine + ex.StackTrace);
+                }
+                catch (Exception)
+                {
+                }
             }
         }
 

@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true"
     CodeBehind="Setup.aspx.cs" Inherits="WindowsCEConsentForms.Administration.Setup" %>
 
-<%@ Import Namespace="WindowsCEConsentForms" %>
-<%@ Import Namespace="WindowsCEConsentForms.ConsentFormSvc" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -154,70 +152,6 @@
                 </asp:Panel>
             </li>
             <!--end-->
-        </ul>
-    </asp:Panel>
-    <asp:Panel runat="server" ID="PnlFolderConfiguration">
-        <ul class="content">
-            <li>
-                <h3>
-                    Exports Path</h3>
-            </li>
-            <li>
-                <div class="content-heading">
-                    <%= Utilities.GetConsentHeader(ConsentType.Surgical) %>
-                </div>
-                <div>
-                    <asp:TextBox runat="server" ID="TxtSurgicalExportPath"></asp:TextBox>
-                </div>
-            </li>
-            <li>
-                <div class="content-heading">
-                    <%= Utilities.GetConsentHeader(ConsentType.Cardiovascular) %>
-                </div>
-                <div>
-                    <asp:TextBox runat="server" ID="TxtCardiovascularExportPath"></asp:TextBox>
-                </div>
-            </li>
-            <li>
-                <div class="content-heading">
-                    <%= Utilities.GetConsentHeader(ConsentType.OutsideOR) %>
-                </div>
-                <div>
-                    <asp:TextBox runat="server" ID="TxtOutsideORExportPath"></asp:TextBox>
-                </div>
-            </li>
-            <li>
-                <div class="content-heading">
-                    <%= Utilities.GetConsentHeader(ConsentType.Endoscopy) %>
-                </div>
-                <div>
-                    <asp:TextBox runat="server" ID="TxtEndoscopyExportPath"></asp:TextBox>
-                </div>
-            </li>
-            <li>
-                <div class="content-heading">
-                    <%= Utilities.GetConsentHeader(ConsentType.BloodConsentOrRefusal) %>
-                </div>
-                <div>
-                    <asp:TextBox runat="server" ID="TxtBloodConsentOrRefusalExportPath"></asp:TextBox>
-                </div>
-            </li>
-            <li>
-                <div class="content-heading">
-                    <%= Utilities.GetConsentHeader(ConsentType.PlasmanApheresis) %>
-                </div>
-                <div>
-                    <asp:TextBox runat="server" ID="TxtPlasmanApheresisExportPath"></asp:TextBox>
-                </div>
-            </li>
-            <li>
-                <div class="content-heading">
-                    <%= Utilities.GetConsentHeader(ConsentType.PICC) %>
-                </div>
-                <div>
-                    <asp:TextBox runat="server" ID="TxtPICCExportPath"></asp:TextBox>
-                </div>
-            </li>
         </ul>
     </asp:Panel>
     <ul class="content">

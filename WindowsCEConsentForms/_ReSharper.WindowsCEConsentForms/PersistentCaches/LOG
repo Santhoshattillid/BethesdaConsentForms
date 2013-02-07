@@ -1,5 +1,5 @@
-2013/02/06-13:11:44.151 13cc Recovering log #78
-2013/02/06-13:11:44.162 13cc Level-0 table #80: started
-2013/02/06-13:11:44.206 13cc Level-0 table #80: 17153 bytes OK
-2013/02/06-13:11:44.249 13cc Delete type=0 #78
-2013/02/06-13:11:44.250 13cc Delete type=3 #76
+2013/02/07-15:32:29.047 17a8 Recovering log #87
+2013/02/07-15:32:29.047 17a8 Level-0 table #90: started
+2013/02/07-15:32:29.067 17a8 Level-0 table #90: 19857 bytes OK
+2013/02/07-15:32:29.117 17a8 Delete type=0 #87
+2013/02/07-15:32:29.118 17a8 Delete type=3 #85

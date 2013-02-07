@@ -147,6 +147,18 @@
   <wsdl:message name="ConsentFormSvc_GetPdFFolderPath_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPdFFolderPathResponse" />
   </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_SavePdFPathCredentials_InputMessage">
+    <wsdl:part name="parameters" element="tns:SavePdFPathCredentials" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_SavePdFPathCredentials_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SavePdFPathCredentialsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GetPdFPathCredentials_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPdFPathCredentials" />
+  </wsdl:message>
+  <wsdl:message name="ConsentFormSvc_GetPdFPathCredentials_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPdFPathCredentialsResponse" />
+  </wsdl:message>
   <wsdl:message name="ConsentFormSvc_IsValidEmployee_InputMessage">
     <wsdl:part name="parameters" element="tns:IsValidEmployee" />
   </wsdl:message>
@@ -257,6 +269,14 @@
     <wsdl:operation name="GetPdFFolderPath">
       <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/GetPdFFolderPath" message="tns:ConsentFormSvc_GetPdFFolderPath_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/GetPdFFolderPathResponse" message="tns:ConsentFormSvc_GetPdFFolderPath_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SavePdFPathCredentials">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/SavePdFPathCredentials" message="tns:ConsentFormSvc_SavePdFPathCredentials_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/SavePdFPathCredentialsResponse" message="tns:ConsentFormSvc_SavePdFPathCredentials_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPdFPathCredentials">
+      <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/GetPdFPathCredentials" message="tns:ConsentFormSvc_GetPdFPathCredentials_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ConsentFormSvc/GetPdFPathCredentialsResponse" message="tns:ConsentFormSvc_GetPdFPathCredentials_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="IsValidEmployee">
       <wsdl:input wsaw:Action="http://tempuri.org/ConsentFormSvc/IsValidEmployee" message="tns:ConsentFormSvc_IsValidEmployee_InputMessage" />
@@ -473,6 +493,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetPdFFolderPath">
       <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/GetPdFFolderPath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePdFPathCredentials">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/SavePdFPathCredentials" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPdFPathCredentials">
+      <soap:operation soapAction="http://tempuri.org/ConsentFormSvc/GetPdFPathCredentials" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

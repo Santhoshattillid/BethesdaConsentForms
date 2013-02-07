@@ -219,6 +219,42 @@
                 </div>
             </li>
         </ul>
+        <ul class="content">
+            <li>
+                <h3>
+                    Credentials for export path</h3>
+            </li>
+            <li>
+                <div class="adminHeading leftBox content-heading">
+                    Domain
+                </div>
+                <div class="leftBox">
+                    <asp:TextBox runat="server" ID="TxtDomain"></asp:TextBox>
+                </div>
+                <div class="clear">
+                </div>
+            </li>
+            <li>
+                <div class="adminHeading leftBox content-heading">
+                    Username
+                </div>
+                <div class="leftBox">
+                    <asp:TextBox runat="server" ID="TxtUsernameExports"></asp:TextBox>
+                </div>
+                <div class="clear">
+                </div>
+            </li>
+            <li>
+                <div class="adminHeading leftBox content-heading">
+                    Password
+                </div>
+                <div class="leftBox">
+                    <asp:TextBox runat="server" ID="TxtPasswordExports" TextMode="Password"></asp:TextBox>
+                </div>
+                <div class="clear">
+                </div>
+            </li>
+        </ul>
     </asp:Panel>
     <ul class="content">
         <li>
