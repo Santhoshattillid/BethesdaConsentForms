@@ -69,7 +69,7 @@ namespace WindowsCEConsentForms
             if (!IsDevelopmentMode)
 
                 //formHandlerServiceClient.GenerateAndUploadPdFtoSharePoint("http://" + request.Url.Host + ":" + request.Url.Port + "/" + consentType + @"/ConsentPrint.aspx?PatientId=" + patientId + "&Location=" + location, patientId, consentType, location);
-                formHandlerServiceClient.GenerateAndUploadPdFtoSharePoint("http://localhost/" + consentType + @"/ConsentPrint.aspx?PatientId=" + patientId + "&Location=" + location, patientId, consentType, location);
+                formHandlerServiceClient.GenerateAndUploadPdFtoSharePoint("http://localhost" + request.Url.Port + @"/" + consentType + @"/ConsentPrint.aspx?PatientId=" + patientId + "&Location=" + location, patientId, consentType, location);
         }
 
         public static string GetAssociatedDoctors(int primaryPhysicianId)

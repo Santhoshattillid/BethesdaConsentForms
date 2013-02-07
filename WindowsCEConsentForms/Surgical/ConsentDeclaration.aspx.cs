@@ -159,7 +159,13 @@ namespace WindowsCEConsentForms.Surgical
                 var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
                 formHandlerServiceClient.AddTreatment(treatment);
                 Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId, Request, Session["Location"].ToString());
-                Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));
+                try
+                {
+                    Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));
+                }
+                catch (Exception)
+                {
+                }
             }
             catch (Exception ex)
             {

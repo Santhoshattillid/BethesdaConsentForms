@@ -605,6 +605,7 @@ namespace BethesdaConsentFormWCFSvc
 
                     if (!new Uri(folderPath).IsUnc)
                     {
+                        CreateLog("unKnown", LogType.E, "GenerateAndUploadPdFtoSharePoint", "Generating in local folder");
                         if (!Directory.Exists(folderPath))
                             Directory.CreateDirectory(folderPath);
                         fileName = Path.Combine(folderPath, fileName);
@@ -613,16 +614,30 @@ namespace BethesdaConsentFormWCFSvc
                     else
                     {
                         var credentials = GetPdFPathCredentials();
-                        using (var unc = new UNCAccessWithCredentials())
+                        if (credentials != null)
                         {
-                            unc.NetUseDelete();
-                            if (unc.NetUseWithCredentials(folderPath, credentials.Username, credentials.Domain, credentials.Password))
+                            using (var unc = new UNCAccessWithCredentials())
                             {
-                                if (!Directory.Exists(folderPath))
-                                    Directory.CreateDirectory(folderPath);
-                                fileName = Path.Combine(folderPath, fileName);
-                                File.WriteAllBytes(fileName, convertedFile);
+                                unc.NetUseDelete();
+                                if (unc.NetUseWithCredentials(folderPath, credentials.Username.Trim(), credentials.Domain.Trim(),
+                                                              credentials.Password.Trim()))
+                                {
+                                    if (!Directory.Exists(folderPath))
+                                        Directory.CreateDirectory(folderPath);
+                                    fileName = Path.Combine(folderPath, fileName);
+                                    File.WriteAllBytes(fileName, convertedFile);
+                                }
+                                else
+                                {
+                                    CreateLog("unKnown", LogType.E, "GenerateAndUploadPdFtoSharePoint",
+                                      "Not able to connect the UNC path with the given credentials using [" + folderPath + "],[" + credentials.Domain.Trim() + "],[" + credentials.Username.Trim() + "],[" + credentials.Password.Trim() + "]");
+                                }
                             }
+                        }
+                        else
+                        {
+                            CreateLog("unKnown", LogType.E, "GenerateAndUploadPdFtoSharePoint",
+                                      "The export credentials not found.");
                         }
                     }
                     /*
@@ -713,6 +728,14 @@ namespace BethesdaConsentFormWCFSvc
                     });
                      */
                 }
+                else
+                {
+                    CreateLog("unKnown", LogType.E, "GenerateAndUploadPdFtoSharePoint", "The folder path not found.");
+                }
+            }
+            catch (Exception ex)
+            {
+                CreateLog("unKnown", LogType.E, "GenerateAndUploadPdFtoSharePoint", ex.Message + "," + ex.StackTrace);
             }
             finally
             {

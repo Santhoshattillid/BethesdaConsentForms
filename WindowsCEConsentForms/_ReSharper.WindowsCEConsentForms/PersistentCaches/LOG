@@ -1,5 +1,5 @@
-2013/02/07-15:32:29.047 17a8 Recovering log #87
-2013/02/07-15:32:29.047 17a8 Level-0 table #90: started
-2013/02/07-15:32:29.067 17a8 Level-0 table #90: 19857 bytes OK
-2013/02/07-15:32:29.117 17a8 Delete type=0 #87
-2013/02/07-15:32:29.118 17a8 Delete type=3 #85
+2013/02/07-18:49:55.207 dc Recovering log #91
+2013/02/07-18:49:55.207 dc Level-0 table #93: started
+2013/02/07-18:49:55.316 dc Level-0 table #93: 86354 bytes OK
+2013/02/07-18:49:55.353 dc Delete type=0 #91
+2013/02/07-18:49:55.353 dc Delete type=3 #89
