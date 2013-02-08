@@ -150,6 +150,8 @@ namespace WindowsCEConsentForms
                 return session["EmpID"].ToString();
             return string.Empty;
         }
+
+        public static string Version = "1";
     }
 
     public enum StatementType

@@ -105,6 +105,7 @@
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\DataSources\System.Xml.Linq.XElement.datasource" />
+    <Content Include="Global.asax" />
     <Content Include="Images\blank.gif" />
     <Content Include="Images\dropdown.png" />
     <Content Include="Images\dropdown_hover.png" />
@@ -357,6 +358,9 @@
     </Compile>
     <Compile Include="GetImage.ashx.cs">
       <DependentUpon>GetImage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="LoginBox.aspx.cs">
       <DependentUpon>LoginBox.aspx</DependentUpon>

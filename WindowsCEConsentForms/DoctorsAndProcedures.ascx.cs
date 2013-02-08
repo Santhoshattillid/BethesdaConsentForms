@@ -25,7 +25,8 @@ namespace WindowsCEConsentForms
                     if (!IsStaticTextBoxForPrecedures)
                     {
                         procedures.AddRange(from DataRow row in formHandlerServiceClient.GetProcedures(consentType).Rows select row["CFName"].ToString());
-                        procedures.Add("Other");
+                        if (consentType != ConsentType.Endoscopy)
+                            procedures.Add("Other");
                     }
 
                     ViewState["ListOfProcedures"] = procedures;

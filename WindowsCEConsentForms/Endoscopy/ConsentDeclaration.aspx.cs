@@ -13,6 +13,23 @@ namespace WindowsCEConsentForms.Endoscopy
         {
             DeclarationSignatures.BtnCompleted.Click += BtnCompleted_Click;
             DeclarationSignatures.BtnReset.Click += BtnReset_Click;
+            if (IsPostBack) return;
+            try
+            {
+                HdnPatientId.Value = Session["PatientID"].ToString();
+            }
+            catch (Exception)
+            {
+                Response.Redirect("/PatientConsent.aspx");
+            }
+            try
+            {
+                HdnLocation.Value = Session["Location"].ToString();
+            }
+            catch (Exception)
+            {
+                Response.Redirect("/PatientConsent.aspx");
+            }
         }
 
         private void BtnReset_Click(object sender, EventArgs e)
@@ -52,14 +69,36 @@ namespace WindowsCEConsentForms.Endoscopy
                 if (!string.IsNullOrEmpty(lblError.Text))
                     return;
 
-                string patientId = string.Empty;
+                string patientId;
                 try
                 {
                     patientId = Session["PatientID"].ToString();
                 }
                 catch (Exception)
                 {
-                    Response.Redirect("/PatientConsent.aspx");
+                    if (string.IsNullOrEmpty(HdnPatientId.Value))
+                    {
+                        Response.Redirect("/PatientConsent.aspx");
+                        return;
+                    }
+                    patientId = HdnPatientId.Value;
+                    Session["PatientID"] = patientId;
+                }
+
+                string location;
+                try
+                {
+                    location = Session["Location"].ToString();
+                }
+                catch (Exception)
+                {
+                    if (string.IsNullOrEmpty(HdnPatientId.Value))
+                    {
+                        Response.Redirect("/PatientConsent.aspx");
+                        return;
+                    }
+                    location = HdnLocation.Value;
+                    Session["Location"] = location;
                 }
 
                 string ip = Request.ServerVariables["REMOTE_ADDR"];
@@ -164,6 +203,7 @@ namespace WindowsCEConsentForms.Endoscopy
                 }
                 catch (Exception)
                 {
+                    Response.Redirect("/PatientConsent.aspx");
                 }
             }
             catch (Exception ex)

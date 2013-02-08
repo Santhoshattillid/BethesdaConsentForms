@@ -11,6 +11,24 @@ namespace WindowsCEConsentForms.PICC
         {
             DeclarationSignatures.BtnCompleted.Click += BtnCompleted_Click;
             DeclarationSignatures.BtnReset.Click += BtnReset_Click;
+
+            if (IsPostBack) return;
+            try
+            {
+                HdnPatientId.Value = Session["PatientID"].ToString();
+            }
+            catch (Exception)
+            {
+                Response.Redirect("/PatientConsent.aspx");
+            }
+            try
+            {
+                HdnLocation.Value = Session["Location"].ToString();
+            }
+            catch (Exception)
+            {
+                Response.Redirect("/PatientConsent.aspx");
+            }
         }
 
         private void BtnReset_Click(object sender, EventArgs e)
@@ -33,15 +51,36 @@ namespace WindowsCEConsentForms.PICC
                 if (!string.IsNullOrEmpty(DeclarationSignatures.LblError.Text))
                     return;
 
-                // uploading images here
-                string patientId = string.Empty;
+                string patientId;
                 try
                 {
                     patientId = Session["PatientID"].ToString();
                 }
                 catch (Exception)
                 {
-                    Response.Redirect("/PatientConsent.aspx");
+                    if (string.IsNullOrEmpty(HdnPatientId.Value))
+                    {
+                        Response.Redirect("/PatientConsent.aspx");
+                        return;
+                    }
+                    patientId = HdnPatientId.Value;
+                    Session["PatientID"] = patientId;
+                }
+
+                string location;
+                try
+                {
+                    location = Session["Location"].ToString();
+                }
+                catch (Exception)
+                {
+                    if (string.IsNullOrEmpty(HdnPatientId.Value))
+                    {
+                        Response.Redirect("/PatientConsent.aspx");
+                        return;
+                    }
+                    location = HdnLocation.Value;
+                    Session["Location"] = location;
                 }
 
                 string ip = Request.ServerVariables["REMOTE_ADDR"];
@@ -77,7 +116,7 @@ namespace WindowsCEConsentForms.PICC
 
                 var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
                 formHandlerServiceClient.AddTreatment(treatment);
-                Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId, Request, Session["Location"].ToString());
+                Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId, Request, location);
                 try
                 {
                     Response.Redirect("/PatientConsent.aspx");

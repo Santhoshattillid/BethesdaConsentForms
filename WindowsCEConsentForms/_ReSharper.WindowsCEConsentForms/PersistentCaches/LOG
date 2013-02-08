@@ -1,5 +1,5 @@
-2013/02/07-18:49:55.207 dc Recovering log #91
-2013/02/07-18:49:55.207 dc Level-0 table #93: started
-2013/02/07-18:49:55.316 dc Level-0 table #93: 86354 bytes OK
-2013/02/07-18:49:55.353 dc Delete type=0 #91
-2013/02/07-18:49:55.353 dc Delete type=3 #89
+2013/02/08-19:17:20.586 dfc Recovering log #100
+2013/02/08-19:17:20.646 dfc Level-0 table #103: started
+2013/02/08-19:17:20.672 dfc Level-0 table #103: 69680 bytes OK
+2013/02/08-19:17:20.715 dfc Delete type=0 #100
+2013/02/08-19:17:20.715 dfc Delete type=3 #98

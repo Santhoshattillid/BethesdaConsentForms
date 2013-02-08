@@ -179,4 +179,6 @@
             <asp:Label runat="server" ID="LblError" CssClass="errorInfomodified"></asp:Label>
         </li>
     </ul>
+    <asp:HiddenField runat="server" ID="HdnPatientId" />
+    <asp:HiddenField runat="server" ID="HdnLocation" />
 </asp:Content>

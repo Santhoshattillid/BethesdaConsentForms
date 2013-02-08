@@ -157,4 +157,6 @@
         </li>
     </ul>
     <uc2:DeclarationSignatures ID="DeclarationSignatures" runat="server" ConsentType="Cardiovascular" />
+    <asp:HiddenField runat="server" ID="HdnPatientId" />
+    <asp:HiddenField runat="server" ID="HdnLocation" />
 </asp:Content>

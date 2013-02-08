@@ -20,4 +20,6 @@
         IsStaticTextBoxForPrecedures="True" />
     <uc1:ConsentSignatures ID="ConsentSignatures1" runat="server" />
     <uc1:DeclarationSignatures ID="DeclarationSignatures1" runat="server" ConsentType="OutsideOR" />
+    <asp:HiddenField runat="server" ID="HdnPatientId" />
+    <asp:HiddenField runat="server" ID="HdnLocation" />
 </asp:Content>

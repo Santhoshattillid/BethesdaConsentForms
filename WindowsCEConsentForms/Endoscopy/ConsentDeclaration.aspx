@@ -19,4 +19,6 @@
         IsStaticTextBoxForPrecedures="False" />
     <uc1:ConsentSignatures ID="ConsentSignatures" runat="server" />
     <uc1:DeclarationSignatures ID="DeclarationSignatures" runat="server" ConsentType="Endoscopy" />
+    <asp:HiddenField runat="server" ID="HdnPatientId" />
+    <asp:HiddenField runat="server" ID="HdnLocation" />
 </asp:Content>

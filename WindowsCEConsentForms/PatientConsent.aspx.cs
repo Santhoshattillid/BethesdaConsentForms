@@ -84,6 +84,13 @@ namespace WindowsCEConsentForms
                 RdoBHE.Checked = false;
                 DdlPatientIds.Items.Clear();
                 DdlFormList.Items.Clear();
+                ChkSurgicalConcent.Checked = false;
+                ChkCCLC.Checked = false;
+                ChkORConsent.Checked = false;
+                ChkEC.Checked = false;
+                ChkBCOrR.Checked = false;
+                ChkPA.Checked = false;
+                ChkPICCConsent.Checked = false;
             }
             catch (Exception)
             {
@@ -173,22 +180,22 @@ namespace WindowsCEConsentForms
                 if (string.IsNullOrEmpty(TxtEmployeeID.Text.Trim()))
                 {
                     Reset();
-                    LblError.Text = "Employee ID field should not be empty.";
+                    LblError.Text = "<br /> Employee ID field should not be empty.";
                 }
 
                 if (DdlPatientIds.SelectedIndex == 0)
                 {
-                    LblError.Text = "Please Select Patient Id";
+                    LblError.Text += "<br /> Please Select Patient Id";
                     return;
                 }
                 if (DdlFormList.SelectedIndex == 0)
                 {
-                    LblError.Text = "Please Select Form Type";
+                    LblError.Text += "<br /> Please Select Form Type";
                     return;
                 }
                 if (!ChkBCOrR.Checked && !ChkCCLC.Checked && !ChkEC.Checked && !ChkSurgicalConcent.Checked && !ChkPICCConsent.Checked && !ChkORConsent.Checked && !ChkPA.Checked)
                 {
-                    LblError.Text = "Please Select any one of the above Consent";
+                    LblError.Text += "<br /> Please Select any one of the above Consent";
                     return;
                 }
 

@@ -154,4 +154,6 @@
         </li>
     </ul>
     <uc2:DeclarationSignatures ID="DeclarationSignatures1" runat="server" ConsentType="BloodConsentOrRefusal" />
+    <asp:HiddenField runat="server" ID="HdnPatientId" />
+    <asp:HiddenField runat="server" ID="HdnLocation" />
 </asp:Content>

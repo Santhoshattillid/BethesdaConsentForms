@@ -74,4 +74,6 @@
         </li>
     </ul>
     <uc1:DeclarationSignatures ID="DeclarationSignatures" runat="server" ConsentType="PICC" />
+    <asp:HiddenField runat="server" ID="HdnPatientId" />
+    <asp:HiddenField runat="server" ID="HdnLocation" />
 </asp:Content>

@@ -14,26 +14,67 @@ namespace WindowsCEConsentForms.PlasmanApheresis
             try
             {
                 string patientId;
-                try
-                {
-                    patientId = Session["PatientID"].ToString();
-                }
-                catch (Exception)
+                string location;
+                if (!IsPostBack)
                 {
                     try
                     {
-                        patientId = Request.QueryString["PatientId"];
+                        HdnPatientId.Value = Session["PatientID"].ToString();
+                        patientId = HdnPatientId.Value;
                     }
                     catch (Exception)
                     {
-                        patientId = string.Empty;
+                        Response.Redirect("/PatientConsent.aspx");
+                        return;
+                    }
+                    try
+                    {
+                        HdnLocation.Value = Session["Location"].ToString();
+                        location = HdnLocation.Value;
+                    }
+                    catch (Exception)
+                    {
+                        Response.Redirect("/PatientConsent.aspx");
+                        return;
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        patientId = Session["PatientID"].ToString();
+                    }
+                    catch (Exception)
+                    {
+                        if (string.IsNullOrEmpty(HdnPatientId.Value))
+                        {
+                            Response.Redirect("/PatientConsent.aspx");
+                            return;
+                        }
+                        patientId = HdnPatientId.Value;
+                        Session["PatientID"] = patientId;
+                    }
+
+                    try
+                    {
+                        location = Session["Location"].ToString();
+                    }
+                    catch (Exception)
+                    {
+                        if (string.IsNullOrEmpty(HdnPatientId.Value))
+                        {
+                            Response.Redirect("/PatientConsent.aspx");
+                            return;
+                        }
+                        location = HdnLocation.Value;
+                        Session["Location"] = location;
                     }
                 }
 
                 if (!string.IsNullOrEmpty(patientId))
                 {
                     var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
-                    var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.PlasmanApheresis.ToString(), Session["Location"].ToString());
+                    var patientDetail = formHandlerServiceClient.GetPatientDetail(patientId, ConsentType.PlasmanApheresis.ToString(), location);
                     if (patientDetail != null)
                         LblPatientName.Text = patientDetail.name;
 
@@ -80,8 +121,7 @@ namespace WindowsCEConsentForms.PlasmanApheresis
             catch (Exception ex)
             {
                 var client = Utilities.GetConsentFormSvcClient();
-                client.CreateLog(Utilities.GetUsername(Session), LogType.E, GetType().Name + "-" + new StackTrace().GetFrame(0).GetMethod().ToString(),
-                                 ex.Message + Environment.NewLine + ex.StackTrace);
+                client.CreateLog(Utilities.GetUsername(Session), LogType.E, GetType().Name + "-" + new StackTrace().GetFrame(0).GetMethod(), ex.Message + Environment.NewLine + ex.StackTrace);
             }
         }
 
@@ -126,14 +166,37 @@ namespace WindowsCEConsentForms.PlasmanApheresis
                 if (!string.IsNullOrEmpty(lblError.Text))
                     return;
 
-                string patientId = string.Empty;
+                string patientId;
                 try
                 {
                     patientId = Session["PatientID"].ToString();
                 }
                 catch (Exception)
                 {
-                    Response.Redirect("/PatientConsent.aspx");
+                    if (string.IsNullOrEmpty(HdnPatientId.Value))
+                    {
+                        Response.Redirect("/PatientConsent.aspx");
+                        return;
+                    }
+
+                    patientId = HdnPatientId.Value;
+                    Session["PatientID"] = patientId;
+                }
+
+                string location;
+                try
+                {
+                    location = Session["Location"].ToString();
+                }
+                catch (Exception)
+                {
+                    if (string.IsNullOrEmpty(HdnPatientId.Value))
+                    {
+                        Response.Redirect("/PatientConsent.aspx");
+                        return;
+                    }
+                    location = HdnLocation.Value;
+                    Session["Location"] = location;
                 }
 
                 string ip = Request.ServerVariables["REMOTE_ADDR"];
@@ -225,13 +288,14 @@ namespace WindowsCEConsentForms.PlasmanApheresis
 
                 var formHandlerServiceClient = Utilities.GetConsentFormSvcClient();
                 formHandlerServiceClient.AddTreatment(treatment);
-                Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId, Request, Session["Location"].ToString());
+                Utilities.GeneratePdfAndUploadToSharePointSite(formHandlerServiceClient, consentType, patientId, Request, location);
                 try
                 {
                     Response.Redirect(Utilities.GetNextFormUrl(consentType, Session));
                 }
                 catch (Exception)
                 {
+                    Response.Redirect("/PatientConsent.aspx");
                 }
             }
             catch (Exception ex)
